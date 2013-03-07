@@ -6,6 +6,8 @@
 #import "GameLayer.h"
 #import "RootViewController.h"
 
+#import "CCBReader.h"
+
 @implementation AppDelegate
 
 @synthesize window;
@@ -106,7 +108,10 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [GameLayer scene]];
+	CCScene* scene = [CCBReader sceneWithNodeGraphFromFile:@"MainMenu.ccb"];
+    
+    // Run the loaded scene
+	[[CCDirector sharedDirector] runWithScene: scene];
 }
 
 
