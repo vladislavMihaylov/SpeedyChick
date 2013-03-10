@@ -3,10 +3,12 @@
 #import "cocos2d.h"
 #import "Box2D.h"
 
-#define kMaxHillKeyPoints 101
-#define kMaxHillVertices 1000
-#define kMaxBorderVertices 5000
+#define kMaxHillKeyPoints 60    //50
+#define kMaxHillVertices 1000    //2000
+#define kMaxBorderVertices 5000  //10000
 #define kHillSegmentWidth 15
+
+@class GameLayer;
 
 @interface Terrain : CCNode {
 	CGPoint hillKeyPoints[kMaxHillKeyPoints];
@@ -25,13 +27,24 @@
 	int screenW;
 	int screenH;
 	int textureSize;
+    
+    NSInteger finishPoint;
+    
+    NSMutableArray *bonusesArray;
+    
+    BOOL firstTime;
 }
+
 @property (nonatomic, retain) CCSprite *stripes;
 @property (nonatomic, assign) float offsetX;
+
+@property (nonatomic, assign) NSInteger finishPoint;
 
 + (id) terrainWithWorld:(b2World*)w;
 - (id) initWithWorld:(b2World*)w;
 
+- (BOOL) checkBonusCollisionWithCoordinats: (CGPoint) heroPosition;
 - (void) reset;
+- (void) resetHillVertices;
 
 @end

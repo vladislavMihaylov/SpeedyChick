@@ -17,6 +17,9 @@
 	Hero *_hero;
 	GLESDebugDraw *_render;
 	CCSprite *_resetButton;
+    
+    BOOL isGameActive;
+    CCMenuItemImage *applyRocket;
 }
 @property (readonly) int screenW;
 @property (readonly) int screenH;
@@ -28,8 +31,11 @@
 
 + (CCScene*) scene;
 
+- (void) updateRocket;
+
 - (void) showPerfectSlide;
 - (void) showFrenzy;
 - (void) showHit;
 
 @end
+

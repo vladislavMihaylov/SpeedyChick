@@ -12,6 +12,11 @@
 
 @implementation ShopMenu
 
+- (void) dealloc
+{
+    [super dealloc];
+}
+
 - (void) back
 {
     CCScene* scene = [CCBReader sceneWithNodeGraphFromFile:@"MainMenu.ccb"];

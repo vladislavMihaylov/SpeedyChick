@@ -11,7 +11,10 @@
 
 @interface MainMenu: CCLayer
 {
+    CCNode *curPinguin;
+    CCNode *curRockets;
     
+    CCLabelBMFont *rocketsLabel;
 }
 
 @end

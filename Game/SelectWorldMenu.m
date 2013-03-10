@@ -9,7 +9,19 @@
 #import "SelectWorldMenu.h"
 #import "CCBReader.h"
 
+#import "GameConfig.h"
+
 @implementation SelectWorldMenu
+
+- (void) dealloc
+{
+    [super dealloc];
+}
+
+- (void) didLoadFromCCB
+{
+    
+}
 
 - (void) back
 {
@@ -18,8 +30,10 @@
 	[[CCDirector sharedDirector] replaceScene: [CCTransitionSlideInT transitionWithDuration: 0.5 scene: scene]];
 }
 
-- (void) pressedWorld
+- (void) pressedWorld: (CCMenuItem *) sender
 {
+    currentWorld = sender.tag;
+    
     CCScene* scene = [CCBReader sceneWithNodeGraphFromFile:@"SelectLevelMenu.ccb"];
     
 	[[CCDirector sharedDirector] replaceScene: [CCTransitionSlideInB transitionWithDuration: 0.5 scene: scene]];

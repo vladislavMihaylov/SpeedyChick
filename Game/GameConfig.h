@@ -3,12 +3,7 @@
 #ifndef __GAME_CONFIG_H
 #define __GAME_CONFIG_H
 
-//
-// Supported Autorotations:
-//		None,
-//		UIViewController,
-//		CCDirector
-//
+
 #define kGameAutorotationNone 0
 #define kGameAutorotationCCDirector 1
 #define kGameAutorotationUIViewController 2
@@ -37,3 +32,11 @@
 
 #endif // __GAME_CONFIG_H
 
+#define kPinguinKey           @"pinguinKey"
+#define kRocketsKey           @"rocketsKey"
+
+#define backBtnTag         -1
+#define selectLevelMenuTag 100 
+
+extern NSInteger currentWorld;
+extern NSInteger currentLevel;

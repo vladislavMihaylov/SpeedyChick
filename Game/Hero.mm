@@ -4,6 +4,9 @@
 #import "Hero.h"
 #import "HeroContactListener.h"
 #import "Box2D.h"
+#import "Settings.h"
+
+#import "GameConfig.h"
 
 @interface Hero()
 - (void) createBox2DBody;
@@ -27,7 +30,7 @@
 		self.game = game;
 		
 #ifndef DRAW_BOX2D_WORLD
-		self.sprite = [CCSprite spriteWithFile:@"hero.png"];
+		self.sprite = [CCSprite spriteWithFile: [NSString stringWithFormat: @"pinguin_%i.png", [Settings sharedSettings].currentPinguin]];
 		[self addChild:_sprite];
 #endif
 		_body = NULL;
@@ -56,7 +59,7 @@
 - (void) createBox2DBody {
 
 	CGPoint startPosition = ccp(0, _game.screenH/2+_radius);
-	
+    
 	b2BodyDef bd;
 	bd.type = b2_dynamicBody;
 	bd.linearDamping = 0.05f;
@@ -77,6 +80,7 @@
 }
 
 - (void) reset {
+    _awake = NO;
 	_flying = NO;
 	_diving = NO;
 	_nPerfectSlides = 0;
@@ -97,6 +101,16 @@
 	_awake = YES;
 	_body->SetActive(true);
 	_body->ApplyLinearImpulse(b2Vec2(1,2), _body->GetPosition());
+}
+
+- (void) applyBonus
+{
+    _body->ApplyLinearImpulse(b2Vec2(12,0),_body->GetPosition());
+}
+
+- (void) applyRocket
+{
+    _body->ApplyLinearImpulse(b2Vec2(12,5),_body->GetPosition());
 }
 
 - (void) updatePhysics {

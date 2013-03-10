@@ -2,6 +2,8 @@
 
 #import "Terrain.h"
 
+#import "Bonus.h"
+
 @interface Terrain()
 - (CCSprite*) generateStripesSprite;
 - (CCTexture2D*) generateStripesTexture;
@@ -22,6 +24,9 @@
 @synthesize stripes = _stripes;
 @synthesize offsetX = _offsetX;
 
+
+@synthesize finishPoint;
+
 + (id) terrainWithWorld:(b2World*)w {
 	return [[[self alloc] initWithWorld:w] autorelease];
 }
@@ -29,12 +34,18 @@
 - (id) initWithWorld:(b2World*)w {
 	
 	if ((self = [super init])) {
+        
+        firstTime = YES;
+        
+        [self reset];
 		
+        bonusesArray = [[NSMutableArray alloc] init];
+        
 		world = w;
 
 		CGSize size = [[CCDirector sharedDirector] winSize];
-		screenW = size.width;
-		screenH = size.height;
+		screenW = 480;//size.width;
+		screenH = 320;//size.height;
 		
 #ifndef DRAW_BOX2D_WORLD
 		textureSize = 1024;
@@ -46,6 +57,9 @@
 		[self createBox2DBody];
 
 		self.offsetX = 0;
+        
+        
+        //[self setPosition: ccp(60, self.position.y)];
 	}
 	return self;
 }
@@ -58,13 +72,14 @@
 	
 #endif
 
+    [bonusesArray release];
+    
 	[super dealloc];
 }
 
 - (CCSprite*) generateStripesSprite {
-	
 	//CCTexture2D *texture = [self generateStripesTexture];
-	CCSprite *sprite = [CCSprite spriteWithFile: @"Noise.png"];//[CCSprite spriteWithTexture:texture];
+	CCSprite *sprite = [CCSprite spriteWithFile: @"Noise.png"];//[CCSprite spriteWithTexture: texture]
 	ccTexParams tp = {GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_CLAMP_TO_EDGE};
 	[sprite.texture setTexParameters:&tp];
 	
@@ -73,7 +88,7 @@
 
 - (CCTexture2D*) generateStripesTexture {
 	
-	CCRenderTexture *rt = [CCRenderTexture renderTextureWithWidth:textureSize height:textureSize];
+	CCRenderTexture *rt = [CCRenderTexture renderTextureWithWidth: textureSize height: textureSize];
 	[rt begin];
 	[self renderStripes];
 	[self renderGradient];
@@ -259,7 +274,7 @@
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 	glEnable(GL_TEXTURE_2D);
 	
-	CCSprite *s = [CCSprite spriteWithFile:@"noise.png"];
+	CCSprite *s = [CCSprite spriteWithFile:@"Noise2.png"];
 	[s setBlendFunc:(ccBlendFunc){GL_DST_COLOR, GL_ZERO}];
 	s.position = ccp(textureSize/2, textureSize/2);
 	s.scale = (float)textureSize/512.0f;
@@ -274,21 +289,21 @@
 	
 	float x, y, dx, dy, ny;
 	
-	x = -screenW/4;
-	y = screenH*3/4;
+	x = -120;// -screenW/4;
+	y = 240;//screenH*3/4;
 	hillKeyPoints[nHillKeyPoints++] = ccp(x, y);
 
 	// starting point
 	x = 0;
-	y = screenH/2;
+	y = 160;//screenH/2;
 	hillKeyPoints[nHillKeyPoints++] = ccp(x, y);
 	
 	int minDX = 160, rangeDX = 80;
 	int minDY = 60,  rangeDY = 60;
 	float sign = -1; // +1 - going up, -1 - going  down
-	float maxHeight = screenH;
+	float maxHeight = 320;//screenH;
 	float minHeight = 20;
-	while (nHillKeyPoints < kMaxHillKeyPoints-1) {
+	while (nHillKeyPoints < kMaxHillKeyPoints-2) {
 		dx = arc4random()%rangeDX+minDX;
 		x += dx;
 		dy = arc4random()%rangeDY+minDY;
@@ -298,15 +313,55 @@
 		y = ny;
 		sign *= -1;
 		hillKeyPoints[nHillKeyPoints++] = ccp(x, y);
+        
+        NSInteger randNum = arc4random() % 5 + 1;
+        
+        if(sign == 1 && randNum == 2)
+        {
+            Bonus *bonus = [[[Bonus alloc] init] autorelease];
+            bonus.position = ccp(x, y + bonus.contentSize.height/2);
+            bonus.scale = 0.8;
+            
+            [bonusesArray addObject: bonus];
+            
+            [self addChild: bonus];
+        }
 	}
 
 	// cliff
 	x += minDX+rangeDX;
-	y = 0;
+	y = 10;
+	hillKeyPoints[nHillKeyPoints++] = ccp(x, y);
+    
+    finishPoint = x;
+    
+    x += 1000;//minDX+rangeDX;
+	y = 10;
 	hillKeyPoints[nHillKeyPoints++] = ccp(x, y);
 	
 	fromKeyPointI = 0;
 	toKeyPointI = 0;
+}
+
+- (BOOL) checkBonusCollisionWithCoordinats: (CGPoint) heroPosition
+{
+    BOOL isCollision = NO;
+    
+    for(Bonus *curBonus in bonusesArray)
+    {
+        if((fabsf(heroPosition.x - curBonus.position.x) < curBonus.contentSize.width/2) && (fabsf(heroPosition.y - curBonus.position.y) < curBonus.contentSize.height/2))
+        {
+            if(curBonus.isActive)
+            {
+                curBonus.isActive = NO;
+                curBonus.visible = NO;
+                
+                isCollision = YES;
+            }
+        }
+    }
+    
+    return isCollision;
 }
 
 - (void) generateBorderVertices {
@@ -354,6 +409,8 @@
 	b2LoopShape shape;
 	shape.Create(b2vertices, nVertices);
 	body->CreateFixture(&shape, 0);
+    
+    body->SetActive(YES);
 }
 
 - (void) resetHillVertices {
@@ -454,7 +511,7 @@
 }
 
 - (void) draw {
-	
+    
 #ifdef DRAW_BOX2D_WORLD
 	
 	glDisable(GL_TEXTURE_2D);
@@ -483,9 +540,10 @@
 #endif
 }
 
-- (void) setOffsetX:(float)offsetX {
-	static BOOL firstTime = YES;
-	if (_offsetX != offsetX || firstTime) {
+- (void) setOffsetX:(float)offsetX
+{
+	if (_offsetX != offsetX || firstTime)
+    {
 		firstTime = NO;
 		_offsetX = offsetX;
 		self.position = ccp(screenW/8-_offsetX*self.scale, 0);
@@ -498,6 +556,13 @@
 #ifndef DRAW_BOX2D_WORLD
 	self.stripes = [self generateStripesSprite];
 #endif
+    
+    for(Bonus *curBonus in bonusesArray)
+    {
+        curBonus.visible = YES;
+        curBonus.isActive = YES;
+    }
+    
 	
 	fromKeyPointI = 0;
 	toKeyPointI = 0;

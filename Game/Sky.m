@@ -96,12 +96,12 @@
 	
 	// layer 2: noise
 	
-	CCSprite *s = [CCSprite spriteWithFile:@"noise.png"];
+	/*CCSprite *s = [CCSprite spriteWithFile:@"Noise2.png"];
 	[s setBlendFunc:(ccBlendFunc){GL_DST_COLOR, GL_ZERO}];
 	s.position = ccp(textureSize/2, textureSize/2);
 	s.scale = (float)textureSize/512.0f;
 	glColor4f(1,1,1,1);
-	[s visit];
+	[s visit];*/
 	
 	[rt end];
 	

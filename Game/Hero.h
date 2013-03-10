@@ -28,6 +28,9 @@ class HeroContactListener;
 + (id) heroWithGame:(GameLayer*)game;
 - (id) initWithGame:(GameLayer*)game;
 
+- (void) applyBonus;
+- (void) applyRocket;
+
 - (void) reset;
 - (void) sleep;
 - (void) wake;

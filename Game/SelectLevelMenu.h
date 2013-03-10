@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface SelectLevelMenu : CCLayer {
-    
+@interface SelectLevelMenu: CCLayer
+{
+    CCMenu *selectLevelMenu;
 }
 
 @end

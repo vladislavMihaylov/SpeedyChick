@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>openedWorlds</key>
+	<integer>1</integer>
+	<key>world_1</key>
+	<dict>
+		<key>openedLevels</key>
+		<integer>1</integer>
+		<key>srarsForLevel_1</key>
+		<integer>0</integer>
+		<key>srarsForLevel_2</key>
+		<integer>0</integer>
+		<key>srarsForLevel_3</key>
+		<integer>0</integer>
+		<key>srarsForLevel_4</key>
+		<integer>0</integer>
+		<key>srarsForLevel_5</key>
+		<integer>0</integer>
+	</dict>
+	<key>world_2</key>
+	<dict>
+		<key>openedLevels</key>
+		<integer>1</integer>
+		<key>srarsForLevel_1</key>
+		<integer>0</integer>
+		<key>srarsForLevel_2</key>
+		<integer>0</integer>
+		<key>srarsForLevel_3</key>
+		<integer>0</integer>
+		<key>srarsForLevel_4</key>
+		<integer>0</integer>
+		<key>srarsForLevel_5</key>
+		<integer>0</integer>
+	</dict>
+	<key>world_3</key>
+	<dict>
+		<key>openedLevels</key>
+		<integer>1</integer>
+		<key>srarsForLevel_1</key>
+		<integer>0</integer>
+		<key>srarsForLevel_2</key>
+		<integer>0</integer>
+		<key>srarsForLevel_3</key>
+		<integer>0</integer>
+		<key>srarsForLevel_4</key>
+		<integer>0</integer>
+		<key>srarsForLevel_5</key>
+		<integer>0</integer>
+	</dict>
+</dict>
+</plist>

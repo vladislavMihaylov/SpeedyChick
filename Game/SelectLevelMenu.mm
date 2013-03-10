@@ -12,7 +12,19 @@
 
 #import "CCBReader.h"
 
+#import "GameConfig.h"
+
 @implementation SelectLevelMenu
+
+- (void) dealloc
+{
+    [super dealloc];
+}
+
+- (void) didLoadFromCCB
+{
+    
+}
 
 - (void) back
 {
@@ -21,10 +33,11 @@
 	[[CCDirector sharedDirector] replaceScene: [CCTransitionSlideInT transitionWithDuration: 0.5 scene: scene]];
 }
 
-- (void) playLevel
+- (void) playLevel: (CCMenuItem *) sender
 {
+    currentLevel = sender.tag;
     
-	[[CCDirector sharedDirector] replaceScene: [CCTransitionSlideInB transitionWithDuration: 0.5 scene: [GameLayer scene]]];
+	[[CCDirector sharedDirector] replaceScene: [GameLayer scene]];
 }
 
 @end

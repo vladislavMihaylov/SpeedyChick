@@ -8,6 +8,8 @@
 
 #import "CCBReader.h"
 
+#import "Settings.h"
+
 @implementation AppDelegate
 
 @synthesize window;
@@ -37,6 +39,10 @@
 
 - (void) applicationDidFinishLaunching:(UIApplication*)application {
 	
+    [[Settings sharedSettings] load];
+    
+    //[Settings sharedSettings].countOfRockets = 2;
+    //[[Settings sharedSettings] save];
 	// Init the window
 	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	

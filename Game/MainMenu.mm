@@ -8,10 +8,36 @@
 
 #import "MainMenu.h"
 #import "GameLayer.h"
+#import "GameConfig.h"
+#import "Settings.h"
 
 #import "CCBReader.h"
 
 @implementation MainMenu
+
+- (void) didLoadFromCCB
+{
+    CCSprite *curPinguinSprite = [CCSprite spriteWithFile: [NSString stringWithFormat: @"pinguin_%i.png", [Settings sharedSettings].currentPinguin]];
+    curPinguinSprite.position = curPinguin.position;
+    [self addChild: curPinguinSprite];
+    
+    
+    CCSprite *curRocketSprite = [CCSprite spriteWithFile: @"rocket.png"];
+    curRocketSprite.position = curRockets.position;
+    [self addChild: curRocketSprite];
+    
+    rocketsLabel.string = [NSString stringWithFormat: @"%i rockets", [Settings sharedSettings].countOfRockets];
+}
+
+- (void) updateRocketsString
+{
+    rocketsLabel.string = [NSString stringWithFormat: @"%i rockets", [Settings sharedSettings].countOfRockets];
+}
+
+- (void) dealloc
+{
+    [super dealloc];
+}
 
 - (void) pressedPlay
 {
@@ -22,7 +48,10 @@
 
 - (void) pressedGetCoins
 {
-    CCLOG(@"PressedGetCoins");
+    [Settings sharedSettings].countOfRockets ++;
+    [[Settings sharedSettings] save];
+    
+    [self updateRocketsString];
 }
 
 - (void) pressedCustomise
