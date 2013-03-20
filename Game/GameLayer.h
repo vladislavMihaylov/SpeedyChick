@@ -4,11 +4,16 @@
 #import "Box2D.h"
 #import "GLES-Render.h"
 
+#import "GuiLayer.h"
+
 @class Sky;
 @class Terrain;
 @class Hero;
 
-@interface GameLayer : CCLayer {
+@interface GameLayer : CCLayer
+{
+    GuiLayer *gui;
+    
 	int _screenW;
 	int _screenH;
 	b2World *_world;
@@ -18,8 +23,8 @@
 	GLESDebugDraw *_render;
 	CCSprite *_resetButton;
     
-    BOOL isGameActive;
-    CCMenuItemImage *applyRocket;
+    
+    
 }
 @property (readonly) int screenW;
 @property (readonly) int screenH;
@@ -29,13 +34,18 @@
 @property (nonatomic, retain) Hero *hero;
 @property (nonatomic, retain) CCSprite *resetButton;
 
+@property (nonatomic, assign) GuiLayer *guiLayer;
+
 + (CCScene*) scene;
 
-- (void) updateRocket;
-
+- (void) applyRocket;
+- (void) reset;
+- (void) nextLevel;
 - (void) showPerfectSlide;
 - (void) showFrenzy;
 - (void) showHit;
+- (void) exitToMainMenu;
+- (void) startCat;
 
 @end
 

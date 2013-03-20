@@ -127,11 +127,11 @@
 							<key>selector</key>
 							<string></string>
 							<key>spriteFileDisabled</key>
-							<string>hero.png</string>
+							<string>ItemBtn.png</string>
 							<key>spriteFileNormal</key>
 							<string>ItemBtn.png</string>
 							<key>spriteFileSelected</key>
-							<string>hero.png</string>
+							<string>ItemBtn.png</string>
 							<key>tag</key>
 							<integer>-1</integer>
 							<key>target</key>
@@ -187,11 +187,11 @@
 							<key>selector</key>
 							<string></string>
 							<key>spriteFileDisabled</key>
-							<string>Icon-Small-50.png</string>
+							<string>ItemBtn.png</string>
 							<key>spriteFileNormal</key>
 							<string>ItemBtn.png</string>
 							<key>spriteFileSelected</key>
-							<string>Icon-Small-50.png</string>
+							<string>ItemBtn.png</string>
 							<key>tag</key>
 							<integer>-1</integer>
 							<key>target</key>
@@ -247,11 +247,11 @@
 							<key>selector</key>
 							<string></string>
 							<key>spriteFileDisabled</key>
-							<string>Icon-Small-50.png</string>
+							<string>ItemBtn.png</string>
 							<key>spriteFileNormal</key>
 							<string>ItemBtn.png</string>
 							<key>spriteFileSelected</key>
-							<string>Icon-Small-50.png</string>
+							<string>ItemBtn.png</string>
 							<key>tag</key>
 							<integer>-1</integer>
 							<key>target</key>
@@ -307,11 +307,11 @@
 							<key>selector</key>
 							<string></string>
 							<key>spriteFileDisabled</key>
-							<string>Icon-Small-50.png</string>
+							<string>ItemBtn.png</string>
 							<key>spriteFileNormal</key>
 							<string>ItemBtn.png</string>
 							<key>spriteFileSelected</key>
-							<string>Icon-Small-50.png</string>
+							<string>ItemBtn.png</string>
 							<key>tag</key>
 							<integer>-1</integer>
 							<key>target</key>
@@ -367,11 +367,11 @@
 							<key>selector</key>
 							<string></string>
 							<key>spriteFileDisabled</key>
-							<string>Icon-Small-50.png</string>
+							<string>ItemBtn.png</string>
 							<key>spriteFileNormal</key>
 							<string>ItemBtn.png</string>
 							<key>spriteFileSelected</key>
-							<string>Icon-Small-50.png</string>
+							<string>ItemBtn.png</string>
 							<key>tag</key>
 							<integer>-1</integer>
 							<key>target</key>
@@ -427,11 +427,11 @@
 							<key>selector</key>
 							<string></string>
 							<key>spriteFileDisabled</key>
-							<string>Icon-Small-50.png</string>
+							<string>ItemBtn.png</string>
 							<key>spriteFileNormal</key>
 							<string>ItemBtn.png</string>
 							<key>spriteFileSelected</key>
-							<string>Icon-Small-50.png</string>
+							<string>ItemBtn.png</string>
 							<key>tag</key>
 							<integer>-1</integer>
 							<key>target</key>
@@ -487,7 +487,7 @@
 							<key>selector</key>
 							<string>back</string>
 							<key>spriteFileDisabled</key>
-							<string>hero.png</string>
+							<string>back.png</string>
 							<key>spriteFileNormal</key>
 							<string>back.png</string>
 							<key>spriteFileSelected</key>

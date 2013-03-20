@@ -10,6 +10,15 @@
 
 #import "Settings.h"
 
+#import "SHKConfiguration.h"
+
+#import "MySHKConfigurator.h"
+
+#import "SHKFacebook.h"
+
+#import "Configuration.h"
+
+
 @implementation AppDelegate
 
 @synthesize window;
@@ -37,9 +46,48 @@
 #endif // GAME_AUTOROTATION == kGameAutorotationUIViewController	
 }
 
+- (void) addNotification
+{
+    UILocalNotification *notif = [[UILocalNotification alloc] init];
+    
+    notif.timeZone = [NSTimeZone defaultTimeZone]; //часовой пояс, я обычно пользуюсь в программах дефолтным по Гринвичу, но можно использовать systemTimeZone, это будет время в устройстве.
+    
+    notif.fireDate = [[NSDate date] dateByAddingTimeInterval: 86400.0f]; //время, когда наступит время нотификатора, у нас это текущая дата + 20 секунд. Можно прибегнуть к помощи NSDateComponents для установок своей даты.
+    
+    notif.alertAction = @"Play with me!"; //Текст кнопочки, вызывающей вашу программу из фонового режима
+    
+    notif.alertBody = @"Chick misses! Play with him!"; //Тело сообщения над кнопочкой
+    
+    notif.soundName = UILocalNotificationDefaultSoundName; //дефолтный звук сообщения. Можно задать свой в папке проекта.
+    
+    //notif.applicationIconBadgeNumber = 1; //число "бейджа" на иконке приложения при наступлении уведомления
+    
+    notif.repeatInterval = NSDayCalendarUnit; //если необходимо, используем повтор (не пытайтесь установить свое время повтора, это невозможно. Используйте только NSCalendarCalendarUnit.
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:notif]; //Размещаем наше локальное уведомление!
+    
+    [notif release];
+}
+
+- (void) deleteAllNotifs
+{
+    [[UIApplication sharedApplication] cancelAllLocalNotifications]; //удаляем все!
+}
+
 - (void) applicationDidFinishLaunching:(UIApplication*)application {
 	
+
+    
+    [self deleteAllNotifs];
+    [self addNotification];
+    
+    DefaultSHKConfigurator *configurator = [[[MySHKConfigurator alloc] init] autorelease];
+    
+    [SHKConfiguration sharedInstanceWithConfigurator: configurator];
+    
     [[Settings sharedSettings] load];
+    
+    [[Configuration sharedConfiguration] setConfig];
     
     //[Settings sharedSettings].countOfRockets = 2;
     //[[Settings sharedSettings] save];
@@ -127,6 +175,8 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 	[[CCDirector sharedDirector] resume];
+    
+    [SHKFacebook handleDidBecomeActive];
 }
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
@@ -150,7 +200,9 @@
 	
 	[window release];
 	
-	[director end];	
+	[director end];
+    
+    [SHKFacebook handleWillTerminate];
 }
 
 - (void)applicationSignificantTimeChange:(UIApplication *)application {
@@ -162,5 +214,29 @@
 	[window release];
 	[super dealloc];
 }
+
+/////////////
+
+- (BOOL)handleOpenURL:(NSURL*)url
+{
+    NSString* scheme = [url scheme];
+    NSString* prefix = [NSString stringWithFormat:@"fb%@", SHKCONFIG(facebookAppId)];
+    if ([scheme hasPrefix:prefix])
+        return [SHKFacebook handleOpenURL:url];
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [self handleOpenURL:url];
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return [self handleOpenURL:url];
+}
+
+
+/////////////
 
 @end

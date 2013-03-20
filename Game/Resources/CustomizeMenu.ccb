@@ -96,8 +96,8 @@
 							</array>
 							<key>contentSize</key>
 							<array>
-								<real>64</real>
-								<real>64</real>
+								<real>32</real>
+								<real>32</real>
 							</array>
 							<key>customClass</key>
 							<string></string>
@@ -127,11 +127,11 @@
 							<key>selector</key>
 							<string>setCurrentPinguin:</string>
 							<key>spriteFileDisabled</key>
-							<string>hero.png</string>
+							<string>pinguin_1.png</string>
 							<key>spriteFileNormal</key>
 							<string>pinguin_1.png</string>
 							<key>spriteFileSelected</key>
-							<string>hero.png</string>
+							<string>pinguin_10.png</string>
 							<key>tag</key>
 							<integer>1</integer>
 							<key>target</key>
@@ -156,8 +156,8 @@
 							</array>
 							<key>contentSize</key>
 							<array>
-								<real>64</real>
-								<real>64</real>
+								<real>32</real>
+								<real>32</real>
 							</array>
 							<key>customClass</key>
 							<string></string>
@@ -187,11 +187,11 @@
 							<key>selector</key>
 							<string>setCurrentPinguin:</string>
 							<key>spriteFileDisabled</key>
-							<string>Icon-Small-50.png</string>
+							<string>pinguin_1.png</string>
 							<key>spriteFileNormal</key>
 							<string>pinguin_2.png</string>
 							<key>spriteFileSelected</key>
-							<string>Icon-Small-50.png</string>
+							<string>pinguin_1.png</string>
 							<key>tag</key>
 							<integer>2</integer>
 							<key>target</key>
@@ -216,8 +216,8 @@
 							</array>
 							<key>contentSize</key>
 							<array>
-								<real>64</real>
-								<real>64</real>
+								<real>32</real>
+								<real>32</real>
 							</array>
 							<key>customClass</key>
 							<string></string>
@@ -247,11 +247,11 @@
 							<key>selector</key>
 							<string>setCurrentPinguin:</string>
 							<key>spriteFileDisabled</key>
-							<string>Icon-Small-50.png</string>
+							<string>pinguin_1.png</string>
 							<key>spriteFileNormal</key>
 							<string>pinguin_3.png</string>
 							<key>spriteFileSelected</key>
-							<string>Icon-Small-50.png</string>
+							<string>pinguin_1.png</string>
 							<key>tag</key>
 							<integer>3</integer>
 							<key>target</key>
@@ -276,8 +276,8 @@
 							</array>
 							<key>contentSize</key>
 							<array>
-								<real>64</real>
-								<real>64</real>
+								<real>32</real>
+								<real>32</real>
 							</array>
 							<key>customClass</key>
 							<string></string>
@@ -307,11 +307,11 @@
 							<key>selector</key>
 							<string>setCurrentPinguin:</string>
 							<key>spriteFileDisabled</key>
-							<string>Icon-Small-50.png</string>
+							<string>pinguin_1.png</string>
 							<key>spriteFileNormal</key>
 							<string>pinguin_4.png</string>
 							<key>spriteFileSelected</key>
-							<string>Icon-Small-50.png</string>
+							<string>pinguin_1.png</string>
 							<key>tag</key>
 							<integer>4</integer>
 							<key>target</key>
@@ -336,8 +336,8 @@
 							</array>
 							<key>contentSize</key>
 							<array>
-								<real>64</real>
-								<real>64</real>
+								<real>32</real>
+								<real>32</real>
 							</array>
 							<key>customClass</key>
 							<string></string>
@@ -367,11 +367,11 @@
 							<key>selector</key>
 							<string>setCurrentPinguin:</string>
 							<key>spriteFileDisabled</key>
-							<string>Icon-Small-50.png</string>
+							<string>pinguin_1.png</string>
 							<key>spriteFileNormal</key>
 							<string>pinguin_5.png</string>
 							<key>spriteFileSelected</key>
-							<string>Icon-Small-50.png</string>
+							<string>pinguin_1.png</string>
 							<key>tag</key>
 							<integer>5</integer>
 							<key>target</key>
@@ -396,8 +396,8 @@
 							</array>
 							<key>contentSize</key>
 							<array>
-								<real>64</real>
-								<real>64</real>
+								<real>32</real>
+								<real>32</real>
 							</array>
 							<key>customClass</key>
 							<string></string>
@@ -427,11 +427,11 @@
 							<key>selector</key>
 							<string>setCurrentPinguin:</string>
 							<key>spriteFileDisabled</key>
-							<string>Icon-Small-50.png</string>
+							<string>pinguin_1.png</string>
 							<key>spriteFileNormal</key>
 							<string>pinguin_6.png</string>
 							<key>spriteFileSelected</key>
-							<string>Icon-Small-50.png</string>
+							<string>pinguin_1.png</string>
 							<key>tag</key>
 							<integer>6</integer>
 							<key>target</key>
@@ -456,8 +456,8 @@
 							</array>
 							<key>contentSize</key>
 							<array>
-								<real>64</real>
-								<real>64</real>
+								<real>32</real>
+								<real>32</real>
 							</array>
 							<key>customClass</key>
 							<string></string>
@@ -487,11 +487,11 @@
 							<key>selector</key>
 							<string>setCurrentPinguin:</string>
 							<key>spriteFileDisabled</key>
-							<string>Icon-Small-50.png</string>
+							<string>pinguin_1.png</string>
 							<key>spriteFileNormal</key>
 							<string>pinguin_7.png</string>
 							<key>spriteFileSelected</key>
-							<string>Icon-Small-50.png</string>
+							<string>pinguin_1.png</string>
 							<key>tag</key>
 							<integer>7</integer>
 							<key>target</key>
@@ -516,8 +516,8 @@
 							</array>
 							<key>contentSize</key>
 							<array>
-								<real>64</real>
-								<real>64</real>
+								<real>32</real>
+								<real>32</real>
 							</array>
 							<key>customClass</key>
 							<string></string>
@@ -547,11 +547,11 @@
 							<key>selector</key>
 							<string>setCurrentPinguin:</string>
 							<key>spriteFileDisabled</key>
-							<string>Icon-Small-50.png</string>
+							<string>pinguin_1.png</string>
 							<key>spriteFileNormal</key>
 							<string>pinguin_8.png</string>
 							<key>spriteFileSelected</key>
-							<string>Icon-Small-50.png</string>
+							<string>pinguin_1.png</string>
 							<key>tag</key>
 							<integer>8</integer>
 							<key>target</key>
@@ -576,8 +576,8 @@
 							</array>
 							<key>contentSize</key>
 							<array>
-								<real>64</real>
-								<real>64</real>
+								<real>32</real>
+								<real>32</real>
 							</array>
 							<key>customClass</key>
 							<string></string>
@@ -607,11 +607,11 @@
 							<key>selector</key>
 							<string>setCurrentPinguin:</string>
 							<key>spriteFileDisabled</key>
-							<string>Icon-Small-50.png</string>
+							<string>pinguin_1.png</string>
 							<key>spriteFileNormal</key>
 							<string>pinguin_9.png</string>
 							<key>spriteFileSelected</key>
-							<string>Icon-Small-50.png</string>
+							<string>pinguin_1.png</string>
 							<key>tag</key>
 							<integer>9</integer>
 							<key>target</key>
@@ -636,8 +636,8 @@
 							</array>
 							<key>contentSize</key>
 							<array>
-								<real>64</real>
-								<real>64</real>
+								<real>32</real>
+								<real>32</real>
 							</array>
 							<key>customClass</key>
 							<string></string>
@@ -667,11 +667,11 @@
 							<key>selector</key>
 							<string>setCurrentPinguin:</string>
 							<key>spriteFileDisabled</key>
-							<string>Icon-Small-50.png</string>
+							<string>pinguin_1.png</string>
 							<key>spriteFileNormal</key>
 							<string>pinguin_10.png</string>
 							<key>spriteFileSelected</key>
-							<string>Icon-Small-50.png</string>
+							<string>pinguin_1.png</string>
 							<key>tag</key>
 							<integer>10</integer>
 							<key>target</key>
@@ -727,7 +727,7 @@
 							<key>selector</key>
 							<string>back</string>
 							<key>spriteFileDisabled</key>
-							<string>hero.png</string>
+							<string>back.png</string>
 							<key>spriteFileNormal</key>
 							<string>back.png</string>
 							<key>spriteFileSelected</key>
