@@ -44,15 +44,15 @@ Configuration *sharedConfiguration = nil;
 
 - (void) setConfig
 {
-    /*[Settings sharedSettings].starsCount = @"4000000000000000";
-    [Settings sharedSettings].openedWorlds = 1;
-    [Settings sharedSettings].openedLevels = 100;
-    [Settings sharedSettings].countOfCoins = 10;
-    [Settings sharedSettings].isAdEnabled = YES;
-    [Settings sharedSettings].isFirstRun = YES;
-    [Settings sharedSettings].isKidsModeBuyed = NO;
-    [Settings sharedSettings].isSuperChickBuyed = NO;
-    [Settings sharedSettings].isGhostChickBuyed = NO;*/
+    //[Settings sharedSettings].starsCount = @"4000000000000000";
+    //[Settings sharedSettings].openedWorlds = 1;
+    //[Settings sharedSettings].openedLevels = @"4100000000000000";
+    //[Settings sharedSettings].countOfCoins = 110;
+    //[Settings sharedSettings].isAdEnabled = YES;
+    //[Settings sharedSettings].isFirstRun = YES;
+    //[Settings sharedSettings].isKidsModeBuyed = NO;
+    //[Settings sharedSettings].isSuperChickBuyed = NO;
+    //[Settings sharedSettings].isGhostChickBuyed = NO;
     
     //[Settings sharedSettings].futureDate = @"";
     

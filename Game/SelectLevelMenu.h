@@ -12,6 +12,8 @@
 @interface SelectLevelMenu: CCLayer
 {
     CCMenu *selectLevelMenu;
+    
+    CCMenu *levelsMenu;
 }
 
 @end

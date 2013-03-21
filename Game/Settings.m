@@ -111,14 +111,14 @@ Settings *sharedSettings = nil;
         self.openedWorlds = 1;
     }
     
-    NSNumber *openedLevelsData = [defaults objectForKey: kOpenedLevelsKey];
+    NSString *openedLevelsData = [defaults objectForKey: kOpenedLevelsKey];
     if(openedLevelsData)
     {
-        self.openedLevels = [openedLevelsData integerValue];
+        self.openedLevels = openedLevelsData;
     }
     else
     {
-        self.openedLevels = 100;
+        self.openedLevels = @"4100000000000000";
     }
     
     NSString *starsCountData = [defaults objectForKey: kStarsCountKey];
@@ -223,7 +223,7 @@ Settings *sharedSettings = nil;
     [defaults setObject: [NSNumber numberWithBool: self.isGhostChickBuyed] forKey: kGhostChickKey];
     
     [defaults setObject: [NSNumber numberWithInteger: self.openedWorlds] forKey: kOpenedWorldsKey];
-    [defaults setObject: [NSNumber numberWithInteger: self.openedLevels] forKey: kOpenedLevelsKey];
+    [defaults setObject: [NSString stringWithString: self.openedLevels] forKey: kOpenedLevelsKey];
     
     
     [defaults setObject: [NSString stringWithString: self.starsCount] forKey: kStarsCountKey];

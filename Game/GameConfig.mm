@@ -16,7 +16,7 @@ NSInteger currentWorld = 0;
 NSInteger currentLevel = 0;
 NSInteger defaultHeightOfFly = 800;
 NSInteger defaultSpeedOfFly = 33;
-NSInteger costForOpenLevel = 20;
+NSInteger costForOpenLevel = 100;
 
 NSInteger currentHeightOfFly = 0;
 NSInteger currentSpeedOfFly = 0;

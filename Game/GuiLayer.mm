@@ -269,6 +269,8 @@
 
 - (void) finish
 {
+    CCLOG(@"W %i H %i", currentWorld, currentLevel);
+    
     NSString *number =[NSString stringWithFormat: @"%i%i", currentWorld, currentLevel];
     
     NSInteger num = [number integerValue];
@@ -308,54 +310,50 @@
     
     NSInteger positionForStar;
     
-    
     positionForStar = (5 * (currentWorld - 1)) + currentLevel;
     
+    NSString *currentStars = [newStarsString substringWithRange: NSMakeRange(positionForStar, 1)];
     
-    [newStarsString replaceCharactersInRange: NSMakeRange(positionForStar, 1) withString: [NSString stringWithFormat: @"%i", curStars]];
-    
-    
-    [Settings sharedSettings].starsCount = [NSString stringWithFormat: @"%@", newStarsString];
-    
-    NSMutableString *openedLevels = [NSMutableString stringWithFormat: @"%i", [Settings sharedSettings].openedLevels];
-    
-    NSString *count = [openedLevels substringWithRange: NSMakeRange(currentWorld - 1, 1)];
-    
-    NSInteger countOfOpenedLevels = [count integerValue];
-    
-    if(currentLevel == countOfOpenedLevels)
+    if([currentStars integerValue] < curStars)
     {
-        countOfOpenedLevels++;
-        if(countOfOpenedLevels > 5)
-        {
-            countOfOpenedLevels = 5;
-            
-            if([Settings sharedSettings].openedWorlds == currentWorld)
-            {
-                [Settings sharedSettings].openedWorlds++;
-                
-                showNewWorld = YES;
-                
-                if([Settings sharedSettings].openedWorlds <= 3)
-                {
-                    [openedLevels replaceCharactersInRange: NSMakeRange(currentWorld, 1) withString: [NSString stringWithFormat: @"%i", 1]];
-                }
-                
-                if([Settings sharedSettings].openedWorlds > 3)
-                {
-                    [Settings sharedSettings].openedWorlds = 3;
-                }
-            }
-        }
+        [newStarsString replaceCharactersInRange: NSMakeRange(positionForStar, 1) withString: [NSString stringWithFormat: @"%i", curStars]];
+        [Settings sharedSettings].starsCount = [NSString stringWithFormat: @"%@", newStarsString];
     }
     
+    ////
+    
+    NSMutableString *openedLevels = [NSMutableString stringWithFormat: @"%@", [Settings sharedSettings].openedLevels];
+    
+    NSInteger position = (5 * (currentWorld - 1)) + currentLevel;
     
     
-    [openedLevels replaceCharactersInRange: NSMakeRange(currentWorld - 1, 1) withString: [NSString stringWithFormat: @"%i", countOfOpenedLevels]];
     
-    [Settings sharedSettings].openedLevels = [openedLevels integerValue];
+    if(position < 15)
+    {
+        NSString *nextLevel = [openedLevels substringWithRange: NSMakeRange(position + 1, 1)];
+        NSInteger intNextLevel = [nextLevel integerValue];
+         CCLOG(@"nextLevel %i", intNextLevel);
+        [openedLevels replaceCharactersInRange: NSMakeRange(position + 1, 1) withString: @"1"];
+        NSString *newLevelsData = [NSString stringWithFormat: @"%@", openedLevels];
+        
+        [Settings sharedSettings].openedLevels = newLevelsData;
+    }
+    
     [[Settings sharedSettings] save];
 
+    
+    if(currentLevel % 5 == 0)
+    {
+        CCLOG(@"IT WAS 5 LEVEL");
+        showNewWorld = YES;
+        
+        if([Settings sharedSettings].openedWorlds < 3)
+        {
+            [Settings sharedSettings].openedWorlds++;
+        }
+        [[Settings sharedSettings] save];
+    }
+    
     
     [self showFinishMenu];
 }

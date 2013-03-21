@@ -17,7 +17,7 @@
     BOOL isGhostChickBuyed;
     
     NSInteger openedWorlds;
-    NSInteger openedLevels;
+    NSString *openedLevels;
     
     NSString *starsCount;
     NSString *futureDate;
@@ -42,7 +42,7 @@
 @property (nonatomic, assign) BOOL isGhostChickBuyed;
 
 @property (nonatomic, assign) NSInteger openedWorlds;
-@property (nonatomic, assign) NSInteger openedLevels;
+@property (nonatomic, assign) NSString *openedLevels;
 
 @property (nonatomic, assign) NSString *starsCount;
 @property (nonatomic, assign) NSString *futureDate;

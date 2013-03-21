@@ -276,12 +276,12 @@
 		F5FD235416EB808B006273B1 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FD235316EB808B006273B1 /* back.png */; };
 		F5FD236316EBB502006273B1 /* Noise2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FD236116EBB502006273B1 /* Noise2-hd.png */; };
 		F5FD236416EBB502006273B1 /* Noise2.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FD236216EBB502006273B1 /* Noise2.png */; };
-		F5FE117216FB327F00B1F554 /* buyLevelBg.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FE116C16FB327F00B1F554 /* buyLevelBg.png */; };
 		F5FE117316FB327F00B1F554 /* okBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FE116D16FB327F00B1F554 /* okBtn.png */; };
-		F5FE117416FB327F00B1F554 /* buyLevelBg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FE116E16FB327F00B1F554 /* buyLevelBg-hd.png */; };
 		F5FE117516FB327F00B1F554 /* cancelBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FE116F16FB327F00B1F554 /* cancelBtn.png */; };
 		F5FE117616FB327F00B1F554 /* cancelBtn-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FE117016FB327F00B1F554 /* cancelBtn-hd.png */; };
 		F5FE117716FB327F00B1F554 /* okBtn-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FE117116FB327F00B1F554 /* okBtn-hd.png */; };
+		F5FE117A16FB38C300B1F554 /* buyLevelBg.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FE117816FB38C300B1F554 /* buyLevelBg.png */; };
+		F5FE117B16FB38C300B1F554 /* buyLevelBg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FE117916FB38C300B1F554 /* buyLevelBg-hd.png */; };
 		F5FE2A5516ED9554009A25F2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FE2A5416ED9554009A25F2 /* SystemConfiguration.framework */; };
 		F5FE2A5716ED955E009A25F2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FE2A5616ED955E009A25F2 /* Security.framework */; };
 		F5FE2A5916ED9569009A25F2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FE2A5816ED9569009A25F2 /* MessageUI.framework */; };
@@ -1012,12 +1012,12 @@
 		F5FD235316EB808B006273B1 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = Resources/back.png; sourceTree = "<group>"; };
 		F5FD236116EBB502006273B1 /* Noise2-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Noise2-hd.png"; path = "Resources/Noise2-hd.png"; sourceTree = "<group>"; };
 		F5FD236216EBB502006273B1 /* Noise2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Noise2.png; path = Resources/Noise2.png; sourceTree = "<group>"; };
-		F5FE116C16FB327F00B1F554 /* buyLevelBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buyLevelBg.png; sourceTree = "<group>"; };
 		F5FE116D16FB327F00B1F554 /* okBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = okBtn.png; sourceTree = "<group>"; };
-		F5FE116E16FB327F00B1F554 /* buyLevelBg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buyLevelBg-hd.png"; sourceTree = "<group>"; };
 		F5FE116F16FB327F00B1F554 /* cancelBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancelBtn.png; sourceTree = "<group>"; };
 		F5FE117016FB327F00B1F554 /* cancelBtn-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancelBtn-hd.png"; sourceTree = "<group>"; };
 		F5FE117116FB327F00B1F554 /* okBtn-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "okBtn-hd.png"; sourceTree = "<group>"; };
+		F5FE117816FB38C300B1F554 /* buyLevelBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buyLevelBg.png; sourceTree = "<group>"; };
+		F5FE117916FB38C300B1F554 /* buyLevelBg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buyLevelBg-hd.png"; sourceTree = "<group>"; };
 		F5FE2A5416ED9554009A25F2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F5FE2A5616ED955E009A25F2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F5FE2A5816ED9569009A25F2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -1298,9 +1298,9 @@
 			isa = PBXGroup;
 			children = (
 				F5043B9316F760AC00D93959 /* speedyChickDatabase.sqlite3 */,
-				F5FE116C16FB327F00B1F554 /* buyLevelBg.png */,
+				F5FE117816FB38C300B1F554 /* buyLevelBg.png */,
+				F5FE117916FB38C300B1F554 /* buyLevelBg-hd.png */,
 				F5FE116D16FB327F00B1F554 /* okBtn.png */,
-				F5FE116E16FB327F00B1F554 /* buyLevelBg-hd.png */,
 				F5FE116F16FB327F00B1F554 /* cancelBtn.png */,
 				F5FE117016FB327F00B1F554 /* cancelBtn-hd.png */,
 				F5FE117116FB327F00B1F554 /* okBtn-hd.png */,
@@ -2280,12 +2280,12 @@
 				F50E86DE16FB059600CECD55 /* timeFont-hd.png in Resources */,
 				F50E86DF16FB059600CECD55 /* timeFont.fnt in Resources */,
 				F50E86E016FB059600CECD55 /* timeFont.png in Resources */,
-				F5FE117216FB327F00B1F554 /* buyLevelBg.png in Resources */,
 				F5FE117316FB327F00B1F554 /* okBtn.png in Resources */,
-				F5FE117416FB327F00B1F554 /* buyLevelBg-hd.png in Resources */,
 				F5FE117516FB327F00B1F554 /* cancelBtn.png in Resources */,
 				F5FE117616FB327F00B1F554 /* cancelBtn-hd.png in Resources */,
 				F5FE117716FB327F00B1F554 /* okBtn-hd.png in Resources */,
+				F5FE117A16FB38C300B1F554 /* buyLevelBg.png in Resources */,
+				F5FE117B16FB38C300B1F554 /* buyLevelBg-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

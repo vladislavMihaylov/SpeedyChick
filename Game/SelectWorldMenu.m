@@ -20,6 +20,8 @@
 
 - (void) didLoadFromCCB
 {
+    CCLOG(@"curStars %@", [Settings sharedSettings].starsCount);
+    CCLOG(@"curLevels %@", [Settings sharedSettings].openedLevels);
     
     CCMenu *worldsMenu = [CCMenu menuWithItems: nil];
     worldsMenu.position = ccp(0, 0);
