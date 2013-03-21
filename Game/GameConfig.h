@@ -50,6 +50,8 @@
 
 #define kStarsCountKey        @"kStarsCountKey"
 
+#define kDateKey              @"kDateKey"
+
 #define backBtnTag         -1
 #define menuBgTag          10
 #define exitBtnTag         11

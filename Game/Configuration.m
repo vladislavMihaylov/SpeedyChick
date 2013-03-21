@@ -54,6 +54,11 @@ Configuration *sharedConfiguration = nil;
     [Settings sharedSettings].isSuperChickBuyed = NO;
     [Settings sharedSettings].isGhostChickBuyed = NO;*/
     
+    //[Settings sharedSettings].futureDate = @"";
+    
+    //CCLOG(@"DATE %@",[Settings sharedSettings].futureDate);
+    
+    //CCLOG(@"difference %f", [[Settings sharedSettings].futureDate timeIntervalSinceNow]);
         
     if([Settings sharedSettings].isKidsModeBuyed)
     {

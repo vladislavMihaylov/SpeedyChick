@@ -26,12 +26,26 @@
     curRocketSprite.position = curRockets.position;
     [self addChild: curRocketSprite];
     
-    rocketsLabel.string = [NSString stringWithFormat: @"%i rockets", [Settings sharedSettings].countOfRockets];
+    [self updateRocketsAndCoinsString];
+    
+        
+    if(![[Settings sharedSettings].futureDate isEqualToString: @""])
+    {
+        [self schedule: @selector(timer) interval: 1];
+        
+        getCoinsBtn.isEnabled = NO;
+        [getCoinsBtn setOpacity: 150];
+    }
+    
+    //NSString *date = [NSString stringWithFormat: @"%@", strDate];
+    
+    //timeLabel.string = date;
 }
 
-- (void) updateRocketsString
+- (void) updateRocketsAndCoinsString
 {
     rocketsLabel.string = [NSString stringWithFormat: @"%i rockets", [Settings sharedSettings].countOfRockets];
+    coinsLabel.string = [NSString stringWithFormat: @"%i coins", [Settings sharedSettings].countOfCoins];
 }
 
 - (void) dealloc
@@ -46,13 +60,96 @@
 	[[CCDirector sharedDirector] replaceScene: [CCTransitionSlideInB transitionWithDuration: 0.5 scene: scene]];
 }
 
+- (void) timer
+{
+    NSString *date = [Settings sharedSettings].futureDate;
+    
+    NSDateFormatter *dateFormatterStr = [[NSDateFormatter new] autorelease];
+    
+    [dateFormatterStr setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZZ"];
+    
+    NSDate *dateFromStr = [dateFormatterStr dateFromString: date];
+    
+    NSInteger diff = [dateFromStr timeIntervalSinceNow];
+    
+    NSInteger hours;
+    NSInteger minutes;
+    NSInteger seconds;
+    
+    hours = diff / 3600;
+    minutes = (diff - hours * 3600) / 60;
+    seconds = (diff - hours * 3600 - minutes * 60);
+    
+    
+    NSString *h = [NSString stringWithFormat: @"0%i", hours];
+    NSString *m;
+    NSString *s;
+    
+    if(minutes < 10)
+    {
+        m = [NSString stringWithFormat: @"0%i", minutes];
+    }
+    else
+    {
+        m = [NSString stringWithFormat: @"%i", minutes];
+    }
+    
+    if(seconds < 10)
+    {
+        s = [NSString stringWithFormat: @"0%i", seconds];
+    }
+    else
+    {
+        s = [NSString stringWithFormat: @"%i", seconds];
+    }
+    
+    NSString *timeStr = [NSString stringWithFormat: @"%@:%@:%@", h, m, s];
+    
+    timeLabel.string = timeStr;
+    
+    if(diff <= 0)
+    {
+        timeLabel.string = @"";
+        
+        [Settings sharedSettings].futureDate = @"";
+        [[Settings sharedSettings] save];
+        
+        [self unschedule: @selector(timer)];
+        
+        getCoinsBtn.isEnabled = YES;
+        [getCoinsBtn setOpacity: 255];
+    }
+}
+
 - (void) pressedGetCoins
 {
-    [Settings sharedSettings].countOfRockets ++;
+    getCoinsBtn.isEnabled = NO;
+    [getCoinsBtn setOpacity: 150];
+    
+    timeLabel.string = @"01:59:59";
+    
+    [Settings sharedSettings].countOfRockets++;
+    [Settings sharedSettings].countOfCoins++;
+    
+    [self updateRocketsAndCoinsString];
+    
+    NSDate *newDate = [[NSDate date] dateByAddingTimeInterval: 7200];
+    
+    
+    
+    NSString *newDateString = [NSString stringWithFormat: @"%@", newDate];
+    
+    [Settings sharedSettings].futureDate = newDateString;
+    
     [[Settings sharedSettings] save];
     
-    [self updateRocketsString];
+    CCLOG(@"DATE %@",[Settings sharedSettings].futureDate);
+
+    //CCLOG(@"difference %f", [[Settings sharedSettings].futureDate timeIntervalSinceNow]);
+    
+    [self schedule: @selector(timer) interval: 1];
 }
+
 
 - (void) pressedCustomise
 {

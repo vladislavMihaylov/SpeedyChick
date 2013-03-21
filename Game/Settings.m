@@ -24,6 +24,8 @@ Settings *sharedSettings = nil;
 
 @synthesize starsCount;
 
+@synthesize futureDate;
+
 + (Settings *) sharedSettings
 {
     if(!sharedSettings)
@@ -190,6 +192,17 @@ Settings *sharedSettings = nil;
     {
         self.isGhostChickBuyed = NO;
     }
+    
+    NSString *futureDateData = [defaults objectForKey: kDateKey];
+    if(futureDateData)
+    {
+        self.futureDate = futureDateData;
+    }
+    else
+    {
+        self.futureDate = @"";
+    }
+    
 }
 
 - (void) save
@@ -214,6 +227,8 @@ Settings *sharedSettings = nil;
     
     
     [defaults setObject: [NSString stringWithString: self.starsCount] forKey: kStarsCountKey];
+    
+    [defaults setObject: [NSString stringWithString: self.futureDate] forKey: kDateKey];
     
     [defaults synchronize];
 }

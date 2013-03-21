@@ -14,7 +14,11 @@
     CCNode *curPinguin;
     CCNode *curRockets;
     
+    CCMenuItemImage *getCoinsBtn;
+    
+    CCLabelBMFont *timeLabel;
     CCLabelBMFont *rocketsLabel;
+    CCLabelBMFont *coinsLabel;
 }
 
 @end

@@ -20,6 +20,7 @@
     NSInteger openedLevels;
     
     NSString *starsCount;
+    NSString *futureDate;
 }
 
 + (Settings *) sharedSettings;
@@ -44,5 +45,6 @@
 @property (nonatomic, assign) NSInteger openedLevels;
 
 @property (nonatomic, assign) NSString *starsCount;
+@property (nonatomic, assign) NSString *futureDate;
 
 @end
