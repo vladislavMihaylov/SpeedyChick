@@ -4,6 +4,11 @@
 
 #import "Bonus.h"
 
+#import "WorldsDatabase.h"
+#import "WorldsInfo.h"
+
+#import "GameConfig.h"
+
 @interface Terrain()
 - (CCSprite*) generateStripesSprite;
 - (CCTexture2D*) generateStripesTexture;
@@ -35,17 +40,42 @@
 	
 	if ((self = [super init])) {
         
+        
+        
         firstTime = YES;
         
         [self reset];
 		
         bonusesArray = [[NSMutableArray alloc] init];
+        pointsArray = [[NSArray alloc] init];
         
 		world = w;
 
-		CGSize size = [[CCDirector sharedDirector] winSize];
+		//CGSize size = [[CCDirector sharedDirector] winSize];
 		screenW = 480;//size.width;
 		screenH = 320;//size.height;
+        
+        NSString *number =[NSString stringWithFormat: @"%i%i", currentWorld, currentLevel];
+        
+        NSInteger num = [number integerValue];
+        
+        
+        
+        NSArray *worldsInfo = [[WorldsDatabase database] worldsInfosWithID: num];
+        
+        NSString *points;
+        
+        for(WorldsInfo *info in worldsInfo)
+        {
+            points = info.points;
+            //CCLOG(@"INFO: %i, %@, %@, %@", info.uniqueID, info.points, info.bonusPoints, info.times);
+        }
+        
+        pointsArray = [points componentsSeparatedByString: @"/"];
+        
+        //[worldsInfo release];
+        
+        //CCLOG(@"INFO: %@", pointsArray);
 		
 #ifndef DRAW_BOX2D_WORLD
 		textureSize = 1024;
@@ -72,6 +102,7 @@
 	
 #endif
 
+    //[pointsArray release];
     [bonusesArray release];
     
 	[super dealloc];
@@ -283,11 +314,27 @@
 	[s visit]; // more contrast
 }
 
-- (void) generateHillKeyPoints {
+- (void) generateHillKeyPoints
+{
 
-	nHillKeyPoints = 0;
+    nHillKeyPoints = 0;
+    
+    for(NSString *node in pointsArray)
+    {
+        NSArray *curPoints = [node componentsSeparatedByString: @","];
+        
+        CGPoint curPoint = CGPointMake([[curPoints objectAtIndex: 0] floatValue], [[curPoints objectAtIndex: 1] floatValue]);
+        //CCLOG(@"Current Point: %f %f", curPoint.x, curPoint.y);
+        
+        hillKeyPoints[nHillKeyPoints++] = curPoint;
+        
+        finishPoint = curPoint.x;
+    }
+    
+	fromKeyPointI = 0;
+	toKeyPointI = 0;
 	
-	float x, y, dx, dy, ny;
+	/*float x, y, dx, dy, ny;
 	
 	x = -120;// -screenW/4;
 	y = 240;//screenH*3/4;
@@ -340,7 +387,7 @@
 	hillKeyPoints[nHillKeyPoints++] = ccp(x, y);
 	
 	fromKeyPointI = 0;
-	toKeyPointI = 0;
+	toKeyPointI = 0;*/
 }
 
 - (BOOL) checkBonusCollisionWithCoordinats: (CGPoint) heroPosition
@@ -411,6 +458,11 @@
 	body->CreateFixture(&shape, 0);
     
     body->SetActive(YES);
+}
+
+- (void) removeBody
+{
+    world->DestroyBody(body);
 }
 
 - (void) resetHillVertices {

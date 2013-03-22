@@ -7,6 +7,7 @@
 #import "Settings.h"
 
 
+
 #import "CCBReader.h"
 
 #import "GameConfig.h"
@@ -26,9 +27,22 @@
 @synthesize hero = _hero;
 @synthesize resetButton = _resetButton;
 
+@synthesize guiLayer;
+
 + (CCScene*) scene {
 	CCScene *scene = [CCScene node];
-	[scene addChild:[GameLayer node]];
+	//[scene addChild:[GameLayer node]];
+    
+    GameLayer *layer = [GameLayer node];
+	
+	[scene addChild: layer];
+    
+    GuiLayer *gui = [GuiLayer node];
+    [scene addChild: gui];
+    
+    layer.guiLayer = gui;
+    gui.gameLayer = layer;
+    
 	return scene;
 }
 
@@ -36,6 +50,12 @@
 	
 	if ((self = [super init]))
     {
+        CCSprite *bgSprite = [CCSprite spriteWithFile: @"bg.png"];
+        bgSprite.position = ccp(240, 160);
+        [self addChild: bgSprite];
+        
+        //CCLOG(@"W: %i ",[Settings sharedSettings].openedLevels);
+        
         isGameActive = YES;
         
 		CGSize screenSize = [[CCDirector sharedDirector] winSize];
@@ -46,8 +66,8 @@
 
 #ifndef DRAW_BOX2D_WORLD
 
-		self.sky = [Sky skyWithTextureSize: 1024];
-		[self addChild:_sky];
+		//self.sky = [Sky skyWithTextureSize: 1024];
+		//[self addChild:_sky];
 		
 #endif
 
@@ -57,29 +77,18 @@
 		self.hero = [Hero heroWithGame:self];
 		[_terrain addChild:_hero];
 
-		self.resetButton = [CCSprite spriteWithFile:@"reset.png"];
-		[self addChild:_resetButton];
-		CGSize size = _resetButton.contentSize;
-		float padding = 8;
-		_resetButton.position = ccp(_screenW-size.width/2-padding, _screenH-size.height/2-padding);
+		//self.resetButton = [CCSprite spriteWithFile:@"reset.png"];
+		//[self addChild:_resetButton];
+		//CGSize size = _resetButton.contentSize;
+		//float padding = 8;
+		//_resetButton.position = ccp(_screenW-size.width/2-padding, _screenH-size.height/2-padding);
 		
 		self.isTouchEnabled = YES;
         
-        applyRocket = [CCMenuItemImage itemFromNormalImage: @"rocket.png" selectedImage: @"rocket.png" target: self selector: @selector(applyRocket)];
-        applyRocket.position = ccp(screenSize.width - 100, screenSize.height - 50);
-        
-        CCMenuItemImage *exitBtn = [CCMenuItemImage itemFromNormalImage: @"exit.png" selectedImage: @"exit.png" target: self selector: @selector(exitToMainMenu)];
-        exitBtn.position = ccp(screenSize.width - 30, screenSize.height - 80);
-        
-        CCMenu *ROCKET = [CCMenu menuWithItems: applyRocket, exitBtn, nil];
-        ROCKET.position = ccp(0, 0);
-        [self addChild: ROCKET z: 10];
-        
-        [self updateRocket];
         
         [self scheduleUpdate];
-        
-        //[_terrain resetHillVertices];
+        CCLOG(@"TerrainRC: %i", [self.terrain retainCount]);
+        [_terrain resetHillVertices];
         
 	}
 	return self;
@@ -89,40 +98,31 @@
 {
     [self unscheduleUpdate];
     
+    [_terrain removeBody];
+    
+    [self removeChild: _terrain cleanup: YES];
+    self.terrain = nil;
+    
+    
+
+    
     CCScene * scene = [CCBReader sceneWithNodeGraphFromFile: @"MainMenu.ccb"];
     
     [[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
-    
 }
 
 - (void) applyRocket
 {
-    if([Settings sharedSettings].countOfRockets > 0)
-    {
-        [_hero applyRocket];
-        [Settings sharedSettings].countOfRockets--;
-        [[Settings sharedSettings] save];
-        
-        [self updateRocket];
-    }
+    [_hero applyRocket];
 }
 
-- (void) updateRocket
+- (void) dealloc
 {
-    if([Settings sharedSettings].countOfRockets <= 0)
-    {
-        applyRocket.isEnabled = NO;
-        applyRocket.visible = NO;
-    }
-}
-
-- (void) dealloc {
-	
 	self.sky = nil;
 	self.terrain = nil;
 	self.hero = nil;
 	self.resetButton = nil;
-
+    
 #ifdef DRAW_BOX2D_WORLD
 
 	delete _render;
@@ -136,8 +136,26 @@
 	[super dealloc];
 }
 
-- (void) registerWithTouchDispatcher {
-	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+- (void) registerWithTouchDispatcher
+{
+	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate: self priority: 0 swallowsTouches: YES];
+}
+
+- (void) nextLevel
+{
+    [_terrain removeBody];
+    
+    [self removeChild: _terrain cleanup: YES];
+    self.terrain = nil;
+    
+    self.terrain = [Terrain terrainWithWorld: _world];
+    [self addChild: _terrain];
+    
+    self.hero = [Hero heroWithGame:self];
+    [_terrain addChild:_hero];
+    
+    _terrain.offsetX = 0;
+    isGameActive = YES;
 }
 
 - (void) reset {
@@ -155,19 +173,19 @@
 	CGPoint location = [touch locationInView:[touch view]];
 	location = [[CCDirector sharedDirector] convertToGL:location];
 	
-	CGPoint pos = _resetButton.position;
-	CGSize size = _resetButton.contentSize;
-	float padding = 8;
-	float w = size.width+padding*2;
-	float h = size.height+padding*2;
-	CGRect rect = CGRectMake(pos.x-w/2, pos.y-h/2, w, h);
-	if (CGRectContainsPoint(rect, location)) {
-		[self reset];
-	} else {
-		_hero.diving = YES;
-	}
+    _hero.diving = YES;
+    
+    /*if(ChickOnTheStart)
+    {
+        [guiLayer start];
+    }*/
 	
 	return YES;
+}
+
+- (void) startCat
+{
+    [guiLayer start];
 }
 
 - (void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
@@ -186,11 +204,15 @@
         [_hero applyBonus];
     }
     
+    [guiLayer moveCocoOffsetX: _terrain.offsetX andFinishPoint: _terrain.finishPoint];
+    
     if(isGameActive)
     {
         if(_terrain.offsetX > _terrain.finishPoint)
         {
-            isGameActive = NO;
+            //isGameActive = NO;
+            
+            [guiLayer finish];
             
             CCLOG(@"FINISH!!!!");
         }

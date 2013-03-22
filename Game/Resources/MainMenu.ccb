@@ -127,7 +127,7 @@
 							<key>selector</key>
 							<string>pressedPlay</string>
 							<key>spriteFileDisabled</key>
-							<string>Icon@2x.png</string>
+							<string>PlayBtn.png</string>
 							<key>spriteFileNormal</key>
 							<string>PlayBtn.png</string>
 							<key>spriteFileSelected</key>
@@ -187,7 +187,7 @@
 							<key>selector</key>
 							<string>pressedShop</string>
 							<key>spriteFileDisabled</key>
-							<string>Icon.png</string>
+							<string>ShopBtn.png</string>
 							<key>spriteFileNormal</key>
 							<string>ShopBtn.png</string>
 							<key>spriteFileSelected</key>
@@ -247,7 +247,7 @@
 							<key>selector</key>
 							<string>pressedCustomise</string>
 							<key>spriteFileDisabled</key>
-							<string>Icon-72.png</string>
+							<string>CustomizeBtn.png</string>
 							<key>spriteFileNormal</key>
 							<string>CustomizeBtn.png</string>
 							<key>spriteFileSelected</key>
@@ -290,13 +290,13 @@
 							<key>lockedScaleRatio</key>
 							<true/>
 							<key>memberVarAssignmentName</key>
-							<string></string>
+							<string>getCoinsBtn</string>
 							<key>memberVarAssignmentType</key>
-							<integer>0</integer>
+							<integer>1</integer>
 							<key>position</key>
 							<array>
 								<real>233.5078125</real>
-								<real>252.89453125</real>
+								<real>241.89453125</real>
 							</array>
 							<key>rotation</key>
 							<real>0.0</real>
@@ -307,7 +307,7 @@
 							<key>selector</key>
 							<string>pressedGetCoins</string>
 							<key>spriteFileDisabled</key>
-							<string>hero.png</string>
+							<string>GetBtn.png</string>
 							<key>spriteFileNormal</key>
 							<string>GetBtn.png</string>
 							<key>spriteFileSelected</key>
@@ -401,8 +401,8 @@
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>32</real>
-						<real>32</real>
+						<real>16</real>
+						<real>16</real>
 					</array>
 					<key>customClass</key>
 					<string></string>
@@ -434,7 +434,7 @@
 					<key>scaleY</key>
 					<real>1</real>
 					<key>spriteFile</key>
-					<string>hero.png</string>
+					<string>coin.png</string>
 					<key>tag</key>
 					<integer>-1</integer>
 					<key>visible</key>
@@ -537,9 +537,9 @@
 					<key>lockedScaleRatio</key>
 					<true/>
 					<key>memberVarAssignmentName</key>
-					<string></string>
+					<string>coinsLabel</string>
 					<key>memberVarAssignmentType</key>
-					<integer>0</integer>
+					<integer>1</integer>
 					<key>opacity</key>
 					<integer>255</integer>
 					<key>position</key>
@@ -711,6 +711,66 @@
 					<real>1</real>
 					<key>string</key>
 					<string>Current chick</string>
+					<key>tag</key>
+					<integer>-1</integer>
+					<key>visible</key>
+					<true/>
+					<key>zOrder</key>
+					<integer>0</integer>
+				</dict>
+			</dict>
+			<dict>
+				<key>children</key>
+				<array/>
+				<key>class</key>
+				<string>CCLabelBMFont</string>
+				<key>properties</key>
+				<dict>
+					<key>anchorPoint</key>
+					<array>
+						<real>0.5</real>
+						<real>0.5</real>
+					</array>
+					<key>color</key>
+					<array>
+						<integer>0</integer>
+						<integer>12</integer>
+						<integer>255</integer>
+					</array>
+					<key>contentSize</key>
+					<array>
+						<real>64</real>
+						<real>35</real>
+					</array>
+					<key>customClass</key>
+					<string></string>
+					<key>fontFile</key>
+					<string>timeFont.fnt</string>
+					<key>isExpanded</key>
+					<true/>
+					<key>isRelativeAnchorPoint</key>
+					<true/>
+					<key>lockedScaleRatio</key>
+					<true/>
+					<key>memberVarAssignmentName</key>
+					<string>timeLabel</string>
+					<key>memberVarAssignmentType</key>
+					<integer>1</integer>
+					<key>opacity</key>
+					<integer>255</integer>
+					<key>position</key>
+					<array>
+						<real>236.58984375</real>
+						<real>297.67578125</real>
+					</array>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scaleX</key>
+					<real>1</real>
+					<key>scaleY</key>
+					<real>1</real>
+					<key>string</key>
+					<string></string>
 					<key>tag</key>
 					<integer>-1</integer>
 					<key>visible</key>

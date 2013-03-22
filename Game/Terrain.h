@@ -31,6 +31,7 @@
     NSInteger finishPoint;
     
     NSMutableArray *bonusesArray;
+    NSArray *pointsArray;
     
     BOOL firstTime;
 }
@@ -42,6 +43,7 @@
 
 + (id) terrainWithWorld:(b2World*)w;
 - (id) initWithWorld:(b2World*)w;
+- (void) removeBody;
 
 - (BOOL) checkBonusCollisionWithCoordinats: (CGPoint) heroPosition;
 - (void) reset;

@@ -101,6 +101,8 @@
 	_awake = YES;
 	_body->SetActive(true);
 	_body->ApplyLinearImpulse(b2Vec2(1,2), _body->GetPosition());
+    [_game startCat];
+    
 }
 
 - (void) applyBonus
@@ -125,6 +127,11 @@
 		}
 	}
 	
+    if(self.position.y > currentHeightOfFly)
+    {
+        _body->ApplyForce(b2Vec2(0,-40),_body->GetPosition());
+    }
+    
 	// limit velocity
 	const float minVelocityX = 3;
 	const float minVelocityY = -40;
@@ -135,6 +142,13 @@
 	if (vel.y < minVelocityY) {
 		vel.y = minVelocityY;
 	}
+    if(vel.x > currentSpeedOfFly)
+    {
+        vel.x = currentSpeedOfFly;
+    }
+    
+    //CCLOG(@"SPEED : %f", vel.x);
+    
 	_body->SetLinearVelocity(vel);
 }
 

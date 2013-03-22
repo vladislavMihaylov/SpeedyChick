@@ -34,9 +34,43 @@
 
 #define kPinguinKey           @"pinguinKey"
 #define kRocketsKey           @"rocketsKey"
+#define kCatKey               @"catKey"
+
+#define kCountOfRunsKey       @"run'sCountKey"
+#define kCountOfCoins         @"coin'sCountKey"
+#define kAdKey                @"AdKey"
+#define kFirstRunKey          @"kFirstRunKey"
+
+#define kKidsModeKey          @"kKidsModeKey"
+#define kSuperChickKey        @"kSuperChickKey"
+#define kGhostChickKey        @"kGhostChickKey"
+
+#define kOpenedWorldsKey      @"kOpenedWorldsKey"
+#define kOpenedLevelsKey      @"kOpenedLevelsKey"
+
+#define kStarsCountKey        @"kStarsCountKey"
+
+#define kDateKey              @"kDateKey"
 
 #define backBtnTag         -1
+#define menuBgTag          10
+#define exitBtnTag         11
 #define selectLevelMenuTag 100 
+
+extern CGPoint catStartPosition;
+extern CGPoint cocoStartPosition;
+extern CGPoint finishPointForCoco;
 
 extern NSInteger currentWorld;
 extern NSInteger currentLevel;
+extern NSInteger defaultHeightOfFly;
+extern NSInteger defaultSpeedOfFly;
+extern NSInteger costForOpenLevel;
+
+extern NSInteger currentHeightOfFly;
+extern NSInteger currentSpeedOfFly;
+
+extern float countOfMana;
+
+extern BOOL isGameActive;
+extern BOOL ChickOnTheStart;
