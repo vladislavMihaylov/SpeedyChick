@@ -188,6 +188,10 @@
 		F501E14E16FF4DD600959AA7 /* ghostChickBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = F501E14B16FF4DD600959AA7 /* ghostChickBtn.png */; };
 		F501E14F16FF4DD600959AA7 /* kidsModeBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = F501E14C16FF4DD600959AA7 /* kidsModeBtn.png */; };
 		F501E15016FF4DD600959AA7 /* superChickBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = F501E14D16FF4DD600959AA7 /* superChickBtn.png */; };
+		F501E15316FF63BF00959AA7 /* 2-1-3-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F501E15116FF63BF00959AA7 /* 2-1-3-hd.png */; };
+		F501E15416FF63BF00959AA7 /* 2-1-3.png in Resources */ = {isa = PBXBuildFile; fileRef = F501E15216FF63BF00959AA7 /* 2-1-3.png */; };
+		F501E15716FF63EE00959AA7 /* 02-3.png in Resources */ = {isa = PBXBuildFile; fileRef = F501E15516FF63EE00959AA7 /* 02-3.png */; };
+		F501E15816FF63EE00959AA7 /* 02-3-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F501E15616FF63EE00959AA7 /* 02-3-hd.png */; };
 		F5033EED16ECEAE800C17CF8 /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = F5033EE716ECEAE800C17CF8 /* rocket.png */; };
 		F5033EEE16ECEAE800C17CF8 /* rocket-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F5033EE816ECEAE800C17CF8 /* rocket-hd.png */; };
 		F5033F0316ECF05A00C17CF8 /* pinguin_1.png in Resources */ = {isa = PBXBuildFile; fileRef = F5033EEF16ECF05A00C17CF8 /* pinguin_1.png */; };
@@ -926,6 +930,10 @@
 		F501E14B16FF4DD600959AA7 /* ghostChickBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ghostChickBtn.png; sourceTree = "<group>"; };
 		F501E14C16FF4DD600959AA7 /* kidsModeBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kidsModeBtn.png; sourceTree = "<group>"; };
 		F501E14D16FF4DD600959AA7 /* superChickBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = superChickBtn.png; sourceTree = "<group>"; };
+		F501E15116FF63BF00959AA7 /* 2-1-3-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-1-3-hd.png"; sourceTree = "<group>"; };
+		F501E15216FF63BF00959AA7 /* 2-1-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-1-3.png"; sourceTree = "<group>"; };
+		F501E15516FF63EE00959AA7 /* 02-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02-3.png"; sourceTree = "<group>"; };
+		F501E15616FF63EE00959AA7 /* 02-3-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02-3-hd.png"; sourceTree = "<group>"; };
 		F5033EE716ECEAE800C17CF8 /* rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rocket.png; sourceTree = "<group>"; };
 		F5033EE816ECEAE800C17CF8 /* rocket-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rocket-hd.png"; sourceTree = "<group>"; };
 		F5033EEF16ECF05A00C17CF8 /* pinguin_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pinguin_1.png; path = Resources/pinguin_1.png; sourceTree = "<group>"; };
@@ -1318,6 +1326,10 @@
 			isa = PBXGroup;
 			children = (
 				F5043B9316F760AC00D93959 /* speedyChickDatabase.sqlite3 */,
+				F501E15516FF63EE00959AA7 /* 02-3.png */,
+				F501E15616FF63EE00959AA7 /* 02-3-hd.png */,
+				F501E15116FF63BF00959AA7 /* 2-1-3-hd.png */,
+				F501E15216FF63BF00959AA7 /* 2-1-3.png */,
 				F501E14316FF445B00959AA7 /* 1-1-11-2-hd.png */,
 				F501E14416FF445B00959AA7 /* 1-1-11-2.png */,
 				F501E14716FF4C4500959AA7 /* 01-1-hd.png */,
@@ -2326,6 +2338,10 @@
 				F501E14E16FF4DD600959AA7 /* ghostChickBtn.png in Resources */,
 				F501E14F16FF4DD600959AA7 /* kidsModeBtn.png in Resources */,
 				F501E15016FF4DD600959AA7 /* superChickBtn.png in Resources */,
+				F501E15316FF63BF00959AA7 /* 2-1-3-hd.png in Resources */,
+				F501E15416FF63BF00959AA7 /* 2-1-3.png in Resources */,
+				F501E15716FF63EE00959AA7 /* 02-3.png in Resources */,
+				F501E15816FF63EE00959AA7 /* 02-3-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
