@@ -52,16 +52,12 @@
         
         time = 0;
         
-        [Settings sharedSettings].isCatEnabled = YES;
-        [[Settings sharedSettings] save];
-        
         if([Settings sharedSettings].isCatEnabled)
         {
             [self loadCat];
         }
         
         ChickOnTheStart = YES;
-        
         
     }
     

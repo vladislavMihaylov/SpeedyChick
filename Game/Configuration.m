@@ -65,6 +65,11 @@ Configuration *sharedConfiguration = nil;
         [Settings sharedSettings].isCatEnabled = NO;
         [[Settings sharedSettings] save];
     }
+    else
+    {
+        [Settings sharedSettings].isCatEnabled = YES;
+        [[Settings sharedSettings] save];
+    }
     
     if([Settings sharedSettings].isSuperChickBuyed)
     {

@@ -6,7 +6,7 @@
 #import "Hero.h"
 #import "Settings.h"
 
-
+#import "Configuration.h"
 
 #import "CCBReader.h"
 
@@ -50,7 +50,9 @@
 	
 	if ((self = [super init]))
     {
-        CCSprite *bgSprite = [CCSprite spriteWithFile: @"bg.png"];
+        [[Configuration sharedConfiguration] setConfig];
+        
+        CCSprite *bgSprite = [CCSprite spriteWithFile: @"01-1.png"];
         bgSprite.position = ccp(240, 160);
         [self addChild: bgSprite];
         

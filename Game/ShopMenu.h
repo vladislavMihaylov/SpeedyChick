@@ -9,8 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface ShopMenu : CCLayer {
-    
+@interface ShopMenu: CCLayer
+{
+    CCNode *item_1;
+    CCNode *item_2;
+    CCNode *item_3;
 }
 
 @end

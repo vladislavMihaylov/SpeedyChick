@@ -87,7 +87,7 @@
     
     [[Settings sharedSettings] load];
     
-    [[Configuration sharedConfiguration] setConfig];
+    
     
     //[Settings sharedSettings].countOfRockets = 2;
     //[[Settings sharedSettings] save];

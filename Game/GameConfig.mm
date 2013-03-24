@@ -14,7 +14,7 @@ CGPoint finishPointForCoco = CGPointMake(440, 40);
 
 NSInteger currentWorld = 0;
 NSInteger currentLevel = 0;
-NSInteger defaultHeightOfFly = 800;
+NSInteger defaultHeightOfFly = 600;
 NSInteger defaultSpeedOfFly = 33;
 NSInteger costForOpenLevel = 100;
 
