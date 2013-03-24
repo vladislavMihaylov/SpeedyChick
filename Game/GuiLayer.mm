@@ -34,11 +34,21 @@
     {
         showNewWorld = NO;
         
-        applyRocket = [CCMenuItemImage itemFromNormalImage: @"rocket.png" selectedImage: @"rocket.png" target: self selector: @selector(applyRocket)];
-        applyRocket.position = ccp(380, 270);
+        applyRocket = [CCMenuItemImage itemFromNormalImage: @"rocket.png"
+                                             selectedImage: @"rocket.png"
+                                                    target: self
+                                                  selector: @selector(applyRocket)
+                       ];
         
-        CCMenuItemImage *reset = [CCMenuItemImage itemFromNormalImage: @"pauseBtn.png" selectedImage: @"pauseBtn.png" target: self selector: @selector(doPause)];
-        reset.position = ccp(450, 290);
+        applyRocket.position = ccp(390, 280);
+        
+        CCMenuItemImage *reset = [CCMenuItemImage itemFromNormalImage: @"pauseBtn.png"
+                                                        selectedImage: @"pauseBtn.png"
+                                                               target: self
+                                                             selector: @selector(doPause)
+                                  ];
+        
+        reset.position = ccp(460, 300);
         
         CCMenu *ROCKET = [CCMenu menuWithItems: applyRocket, reset, nil];
         ROCKET.position = ccp(0, 0);
@@ -46,7 +56,11 @@
         
         [self updateRocket];
         
-        timeLabel = [CCLabelTTF labelWithString: @"00:00:00" fontName: @"Arial" fontSize: 20];
+        timeLabel = [CCLabelTTF labelWithString: @"00:00:00"
+                                       fontName: @"Arial"
+                                       fontSize: 20
+                     ];
+        
         timeLabel.position = ccp(240, 300);
         timeLabel.color = ccc3(0, 0, 0);
         [self addChild: timeLabel];
@@ -75,7 +89,10 @@
 
 - (void) loadEnergy
 {
-    energyLabel = [CCLabelBMFont labelWithString: @"Energy: " fntFile: @"timeFont.fnt"];
+    energyLabel = [CCLabelBMFont labelWithString: @"Energy: "
+                                         fntFile: @"timeFont.fnt"
+                   ];
+    
     energyLabel.position = ccp(10, 300);
     energyLabel.anchorPoint = ccp(0, 0.5);
     energyLabel.scale = 0.7;
@@ -115,7 +132,8 @@
     [cat setPosition: catStartPosition];
     [self addChild: cat];
     
-    coco = [CCSprite spriteWithFile: @"coco.png"];
+    coco = [CCSprite spriteWithFile: [NSString stringWithFormat: @"pinguin_%i.png", [Settings sharedSettings].currentPinguin]];
+    coco.scale = 0.6;
     [coco setPosition: cocoStartPosition];
     [self addChild: coco z: 10];
 }
@@ -203,14 +221,29 @@
         menuBg.position = ccp(240, 480);
         [self addChild: menuBg z: 10 tag: menuBgTag];
         
-        CCMenuItemImage *exit = [CCMenuItemImage itemFromNormalImage: @"exitBtn.png" selectedImage: @"exitBtn.png" target: self selector: @selector(exitToMainMenu)];
+        CCMenuItemImage *exit = [CCMenuItemImage itemFromNormalImage: @"exitBtn.png"
+                                                       selectedImage: @"exitBtnOn.png"
+                                                              target: self
+                                                            selector: @selector(exitToMainMenu)
+                                 ];
+        
         exit.position = ccp(menuBg.contentSize.width/4, menuBg.contentSize.height / 2);
         exit.tag = exitBtnTag;
         
-        CCMenuItemImage *restart = [CCMenuItemImage itemFromNormalImage: @"restartBtn.png" selectedImage: @"restartBtn.png" target: self selector:@selector(resetLevel)];
+        CCMenuItemImage *restart = [CCMenuItemImage itemFromNormalImage: @"restartBtn.png"
+                                                          selectedImage: @"restartBtnOn.png"
+                                                                 target: self
+                                                               selector:@selector(resetLevel)
+                                    ];
+        
         restart.position = ccp(menuBg.contentSize.width/2, menuBg.contentSize.height / 2);
         
-        CCMenuItemImage *play = [CCMenuItemImage itemFromNormalImage: @"continueBtn.png" selectedImage: @"continueBtn.png" target: self selector:@selector(unPause)];
+        CCMenuItemImage *play = [CCMenuItemImage itemFromNormalImage: @"continueBtn.png"
+                                                       selectedImage: @"continueBtnOn.png"
+                                                              target: self
+                                                            selector:@selector(unPause)
+                                 ];
+        
         play.position = ccp(menuBg.contentSize.width/2 + menuBg.contentSize.width/4, menuBg.contentSize.height / 2);
         
         
@@ -221,7 +254,7 @@
         [menuBg addChild: pauseMenu z:1 tag: 45];
         
         
-        [menuBg runAction: [CCMoveTo actionWithDuration: 0.5 position: ccp(240, 160)]];
+        [menuBg runAction: [CCMoveTo actionWithDuration: 0.25 position: ccp(240, 160)]];
         
         isGameActive = NO;
         
@@ -240,11 +273,21 @@
         menuBg.position = ccp(240, 480);
         [self addChild: menuBg z: 10 tag: menuBgTag];
         
-        CCMenuItemImage *exit = [CCMenuItemImage itemFromNormalImage: @"exitBtn.png" selectedImage: @"exitBtn.png" target: self selector: @selector(exitToMainMenu)];
+        CCMenuItemImage *exit = [CCMenuItemImage itemFromNormalImage: @"exitBtn.png"
+                                                       selectedImage: @"exitBtnOn.png"
+                                                              target: self
+                                                            selector: @selector(exitToMainMenu)
+                                 ];
+        
         exit.position = ccp(menuBg.contentSize.width * 0.35, menuBg.contentSize.height / 2);
         exit.tag = exitBtnTag;
         
-        CCMenuItemImage *restart = [CCMenuItemImage itemFromNormalImage: @"restartBtn.png" selectedImage: @"restartBtn.png" target: self selector:@selector(resetLevel)];
+        CCMenuItemImage *restart = [CCMenuItemImage itemFromNormalImage: @"restartBtn.png"
+                                                          selectedImage: @"restartBtnOn.png"
+                                                                 target: self
+                                                               selector:@selector(resetLevel)
+                                    ];
+        
         restart.position = ccp(menuBg.contentSize.width * 0.65, menuBg.contentSize.height / 2);
         
         
@@ -289,7 +332,7 @@
 
 - (void) sendToFB
 {
-    SHKItem *facebookItem = [SHKItem text: [NSString stringWithFormat: @"I am finished with time %@", timeLabel.string]];
+    SHKItem *facebookItem = [SHKItem text: [NSString stringWithFormat: @"I have finished with time %@", timeLabel.string]];
     [SHKFacebook shareItem: facebookItem];
 }
 
@@ -308,7 +351,7 @@
 
 - (void) finish
 {
-    CCLOG(@"W %i H %i", currentWorld, currentLevel);
+    //CCLOG(@"W %i H %i", currentWorld, currentLevel);
     
     NSString *number =[NSString stringWithFormat: @"%i%i", currentWorld, currentLevel];
     
@@ -343,7 +386,7 @@
         }
     }
     
-    CCLOG(@"Stars : %i", curStars);
+    //CCLOG(@"Stars : %i", curStars);
     
     if([Settings sharedSettings].isKidsModeBuyed)
     {
@@ -381,7 +424,7 @@
     {
         NSString *nextLevel = [openedLevels substringWithRange: NSMakeRange(position + 1, 1)];
         NSInteger intNextLevel = [nextLevel integerValue];
-         CCLOG(@"nextLevel %i", intNextLevel);
+         //CCLOG(@"nextLevel %i", intNextLevel);
         [openedLevels replaceCharactersInRange: NSMakeRange(position + 1, 1) withString: @"1"];
         NSString *newLevelsData = [NSString stringWithFormat: @"%@", openedLevels];
         
@@ -393,7 +436,7 @@
     
     if(currentLevel % 5 == 0)
     {
-        CCLOG(@"IT WAS 5 LEVEL");
+        //CCLOG(@"IT WAS 5 LEVEL");
         showNewWorld = YES;
         
         if([Settings sharedSettings].openedWorlds < 3)
@@ -422,25 +465,48 @@
         menuBg.position = ccp(240, 480);
         [self addChild: menuBg z: 10 tag: menuBgTag];
         
-        CCMenuItemImage *exit = [CCMenuItemImage itemFromNormalImage: @"exitBtn.png" selectedImage: @"exitBtn.png" target: self selector: @selector(exitToMainMenu)];
+        CCMenuItemImage *exit = [CCMenuItemImage itemFromNormalImage: @"exitBtn.png"
+                                                       selectedImage: @"exitBtnOn.png"
+                                                              target: self
+                                                            selector: @selector(exitToMainMenu)
+                                 ];
+        
         exit.position = ccp(menuBg.contentSize.width * 0.25, menuBg.contentSize.height / 2);
         exit.tag = exitBtnTag;
         
-        CCMenuItemImage *restart = [CCMenuItemImage itemFromNormalImage: @"restartBtn.png" selectedImage: @"restartBtn.png" target: self selector:@selector(resetLevel)];
+        CCMenuItemImage *restart = [CCMenuItemImage itemFromNormalImage: @"restartBtn.png"
+                                                          selectedImage: @"restartBtnOn.png"
+                                                                 target: self
+                                                               selector:@selector(resetLevel)
+                                    ];
+        
         restart.position = ccp(menuBg.contentSize.width * 0.5, menuBg.contentSize.height / 2);
         
-        CCMenuItemImage *shareToFBBtn = [CCMenuItemImage itemFromNormalImage: @"facebookBtn.jpg" selectedImage: @"facebookBtnOn.jpg" target: self selector:@selector(sendToFB)];
+        CCMenuItemImage *shareToFBBtn = [CCMenuItemImage itemFromNormalImage: @"facebookBtn.png"
+                                                               selectedImage: @"facebookBtnOn.png"
+                                                                      target: self
+                                                                    selector:@selector(sendToFB)
+                                         ];
+        
         shareToFBBtn.position = ccp(menuBg.contentSize.width * 0.5, 0);
         
         CCMenuItemImage *next;
         
         if(!showNewWorld)
         {
-            next = [CCMenuItemImage itemFromNormalImage: @"nextLevel.png" selectedImage: @"nextLevel.png" target: self selector:@selector(playNextLevel)];
+            next = [CCMenuItemImage itemFromNormalImage: @"nextLevel.png"
+                                          selectedImage: @"nextLevelOn.png"
+                                                 target: self
+                                               selector:@selector(playNextLevel)
+                    ];
         }
         else
         {
-            next = [CCMenuItemImage itemFromNormalImage: @"nextLevel.png" selectedImage: @"nextLevel.png" target: self selector:@selector(showWorldsMenu)];
+            next = [CCMenuItemImage itemFromNormalImage: @"nextLevel.png"
+                                          selectedImage: @"nextLevelOn.png"
+                                                 target: self
+                                               selector:@selector(showWorldsMenu)
+                    ];
         }
         next.position = ccp(menuBg.contentSize.width * 0.75, menuBg.contentSize.height / 2);
         
@@ -448,10 +514,10 @@
         gameOverMenu.position = ccp(0, 0);
         [menuBg addChild: gameOverMenu];
         
-        [menuBg runAction: [CCMoveTo actionWithDuration: 0.5 position: ccp(240, 160)]];
+        [menuBg runAction: [CCMoveTo actionWithDuration: 0.25 position: ccp(240, 160)]];
         
         CCSprite *stars = [CCSprite spriteWithFile: [NSString stringWithFormat: @"%istars.png", curStars]];
-        stars.position = ccp(menuBg.contentSize.width / 2, menuBg.contentSize.height);
+        stars.position = ccp(menuBg.contentSize.width / 2, menuBg.contentSize.height * 0.95);
         [menuBg addChild: stars];
     }
 }
@@ -525,6 +591,9 @@
 
 - (void) resetLevel
 {
+    energy = 0;
+    [self updateEnergyLabel];
+    
     [self unPause];
     
     [cat stopAllActions];
@@ -547,7 +616,7 @@
 
 - (void) exitToMainMenu
 {
-    [self unPause];
+    //[self unPause];
     
     [gameLayer exitToMainMenu];
     

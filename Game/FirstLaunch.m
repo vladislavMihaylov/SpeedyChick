@@ -35,7 +35,7 @@
     if(self = [super init])
     {
         
-        CCSprite *bg = [CCSprite spriteWithFile: @"bg.png"];
+        CCSprite *bg = [CCSprite spriteWithFile: @"mainMenuBg.png"];
         bg.position = ccp(240, 160);
         [self addChild: bg];
         
@@ -48,7 +48,7 @@
         
         [eggMenu addChild: egg];
         
-        okBtn = [CCMenuItemImage itemFromNormalImage: @"okBtn.png" selectedImage: @"okBtn.png" target: self selector: @selector(pressedOkBtn)];
+        okBtn = [CCMenuItemImage itemFromNormalImage: @"okBtn.png" selectedImage: @"okBtnOn.png" target: self selector: @selector(pressedOkBtn)];
         okBtn.position = ccp(240, 70);
         
         okBtn.isEnabled = NO;
@@ -57,6 +57,10 @@
         CCMenu *menu = [CCMenu menuWithItems: okBtn, nil];
         menu.position = ccp(0, 0);
         [self addChild: menu];
+        
+        //[self createTextField];
+        
+        
         
     }
     
@@ -116,10 +120,17 @@
                        nil]
      ];
     
+    [chick runAction:
+                [CCSequence actions:
+                                [CCDelayTime actionWithDuration: 1],
+                                [CCFadeTo actionWithDuration: 0.5 opacity: 0],
+                       nil]
+     ];
+    
     [enterNameLabel runAction:
                             [CCSequence actions:
                                             [CCDelayTime actionWithDuration: 1.5],
-                                            [CCMoveTo actionWithDuration: 0.3 position: ccp(240, 290)],
+                                            [CCMoveTo actionWithDuration: 0.3 position: ccp(240, 270)],
                                             
                              nil]
      ];
@@ -133,11 +144,16 @@
     [nameField setText: @"Name"];
     nameField.font = [UIFont fontWithName: @"MarkerFelt-Thin" size: 30];
     [nameField setTextColor: [UIColor colorWithRed: 0 green: 0 blue: 0 alpha: 1.0]];
-    nameField.backgroundColor = [UIColor colorWithRed: 255 green: 255 blue: 255 alpha: 0.3];
+    nameField.backgroundColor = [UIColor colorWithRed: 255 green: 255 blue: 255 alpha: 0.5];
     nameField.textAlignment = UITextAlignmentCenter;
     [nameField setDelegate: self];
     nameField.transform = CGAffineTransformMakeRotation(M_PI / -2.0);
     [[[[CCDirector sharedDirector] openGLView] window] addSubview: nameField];
+    
+    //[nameField canBecomeFirstResponder];
+    //[nameField canResignFirstResponder];
+    [nameField becomeFirstResponder];
+    [nameField resignFirstResponder];
 }
 
 
@@ -172,7 +188,7 @@
     
     CCScene* scene = [CCBReader sceneWithNodeGraphFromFile:@"MainMenu.ccb"];
     
-	[[CCDirector sharedDirector] replaceScene: [CCTransitionSlideInB transitionWithDuration: 0.5 scene: scene]];
+	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
 }
 
 @end

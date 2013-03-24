@@ -86,8 +86,8 @@
     
     [[Settings sharedSettings] load];
     
-    //[Settings sharedSettings].isFirstRun = 1;
-    //[[Settings sharedSettings] save];
+    [Settings sharedSettings].isFirstRun = 1;
+    [[Settings sharedSettings] save];
     
     //[Settings sharedSettings].countOfRockets = 2;
     //[[Settings sharedSettings] save];

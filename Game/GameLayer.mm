@@ -89,7 +89,7 @@
         
         
         [self scheduleUpdate];
-        CCLOG(@"TerrainRC: %i", [self.terrain retainCount]);
+        //CCLOG(@"TerrainRC: %i", [self.terrain retainCount]);
         [_terrain resetHillVertices];
         
 	}
@@ -100,10 +100,10 @@
 {
     [self unscheduleUpdate];
     
-    [_terrain removeBody];
+    /*[_terrain removeBody];
     
     [self removeChild: _terrain cleanup: YES];
-    self.terrain = nil;
+    self.terrain = nil;*/
     
     
 
@@ -207,7 +207,7 @@
                 {
                     [guiLayer decreaseEnergy];
                     iCanDoSwipe = NO;
-                    CCLOG(@"SWIPE");
+                    //CCLOG(@"SWIPE");
                     [_hero applyEnergy];
                 }
             }
@@ -234,7 +234,7 @@
     
     if(isBonus)
     {
-        CCLOG(@"BONUS!");
+        //CCLOG(@"BONUS!");
         [_hero applyBonus];
     }
     
@@ -248,7 +248,7 @@
             
             [guiLayer finish];
             
-            CCLOG(@"FINISH!!!!");
+            //CCLOG(@"FINISH!!!!");
         }
         
         [_hero updatePhysics];

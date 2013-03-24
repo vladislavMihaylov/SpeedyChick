@@ -23,7 +23,7 @@
 {
     CCScene* scene = [CCBReader sceneWithNodeGraphFromFile:@"MainMenu.ccb"];
     
-	[[CCDirector sharedDirector] replaceScene: [CCTransitionSlideInL transitionWithDuration: 0.5 scene: scene]];
+	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
 }
 
 - (void) setCurrentPinguin: (CCMenuItem *) sender

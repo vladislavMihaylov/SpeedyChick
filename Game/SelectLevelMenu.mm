@@ -40,7 +40,7 @@
     
     NSString *count = [openedLevels substringWithRange: NSMakeRange(positionForStar, 5)];
     
-    CCLOG(@"Count: %@", count);
+    //CCLOG(@"Count: %@", count);
     
     //NSInteger countOfOpenedLevels = [count integerValue];
     
@@ -54,8 +54,8 @@
         
         if([curNum integerValue] == 1)
         {
-            levelItem = [CCMenuItemImage itemFromNormalImage: @"openBg.png"
-                                               selectedImage: @"openBg.png"
+            levelItem = [CCMenuItemImage itemFromNormalImage: @"lvlItem.png"
+                                               selectedImage: @"lvlItemOn.png"
                                                       target: self
                                                     selector: @selector(playLevel:)
                          ];
@@ -70,24 +70,31 @@
             
             [levelItem addChild: num];
             
-            CCLOG(@"stars %@", stars);
+            //CCLOG(@"stars %@", stars);
             
             NSString *curStars = [stars substringWithRange: NSMakeRange(i + 1 + ((currentWorld - 1) * 5), 1)];
             
-            CCLOG(@"curStars %@", curStars);
+            //CCLOG(@"curStars %@", curStars);
             
             CCSprite *stars = [CCSprite spriteWithFile: [NSString stringWithFormat: @"%@stars.png", curStars]];
-            stars.position = ccp(levelItem.contentSize.width/2, stars.contentSize.height/4);
-            
+            stars.position = ccp(levelItem.contentSize.width/2, stars.contentSize.height/8);
+            stars.scale = 0.5;
             [levelItem addChild: stars];
         }
         else
         {
-            levelItem = [CCMenuItemImage itemFromNormalImage: @"closeBg.png"
-                                               selectedImage: @"closeBg.png"
+            levelItem = [CCMenuItemImage itemFromNormalImage: @"lvlItem.png"
+                                               selectedImage: @"lvlItemOn.png"
                                                       target: self
                                                     selector: @selector(showBuyMenu:)
                          ];
+            
+            CCSprite *block = [CCSprite spriteWithFile: @"block.png"];
+            block.position = ccp(levelItem.contentSize.width / 2, levelItem.contentSize.height / 2);
+            block.scale = 0.5;
+            [levelItem addChild: block];
+            
+            //levelItem.opacity = 100;
         }
         
         levelItem.tag = i;
@@ -115,12 +122,12 @@
     
     if([Settings sharedSettings].countOfCoins < costForOpenLevel)
     {
-        label = [CCLabelBMFont labelWithString: @"You need 100 coins!" fntFile: @"timeFont.fnt"];
+        label = [CCLabelBMFont labelWithString: @"You need \n 100 coins!" fntFile: @"timeFont.fnt"];
         label.position = ccp(bg.contentSize.width * 0.5, bg.contentSize.height * 0.5);
         [bg addChild: label];
         
         okBtn = [CCMenuItemImage itemFromNormalImage: @"okBtn.png"
-                                       selectedImage: @"okBtn.png"
+                                       selectedImage: @"okBtnOn.png"
                                               target: self
                                             selector: @selector(removeBuyMenu)
                  ];
@@ -140,7 +147,7 @@
         [bg addChild: label];
         
         okBtn = [CCMenuItemImage itemFromNormalImage: @"okBtn.png"
-                                       selectedImage: @"okBtn.png"
+                                       selectedImage: @"okBtnOn.png"
                                               target: self
                                             selector: @selector(buyLevel:)
                  ];
@@ -150,7 +157,7 @@
         
         
         cancelBtn = [CCMenuItemImage itemFromNormalImage: @"cancelBtn.png"
-                                           selectedImage: @"cancelBtn.png"
+                                           selectedImage: @"cancelBtnOn.png"
                                                   target: self
                                                 selector: @selector(removeBuyMenu)
                      ];
@@ -180,13 +187,13 @@
     
     NSInteger curLevel = sender.tag + 1;
     
-    CCLOG(@"Item tag: %i", sender.tag);
+    //CCLOG(@"Item tag: %i", sender.tag);
     
     NSInteger positionForStar = (5 * (currentWorld - 1)) + curLevel;
     
     NSMutableString *openedLevels = [NSMutableString stringWithFormat: @"%@", [Settings sharedSettings].openedLevels];
     
-    CCLOG(@"String: %@ position %i", openedLevels, positionForStar);
+    //CCLOG(@"String: %@ position %i", openedLevels, positionForStar);
     
     [openedLevels replaceCharactersInRange: NSMakeRange(positionForStar, 1) withString: @"1"];
     
@@ -204,14 +211,14 @@
 {
     CCScene* scene = [CCBReader sceneWithNodeGraphFromFile:@"SelectWorldMenu.ccb"];
     
-	[[CCDirector sharedDirector] replaceScene: [CCTransitionSlideInT transitionWithDuration: 0.5 scene: scene]];
+	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
 }
 
 - (void) playLevel: (CCMenuItem *) sender
 {
     currentLevel = sender.tag + 1;
     
-	[[CCDirector sharedDirector] replaceScene: [GameLayer scene]];
+    [[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: [GameLayer scene]]];
 }
 
 @end

@@ -37,8 +37,8 @@
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>512</real>
-						<real>512</real>
+						<real>480</real>
+						<real>360</real>
 					</array>
 					<key>customClass</key>
 					<string></string>
@@ -60,17 +60,17 @@
 					<integer>255</integer>
 					<key>position</key>
 					<array>
-						<real>231.0859375</real>
-						<real>160.7421875</real>
+						<real>240</real>
+						<real>160</real>
 					</array>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scaleX</key>
-					<real>2</real>
+					<real>1</real>
 					<key>scaleY</key>
-					<real>2</real>
+					<real>1</real>
 					<key>spriteFile</key>
-					<string>Noise.png</string>
+					<string>mainMenuBg.png</string>
 					<key>tag</key>
 					<integer>-1</integer>
 					<key>visible</key>
@@ -115,8 +115,8 @@
 							<integer>0</integer>
 							<key>position</key>
 							<array>
-								<real>64.0703125</real>
-								<real>32.87109375</real>
+								<real>64</real>
+								<real>35</real>
 							</array>
 							<key>rotation</key>
 							<real>0.0</real>
@@ -131,7 +131,7 @@
 							<key>spriteFileNormal</key>
 							<string>back.png</string>
 							<key>spriteFileSelected</key>
-							<string>back.png</string>
+							<string>backOn.png</string>
 							<key>tag</key>
 							<integer>-1</integer>
 							<key>target</key>
@@ -216,13 +216,13 @@
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>124</real>
-						<real>33</real>
+						<real>187</real>
+						<real>35</real>
 					</array>
 					<key>customClass</key>
 					<string></string>
 					<key>fontFile</key>
-					<string>good_dog_plain_32.fnt</string>
+					<string>timeFont.fnt</string>
 					<key>isExpanded</key>
 					<true/>
 					<key>isRelativeAnchorPoint</key>

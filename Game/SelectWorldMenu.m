@@ -20,8 +20,8 @@
 
 - (void) didLoadFromCCB
 {
-    CCLOG(@"curStars %@", [Settings sharedSettings].starsCount);
-    CCLOG(@"curLevels %@", [Settings sharedSettings].openedLevels);
+    //CCLOG(@"curStars %@", [Settings sharedSettings].starsCount);
+    //CCLOG(@"curLevels %@", [Settings sharedSettings].openedLevels);
     
     CCMenu *worldsMenu = [CCMenu menuWithItems: nil];
     worldsMenu.position = ccp(0, 0);
@@ -33,25 +33,28 @@
         
         if(i < [Settings sharedSettings].openedWorlds)
         {
-            worldItem = [CCMenuItemImage itemFromNormalImage: @"openBg.png"
-                                                                selectedImage: @"openBg.png"
-                                                                       target: self
-                                                                     selector: @selector(pressedWorld:)
+            worldItem = [CCMenuItemImage itemFromNormalImage: [NSString stringWithFormat: @"w_%i.png", i+1]
+                                               selectedImage: [NSString stringWithFormat: @"w_%iOn.png", i+1]
+                                                      target: self
+                                                    selector: @selector(pressedWorld:)
                                           ];
-            
-            CCLabelTTF *num = [CCLabelTTF labelWithString: [NSString stringWithFormat: @"%i", (i+1)] fontName: @"Arial" fontSize: 20];
-            num.position = ccp(worldItem.position.x + worldItem.contentSize.width/2, worldItem.position.y + worldItem.contentSize.height/2);
-            [worldItem addChild: num];
         }
         else
         {
-            worldItem = [CCMenuItemImage itemFromNormalImage: @"closeBg.png"
-                                               selectedImage: @"closeBg.png"
+            worldItem = [CCMenuItemImage itemFromNormalImage: [NSString stringWithFormat: @"w_%i.png", i+1]
+                                               selectedImage: [NSString stringWithFormat: @"w_%i.png", i+1]
                          ];
+             //worldItem.opacity = 200;
+            
+            CCSprite *block = [CCSprite spriteWithFile: @"block.png"];
+            block.position = ccp(worldItem.contentSize.width / 2, worldItem.contentSize.height / 2);
+            [worldItem addChild: block];
+            
         }
         
         worldItem.tag = i;
-        worldItem.position = ccp(120 + 120 * i, 160);
+       
+        worldItem.position = ccp(100 + 140 * i, 160);
         [worldsMenu addChild: worldItem];
     }
 }
@@ -60,7 +63,7 @@
 {
     CCScene* scene = [CCBReader sceneWithNodeGraphFromFile:@"MainMenu.ccb"];
     
-	[[CCDirector sharedDirector] replaceScene: [CCTransitionSlideInT transitionWithDuration: 0.5 scene: scene]];
+	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
 }
 
 - (void) pressedWorld: (CCMenuItem *) sender
@@ -69,7 +72,7 @@
     
     CCScene* scene = [CCBReader sceneWithNodeGraphFromFile:@"SelectLevelMenu.ccb"];
     
-	[[CCDirector sharedDirector] replaceScene: [CCTransitionSlideInB transitionWithDuration: 0.5 scene: scene]];
+	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
 }
 
 @end

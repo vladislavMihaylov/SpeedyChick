@@ -37,8 +37,8 @@
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>512</real>
-						<real>512</real>
+						<real>480</real>
+						<real>360</real>
 					</array>
 					<key>customClass</key>
 					<string></string>
@@ -60,17 +60,17 @@
 					<integer>255</integer>
 					<key>position</key>
 					<array>
-						<real>231.0859375</real>
-						<real>160.7421875</real>
+						<real>240</real>
+						<real>160</real>
 					</array>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scaleX</key>
-					<real>2</real>
+					<real>1</real>
 					<key>scaleY</key>
-					<real>2</real>
+					<real>1</real>
 					<key>spriteFile</key>
-					<string>Noise.png</string>
+					<string>mainMenuBg.png</string>
 					<key>tag</key>
 					<integer>-1</integer>
 					<key>visible</key>
@@ -96,8 +96,8 @@
 							</array>
 							<key>contentSize</key>
 							<array>
-								<real>100</real>
-								<real>75</real>
+								<real>128</real>
+								<real>128</real>
 							</array>
 							<key>customClass</key>
 							<string></string>
@@ -115,8 +115,8 @@
 							<integer>0</integer>
 							<key>position</key>
 							<array>
-								<real>234.1875</real>
-								<real>157.4375</real>
+								<real>240</real>
+								<real>140</real>
 							</array>
 							<key>rotation</key>
 							<real>0.0</real>
@@ -127,11 +127,11 @@
 							<key>selector</key>
 							<string>pressedPlay</string>
 							<key>spriteFileDisabled</key>
-							<string>PlayBtn.png</string>
+							<string>playBtn.png</string>
 							<key>spriteFileNormal</key>
-							<string>PlayBtn.png</string>
+							<string>playBtn.png</string>
 							<key>spriteFileSelected</key>
-							<string>PlayBtn.png</string>
+							<string>playBtnOn.png</string>
 							<key>tag</key>
 							<integer>-1</integer>
 							<key>target</key>
@@ -157,7 +157,7 @@
 							<key>contentSize</key>
 							<array>
 								<real>100</real>
-								<real>75</real>
+								<real>50</real>
 							</array>
 							<key>customClass</key>
 							<string></string>
@@ -175,8 +175,8 @@
 							<integer>0</integer>
 							<key>position</key>
 							<array>
-								<real>71.0703125</real>
-								<real>159.609375</real>
+								<real>90</real>
+								<real>160</real>
 							</array>
 							<key>rotation</key>
 							<real>0.0</real>
@@ -187,11 +187,11 @@
 							<key>selector</key>
 							<string>pressedShop</string>
 							<key>spriteFileDisabled</key>
-							<string>ShopBtn.png</string>
+							<string>shopBtn.png</string>
 							<key>spriteFileNormal</key>
-							<string>ShopBtn.png</string>
+							<string>shopBtn.png</string>
 							<key>spriteFileSelected</key>
-							<string>ShopBtn.png</string>
+							<string>shopBtnOn.png</string>
 							<key>tag</key>
 							<integer>-1</integer>
 							<key>target</key>
@@ -217,7 +217,7 @@
 							<key>contentSize</key>
 							<array>
 								<real>100</real>
-								<real>75</real>
+								<real>50</real>
 							</array>
 							<key>customClass</key>
 							<string></string>
@@ -235,8 +235,8 @@
 							<integer>0</integer>
 							<key>position</key>
 							<array>
-								<real>410.4609375</real>
-								<real>157.08203125</real>
+								<real>390</real>
+								<real>160</real>
 							</array>
 							<key>rotation</key>
 							<real>0.0</real>
@@ -247,11 +247,11 @@
 							<key>selector</key>
 							<string>pressedCustomise</string>
 							<key>spriteFileDisabled</key>
-							<string>CustomizeBtn.png</string>
+							<string>customizeBtn.png</string>
 							<key>spriteFileNormal</key>
-							<string>CustomizeBtn.png</string>
+							<string>customizeBtn.png</string>
 							<key>spriteFileSelected</key>
-							<string>CustomizeBtn.png</string>
+							<string>customizeBtnOn.png</string>
 							<key>tag</key>
 							<integer>-1</integer>
 							<key>target</key>
@@ -277,7 +277,7 @@
 							<key>contentSize</key>
 							<array>
 								<real>100</real>
-								<real>75</real>
+								<real>50</real>
 							</array>
 							<key>customClass</key>
 							<string></string>
@@ -295,8 +295,8 @@
 							<integer>1</integer>
 							<key>position</key>
 							<array>
-								<real>233.5078125</real>
-								<real>241.89453125</real>
+								<real>240</real>
+								<real>240</real>
 							</array>
 							<key>rotation</key>
 							<real>0.0</real>
@@ -307,11 +307,11 @@
 							<key>selector</key>
 							<string>pressedGetCoins</string>
 							<key>spriteFileDisabled</key>
-							<string>GetBtn.png</string>
+							<string>getBtn.png</string>
 							<key>spriteFileNormal</key>
-							<string>GetBtn.png</string>
+							<string>getBtn.png</string>
 							<key>spriteFileSelected</key>
-							<string>GetBtn.png</string>
+							<string>getBtnOn.png</string>
 							<key>tag</key>
 							<integer>-1</integer>
 							<key>target</key>
@@ -401,8 +401,8 @@
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>16</real>
-						<real>16</real>
+						<real>32</real>
+						<real>32</real>
 					</array>
 					<key>customClass</key>
 					<string></string>
@@ -424,8 +424,8 @@
 					<integer>255</integer>
 					<key>position</key>
 					<array>
-						<real>41.7265625</real>
-						<real>231.8984375</real>
+						<real>65</real>
+						<real>220</real>
 					</array>
 					<key>rotation</key>
 					<real>0.0</real>
@@ -484,8 +484,8 @@
 					<integer>255</integer>
 					<key>position</key>
 					<array>
-						<real>114.69140625</real>
-						<real>282.66796875</real>
+						<real>115</real>
+						<real>270</real>
 					</array>
 					<key>rotation</key>
 					<real>0.0</real>
@@ -544,8 +544,8 @@
 					<integer>255</integer>
 					<key>position</key>
 					<array>
-						<real>102.3359375</real>
-						<real>233.9375</real>
+						<real>115</real>
+						<real>220</real>
 					</array>
 					<key>rotation</key>
 					<real>0.0</real>
@@ -594,8 +594,8 @@
 					<integer>1</integer>
 					<key>position</key>
 					<array>
-						<real>422.10546875</real>
-						<real>253.578125</real>
+						<real>390</real>
+						<real>220</real>
 					</array>
 					<key>rotation</key>
 					<real>0.0</real>
@@ -642,8 +642,8 @@
 					<integer>1</integer>
 					<key>position</key>
 					<array>
-						<real>40.6328125</real>
-						<real>281.33203125</real>
+						<real>65</real>
+						<real>270</real>
 					</array>
 					<key>rotation</key>
 					<real>0.0</real>
@@ -668,14 +668,14 @@
 				<dict>
 					<key>anchorPoint</key>
 					<array>
-						<real>1</real>
+						<real>0.5</real>
 						<real>0.5</real>
 					</array>
 					<key>color</key>
 					<array>
 						<integer>0</integer>
-						<integer>29</integer>
-						<integer>255</integer>
+						<integer>0</integer>
+						<integer>0</integer>
 					</array>
 					<key>contentSize</key>
 					<array>
@@ -700,8 +700,8 @@
 					<integer>255</integer>
 					<key>position</key>
 					<array>
-						<real>452.4453125</real>
-						<real>295.25</real>
+						<real>390</real>
+						<real>270</real>
 					</array>
 					<key>rotation</key>
 					<real>0.0</real>
@@ -760,8 +760,8 @@
 					<integer>255</integer>
 					<key>position</key>
 					<array>
-						<real>236.58984375</real>
-						<real>297.67578125</real>
+						<real>240</real>
+						<real>290</real>
 					</array>
 					<key>rotation</key>
 					<real>0.0</real>
@@ -821,7 +821,7 @@
 					<key>position</key>
 					<array>
 						<real>240</real>
-						<real>80</real>
+						<real>40</real>
 					</array>
 					<key>rotation</key>
 					<real>0.0</real>

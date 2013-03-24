@@ -152,7 +152,7 @@
 {
     CCScene* scene = [CCBReader sceneWithNodeGraphFromFile:@"MainMenu.ccb"];
     
-	[[CCDirector sharedDirector] replaceScene: [CCTransitionSlideInR transitionWithDuration: 0.5 scene: scene]];
+	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
 }
 
 @end
