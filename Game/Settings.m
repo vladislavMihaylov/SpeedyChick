@@ -26,6 +26,8 @@ Settings *sharedSettings = nil;
 
 @synthesize futureDate;
 
+@synthesize nameOfPlayer;
+
 + (Settings *) sharedSettings
 {
     if(!sharedSettings)
@@ -131,6 +133,16 @@ Settings *sharedSettings = nil;
         self.starsCount = @"4000000000000000";
     }
     
+    NSString *nameData = [defaults objectForKey: kNameKey];
+    if(nameData)
+    {
+        self.nameOfPlayer = nameData;
+    }
+    else
+    {
+        self.nameOfPlayer = @"";
+    }
+    
     // BOOL
     
     NSNumber *catsEnabledData = [defaults objectForKey: kCatKey];
@@ -229,6 +241,8 @@ Settings *sharedSettings = nil;
     [defaults setObject: [NSString stringWithString: self.starsCount] forKey: kStarsCountKey];
     
     [defaults setObject: [NSString stringWithString: self.futureDate] forKey: kDateKey];
+    
+    [defaults setObject: [NSString stringWithString: self.nameOfPlayer] forKey: kNameKey];
     
     [defaults synchronize];
 }

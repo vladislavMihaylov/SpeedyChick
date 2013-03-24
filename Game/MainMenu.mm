@@ -37,6 +37,8 @@
         [getCoinsBtn setOpacity: 150];
     }
     
+    nameLabel.string = [NSString stringWithFormat: @"Hello, %@", [Settings sharedSettings].nameOfPlayer];
+    
     //NSString *date = [NSString stringWithFormat: @"%@", strDate];
     
     //timeLabel.string = date;

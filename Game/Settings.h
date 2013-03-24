@@ -21,6 +21,8 @@
     
     NSString *starsCount;
     NSString *futureDate;
+    
+    NSString *nameOfPlayer;
 }
 
 + (Settings *) sharedSettings;
@@ -46,5 +48,7 @@
 
 @property (nonatomic, assign) NSString *starsCount;
 @property (nonatomic, assign) NSString *futureDate;
+
+@property (nonatomic, assign) NSString *nameOfPlayer;
 
 @end

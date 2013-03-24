@@ -134,7 +134,7 @@
     
 	// limit velocity
 	const float minVelocityX = 3;
-	const float minVelocityY = -40;
+	const float minVelocityY = -20;
 	b2Vec2 vel = _body->GetLinearVelocity();
 	if (vel.x < minVelocityX) {
 		vel.x = minVelocityX;

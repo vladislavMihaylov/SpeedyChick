@@ -300,6 +300,16 @@
         }
     }
     
+    CCLOG(@"Stars : %i", curStars);
+    
+    if([Settings sharedSettings].isKidsModeBuyed)
+    {
+        if(curStars == 0)
+        {
+            curStars = 1;
+        }
+    }
+    
     //CCLOG(@"STARS %i curWorld %i curLevel %i STARSCOUNT %@", curStars, currentWorld, currentLevel, [Settings sharedSettings].starsCount);
     
     NSMutableString *newStarsString = [NSMutableString stringWithFormat: @"%@", [Settings sharedSettings].starsCount];

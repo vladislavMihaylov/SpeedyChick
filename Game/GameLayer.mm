@@ -52,7 +52,7 @@
     {
         [[Configuration sharedConfiguration] setConfig];
         
-        CCSprite *bgSprite = [CCSprite spriteWithFile: @"01-1.png"];
+        CCSprite *bgSprite = [CCSprite spriteWithFile: [NSString stringWithFormat: @"bg_0%i.png", currentWorld]];
         bgSprite.position = ccp(240, 160);
         [self addChild: bgSprite];
         

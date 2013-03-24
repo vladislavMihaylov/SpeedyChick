@@ -18,6 +18,7 @@
 
 #import "Configuration.h"
 
+#import "FirstLaunch.h"
 
 @implementation AppDelegate
 
@@ -74,10 +75,8 @@
     [[UIApplication sharedApplication] cancelAllLocalNotifications]; //удаляем все!
 }
 
-- (void) applicationDidFinishLaunching:(UIApplication*)application {
-	
-
-    
+- (void) applicationDidFinishLaunching:(UIApplication*)application
+{
     [self deleteAllNotifs];
     [self addNotification];
     
@@ -87,7 +86,8 @@
     
     [[Settings sharedSettings] load];
     
-    
+    //[Settings sharedSettings].isFirstRun = 1;
+    //[[Settings sharedSettings] save];
     
     //[Settings sharedSettings].countOfRockets = 2;
     //[[Settings sharedSettings] save];
@@ -161,10 +161,17 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	CCScene* scene = [CCBReader sceneWithNodeGraphFromFile:@"MainMenu.ccb"];
     
-    // Run the loaded scene
-	[[CCDirector sharedDirector] runWithScene: scene];
+    if([Settings sharedSettings].isFirstRun)
+    {
+        [[CCDirector sharedDirector] runWithScene: [FirstLaunch scene]];
+    }
+    else
+    {
+        CCScene* scene = [CCBReader sceneWithNodeGraphFromFile:@"MainMenu.ccb"];
+        [[CCDirector sharedDirector] runWithScene: scene];
+    }
+    
 }
 
 

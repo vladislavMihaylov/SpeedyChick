@@ -19,6 +19,8 @@
     CCLabelBMFont *timeLabel;
     CCLabelBMFont *rocketsLabel;
     CCLabelBMFont *coinsLabel;
+    
+    CCLabelBMFont *nameLabel;
 }
 
 @end

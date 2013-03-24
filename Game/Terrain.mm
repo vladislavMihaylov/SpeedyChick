@@ -110,7 +110,7 @@
 
 - (CCSprite*) generateStripesSprite {
 	//CCTexture2D *texture = [self generateStripesTexture];
-	CCSprite *sprite = [CCSprite spriteWithFile: @"1-1-11-2.png"];//[CCSprite spriteWithTexture: texture]
+	CCSprite *sprite = [CCSprite spriteWithFile: [NSString stringWithFormat: @"tx_0%i.png", currentWorld]];//[CCSprite spriteWithTexture: texture]
 	ccTexParams tp = {GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_CLAMP_TO_EDGE};
 	[sprite.texture setTexParameters:&tp];
 	

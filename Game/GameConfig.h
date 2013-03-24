@@ -52,6 +52,8 @@
 
 #define kDateKey              @"kDateKey"
 
+#define kNameKey              @"kNameKey"
+
 #define backBtnTag         -1
 #define menuBgTag          10
 #define exitBtnTag         11
