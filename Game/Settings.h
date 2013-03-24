@@ -23,6 +23,8 @@
     NSString *futureDate;
     
     NSString *nameOfPlayer;
+    
+    NSInteger energy;
 }
 
 + (Settings *) sharedSettings;
@@ -50,5 +52,7 @@
 @property (nonatomic, assign) NSString *futureDate;
 
 @property (nonatomic, assign) NSString *nameOfPlayer;
+
+@property (nonatomic, assign) NSInteger energy;
 
 @end

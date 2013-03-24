@@ -170,11 +170,16 @@
     
 }
 
-- (BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+- (BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
 
 	CGPoint location = [touch locationInView:[touch view]];
 	location = [[CCDirector sharedDirector] convertToGL:location];
 	
+    iCanDoSwipe = YES;
+    
+    beginTouchPoint = location;
+    
     _hero.diving = YES;
     
     /*if(ChickOnTheStart)
@@ -185,6 +190,31 @@
 	return YES;
 }
 
+- (void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    if([Settings sharedSettings].isGhostChickBuyed)
+    {
+        CGPoint location = [touch locationInView:[touch view]];
+        location = [[CCDirector sharedDirector] convertToGL:location];
+        
+        if(iCanDoSwipe)
+        {
+            float difference = location.x - beginTouchPoint.x;
+            
+            if(difference > 50)
+            {
+                if(guiLayer.energy >= 2)
+                {
+                    [guiLayer decreaseEnergy];
+                    iCanDoSwipe = NO;
+                    CCLOG(@"SWIPE");
+                    [_hero applyEnergy];
+                }
+            }
+        }
+    }
+}
+
 - (void) startCat
 {
     [guiLayer start];
@@ -192,6 +222,8 @@
 
 - (void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
 	_hero.diving = NO;
+    
+    iCanDoSwipe = YES;
 }
 
 - (void) update: (ccTime) dt
@@ -269,6 +301,12 @@
 }
 
 - (void) showPerfectSlide {
+    
+    if([Settings sharedSettings].isGhostChickBuyed)
+    {
+        [guiLayer increaseEnergy];
+    }
+    
 	NSString *str = @"perfect slide";
 	CCLabelBMFont *label = [CCLabelBMFont labelWithString:str fntFile:@"good_dog_plain_32.fnt"];
 	label.position = ccp(_screenW/2, _screenH/16);
@@ -281,6 +319,12 @@
 }
 
 - (void) showFrenzy {
+    
+    if([Settings sharedSettings].isGhostChickBuyed)
+    {
+        [guiLayer increaseEnergy];
+    }
+    
 	NSString *str = @"FRENZY!";
 	CCLabelBMFont *label = [CCLabelBMFont labelWithString:str fntFile:@"good_dog_plain_32.fnt"];
 	label.position = ccp(_screenW/2, _screenH/16);
@@ -293,6 +337,9 @@
 }
 
 - (void) showHit {
+    
+    
+    
 	NSString *str = @"hit";
 	CCLabelBMFont *label = [CCLabelBMFont labelWithString:str fntFile:@"good_dog_plain_32.fnt"];
 	label.position = ccp(_screenW/2, _screenH/16);

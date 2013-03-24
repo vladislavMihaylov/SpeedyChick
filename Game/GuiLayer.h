@@ -21,9 +21,11 @@
     CCMenuItemImage *applyRocket;
     
     CCLabelTTF *timeLabel;
+    CCLabelBMFont *energyLabel;
     
     NSInteger time;
     NSInteger curStars;
+    NSInteger energy;
     
     BOOL showNewWorld;
 }
@@ -31,8 +33,12 @@
 - (void) start;
 - (void) finish;
 
+- (void) increaseEnergy;
+- (void) decreaseEnergy;
+
 - (void) moveCocoOffsetX: (float) offsetX andFinishPoint: (float) finishPoint;
 
 @property (nonatomic, assign) GameLayer *gameLayer;
+@property (nonatomic, assign) NSInteger energy;
 
 @end

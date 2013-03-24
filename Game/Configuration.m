@@ -52,7 +52,7 @@ Configuration *sharedConfiguration = nil;
     //[Settings sharedSettings].isFirstRun = YES;
     //[Settings sharedSettings].isKidsModeBuyed = NO;
     //[Settings sharedSettings].isSuperChickBuyed = NO;
-    //[Settings sharedSettings].isGhostChickBuyed = NO;
+    //[Settings sharedSettings].isGhostChickBuyed = YES;
     
     //[Settings sharedSettings].futureDate = @"";
     

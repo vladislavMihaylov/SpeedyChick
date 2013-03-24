@@ -21,6 +21,7 @@
 @implementation GuiLayer
 
 @synthesize gameLayer;
+@synthesize energy;
 
 - (void) dealloc
 {
@@ -57,11 +58,53 @@
             [self loadCat];
         }
         
+        if([Settings sharedSettings].isGhostChickBuyed)
+        {
+            [self loadEnergy];
+            energy = 0;
+        }
+        
         ChickOnTheStart = YES;
         
     }
     
     return self;
+}
+
+#pragma mark Energy
+
+- (void) loadEnergy
+{
+    energyLabel = [CCLabelBMFont labelWithString: @"Energy: " fntFile: @"timeFont.fnt"];
+    energyLabel.position = ccp(10, 300);
+    energyLabel.anchorPoint = ccp(0, 0.5);
+    energyLabel.scale = 0.7;
+    [self addChild: energyLabel];
+    
+    [self updateEnergyLabel];
+}
+
+- (void) increaseEnergy
+{
+    energy++;
+    
+    if(energy > 5)
+    {
+        energy = 5;
+    }
+    
+    [self updateEnergyLabel];
+}
+
+- (void) decreaseEnergy
+{
+    energy -= 2;
+    [self updateEnergyLabel];
+}
+
+- (void) updateEnergyLabel
+{
+    energyLabel.string = [NSString stringWithFormat: @"Energy: %i", energy];
 }
 
 #pragma mark Cat

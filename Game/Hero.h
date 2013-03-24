@@ -30,6 +30,7 @@ class HeroContactListener;
 
 - (void) applyBonus;
 - (void) applyRocket;
+- (void) applyEnergy;
 
 - (void) reset;
 - (void) sleep;

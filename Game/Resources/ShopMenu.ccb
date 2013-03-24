@@ -441,8 +441,8 @@
 					<integer>255</integer>
 					<key>position</key>
 					<array>
-						<real>100</real>
-						<real>240</real>
+						<real>66.0234375</real>
+						<real>238.3515625</real>
 					</array>
 					<key>rotation</key>
 					<real>0.0</real>
@@ -501,8 +501,8 @@
 					<integer>255</integer>
 					<key>position</key>
 					<array>
-						<real>240</real>
-						<real>240</real>
+						<real>218.8359375</real>
+						<real>237.734375</real>
 					</array>
 					<key>rotation</key>
 					<real>0.0</real>
@@ -512,6 +512,66 @@
 					<real>0.60000002384185791</real>
 					<key>string</key>
 					<string>higher, faster</string>
+					<key>tag</key>
+					<integer>-1</integer>
+					<key>visible</key>
+					<true/>
+					<key>zOrder</key>
+					<integer>0</integer>
+				</dict>
+			</dict>
+			<dict>
+				<key>children</key>
+				<array/>
+				<key>class</key>
+				<string>CCLabelBMFont</string>
+				<key>properties</key>
+				<dict>
+					<key>anchorPoint</key>
+					<array>
+						<real>0.5</real>
+						<real>0.5</real>
+					</array>
+					<key>color</key>
+					<array>
+						<integer>255</integer>
+						<integer>255</integer>
+						<integer>255</integer>
+					</array>
+					<key>contentSize</key>
+					<array>
+						<real>297</real>
+						<real>35</real>
+					</array>
+					<key>customClass</key>
+					<string></string>
+					<key>fontFile</key>
+					<string>timeFont.fnt</string>
+					<key>isExpanded</key>
+					<true/>
+					<key>isRelativeAnchorPoint</key>
+					<true/>
+					<key>lockedScaleRatio</key>
+					<true/>
+					<key>memberVarAssignmentName</key>
+					<string></string>
+					<key>memberVarAssignmentType</key>
+					<integer>0</integer>
+					<key>opacity</key>
+					<integer>255</integer>
+					<key>position</key>
+					<array>
+						<real>387.44140625</real>
+						<real>237.19921875</real>
+					</array>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scaleX</key>
+					<real>0.60000002384185791</real>
+					<key>scaleY</key>
+					<real>0.60000002384185791</real>
+					<key>string</key>
+					<string>swipe to accelerate</string>
 					<key>tag</key>
 					<integer>-1</integer>
 					<key>visible</key>

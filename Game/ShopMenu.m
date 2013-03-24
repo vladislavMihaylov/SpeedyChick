@@ -20,17 +20,31 @@
 
 - (void) didLoadFromCCB
 {
-    CCMenuItemImage *kidsMode = [CCMenuItemImage itemFromNormalImage: @"kidsModeBtn.png" selectedImage: @"kidsModeBtn.png" target: self selector: @selector(buyfeature:)];
+    CCMenuItemImage *kidsMode = [CCMenuItemImage itemFromNormalImage: @"kidsModeBtn.png"
+                                                       selectedImage: @"kidsModeBtn.png"
+                                                              target: self
+                                                            selector: @selector(buyfeature:)
+                                 ];
+    
     kidsMode.position = item_1.position;
     kidsMode.tag = 1;
     
-    CCMenuItemImage *superChick = [CCMenuItemImage itemFromNormalImage: @"superChickBtn.png" selectedImage: @"superChickBtn.png" target: self selector: @selector(buyfeature:)];
+    CCMenuItemImage *superChick = [CCMenuItemImage itemFromNormalImage: @"superChickBtn.png"
+                                                         selectedImage: @"superChickBtn.png"
+                                                                target: self
+                                                              selector: @selector(buyfeature:)
+                                   ];
+    
     superChick.position = item_2.position;
     superChick.tag = 2;
     
-    CCMenuItemImage *ghostChick = [CCMenuItemImage itemFromNormalImage: @"ghostChickBtn.png" selectedImage: @"ghostChickBtn.png"];
+    CCMenuItemImage *ghostChick = [CCMenuItemImage itemFromNormalImage: @"ghostChickBtn.png"
+                                                         selectedImage: @"ghostChickBtn.png"
+                                                                target: self
+                                                              selector: @selector(buyfeature:)
+                                   ];
+    
     ghostChick.position = item_3.position;
-    ghostChick.opacity = 120;
     ghostChick.tag = 3;
     
     CCMenu *shopMenu = [CCMenu menuWithItems: kidsMode, superChick, ghostChick, nil];
@@ -59,6 +73,14 @@
         CCLabelBMFont *okLabel = [CCLabelBMFont labelWithString: @"OK" fntFile: @"timeFont.fnt"];
         okLabel.position = ccp(item_2.position.x, item_2.position.y - 70);
         [self addChild: okLabel z: 1 tag: 556];
+    }
+    
+    if([Settings sharedSettings].isGhostChickBuyed)
+    {
+        
+        CCLabelBMFont *okLabel = [CCLabelBMFont labelWithString: @"OK" fntFile: @"timeFont.fnt"];
+        okLabel.position = ccp(item_3.position.x, item_3.position.y - 70);
+        [self addChild: okLabel z: 1 tag: 557];
     }
 }
 
@@ -105,6 +127,23 @@
             currentSpeedOfFly = defaultSpeedOfFly;
             
             [self removeChildByTag: 556 cleanup: YES];
+        }
+    }
+    
+    if(sender.tag == 3)
+    {
+        [Settings sharedSettings].isGhostChickBuyed = ![Settings sharedSettings].isGhostChickBuyed;
+        [[Settings sharedSettings] save];
+        
+        if([Settings sharedSettings].isGhostChickBuyed)
+        {
+            CCLabelBMFont *okLabel = [CCLabelBMFont labelWithString: @"OK" fntFile: @"timeFont.fnt"];
+            okLabel.position = ccp(item_3.position.x, item_3.position.y - 70);
+            [self addChild: okLabel z: 1 tag: 557];
+        }
+        else
+        {
+            [self removeChildByTag: 557 cleanup: YES];
         }
     }
 }

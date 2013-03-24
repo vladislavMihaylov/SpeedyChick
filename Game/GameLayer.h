@@ -23,7 +23,9 @@
 	GLESDebugDraw *_render;
 	CCSprite *_resetButton;
     
+    CGPoint beginTouchPoint;
     
+    BOOL iCanDoSwipe;
     
 }
 @property (readonly) int screenW;

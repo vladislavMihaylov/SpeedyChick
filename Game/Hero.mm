@@ -115,6 +115,11 @@
     _body->ApplyLinearImpulse(b2Vec2(12,5),_body->GetPosition());
 }
 
+- (void) applyEnergy
+{
+    _body->ApplyLinearImpulse(b2Vec2(7,0),_body->GetPosition());
+}
+
 - (void) updatePhysics {
 
 	// apply force if diving

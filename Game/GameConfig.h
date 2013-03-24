@@ -54,6 +54,8 @@
 
 #define kNameKey              @"kNameKey"
 
+#define kEnergyKey            @"kEnergyKey"
+
 #define backBtnTag         -1
 #define menuBgTag          10
 #define exitBtnTag         11

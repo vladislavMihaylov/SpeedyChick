@@ -215,6 +215,15 @@ Settings *sharedSettings = nil;
         self.futureDate = @"";
     }
     
+    NSNumber *energyData = [defaults objectForKey: kEnergyKey];
+    if(energyData)
+    {
+        self.energy = [energyData integerValue];
+    }
+    else
+    {
+        self.energy = 0;
+    }
 }
 
 - (void) save
@@ -243,6 +252,8 @@ Settings *sharedSettings = nil;
     [defaults setObject: [NSString stringWithString: self.futureDate] forKey: kDateKey];
     
     [defaults setObject: [NSString stringWithString: self.nameOfPlayer] forKey: kNameKey];
+    
+    [defaults setObject: [NSNumber numberWithInteger: self.energy] forKey: kEnergyKey];
     
     [defaults synchronize];
 }
