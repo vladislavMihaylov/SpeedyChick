@@ -21,6 +21,8 @@ NSInteger costForOpenLevel = 100;
 NSInteger currentHeightOfFly = 0;
 NSInteger currentSpeedOfFly = 0;
 
+NSString *suffix = @"";
+
 float countOfMana = 0;
 
 BOOL isGameActive = NO;

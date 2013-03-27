@@ -10,7 +10,8 @@
 
 @class GameLayer;
 
-@interface Terrain : CCNode {
+@interface Terrain : CCNode
+{
 	CGPoint hillKeyPoints[kMaxHillKeyPoints];
 	int nHillKeyPoints;
 	int fromKeyPointI;

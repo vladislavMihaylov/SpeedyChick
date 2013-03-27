@@ -224,6 +224,10 @@
 		F5050C2016EA649900C2867F /* Noise.png in Resources */ = {isa = PBXBuildFile; fileRef = F5050C1E16EA649900C2867F /* Noise.png */; };
 		F506BB9916E90A9B0084F483 /* GameConfig.mm in Sources */ = {isa = PBXBuildFile; fileRef = F506BB9816E90A9B0084F483 /* GameConfig.mm */; };
 		F506BB9C16E9131C0084F483 /* DataAboutWorlds.plist in Resources */ = {isa = PBXBuildFile; fileRef = F506BB9B16E9131C0084F483 /* DataAboutWorlds.plist */; };
+		F5091B0D1703337C00A170F6 /* texture-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5091B091703337C00A170F6 /* texture-hd.plist */; };
+		F5091B0E1703337C00A170F6 /* texture-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F5091B0A1703337C00A170F6 /* texture-hd.png */; };
+		F5091B0F1703337C00A170F6 /* texture.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5091B0B1703337C00A170F6 /* texture.plist */; };
+		F5091B101703337C00A170F6 /* texture.png in Resources */ = {isa = PBXBuildFile; fileRef = F5091B0C1703337C00A170F6 /* texture.png */; };
 		F509DA3916FDFB9800108219 /* bg_01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F509DA3716FDFB9700108219 /* bg_01-hd.png */; };
 		F509DA3A16FDFB9800108219 /* bg_01.png in Resources */ = {isa = PBXBuildFile; fileRef = F509DA3816FDFB9700108219 /* bg_01.png */; };
 		F509DA3D16FE017A00108219 /* tx_03-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F509DA3B16FE017A00108219 /* tx_03-hd.png */; };
@@ -1018,6 +1022,10 @@
 		F5050C1E16EA649900C2867F /* Noise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Noise.png; path = good_dog/Noise.png; sourceTree = "<group>"; };
 		F506BB9816E90A9B0084F483 /* GameConfig.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameConfig.mm; sourceTree = "<group>"; };
 		F506BB9B16E9131C0084F483 /* DataAboutWorlds.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DataAboutWorlds.plist; sourceTree = "<group>"; };
+		F5091B091703337C00A170F6 /* texture-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "texture-hd.plist"; path = "Resources/texture-hd.plist"; sourceTree = "<group>"; };
+		F5091B0A1703337C00A170F6 /* texture-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "texture-hd.png"; path = "Resources/texture-hd.png"; sourceTree = "<group>"; };
+		F5091B0B1703337C00A170F6 /* texture.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = texture.plist; path = Resources/texture.plist; sourceTree = "<group>"; };
+		F5091B0C1703337C00A170F6 /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = texture.png; path = Resources/texture.png; sourceTree = "<group>"; };
 		F509DA3716FDFB9700108219 /* bg_01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_01-hd.png"; sourceTree = "<group>"; };
 		F509DA3816FDFB9700108219 /* bg_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_01.png; sourceTree = "<group>"; };
 		F509DA3B16FE017A00108219 /* tx_03-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tx_03-hd.png"; sourceTree = "<group>"; };
@@ -1428,6 +1436,10 @@
 		4DFD2EBF139CCCA0001E1480 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F5091B091703337C00A170F6 /* texture-hd.plist */,
+				F5091B0A1703337C00A170F6 /* texture-hd.png */,
+				F5091B0B1703337C00A170F6 /* texture.plist */,
+				F5091B0C1703337C00A170F6 /* texture.png */,
 				F578925516FEF65500DAEFA9 /* mainMenuBg-hd.png */,
 				F578925616FEF65500DAEFA9 /* mainMenuBg.png */,
 				F509DA5A16FE2B8700108219 /* chick-hd.png */,
@@ -2555,6 +2567,10 @@
 				F5F8C76A16FF5FE800EF747B /* block.png in Resources */,
 				F5F8C76D16FF66A400EF747B /* cancelBtnOn.png in Resources */,
 				F5F8C76E16FF66A400EF747B /* cancelBtnOn-hd.png in Resources */,
+				F5091B0D1703337C00A170F6 /* texture-hd.plist in Resources */,
+				F5091B0E1703337C00A170F6 /* texture-hd.png in Resources */,
+				F5091B0F1703337C00A170F6 /* texture.plist in Resources */,
+				F5091B101703337C00A170F6 /* texture.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2802,6 +2818,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "Game/libs Submodules/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2823,6 +2840,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "Game/libs Submodules/**";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

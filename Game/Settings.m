@@ -28,6 +28,8 @@ Settings *sharedSettings = nil;
 
 @synthesize nameOfPlayer;
 
+@synthesize energy;
+
 + (Settings *) sharedSettings
 {
     if(!sharedSettings)

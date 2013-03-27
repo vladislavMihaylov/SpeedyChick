@@ -51,9 +51,9 @@
         
 		world = w;
 
-		//CGSize size = [[CCDirector sharedDirector] winSize];
-		screenW = 480;//size.width;
-		screenH = 320;//size.height;
+		CGSize size = [[CCDirector sharedDirector] winSize];
+		screenW = size.width;
+		screenH = size.height;
         
         NSString *number =[NSString stringWithFormat: @"%i%i", currentWorld, currentLevel];
         

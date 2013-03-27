@@ -23,9 +23,9 @@
     [self addChild: curPinguinSprite];
     
     
-    CCSprite *curRocketSprite = [CCSprite spriteWithFile: @"rocket.png"];
-    curRocketSprite.position = curRockets.position;
-    [self addChild: curRocketSprite];
+    //CCSprite *curRocketSprite = [CCSprite spriteWithFile: @"rocket.png"];
+    //curRocketSprite.position = curRockets.position;
+    //[self addChild: curRocketSprite];
     
     [self updateRocketsAndCoinsString];
     

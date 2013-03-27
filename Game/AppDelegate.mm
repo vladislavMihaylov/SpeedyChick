@@ -17,7 +17,7 @@
 #import "SHKFacebook.h"
 
 #import "Configuration.h"
-
+#import "MainMenu.h"
 #import "FirstLaunch.h"
 
 @implementation AppDelegate
@@ -86,8 +86,8 @@
     
     [[Settings sharedSettings] load];
     
-    [Settings sharedSettings].isFirstRun = 1;
-    [[Settings sharedSettings] save];
+    //[Settings sharedSettings].isFirstRun = 1;
+    //[[Settings sharedSettings] save];
     
     //[Settings sharedSettings].countOfRockets = 2;
     //[[Settings sharedSettings] save];
@@ -122,7 +122,20 @@
 	
 	// Enables High Res mode (Retina Display) on iPhone 4 and maintains low res on all other devices
 	if( ! [director enableRetinaDisplay:YES] )
+    {
 		CCLOG(@"Retina Display Not supported");
+    }
+    
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    
+    if(size.width == 320)
+    {
+        suffix = @"";
+    }
+    else
+    {
+        suffix = @"-ipad";
+    }
 	
 	//
 	// VERY IMPORTANT:
@@ -169,7 +182,7 @@
     else
     {
         CCScene* scene = [CCBReader sceneWithNodeGraphFromFile:@"MainMenu.ccb"];
-        [[CCDirector sharedDirector] runWithScene: scene];
+        [[CCDirector sharedDirector] runWithScene: sce];
     }
     
 }

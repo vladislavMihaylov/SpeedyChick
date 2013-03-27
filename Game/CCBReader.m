@@ -9,6 +9,8 @@
 #import "CCBReader.h"
 #import <objc/runtime.h>
 
+#import "GameConfig.h"
+
 @implementation CCBReader
 
 - (id)init
@@ -330,10 +332,15 @@
     NSString* customClass = [props objectForKey:@"customClass"];
     if (extraProps) customClass = NULL;
     
+    CCLOG(@"Class %@", class);
+    
     CCNode* node;
     if ([class isEqualToString:@"CCParticleSystem"])
     {
         NSString* spriteFile = [NSString stringWithFormat:@"%@%@", path, [props objectForKey:@"spriteFile"]];
+        
+        
+        
         CCParticleSystem* sys = [[[ARCH_OPTIMAL_PARTICLE_SYSTEM alloc] initWithTotalParticles:2048] autorelease];
         sys.texture = [[CCTextureCache sharedTextureCache] addImage:spriteFile];
         node = sys;
@@ -438,6 +445,9 @@
     {
         NSString* spriteFile = [NSString stringWithFormat:@"%@%@", path, [props objectForKey:@"spriteFile"]];
         NSString* spriteSheetFile = [props objectForKey:@"spriteFramesFile"];
+        
+        
+        
         if (spriteSheetFile && ![spriteSheetFile isEqualToString:@""]) spriteSheetFile = [NSString stringWithFormat:@"%@%@", path, spriteSheetFile];
         
         if (spriteSheetFile && ![spriteSheetFile isEqualToString:@""])
@@ -637,11 +647,16 @@
     }
     
     NSDictionary* nodeGraph = [dict objectForKey:@"nodeGraph"];
+    
+    //CCLOG(@"Dictionary nodeGraph %@", nodeGraph);
+    
     return [CCBReader ccObjectFromDictionary:nodeGraph extraProps:extraProps assetsDir:path owner:(NSObject*) owner];
 }
 
 + (CCNode*) nodeGraphFromDictionary:(NSDictionary *)dict owner:(id) owner
 {
+    //CCLOG(@"Dictionary %@", dict);
+    
     return [CCBReader nodeGraphFromDictionary:dict extraProps:NULL assetsDir:@"" owner:owner];
 }
 
@@ -653,6 +668,9 @@
 + (CCNode*) nodeGraphFromFile:(NSString*) file owner:(id)owner
 {
     NSString* path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:file];
+    
+    //CCLOG(@"File path %@", path);
+    
     return [CCBReader nodeGraphFromDictionary:[NSMutableDictionary dictionaryWithContentsOfFile:path] owner:owner];
 }
 
@@ -668,6 +686,8 @@
 
 + (CCScene*) sceneWithNodeGraphFromFile:(NSString *)file owner:(id)owner
 {
+    //CCLOG(@"File %@", file);
+    
     CCNode* node = [CCBReader nodeGraphFromFile:file owner:owner];
     CCScene* scene = [CCScene node];
     [scene addChild:node];

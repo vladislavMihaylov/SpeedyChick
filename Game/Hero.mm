@@ -31,10 +31,11 @@
 		
 #ifndef DRAW_BOX2D_WORLD
 		self.sprite = [CCSprite spriteWithFile: [NSString stringWithFormat: @"pinguin_%i.png", [Settings sharedSettings].currentPinguin]];
+        self.sprite.scale = 1.3;
 		[self addChild:_sprite];
 #endif
 		_body = NULL;
-		_radius = 14.0f;
+		_radius = 18.0f;
 
 		_contactListener = new HeroContactListener(self);
 		_game.world->SetContactListener(_contactListener);

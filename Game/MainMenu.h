@@ -21,6 +21,7 @@
     CCLabelBMFont *coinsLabel;
     
     CCLabelBMFont *nameLabel;
+
 }
 
 @end

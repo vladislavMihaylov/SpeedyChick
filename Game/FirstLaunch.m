@@ -12,6 +12,8 @@
 
 #import "CCBReader.h"
 
+#import "MainMenu.h"
+
 @implementation FirstLaunch
 
 + (CCScene *) scene

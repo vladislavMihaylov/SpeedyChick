@@ -74,6 +74,8 @@ extern NSInteger costForOpenLevel;
 extern NSInteger currentHeightOfFly;
 extern NSInteger currentSpeedOfFly;
 
+extern NSString *suffix;
+
 extern float countOfMana;
 
 extern BOOL isGameActive;
