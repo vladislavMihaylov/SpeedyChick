@@ -113,7 +113,7 @@
 	//
 	//
 	EAGLView *glView = [EAGLView viewWithFrame:[window bounds]
-								   pixelFormat:kEAGLColorFormatRGB565	// kEAGLColorFormatRGBA8
+								   pixelFormat:kEAGLColorFormatRGBA8	// kEAGLColorFormatRGB565
 								   depthFormat:0						// GL_DEPTH_COMPONENT16_OES
 						];
 	
@@ -182,7 +182,7 @@
     else
     {
         CCScene* scene = [CCBReader sceneWithNodeGraphFromFile:@"MainMenu.ccb"];
-        [[CCDirector sharedDirector] runWithScene: sce];
+        [[CCDirector sharedDirector] runWithScene: scene];
     }
     
 }
