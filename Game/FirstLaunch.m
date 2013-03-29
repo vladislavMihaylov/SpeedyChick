@@ -36,9 +36,12 @@
 {
     if(self = [super init])
     {
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"mainMenuTextures%@.plist", suffix]];
         
-        CCSprite *bg = [CCSprite spriteWithFile: @"mainMenuBg.png"];
-        bg.position = ccp(240, 160);
+        CGSize size = [[CCDirector sharedDirector] winSize];
+        
+        CCSprite *bg = [CCSprite spriteWithSpriteFrameName: @"mainMenuBg.png"];
+        bg.position = ccp(size.width/2, size.height / 2);
         [self addChild: bg];
         
         CCMenu *eggMenu = [CCMenu menuWithItems: nil];

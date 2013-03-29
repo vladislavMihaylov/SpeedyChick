@@ -34,18 +34,20 @@
     {
         showNewWorld = NO;
         
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"gameMenu%@.plist", suffix]];
+        
         size = [[CCDirector sharedDirector] winSize];
         
-        applyRocket = [CCMenuItemImage itemFromNormalImage: @"rocket.png"
-                                             selectedImage: @"rocket.png"
-                                                    target: self
-                                                  selector: @selector(applyRocket)
+        applyRocket = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"rocket.png"]
+                                             selectedSprite: [CCSprite spriteWithSpriteFrameName: @"rocket.png"]
+                                                     target: self
+                                                   selector: @selector(applyRocket)
                        ];
         
         applyRocket.position = ccp(size.width * 0.8125, size.height * 0.875);
         
-        CCMenuItemImage *pause = [CCMenuItemImage itemFromNormalImage: @"pauseBtn.png"
-                                                        selectedImage: @"pauseBtn.png"
+        CCMenuItemImage *pause = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"pauseBtn.png"]
+                                                        selectedSprite: [CCSprite spriteWithSpriteFrameName: @"pauseBtn.png"]
                                                                target: self
                                                              selector: @selector(doPause)
                                   ];
@@ -221,12 +223,12 @@
         [self pauseSchedulerAndActions];
         [cat pauseSchedulerAndActions];
         
-        CCSprite *menuBg = [CCSprite spriteWithFile: @"menuBg.png"];
+        CCSprite *menuBg = [CCSprite spriteWithSpriteFrameName: @"menuBg.png"];
         menuBg.position = ccp(size.width / 2, size.height * 1.5);
         [self addChild: menuBg z: 10 tag: menuBgTag];
         
-        CCMenuItemImage *exit = [CCMenuItemImage itemFromNormalImage: @"exitBtn.png"
-                                                       selectedImage: @"exitBtnOn.png"
+        CCMenuItemImage *exit = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"exitBtn.png"]
+                                                       selectedSprite: [CCSprite spriteWithSpriteFrameName: @"exitBtnOn.png"]
                                                               target: self
                                                             selector: @selector(exitToMainMenu)
                                  ];
@@ -234,16 +236,16 @@
         exit.position = ccp(menuBg.contentSize.width/4, menuBg.contentSize.height / 2);
         exit.tag = exitBtnTag;
         
-        CCMenuItemImage *restart = [CCMenuItemImage itemFromNormalImage: @"restartBtn.png"
-                                                          selectedImage: @"restartBtnOn.png"
+        CCMenuItemImage *restart = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"restartBtn.png"]
+                                                          selectedSprite: [CCSprite spriteWithSpriteFrameName: @"restartBtnOn.png"]
                                                                  target: self
                                                                selector:@selector(resetLevel)
                                     ];
         
         restart.position = ccp(menuBg.contentSize.width/2, menuBg.contentSize.height / 2);
         
-        CCMenuItemImage *play = [CCMenuItemImage itemFromNormalImage: @"continueBtn.png"
-                                                       selectedImage: @"continueBtnOn.png"
+        CCMenuItemImage *play = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"continueBtn.png"]
+                                                       selectedSprite: [CCSprite spriteWithSpriteFrameName: @"continueBtnOn.png"]
                                                               target: self
                                                             selector:@selector(unPause)
                                  ];
@@ -273,12 +275,12 @@
         [self pauseSchedulerAndActions];
         [cat pauseSchedulerAndActions];
         
-        CCSprite *menuBg = [CCSprite spriteWithFile: @"menuBg.png"];
+        CCSprite *menuBg = [CCSprite spriteWithSpriteFrameName: @"menuBg.png"];
         menuBg.position = ccp(size.width / 2, size.height * 1.5);
         [self addChild: menuBg z: 10 tag: menuBgTag];
         
-        CCMenuItemImage *exit = [CCMenuItemImage itemFromNormalImage: @"exitBtn.png"
-                                                       selectedImage: @"exitBtnOn.png"
+        CCMenuItemImage *exit = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"exitBtn.png"]
+                                                       selectedSprite: [CCSprite spriteWithSpriteFrameName: @"exitBtnOn.png"]
                                                               target: self
                                                             selector: @selector(exitToMainMenu)
                                  ];
@@ -286,8 +288,8 @@
         exit.position = ccp(menuBg.contentSize.width * 0.35, menuBg.contentSize.height / 2);
         exit.tag = exitBtnTag;
         
-        CCMenuItemImage *restart = [CCMenuItemImage itemFromNormalImage: @"restartBtn.png"
-                                                          selectedImage: @"restartBtnOn.png"
+        CCMenuItemImage *restart = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"restartBtn.png"]
+                                                          selectedSprite: [CCSprite spriteWithSpriteFrameName: @"restartBtnOn.png"]
                                                                  target: self
                                                                selector:@selector(resetLevel)
                                     ];
@@ -465,29 +467,29 @@
         [self pauseSchedulerAndActions];
         [cat pauseSchedulerAndActions];
         
-        CCSprite *menuBg = [CCSprite spriteWithFile: @"menuBg.png"];
+        CCSprite *menuBg = [CCSprite spriteWithSpriteFrameName: @"menuBg.png"];
         menuBg.position = ccp(size.width / 2, size.height * 1.5);
         [self addChild: menuBg z: 10 tag: menuBgTag];
         
-        CCMenuItemImage *exit = [CCMenuItemImage itemFromNormalImage: @"exitBtn.png"
-                                                       selectedImage: @"exitBtnOn.png"
-                                                              target: self
-                                                            selector: @selector(exitToMainMenu)
+        CCMenuItemImage *exit = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"exitBtn.png"]
+                                                       selectedSprite: [CCSprite spriteWithSpriteFrameName: @"exitBtnOn.png"]
+                                                               target: self
+                                                             selector: @selector(exitToMainMenu)
                                  ];
         
         exit.position = ccp(menuBg.contentSize.width * 0.25, menuBg.contentSize.height / 2);
         exit.tag = exitBtnTag;
         
-        CCMenuItemImage *restart = [CCMenuItemImage itemFromNormalImage: @"restartBtn.png"
-                                                          selectedImage: @"restartBtnOn.png"
-                                                                 target: self
-                                                               selector:@selector(resetLevel)
+        CCMenuItemImage *restart = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"restartBtn.png"]
+                                                          selectedSprite: [CCSprite spriteWithSpriteFrameName: @"restartBtnOn.png"]
+                                                                  target: self
+                                                                selector: @selector(resetLevel)
                                     ];
         
         restart.position = ccp(menuBg.contentSize.width * 0.5, menuBg.contentSize.height / 2);
         
-        CCMenuItemImage *shareToFBBtn = [CCMenuItemImage itemFromNormalImage: @"facebookBtn.png"
-                                                               selectedImage: @"facebookBtnOn.png"
+        CCMenuItemImage *shareToFBBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"facebookBtn.png"]
+                                                               selectedSprite: [CCSprite spriteWithSpriteFrameName: @"facebookBtnOn.png"]
                                                                       target: self
                                                                     selector:@selector(sendToFB)
                                          ];
@@ -498,16 +500,16 @@
         
         if(!showNewWorld)
         {
-            next = [CCMenuItemImage itemFromNormalImage: @"nextLevel.png"
-                                          selectedImage: @"nextLevelOn.png"
+            next = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"nextLevel.png"]
+                                          selectedSprite: [CCSprite spriteWithSpriteFrameName: @"nextLevelOn.png"]
                                                  target: self
                                                selector:@selector(playNextLevel)
                     ];
         }
         else
         {
-            next = [CCMenuItemImage itemFromNormalImage: @"nextLevel.png"
-                                          selectedImage: @"nextLevelOn.png"
+            next = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"nextLevel.png"]
+                                          selectedSprite: [CCSprite spriteWithSpriteFrameName: @"nextLevelOn.png"]
                                                  target: self
                                                selector:@selector(showWorldsMenu)
                     ];
@@ -520,7 +522,7 @@
         
         [menuBg runAction: [CCMoveTo actionWithDuration: 0.25 position: ccp(size.width / 2, size.height / 2)]];
         
-        CCSprite *stars = [CCSprite spriteWithFile: [NSString stringWithFormat: @"%istars.png", curStars]];
+        CCSprite *stars = [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"%istars.png", curStars]];
         stars.position = ccp(menuBg.contentSize.width / 2, menuBg.contentSize.height * 0.95);
         [menuBg addChild: stars];
     }
