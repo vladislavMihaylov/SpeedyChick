@@ -14,6 +14,8 @@
     CCMenu *selectLevelMenu;
     
     CCMenu *levelsMenu;
+    
+    CGSize size;
 }
 
 @end

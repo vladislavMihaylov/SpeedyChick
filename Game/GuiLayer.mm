@@ -34,23 +34,25 @@
     {
         showNewWorld = NO;
         
+        size = [[CCDirector sharedDirector] winSize];
+        
         applyRocket = [CCMenuItemImage itemFromNormalImage: @"rocket.png"
                                              selectedImage: @"rocket.png"
                                                     target: self
                                                   selector: @selector(applyRocket)
                        ];
         
-        applyRocket.position = ccp(390, 280);
+        applyRocket.position = ccp(size.width * 0.8125, size.height * 0.875);
         
-        CCMenuItemImage *reset = [CCMenuItemImage itemFromNormalImage: @"pauseBtn.png"
+        CCMenuItemImage *pause = [CCMenuItemImage itemFromNormalImage: @"pauseBtn.png"
                                                         selectedImage: @"pauseBtn.png"
                                                                target: self
                                                              selector: @selector(doPause)
                                   ];
         
-        reset.position = ccp(460, 300);
+        pause.position = ccp(size.width * 0.9583, size.height * 0.9375);
         
-        CCMenu *ROCKET = [CCMenu menuWithItems: applyRocket, reset, nil];
+        CCMenu *ROCKET = [CCMenu menuWithItems: applyRocket, pause, nil];
         ROCKET.position = ccp(0, 0);
         [self addChild: ROCKET z: 10 tag: 111];
         
@@ -61,7 +63,7 @@
                                        fontSize: 20
                      ];
         
-        timeLabel.position = ccp(240, 300);
+        timeLabel.position = ccp(size.width / 2, size.height * 0.9375);
         timeLabel.color = ccc3(0, 0, 0);
         [self addChild: timeLabel];
         
@@ -93,7 +95,7 @@
                                          fntFile: @"timeFont.fnt"
                    ];
     
-    energyLabel.position = ccp(10, 300);
+    energyLabel.position = ccp(size.width * 0.02, size.height * 0.9375);
     energyLabel.anchorPoint = ccp(0, 0.5);
     energyLabel.scale = 0.7;
     [self addChild: energyLabel];
@@ -132,8 +134,10 @@
     [cat setPosition: catStartPosition];
     [self addChild: cat];
     
-    coco = [CCSprite spriteWithFile: [NSString stringWithFormat: @"pinguin_%i.png", [Settings sharedSettings].currentPinguin]];
-    coco.scale = 0.6;
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"chicks%@.plist", suffix]];
+    
+    coco = [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"c_%i.png", [Settings sharedSettings].currentPinguin]];
+    coco.scale = 0.4;
     [coco setPosition: cocoStartPosition];
     [self addChild: coco z: 10];
 }
@@ -218,7 +222,7 @@
         [cat pauseSchedulerAndActions];
         
         CCSprite *menuBg = [CCSprite spriteWithFile: @"menuBg.png"];
-        menuBg.position = ccp(240, 480);
+        menuBg.position = ccp(size.width / 2, size.height * 1.5);
         [self addChild: menuBg z: 10 tag: menuBgTag];
         
         CCMenuItemImage *exit = [CCMenuItemImage itemFromNormalImage: @"exitBtn.png"
@@ -254,7 +258,7 @@
         [menuBg addChild: pauseMenu z:1 tag: 45];
         
         
-        [menuBg runAction: [CCMoveTo actionWithDuration: 0.25 position: ccp(240, 160)]];
+        [menuBg runAction: [CCMoveTo actionWithDuration: 0.25 position: ccp(size.width / 2, size.height / 2)]];
         
         isGameActive = NO;
         
@@ -270,7 +274,7 @@
         [cat pauseSchedulerAndActions];
         
         CCSprite *menuBg = [CCSprite spriteWithFile: @"menuBg.png"];
-        menuBg.position = ccp(240, 480);
+        menuBg.position = ccp(size.width / 2, size.height * 1.5);
         [self addChild: menuBg z: 10 tag: menuBgTag];
         
         CCMenuItemImage *exit = [CCMenuItemImage itemFromNormalImage: @"exitBtn.png"
@@ -295,7 +299,7 @@
         gameOverMenu.position = ccp(0, 0);
         [menuBg addChild: gameOverMenu];
         
-        [menuBg runAction: [CCMoveTo actionWithDuration: 0.5 position: ccp(240, 160)]];
+        [menuBg runAction: [CCMoveTo actionWithDuration: 0.5 position: ccp(size.width / 2, size.height / 2)]];
         
         isGameActive = NO;
     }
@@ -462,7 +466,7 @@
         [cat pauseSchedulerAndActions];
         
         CCSprite *menuBg = [CCSprite spriteWithFile: @"menuBg.png"];
-        menuBg.position = ccp(240, 480);
+        menuBg.position = ccp(size.width / 2, size.height * 1.5);
         [self addChild: menuBg z: 10 tag: menuBgTag];
         
         CCMenuItemImage *exit = [CCMenuItemImage itemFromNormalImage: @"exitBtn.png"
@@ -514,7 +518,7 @@
         gameOverMenu.position = ccp(0, 0);
         [menuBg addChild: gameOverMenu];
         
-        [menuBg runAction: [CCMoveTo actionWithDuration: 0.25 position: ccp(240, 160)]];
+        [menuBg runAction: [CCMoveTo actionWithDuration: 0.25 position: ccp(size.width / 2, size.height / 2)]];
         
         CCSprite *stars = [CCSprite spriteWithFile: [NSString stringWithFormat: @"%istars.png", curStars]];
         stars.position = ccp(menuBg.contentSize.width / 2, menuBg.contentSize.height * 0.95);
@@ -524,7 +528,7 @@
 
 - (void) showWorldsMenu
 {
-    CCScene * scene = [CCBReader sceneWithNodeGraphFromFile: @"SelectWorldMenu.ccb"];
+    CCScene * scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"SelectWorldMenu%@.ccb", suffix]];
     
     [[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
 }

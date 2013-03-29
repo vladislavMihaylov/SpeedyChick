@@ -20,8 +20,10 @@
 
 - (void) didLoadFromCCB
 {
-    CCMenuItemImage *kidsMode = [CCMenuItemImage itemFromNormalImage: @"kidsModeBtn.png"
-                                                       selectedImage: @"kidsModeBtn.png"
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"chicks%@.plist", suffix]];
+    
+    CCMenuItemImage *kidsMode = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"babyChick.png"]
+                                                       selectedSprite: [CCSprite spriteWithSpriteFrameName: @"babyChickOn.png"]
                                                               target: self
                                                             selector: @selector(buyfeature:)
                                  ];
@@ -29,8 +31,8 @@
     kidsMode.position = item_1.position;
     kidsMode.tag = 1;
     
-    CCMenuItemImage *superChick = [CCMenuItemImage itemFromNormalImage: @"superChickBtn.png"
-                                                         selectedImage: @"superChickBtn.png"
+    CCMenuItemImage *superChick = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"superChick.png"]
+                                                         selectedSprite: [CCSprite spriteWithSpriteFrameName: @"superChickOn.png"]
                                                                 target: self
                                                               selector: @selector(buyfeature:)
                                    ];
@@ -38,8 +40,8 @@
     superChick.position = item_2.position;
     superChick.tag = 2;
     
-    CCMenuItemImage *ghostChick = [CCMenuItemImage itemFromNormalImage: @"ghostChickBtn.png"
-                                                         selectedImage: @"ghostChickBtn.png"
+    CCMenuItemImage *ghostChick = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"ghostChick.png"]
+                                                         selectedSprite: [CCSprite spriteWithSpriteFrameName: @"ghostChickOn.png"]
                                                                 target: self
                                                               selector: @selector(buyfeature:)
                                    ];
@@ -61,7 +63,7 @@
         [Settings sharedSettings].isCatEnabled = NO;
         
         CCLabelBMFont *okLabel = [CCLabelBMFont labelWithString: @"OK" fntFile: @"timeFont.fnt"];
-        okLabel.position = ccp(item_1.position.x, item_1.position.y - 70);
+        okLabel.position = ccp(item_1.position.x, item_1.position.y - 70 * coefForCoords);
         [self addChild: okLabel z: 1 tag: 555];
     }
     
@@ -71,7 +73,7 @@
         currentSpeedOfFly = 50;
         
         CCLabelBMFont *okLabel = [CCLabelBMFont labelWithString: @"OK" fntFile: @"timeFont.fnt"];
-        okLabel.position = ccp(item_2.position.x, item_2.position.y - 70);
+        okLabel.position = ccp(item_2.position.x, item_2.position.y - 70 * coefForCoords);
         [self addChild: okLabel z: 1 tag: 556];
     }
     
@@ -79,7 +81,7 @@
     {
         
         CCLabelBMFont *okLabel = [CCLabelBMFont labelWithString: @"OK" fntFile: @"timeFont.fnt"];
-        okLabel.position = ccp(item_3.position.x, item_3.position.y - 70);
+        okLabel.position = ccp(item_3.position.x, item_3.position.y - 70 * coefForCoords);
         [self addChild: okLabel z: 1 tag: 557];
     }
 }
@@ -96,7 +98,7 @@
             [Settings sharedSettings].isCatEnabled = NO;
             
             CCLabelBMFont *okLabel = [CCLabelBMFont labelWithString: @"OK" fntFile: @"timeFont.fnt"];
-            okLabel.position = ccp(item_1.position.x, item_1.position.y - 70);
+            okLabel.position = ccp(item_1.position.x, item_1.position.y - 70 * coefForCoords);
             [self addChild: okLabel z: 1 tag: 555];
         }
         else
@@ -118,7 +120,7 @@
             currentSpeedOfFly = 50;
             
             CCLabelBMFont *okLabel = [CCLabelBMFont labelWithString: @"OK" fntFile: @"timeFont.fnt"];
-            okLabel.position = ccp(item_2.position.x, item_2.position.y - 70);
+            okLabel.position = ccp(item_2.position.x, item_2.position.y - 70 * coefForCoords);
             [self addChild: okLabel z: 1 tag: 556];
         }
         else
@@ -138,7 +140,7 @@
         if([Settings sharedSettings].isGhostChickBuyed)
         {
             CCLabelBMFont *okLabel = [CCLabelBMFont labelWithString: @"OK" fntFile: @"timeFont.fnt"];
-            okLabel.position = ccp(item_3.position.x, item_3.position.y - 70);
+            okLabel.position = ccp(item_3.position.x, item_3.position.y - 70 * coefForCoords);
             [self addChild: okLabel z: 1 tag: 557];
         }
         else
@@ -150,7 +152,7 @@
 
 - (void) back
 {
-    CCScene* scene = [CCBReader sceneWithNodeGraphFromFile:@"MainMenu.ccb"];
+    CCScene* scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"MainMenu%@.ccb", suffix]];
     
 	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
 }

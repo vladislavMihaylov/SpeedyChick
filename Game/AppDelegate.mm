@@ -86,8 +86,8 @@
     
     [[Settings sharedSettings] load];
     
-    //[Settings sharedSettings].isFirstRun = 1;
-    //[[Settings sharedSettings] save];
+    [Settings sharedSettings].countOfCoins = 111;
+    [[Settings sharedSettings] save];
     
     //[Settings sharedSettings].countOfRockets = 2;
     //[[Settings sharedSettings] save];
@@ -126,16 +126,19 @@
 		CCLOG(@"Retina Display Not supported");
     }
     
-    CGSize size = [[CCDirector sharedDirector] winSize];
     
-    if(size.width == 320)
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
     {
-        suffix = @"";
+        suffix = @"-ipad";
+        coefForCoords = 2;
     }
     else
     {
-        suffix = @"-ipad";
+        suffix = @"";
+        coefForCoords = 1;
     }
+    
+    CCLOG(@"SUFFIX %@", suffix);
 	
 	//
 	// VERY IMPORTANT:
@@ -181,7 +184,7 @@
     }
     else
     {
-        CCScene* scene = [CCBReader sceneWithNodeGraphFromFile:@"MainMenu.ccb"];
+        CCScene* scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"MainMenu%@.ccb", suffix]];
         [[CCDirector sharedDirector] runWithScene: scene];
     }
     

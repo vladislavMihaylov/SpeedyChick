@@ -28,6 +28,8 @@
     NSInteger energy;
     
     BOOL showNewWorld;
+    
+    CGSize size;
 }
 
 - (void) start;

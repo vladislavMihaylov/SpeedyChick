@@ -40,7 +40,7 @@
 	
 	if ((self = [super init])) {
         
-        
+        CCLOG(@"Suffix %@", suffix);
         
         firstTime = YES;
         
@@ -79,7 +79,12 @@
 		
 #ifndef DRAW_BOX2D_WORLD
 		textureSize = 1024;
-		self.stripes = [self generateStripesSprite];
+        
+        CCSprite *sprite = [CCSprite spriteWithFile: [NSString stringWithFormat: @"tx_0%i%@.png", currentWorld, suffix]];//[CCSprite spriteWithTexture: texture]
+        ccTexParams tp = {GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_CLAMP_TO_EDGE};
+        [sprite.texture setTexParameters:&tp];
+        
+		self.stripes = sprite;//[self generateStripesSprite];
 #endif
 		
 		[self generateHillKeyPoints];
@@ -110,7 +115,7 @@
 
 - (CCSprite*) generateStripesSprite {
 	//CCTexture2D *texture = [self generateStripesTexture];
-	CCSprite *sprite = [CCSprite spriteWithFile: [NSString stringWithFormat: @"tx_0%i.png", currentWorld]];//[CCSprite spriteWithTexture: texture]
+	CCSprite *sprite = [CCSprite spriteWithFile: [NSString stringWithFormat: @"tx_0%i%@.png", currentWorld, suffix]];//[CCSprite spriteWithTexture: texture]
 	ccTexParams tp = {GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_CLAMP_TO_EDGE};
 	[sprite.texture setTexParameters:&tp];
 	
@@ -323,7 +328,7 @@
     {
         NSArray *curPoints = [node componentsSeparatedByString: @","];
         
-        CGPoint curPoint = CGPointMake([[curPoints objectAtIndex: 0] floatValue], [[curPoints objectAtIndex: 1] floatValue]);
+        CGPoint curPoint = CGPointMake([[curPoints objectAtIndex: 0] floatValue] * coefForCoords, [[curPoints objectAtIndex: 1] floatValue] * coefForCoords);
         //CCLOG(@"Current Point: %f %f", curPoint.x, curPoint.y);
         
         hillKeyPoints[nHillKeyPoints++] = curPoint;

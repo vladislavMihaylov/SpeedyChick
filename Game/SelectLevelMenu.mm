@@ -27,6 +27,10 @@
     levelsMenu.position = ccp(0, 0);
     [self addChild: levelsMenu];
     
+    size = [[CCDirector sharedDirector] winSize];
+    
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"SelectMenuFiles%@.plist", suffix]];
+    
     [self updateItems];
 }
 
@@ -54,8 +58,8 @@
         
         if([curNum integerValue] == 1)
         {
-            levelItem = [CCMenuItemImage itemFromNormalImage: @"lvlItem.png"
-                                               selectedImage: @"lvlItemOn.png"
+            levelItem = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"lvlItem.png"]]
+                                               selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"lvlItemOn.png"]]
                                                       target: self
                                                     selector: @selector(playLevel:)
                          ];
@@ -76,20 +80,20 @@
             
             //CCLOG(@"curStars %@", curStars);
             
-            CCSprite *stars = [CCSprite spriteWithFile: [NSString stringWithFormat: @"%@stars.png", curStars]];
-            stars.position = ccp(levelItem.contentSize.width/2, stars.contentSize.height/8);
+            CCSprite *stars = [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"%@stars.png", curStars]];
+            stars.position = ccp(levelItem.contentSize.width/2, stars.contentSize.height/10);
             stars.scale = 0.5;
             [levelItem addChild: stars];
         }
         else
         {
-            levelItem = [CCMenuItemImage itemFromNormalImage: @"lvlItem.png"
-                                               selectedImage: @"lvlItemOn.png"
-                                                      target: self
-                                                    selector: @selector(showBuyMenu:)
+            levelItem = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"lvlItem.png"]]
+                                               selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"lvlItemOn.png"]]
+                                                       target: self
+                                                     selector: @selector(showBuyMenu:)
                          ];
             
-            CCSprite *block = [CCSprite spriteWithFile: @"block.png"];
+            CCSprite *block = [CCSprite spriteWithSpriteFrameName: @"block.png"];
             block.position = ccp(levelItem.contentSize.width / 2, levelItem.contentSize.height / 2);
             block.scale = 0.5;
             [levelItem addChild: block];
@@ -97,8 +101,10 @@
             //levelItem.opacity = 100;
         }
         
+        
+        
         levelItem.tag = i;
-        levelItem.position = ccp(80 + 80 * i, 160);
+        levelItem.position = ccp(size.width / 6 + size.width / 6 * i, size.height / 2);
         [levelsMenu addChild: levelItem];
     }
 }
@@ -108,8 +114,8 @@
     levelsMenu.isTouchEnabled = NO;
     selectLevelMenu.isTouchEnabled = NO;
     
-    CCSprite *bg = [CCSprite spriteWithFile: @"buyLevelBg.png"];
-    bg.position = ccp(240, 160);
+    CCSprite *bg = [CCSprite spriteWithSpriteFrameName: @"buyLevelBg.png"];
+    bg.position = ccp(size.width/2, size.height/2);
     bg.scale = 0;
     [self addChild: bg z: 2 tag: 31];
     
@@ -126,10 +132,10 @@
         label.position = ccp(bg.contentSize.width * 0.5, bg.contentSize.height * 0.5);
         [bg addChild: label];
         
-        okBtn = [CCMenuItemImage itemFromNormalImage: @"okBtn.png"
-                                       selectedImage: @"okBtnOn.png"
-                                              target: self
-                                            selector: @selector(removeBuyMenu)
+        okBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtn.png"]]
+                                       selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtnOn.png"]]
+                                               target: self
+                                             selector: @selector(removeBuyMenu)
                  ];
         
         
@@ -146,20 +152,20 @@
         label.position = ccp(bg.contentSize.width * 0.5, bg.contentSize.height * 0.5);
         [bg addChild: label];
         
-        okBtn = [CCMenuItemImage itemFromNormalImage: @"okBtn.png"
-                                       selectedImage: @"okBtnOn.png"
-                                              target: self
-                                            selector: @selector(buyLevel:)
+        okBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtn.png"]]
+                                       selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtnOn.png"]]
+                                               target: self
+                                             selector: @selector(buyLevel:)
                  ];
         
         okBtn.tag = sender.tag;
         okBtn.position = ccp(bg.contentSize.width * 0.3, bg.contentSize.height * 0.15);
         
         
-        cancelBtn = [CCMenuItemImage itemFromNormalImage: @"cancelBtn.png"
-                                           selectedImage: @"cancelBtnOn.png"
-                                                  target: self
-                                                selector: @selector(removeBuyMenu)
+        cancelBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtn.png"]]
+                                           selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtnOn.png"]]
+                                                   target: self
+                                                 selector: @selector(removeBuyMenu)
                      ];
         
         cancelBtn.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.15);
@@ -209,7 +215,7 @@
 
 - (void) back
 {
-    CCScene* scene = [CCBReader sceneWithNodeGraphFromFile:@"SelectWorldMenu.ccb"];
+    CCScene* scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"SelectWorldMenu%@.ccb", suffix]];
     
 	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
 }

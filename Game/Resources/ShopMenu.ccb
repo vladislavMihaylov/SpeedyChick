@@ -71,6 +71,8 @@
 					<real>1</real>
 					<key>spriteFile</key>
 					<string>mainMenuBg.png</string>
+					<key>spriteFramesFile</key>
+					<string>mainMenuTextures.plist</string>
 					<key>tag</key>
 					<integer>-1</integer>
 					<key>visible</key>
@@ -96,8 +98,8 @@
 							</array>
 							<key>contentSize</key>
 							<array>
-								<real>128</real>
-								<real>48</real>
+								<real>64</real>
+								<real>54</real>
 							</array>
 							<key>customClass</key>
 							<string></string>
@@ -127,11 +129,13 @@
 							<key>selector</key>
 							<string>back</string>
 							<key>spriteFileDisabled</key>
-							<string>back.png</string>
+							<string>backBtn.png</string>
 							<key>spriteFileNormal</key>
-							<string>back.png</string>
+							<string>backBtn.png</string>
 							<key>spriteFileSelected</key>
-							<string>backOn.png</string>
+							<string>backBtnOn.png</string>
+							<key>spriteFramesFile</key>
+							<string>SelectMenuFiles.plist</string>
 							<key>tag</key>
 							<integer>-1</integer>
 							<key>target</key>

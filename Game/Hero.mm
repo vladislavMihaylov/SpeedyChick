@@ -30,8 +30,11 @@
 		self.game = game;
 		
 #ifndef DRAW_BOX2D_WORLD
-		self.sprite = [CCSprite spriteWithFile: [NSString stringWithFormat: @"pinguin_%i.png", [Settings sharedSettings].currentPinguin]];
-        self.sprite.scale = 1.3;
+        
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"chicks%@.plist", suffix]];
+        
+		self.sprite = [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"c_%i.png", [Settings sharedSettings].currentPinguin]];
+        self.sprite.scale = 0.7;
 		[self addChild:_sprite];
 #endif
 		_body = NULL;
@@ -129,18 +132,18 @@
 			[self wake];
 			_diving = NO;
 		} else {
-			_body->ApplyForce(b2Vec2(0,-40),_body->GetPosition());
+			_body->ApplyForce(b2Vec2(0,-40 * coefForCoords),_body->GetPosition());
 		}
 	}
 	
-    if(self.position.y > currentHeightOfFly)
+    if(self.position.y > currentHeightOfFly * coefForCoords)
     {
         _body->ApplyForce(b2Vec2(0,-40),_body->GetPosition());
     }
     
 	// limit velocity
-	const float minVelocityX = 3;
-	const float minVelocityY = -20;
+	const float minVelocityX = 3 * coefForCoords;
+	const float minVelocityY = -20 * coefForCoords;
 	b2Vec2 vel = _body->GetLinearVelocity();
 	if (vel.x < minVelocityX) {
 		vel.x = minVelocityX;
@@ -148,7 +151,7 @@
 	if (vel.y < minVelocityY) {
 		vel.y = minVelocityY;
 	}
-    if(vel.x > currentSpeedOfFly)
+    if(vel.x > currentSpeedOfFly * coefForCoords)
     {
         vel.x = currentSpeedOfFly;
     }

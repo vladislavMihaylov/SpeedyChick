@@ -52,8 +52,11 @@
     {
         [[Configuration sharedConfiguration] setConfig];
         
-        CCSprite *bgSprite = [CCSprite spriteWithFile: [NSString stringWithFormat: @"bg_0%i.png", currentWorld]];
-        bgSprite.position = ccp(240, 160);
+        CCSprite *bgSprite = [CCSprite spriteWithFile: [NSString stringWithFormat: @"bg_0%i%@.png", currentWorld, suffix]];
+        
+        CGSize size = [[CCDirector sharedDirector] winSize];
+        
+        bgSprite.position = ccp(size.width/2, size.height/2);
         [self addChild: bgSprite];
         
         //CCLOG(@"W: %i ",[Settings sharedSettings].openedLevels);
@@ -108,7 +111,7 @@
     
 
     
-    CCScene * scene = [CCBReader sceneWithNodeGraphFromFile: @"MainMenu.ccb"];
+    CCScene * scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"MainMenu%@.ccb", suffix]];
     
     [[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
 }

@@ -27,26 +27,27 @@
     worldsMenu.position = ccp(0, 0);
     [self addChild: worldsMenu];
     
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"SelectMenuFiles%@.plist", suffix]];
+    
     for(int i = 0; i < 3; i++)
     {
         CCMenuItemImage *worldItem = nil;
         
         if(i < [Settings sharedSettings].openedWorlds)
         {
-            worldItem = [CCMenuItemImage itemFromNormalImage: [NSString stringWithFormat: @"w_%i.png", i+1]
-                                               selectedImage: [NSString stringWithFormat: @"w_%iOn.png", i+1]
-                                                      target: self
-                                                    selector: @selector(pressedWorld:)
-                                          ];
+            
+            worldItem = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"w_%i.png", i+1]]
+                                               selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"w_%iOn.png", i+1]]
+                                                       target: self
+                                                     selector: @selector(pressedWorld:)];
         }
         else
         {
-            worldItem = [CCMenuItemImage itemFromNormalImage: [NSString stringWithFormat: @"w_%i.png", i+1]
-                                               selectedImage: [NSString stringWithFormat: @"w_%i.png", i+1]
-                         ];
+            worldItem = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"w_%i.png", i+1]]
+                                               selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"w_%i.png", i+1]]];
              //worldItem.opacity = 200;
             
-            CCSprite *block = [CCSprite spriteWithFile: @"block.png"];
+            CCSprite *block = [CCSprite spriteWithSpriteFrameName: @"block.png"];
             block.position = ccp(worldItem.contentSize.width / 2, worldItem.contentSize.height / 2);
             [worldItem addChild: block];
             
@@ -54,14 +55,16 @@
         
         worldItem.tag = i;
        
-        worldItem.position = ccp(100 + 140 * i, 160);
-        [worldsMenu addChild: worldItem];
+        CGSize size = [[CCDirector sharedDirector] winSize];
+        
+        worldItem.position = ccp((size.width / 4.8) + (size.width / 3.42857) * i, size.height / 2);
+        [worldsMenu addChild: worldItem z: 10];
     }
 }
 
 - (void) back
 {
-    CCScene* scene = [CCBReader sceneWithNodeGraphFromFile:@"MainMenu.ccb"];
+    CCScene* scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"MainMenu%@.ccb", suffix]];
     
 	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
 }
@@ -70,7 +73,7 @@
 {
     currentWorld = sender.tag + 1;
     
-    CCScene* scene = [CCBReader sceneWithNodeGraphFromFile:@"SelectLevelMenu.ccb"];
+    CCScene* scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"SelectLevelMenu%@.ccb", suffix]];
     
 	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
 }

@@ -11,7 +11,7 @@
 #import "Settings.h"
 
 #import "CCBReader.h"
-
+#import "GameConfig.h"
 #import "MainMenu.h"
 
 @implementation FirstLaunch
@@ -188,7 +188,7 @@
     [nameField removeFromSuperview];
     [nameField release];
     
-    CCScene* scene = [CCBReader sceneWithNodeGraphFromFile:@"MainMenu.ccb"];
+    CCScene* scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"MainMenu%@.ccb", suffix]];
     
 	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
 }

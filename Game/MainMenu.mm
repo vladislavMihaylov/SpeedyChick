@@ -17,8 +17,10 @@
 
 - (void) didLoadFromCCB
 {
-    CCSprite *curPinguinSprite = [CCSprite spriteWithFile: [NSString stringWithFormat: @"pinguin_%i.png", [Settings sharedSettings].currentPinguin]];
-    curPinguinSprite.scale = 1.5;
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"chicks%@.plist", suffix]];
+    
+    CCSprite *curPinguinSprite = [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"c_%i.png", [Settings sharedSettings].currentPinguin]];
+    //curPinguinSprite.scale = 1.5;
     curPinguinSprite.position = curPinguin.position;
     [self addChild: curPinguinSprite];
     
@@ -58,7 +60,7 @@
 
 - (void) pressedPlay
 {
-    CCScene* scene = [CCBReader sceneWithNodeGraphFromFile:@"SelectWorldMenu.ccb"];
+    CCScene* scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"SelectWorldMenu%@.ccb", suffix]];
     
 	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
 }
@@ -156,14 +158,14 @@
 
 - (void) pressedCustomise
 {
-    CCScene* scene = [CCBReader sceneWithNodeGraphFromFile:@"CustomizeMenu.ccb"];
+    CCScene* scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"CustomizeMenu%@.ccb", suffix]];
     
 	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
 }
 
 - (void) pressedShop
 {
-    CCScene* scene = [CCBReader sceneWithNodeGraphFromFile:@"ShopMenu.ccb"];
+    CCScene* scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"ShopMenu%@.ccb", suffix]];
     
 	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
 }

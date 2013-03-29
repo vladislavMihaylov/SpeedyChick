@@ -332,7 +332,7 @@
     NSString* customClass = [props objectForKey:@"customClass"];
     if (extraProps) customClass = NULL;
     
-    CCLOG(@"Class %@", class);
+    //CCLOG(@"Class %@", class);
     
     CCNode* node;
     if ([class isEqualToString:@"CCParticleSystem"])

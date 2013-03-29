@@ -37,8 +37,8 @@
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>480</real>
-						<real>360</real>
+						<real>1024</real>
+						<real>768</real>
 					</array>
 					<key>customClass</key>
 					<string></string>
@@ -60,8 +60,8 @@
 					<integer>255</integer>
 					<key>position</key>
 					<array>
-						<real>240</real>
-						<real>160</real>
+						<real>512</real>
+						<real>384</real>
 					</array>
 					<key>rotation</key>
 					<real>0.0</real>
@@ -72,7 +72,7 @@
 					<key>spriteFile</key>
 					<string>mainMenuBg.png</string>
 					<key>spriteFramesFile</key>
-					<string>mainMenuTextures.plist</string>
+					<string>mainMenuTextures-ipad.plist</string>
 					<key>tag</key>
 					<integer>-1</integer>
 					<key>visible</key>
@@ -98,8 +98,8 @@
 							</array>
 							<key>contentSize</key>
 							<array>
-								<real>64</real>
-								<real>54</real>
+								<real>136</real>
+								<real>114</real>
 							</array>
 							<key>customClass</key>
 							<string></string>
@@ -117,8 +117,8 @@
 							<integer>0</integer>
 							<key>position</key>
 							<array>
-								<real>64</real>
-								<real>35</real>
+								<real>128</real>
+								<real>70</real>
 							</array>
 							<key>rotation</key>
 							<real>0.0</real>
@@ -135,7 +135,7 @@
 							<key>spriteFileSelected</key>
 							<string>backBtnOn.png</string>
 							<key>spriteFramesFile</key>
-							<string>SelectMenuFiles.plist</string>
+							<string>SelectMenuFiles-ipad.plist</string>
 							<key>tag</key>
 							<integer>-1</integer>
 							<key>target</key>
@@ -241,8 +241,8 @@
 					<integer>255</integer>
 					<key>position</key>
 					<array>
-						<real>240</real>
-						<real>270</real>
+						<real>512</real>
+						<real>700</real>
 					</array>
 					<key>rotation</key>
 					<real>0.0</real>
@@ -262,37 +262,31 @@
 			</dict>
 		</array>
 		<key>class</key>
-		<string>CCLayer</string>
+		<string>CCNode</string>
 		<key>properties</key>
 		<dict>
-			<key>accelerometerEnabled</key>
-			<integer>0</integer>
 			<key>anchorPoint</key>
 			<array>
-				<real>0.5</real>
-				<real>0.5</real>
+				<real>0.0</real>
+				<real>0.0</real>
 			</array>
 			<key>contentSize</key>
 			<array>
-				<real>480</real>
-				<real>320</real>
+				<real>0.0</real>
+				<real>0.0</real>
 			</array>
 			<key>customClass</key>
 			<string>SelectWorldMenu</string>
 			<key>isExpanded</key>
 			<true/>
 			<key>isRelativeAnchorPoint</key>
-			<false/>
-			<key>keyboardEnabled</key>
-			<integer>0</integer>
+			<true/>
 			<key>lockedScaleRatio</key>
 			<true/>
 			<key>memberVarAssignmentName</key>
 			<string></string>
 			<key>memberVarAssignmentType</key>
 			<integer>0</integer>
-			<key>mouseEnabled</key>
-			<integer>1</integer>
 			<key>position</key>
 			<array>
 				<real>0.0</real>
@@ -306,8 +300,6 @@
 			<real>1</real>
 			<key>tag</key>
 			<integer>-1</integer>
-			<key>touchEnabled</key>
-			<integer>1</integer>
 			<key>visible</key>
 			<true/>
 			<key>zOrder</key>
@@ -315,8 +307,8 @@
 		</dict>
 	</dict>
 	<key>stageHeight</key>
-	<integer>320</integer>
+	<integer>768</integer>
 	<key>stageWidth</key>
-	<integer>480</integer>
+	<integer>1024</integer>
 </dict>
 </plist>

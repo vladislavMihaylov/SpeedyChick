@@ -71,6 +71,8 @@ extern NSInteger defaultHeightOfFly;
 extern NSInteger defaultSpeedOfFly;
 extern NSInteger costForOpenLevel;
 
+extern NSInteger coefForCoords;
+
 extern NSInteger currentHeightOfFly;
 extern NSInteger currentSpeedOfFly;
 
