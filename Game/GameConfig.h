@@ -61,6 +61,12 @@
 #define exitBtnTag         11
 #define selectLevelMenuTag 100 
 
+#define kWidthIPAD         1024
+#define kHeightIPAD        768
+
+#define kWidthIPHONE       480
+#define kHeightIPHONE      320
+
 extern CGPoint catStartPosition;
 extern CGPoint cocoStartPosition;
 extern CGPoint finishPointForCoco;
@@ -80,5 +86,18 @@ extern NSString *suffix;
 
 extern float countOfMana;
 
+extern float GameWidth;
+extern float GameHeight;
+
+extern float GameCenterX;
+extern float GameCenterY;
+
+extern float xPositionForTextField;
+extern float yPositionForTextField;
+
 extern BOOL isGameActive;
 extern BOOL ChickOnTheStart;
+
+extern CGRect rectForTextField;
+
+extern float textFontSize;

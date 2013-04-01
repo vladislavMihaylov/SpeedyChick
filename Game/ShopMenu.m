@@ -62,7 +62,7 @@
     {
         [Settings sharedSettings].isCatEnabled = NO;
         
-        CCLabelBMFont *okLabel = [CCLabelBMFont labelWithString: @"OK" fntFile: @"timeFont.fnt"];
+        CCLabelBMFont *okLabel = [CCLabelBMFont labelWithString: @"OK" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
         okLabel.position = ccp(item_1.position.x, item_1.position.y - 70 * coefForCoords);
         [self addChild: okLabel z: 1 tag: 555];
     }
@@ -72,7 +72,7 @@
         currentHeightOfFly = 1000;
         currentSpeedOfFly = 50;
         
-        CCLabelBMFont *okLabel = [CCLabelBMFont labelWithString: @"OK" fntFile: @"timeFont.fnt"];
+        CCLabelBMFont *okLabel = [CCLabelBMFont labelWithString: @"OK" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
         okLabel.position = ccp(item_2.position.x, item_2.position.y - 70 * coefForCoords);
         [self addChild: okLabel z: 1 tag: 556];
     }
@@ -80,7 +80,7 @@
     if([Settings sharedSettings].isGhostChickBuyed)
     {
         
-        CCLabelBMFont *okLabel = [CCLabelBMFont labelWithString: @"OK" fntFile: @"timeFont.fnt"];
+        CCLabelBMFont *okLabel = [CCLabelBMFont labelWithString: @"OK" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
         okLabel.position = ccp(item_3.position.x, item_3.position.y - 70 * coefForCoords);
         [self addChild: okLabel z: 1 tag: 557];
     }
@@ -97,7 +97,7 @@
         {
             [Settings sharedSettings].isCatEnabled = NO;
             
-            CCLabelBMFont *okLabel = [CCLabelBMFont labelWithString: @"OK" fntFile: @"timeFont.fnt"];
+            CCLabelBMFont *okLabel = [CCLabelBMFont labelWithString: @"OK" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
             okLabel.position = ccp(item_1.position.x, item_1.position.y - 70 * coefForCoords);
             [self addChild: okLabel z: 1 tag: 555];
         }
@@ -119,7 +119,7 @@
             currentHeightOfFly = 1000;
             currentSpeedOfFly = 50;
             
-            CCLabelBMFont *okLabel = [CCLabelBMFont labelWithString: @"OK" fntFile: @"timeFont.fnt"];
+            CCLabelBMFont *okLabel = [CCLabelBMFont labelWithString: @"OK" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
             okLabel.position = ccp(item_2.position.x, item_2.position.y - 70 * coefForCoords);
             [self addChild: okLabel z: 1 tag: 556];
         }
@@ -139,7 +139,7 @@
         
         if([Settings sharedSettings].isGhostChickBuyed)
         {
-            CCLabelBMFont *okLabel = [CCLabelBMFont labelWithString: @"OK" fntFile: @"timeFont.fnt"];
+            CCLabelBMFont *okLabel = [CCLabelBMFont labelWithString: @"OK" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
             okLabel.position = ccp(item_3.position.x, item_3.position.y - 70 * coefForCoords);
             [self addChild: okLabel z: 1 tag: 557];
         }

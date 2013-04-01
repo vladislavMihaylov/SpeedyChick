@@ -20,9 +20,6 @@
 
 - (void) didLoadFromCCB
 {
-    //CCLOG(@"curStars %@", [Settings sharedSettings].starsCount);
-    //CCLOG(@"curLevels %@", [Settings sharedSettings].openedLevels);
-    
     CCMenu *worldsMenu = [CCMenu menuWithItems: nil];
     worldsMenu.position = ccp(0, 0);
     [self addChild: worldsMenu];
@@ -45,19 +42,16 @@
         {
             worldItem = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"w_%i.png", i+1]]
                                                selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"w_%i.png", i+1]]];
-             //worldItem.opacity = 200;
             
             CCSprite *block = [CCSprite spriteWithSpriteFrameName: @"block.png"];
             block.position = ccp(worldItem.contentSize.width / 2, worldItem.contentSize.height / 2);
             [worldItem addChild: block];
-            
         }
         
         worldItem.tag = i;
-       
-        CGSize size = [[CCDirector sharedDirector] winSize];
         
-        worldItem.position = ccp((size.width / 4.8) + (size.width / 3.42857) * i, size.height / 2);
+        worldItem.position = ccp((GameWidth / 4.8) + (GameWidth / 3.42857) * i, GameCenterY);
+        
         [worldsMenu addChild: worldItem z: 10];
     }
 }

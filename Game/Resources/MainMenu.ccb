@@ -434,7 +434,7 @@
 					<integer>255</integer>
 					<key>position</key>
 					<array>
-						<real>65</real>
+						<real>50</real>
 						<real>220</real>
 					</array>
 					<key>rotation</key>
@@ -464,24 +464,24 @@
 				<dict>
 					<key>anchorPoint</key>
 					<array>
-						<real>0.5</real>
+						<real>0.0</real>
 						<real>0.5</real>
 					</array>
 					<key>color</key>
 					<array>
-						<integer>0</integer>
-						<integer>0</integer>
-						<integer>0</integer>
+						<integer>255</integer>
+						<integer>255</integer>
+						<integer>255</integer>
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>92</real>
-						<real>33</real>
+						<real>89</real>
+						<real>24</real>
 					</array>
 					<key>customClass</key>
 					<string></string>
 					<key>fontFile</key>
-					<string>good_dog_plain_32.fnt</string>
+					<string>gameFont.fnt</string>
 					<key>isExpanded</key>
 					<true/>
 					<key>isRelativeAnchorPoint</key>
@@ -496,7 +496,7 @@
 					<integer>255</integer>
 					<key>position</key>
 					<array>
-						<real>115</real>
+						<real>75</real>
 						<real>270</real>
 					</array>
 					<key>rotation</key>
@@ -524,24 +524,24 @@
 				<dict>
 					<key>anchorPoint</key>
 					<array>
-						<real>0.5</real>
+						<real>0.0</real>
 						<real>0.5</real>
 					</array>
 					<key>color</key>
 					<array>
-						<integer>0</integer>
-						<integer>0</integer>
-						<integer>0</integer>
+						<integer>255</integer>
+						<integer>255</integer>
+						<integer>255</integer>
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>66</real>
-						<real>33</real>
+						<real>67</real>
+						<real>24</real>
 					</array>
 					<key>customClass</key>
 					<string></string>
 					<key>fontFile</key>
-					<string>good_dog_plain_32.fnt</string>
+					<string>gameFont.fnt</string>
 					<key>isExpanded</key>
 					<true/>
 					<key>isRelativeAnchorPoint</key>
@@ -556,7 +556,7 @@
 					<integer>255</integer>
 					<key>position</key>
 					<array>
-						<real>115</real>
+						<real>75</real>
 						<real>220</real>
 					</array>
 					<key>rotation</key>
@@ -685,19 +685,19 @@
 					</array>
 					<key>color</key>
 					<array>
-						<integer>0</integer>
-						<integer>0</integer>
-						<integer>0</integer>
+						<integer>255</integer>
+						<integer>255</integer>
+						<integer>255</integer>
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>134</real>
-						<real>33</real>
+						<real>126</real>
+						<real>24</real>
 					</array>
 					<key>customClass</key>
 					<string></string>
 					<key>fontFile</key>
-					<string>good_dog_plain_32.fnt</string>
+					<string>gameFont.fnt</string>
 					<key>isExpanded</key>
 					<true/>
 					<key>isRelativeAnchorPoint</key>
@@ -745,9 +745,9 @@
 					</array>
 					<key>color</key>
 					<array>
-						<integer>0</integer>
-						<integer>12</integer>
 						<integer>255</integer>
+						<integer>241</integer>
+						<integer>238</integer>
 					</array>
 					<key>contentSize</key>
 					<array>
@@ -757,7 +757,7 @@
 					<key>customClass</key>
 					<string></string>
 					<key>fontFile</key>
-					<string>timeFont.fnt</string>
+					<string>gameFont.fnt</string>
 					<key>isExpanded</key>
 					<true/>
 					<key>isRelativeAnchorPoint</key>
@@ -811,13 +811,13 @@
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>82</real>
-						<real>35</real>
+						<real>52</real>
+						<real>24</real>
 					</array>
 					<key>customClass</key>
 					<string></string>
 					<key>fontFile</key>
-					<string>timeFont.fnt</string>
+					<string>gameFont.fnt</string>
 					<key>isExpanded</key>
 					<true/>
 					<key>isRelativeAnchorPoint</key>
@@ -899,7 +899,7 @@
 					<integer>255</integer>
 					<key>position</key>
 					<array>
-						<real>65</real>
+						<real>50</real>
 						<real>270</real>
 					</array>
 					<key>rotation</key>

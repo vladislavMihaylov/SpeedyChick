@@ -27,8 +27,6 @@
     levelsMenu.position = ccp(0, 0);
     [self addChild: levelsMenu];
     
-    size = [[CCDirector sharedDirector] winSize];
-    
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"SelectMenuFiles%@.plist", suffix]];
     
     [self updateItems];
@@ -104,7 +102,7 @@
         
         
         levelItem.tag = i;
-        levelItem.position = ccp(size.width / 6 + size.width / 6 * i, size.height / 2);
+        levelItem.position = ccp(GameWidth / 6 + GameWidth / 6 * i, GameCenterY);
         [levelsMenu addChild: levelItem];
     }
 }
@@ -115,7 +113,7 @@
     selectLevelMenu.isTouchEnabled = NO;
     
     CCSprite *bg = [CCSprite spriteWithSpriteFrameName: @"buyLevelBg.png"];
-    bg.position = ccp(size.width/2, size.height/2);
+    bg.position = ccp(GameCenterX, GameCenterY);
     bg.scale = 0;
     [self addChild: bg z: 2 tag: 31];
     

@@ -214,19 +214,19 @@
 					</array>
 					<key>color</key>
 					<array>
-						<integer>0</integer>
-						<integer>27</integer>
 						<integer>255</integer>
+						<integer>246</integer>
+						<integer>236</integer>
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>91</real>
-						<real>35</real>
+						<real>54</real>
+						<real>24</real>
 					</array>
 					<key>customClass</key>
 					<string></string>
 					<key>fontFile</key>
-					<string>timeFont.fnt</string>
+					<string>gameFont.fnt</string>
 					<key>isExpanded</key>
 					<true/>
 					<key>isRelativeAnchorPoint</key>
@@ -424,13 +424,13 @@
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>150</real>
-						<real>35</real>
+						<real>93</real>
+						<real>24</real>
 					</array>
 					<key>customClass</key>
 					<string></string>
 					<key>fontFile</key>
-					<string>timeFont.fnt</string>
+					<string>gameFont.fnt</string>
 					<key>isExpanded</key>
 					<true/>
 					<key>isRelativeAnchorPoint</key>
@@ -451,9 +451,9 @@
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scaleX</key>
-					<real>0.60000002384185791</real>
+					<real>0.89999997615814209</real>
 					<key>scaleY</key>
-					<real>0.60000002384185791</real>
+					<real>0.89999997615814209</real>
 					<key>string</key>
 					<string>on/off cat</string>
 					<key>tag</key>
@@ -484,13 +484,13 @@
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>208</real>
-						<real>35</real>
+						<real>128</real>
+						<real>24</real>
 					</array>
 					<key>customClass</key>
 					<string></string>
 					<key>fontFile</key>
-					<string>timeFont.fnt</string>
+					<string>gameFont.fnt</string>
 					<key>isExpanded</key>
 					<true/>
 					<key>isRelativeAnchorPoint</key>
@@ -511,9 +511,9 @@
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scaleX</key>
-					<real>0.60000002384185791</real>
+					<real>0.89999997615814209</real>
 					<key>scaleY</key>
-					<real>0.60000002384185791</real>
+					<real>0.89999997615814209</real>
 					<key>string</key>
 					<string>higher, faster</string>
 					<key>tag</key>
@@ -544,13 +544,13 @@
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>297</real>
-						<real>35</real>
+						<real>182</real>
+						<real>24</real>
 					</array>
 					<key>customClass</key>
 					<string></string>
 					<key>fontFile</key>
-					<string>timeFont.fnt</string>
+					<string>gameFont.fnt</string>
 					<key>isExpanded</key>
 					<true/>
 					<key>isRelativeAnchorPoint</key>
@@ -571,9 +571,9 @@
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scaleX</key>
-					<real>0.60000002384185791</real>
+					<real>0.89999997615814209</real>
 					<key>scaleY</key>
-					<real>0.60000002384185791</real>
+					<real>0.89999997615814209</real>
 					<key>string</key>
 					<string>swipe to accelerate</string>
 					<key>tag</key>

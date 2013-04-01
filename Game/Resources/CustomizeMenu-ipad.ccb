@@ -31,9 +31,9 @@
 					</array>
 					<key>color</key>
 					<array>
-						<integer>255</integer>
-						<integer>255</integer>
-						<integer>255</integer>
+						<integer>183</integer>
+						<integer>183</integer>
+						<integer>183</integer>
 					</array>
 					<key>contentSize</key>
 					<array>
@@ -834,19 +834,19 @@
 					</array>
 					<key>color</key>
 					<array>
-						<integer>0</integer>
-						<integer>4</integer>
 						<integer>255</integer>
+						<integer>244</integer>
+						<integer>238</integer>
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>120</real>
-						<real>33</real>
+						<real>220</real>
+						<real>48</real>
 					</array>
 					<key>customClass</key>
 					<string></string>
 					<key>fontFile</key>
-					<string>good_dog_plain_32.fnt</string>
+					<string>gameFont-ipad.fnt</string>
 					<key>isExpanded</key>
 					<true/>
 					<key>isRelativeAnchorPoint</key>

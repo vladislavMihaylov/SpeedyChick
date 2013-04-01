@@ -31,9 +31,9 @@
 					</array>
 					<key>color</key>
 					<array>
-						<integer>255</integer>
-						<integer>255</integer>
-						<integer>255</integer>
+						<integer>196</integer>
+						<integer>196</integer>
+						<integer>196</integer>
 					</array>
 					<key>contentSize</key>
 					<array>
@@ -71,6 +71,8 @@
 					<real>1</real>
 					<key>spriteFile</key>
 					<string>mainMenuBg.png</string>
+					<key>spriteFramesFile</key>
+					<string>mainMenuTextures.plist</string>
 					<key>tag</key>
 					<integer>-1</integer>
 					<key>visible</key>
@@ -830,19 +832,19 @@
 					</array>
 					<key>color</key>
 					<array>
-						<integer>0</integer>
-						<integer>4</integer>
 						<integer>255</integer>
+						<integer>248</integer>
+						<integer>248</integer>
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>120</real>
-						<real>33</real>
+						<real>112</real>
+						<real>24</real>
 					</array>
 					<key>customClass</key>
 					<string></string>
 					<key>fontFile</key>
-					<string>good_dog_plain_32.fnt</string>
+					<string>gameFont.fnt</string>
 					<key>isExpanded</key>
 					<true/>
 					<key>isRelativeAnchorPoint</key>

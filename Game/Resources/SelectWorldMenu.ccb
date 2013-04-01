@@ -214,19 +214,19 @@
 					</array>
 					<key>color</key>
 					<array>
-						<integer>0</integer>
-						<integer>8</integer>
 						<integer>255</integer>
+						<integer>247</integer>
+						<integer>240</integer>
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>187</real>
-						<real>35</real>
+						<real>115</real>
+						<real>24</real>
 					</array>
 					<key>customClass</key>
 					<string></string>
 					<key>fontFile</key>
-					<string>timeFont.fnt</string>
+					<string>gameFont.fnt</string>
 					<key>isExpanded</key>
 					<true/>
 					<key>isRelativeAnchorPoint</key>

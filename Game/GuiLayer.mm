@@ -36,15 +36,13 @@
         
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"gameMenu%@.plist", suffix]];
         
-        size = [[CCDirector sharedDirector] winSize];
-        
         applyRocket = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"rocket.png"]
                                              selectedSprite: [CCSprite spriteWithSpriteFrameName: @"rocket.png"]
                                                      target: self
                                                    selector: @selector(applyRocket)
                        ];
         
-        applyRocket.position = ccp(size.width * 0.8125, size.height * 0.875);
+        applyRocket.position = ccp(GameWidth * 0.8125, GameHeight * 0.875);
         
         CCMenuItemImage *pause = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"pauseBtn.png"]
                                                         selectedSprite: [CCSprite spriteWithSpriteFrameName: @"pauseBtn.png"]
@@ -52,7 +50,7 @@
                                                              selector: @selector(doPause)
                                   ];
         
-        pause.position = ccp(size.width * 0.9583, size.height * 0.9375);
+        pause.position = ccp(GameWidth * 0.9583, GameHeight * 0.9375);
         
         CCMenu *ROCKET = [CCMenu menuWithItems: applyRocket, pause, nil];
         ROCKET.position = ccp(0, 0);
@@ -65,7 +63,7 @@
                                        fontSize: 20
                      ];
         
-        timeLabel.position = ccp(size.width / 2, size.height * 0.9375);
+        timeLabel.position = ccp(GameCenterX, GameHeight * 0.9375);
         timeLabel.color = ccc3(0, 0, 0);
         [self addChild: timeLabel];
         
@@ -97,7 +95,7 @@
                                          fntFile: @"timeFont.fnt"
                    ];
     
-    energyLabel.position = ccp(size.width * 0.02, size.height * 0.9375);
+    energyLabel.position = ccp(GameWidth * 0.02, GameHeight * 0.9375);
     energyLabel.anchorPoint = ccp(0, 0.5);
     energyLabel.scale = 0.7;
     [self addChild: energyLabel];
@@ -224,7 +222,7 @@
         [cat pauseSchedulerAndActions];
         
         CCSprite *menuBg = [CCSprite spriteWithSpriteFrameName: @"menuBg.png"];
-        menuBg.position = ccp(size.width / 2, size.height * 1.5);
+        menuBg.position = ccp(GameCenterX, GameHeight * 1.5);
         [self addChild: menuBg z: 10 tag: menuBgTag];
         
         CCMenuItemImage *exit = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"exitBtn.png"]
@@ -260,7 +258,7 @@
         [menuBg addChild: pauseMenu z:1 tag: 45];
         
         
-        [menuBg runAction: [CCMoveTo actionWithDuration: 0.25 position: ccp(size.width / 2, size.height / 2)]];
+        [menuBg runAction: [CCMoveTo actionWithDuration: 0.25 position: ccp(GameCenterX, GameCenterY)]];
         
         isGameActive = NO;
         
@@ -276,7 +274,7 @@
         [cat pauseSchedulerAndActions];
         
         CCSprite *menuBg = [CCSprite spriteWithSpriteFrameName: @"menuBg.png"];
-        menuBg.position = ccp(size.width / 2, size.height * 1.5);
+        menuBg.position = ccp(GameCenterX, GameHeight * 1.5);
         [self addChild: menuBg z: 10 tag: menuBgTag];
         
         CCMenuItemImage *exit = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"exitBtn.png"]
@@ -301,7 +299,7 @@
         gameOverMenu.position = ccp(0, 0);
         [menuBg addChild: gameOverMenu];
         
-        [menuBg runAction: [CCMoveTo actionWithDuration: 0.5 position: ccp(size.width / 2, size.height / 2)]];
+        [menuBg runAction: [CCMoveTo actionWithDuration: 0.5 position: ccp(GameCenterX, GameCenterY)]];
         
         isGameActive = NO;
     }
@@ -428,8 +426,8 @@
     
     if(position < 15)
     {
-        NSString *nextLevel = [openedLevels substringWithRange: NSMakeRange(position + 1, 1)];
-        NSInteger intNextLevel = [nextLevel integerValue];
+        //NSString *nextLevel = [openedLevels substringWithRange: NSMakeRange(position + 1, 1)];
+        //NSInteger intNextLevel = [nextLevel integerValue];
          //CCLOG(@"nextLevel %i", intNextLevel);
         [openedLevels replaceCharactersInRange: NSMakeRange(position + 1, 1) withString: @"1"];
         NSString *newLevelsData = [NSString stringWithFormat: @"%@", openedLevels];
@@ -468,7 +466,7 @@
         [cat pauseSchedulerAndActions];
         
         CCSprite *menuBg = [CCSprite spriteWithSpriteFrameName: @"menuBg.png"];
-        menuBg.position = ccp(size.width / 2, size.height * 1.5);
+        menuBg.position = ccp(GameCenterX, GameHeight * 1.5);
         [self addChild: menuBg z: 10 tag: menuBgTag];
         
         CCMenuItemImage *exit = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"exitBtn.png"]
@@ -520,7 +518,7 @@
         gameOverMenu.position = ccp(0, 0);
         [menuBg addChild: gameOverMenu];
         
-        [menuBg runAction: [CCMoveTo actionWithDuration: 0.25 position: ccp(size.width / 2, size.height / 2)]];
+        [menuBg runAction: [CCMoveTo actionWithDuration: 0.25 position: ccp(GameCenterX, GameCenterY)]];
         
         CCSprite *stars = [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"%istars.png", curStars]];
         stars.position = ccp(menuBg.contentSize.width / 2, menuBg.contentSize.height * 0.95);
@@ -622,12 +620,7 @@
 
 - (void) exitToMainMenu
 {
-    //[self unPause];
-    
     [gameLayer exitToMainMenu];
-    
 }
-
-
 
 @end

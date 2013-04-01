@@ -38,23 +38,38 @@
     {
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"mainMenuTextures%@.plist", suffix]];
         
-        CGSize size = [[CCDirector sharedDirector] winSize];
-        
         CCSprite *bg = [CCSprite spriteWithSpriteFrameName: @"mainMenuBg.png"];
-        bg.position = ccp(size.width/2, size.height / 2);
+        bg.position = ccp(GameCenterX, GameCenterY);
         [self addChild: bg];
+        
+        CCLabelBMFont *tapTheEgg = [CCLabelBMFont labelWithString: @"Tap the egg!"
+                                                           fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]
+                                     ];
+        
+        tapTheEgg.position = ccp(GameCenterX, GameCenterY / 2.5);
+        [self addChild: tapTheEgg z: 2 tag: 2];
         
         CCMenu *eggMenu = [CCMenu menuWithItems: nil];
         eggMenu.position = ccp(0, 0);
         [self addChild: eggMenu z:1 tag: 1];
         
-        CCMenuItemImage *egg = [CCMenuItemImage itemFromNormalImage: @"egg1.png" selectedImage: @"egg1.png" target: self selector: @selector(tapEgg)];
-        egg.position = ccp(240, 160);
+        CCMenuItemImage *egg = [CCMenuItemImage itemFromNormalImage: [NSString stringWithFormat: @"egg1%@.png", suffix]
+                                                      selectedImage: [NSString stringWithFormat: @"egg1%@.png", suffix]
+                                                             target: self
+                                                           selector: @selector(tapEgg)
+                                ];
+        
+        egg.position = ccp(GameCenterX, GameCenterY);
         
         [eggMenu addChild: egg];
         
-        okBtn = [CCMenuItemImage itemFromNormalImage: @"okBtn.png" selectedImage: @"okBtnOn.png" target: self selector: @selector(pressedOkBtn)];
-        okBtn.position = ccp(240, 70);
+        okBtn = [CCMenuItemImage itemFromNormalImage: [NSString stringWithFormat: @"okBtn%@.png", suffix]
+                                       selectedImage: [NSString stringWithFormat: @"okBtn%@.png", suffix]
+                                              target: self
+                                            selector: @selector(pressedOkBtn)
+                 ];
+        
+        okBtn.position = ccp(GameCenterX, GameCenterY / 2);
         
         okBtn.isEnabled = NO;
         okBtn.visible = NO;
@@ -62,11 +77,6 @@
         CCMenu *menu = [CCMenu menuWithItems: okBtn, nil];
         menu.position = ccp(0, 0);
         [self addChild: menu];
-        
-        //[self createTextField];
-        
-        
-        
     }
     
     return self;
@@ -75,9 +85,15 @@
 - (void) tapEgg
 {
     [self removeChildByTag: 1 cleanup: YES];
+    [self removeChildByTag: 2 cleanup: YES];
     
-    CCMenuItemImage *egg2 = [CCMenuItemImage itemFromNormalImage: @"egg2.png" selectedImage: @"egg2.png" target: self selector: @selector(brakeEgg)];
-    egg2.position = ccp(240, 160);
+    CCMenuItemImage *egg2 = [CCMenuItemImage itemFromNormalImage: [NSString stringWithFormat: @"egg2%@.png", suffix]
+                                                   selectedImage: [NSString stringWithFormat: @"egg2%@.png", suffix]
+                                                          target: self
+                                                        selector: @selector(brakeEgg)
+                             ];
+    
+    egg2.position = ccp(GameCenterX, GameCenterY);
     
     CCMenu *eggMenu2 = [CCMenu menuWithItems: egg2, nil];
     eggMenu2.position = ccp(0, 0);
@@ -96,26 +112,29 @@
 {
     [self removeChildByTag: 2 cleanup: YES];
     
-    CCLabelBMFont *enterNameLabel = [CCLabelBMFont labelWithString: @"Enter your name:" fntFile: @"timeFont.fnt"];
-    enterNameLabel.position = ccp(240, 340);
+    CCLabelBMFont *enterNameLabel = [CCLabelBMFont labelWithString: @"Enter your name:"
+                                                           fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]
+                                     ];
+    
+    enterNameLabel.position = ccp(GameCenterX, GameHeight * 1.2);
     [self addChild: enterNameLabel];
     
-    CCSprite *chick = [CCSprite spriteWithFile: @"chick.png"];
-    chick.position = ccp(240, 160);
+    CCSprite *chick = [CCSprite spriteWithFile: [NSString stringWithFormat: @"chick%@.png", suffix]];
+    chick.position = ccp(GameCenterX, GameCenterY);
     chick.scale = 0.5;
     [self addChild: chick];
     
-    CCSprite *leftEgg = [CCSprite spriteWithFile: @"egg_3_left.png"];
-    leftEgg.position = ccp(240, 160);
+    CCSprite *leftEgg = [CCSprite spriteWithFile: [NSString stringWithFormat: @"egg_3_left%@.png", suffix]];
+    leftEgg.position = ccp(GameCenterX, GameCenterY);
     
-    CCSprite *rightEgg = [CCSprite spriteWithFile: @"egg_3_right.png"];
-    rightEgg.position = ccp(240, 160);
+    CCSprite *rightEgg = [CCSprite spriteWithFile: [NSString stringWithFormat: @"egg_3_right%@.png", suffix]];
+    rightEgg.position = ccp(GameCenterX, GameCenterY);
     
     [self addChild: leftEgg];
     [self addChild: rightEgg];
     
-    [leftEgg runAction: [CCMoveTo actionWithDuration: 0.5 position: ccp(-70, leftEgg.position.y)]];
-    [rightEgg runAction: [CCMoveTo actionWithDuration: 0.5 position: ccp(550, rightEgg.position.y)]];
+    [leftEgg runAction: [CCMoveTo actionWithDuration: 0.5 position: ccp(-100, leftEgg.position.y)]];
+    [rightEgg runAction: [CCMoveTo actionWithDuration: 0.5 position: ccp(GameWidth + 100, rightEgg.position.y)]];
     
     [chick runAction:
                 [CCSequence actions:
@@ -135,7 +154,7 @@
     [enterNameLabel runAction:
                             [CCSequence actions:
                                             [CCDelayTime actionWithDuration: 1.5],
-                                            [CCMoveTo actionWithDuration: 0.3 position: ccp(240, 270)],
+                                            [CCMoveTo actionWithDuration: 0.3 position: ccp(GameCenterX, GameCenterY * 1.5)],
                                             
                              nil]
      ];
@@ -145,9 +164,9 @@
 
 - (void) createTextField
 {
-    nameField = [[UITextField alloc] initWithFrame: CGRectMake(-20, 220, 240, 40)];
+    nameField = [[UITextField alloc] initWithFrame: rectForTextField];
     [nameField setText: @"Name"];
-    nameField.font = [UIFont fontWithName: @"MarkerFelt-Thin" size: 30];
+    nameField.font = [UIFont fontWithName: @"MarkerFelt-Thin" size: textFontSize];
     [nameField setTextColor: [UIColor colorWithRed: 0 green: 0 blue: 0 alpha: 1.0]];
     nameField.backgroundColor = [UIColor colorWithRed: 255 green: 255 blue: 255 alpha: 0.5];
     nameField.textAlignment = UITextAlignmentCenter;
@@ -155,8 +174,6 @@
     nameField.transform = CGAffineTransformMakeRotation(M_PI / -2.0);
     [[[[CCDirector sharedDirector] openGLView] window] addSubview: nameField];
     
-    //[nameField canBecomeFirstResponder];
-    //[nameField canResignFirstResponder];
     [nameField becomeFirstResponder];
     [nameField resignFirstResponder];
 }

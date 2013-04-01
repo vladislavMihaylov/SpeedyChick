@@ -20,17 +20,10 @@
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"chicks%@.plist", suffix]];
     
     CCSprite *curPinguinSprite = [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"c_%i.png", [Settings sharedSettings].currentPinguin]];
-    //curPinguinSprite.scale = 1.5;
     curPinguinSprite.position = curPinguin.position;
     [self addChild: curPinguinSprite];
     
-    
-    //CCSprite *curRocketSprite = [CCSprite spriteWithFile: @"rocket.png"];
-    //curRocketSprite.position = curRockets.position;
-    //[self addChild: curRocketSprite];
-    
     [self updateRocketsAndCoinsString];
-    
         
     if(![[Settings sharedSettings].futureDate isEqualToString: @""])
     {
@@ -41,10 +34,6 @@
     }
     
     nameLabel.string = [NSString stringWithFormat: @"Hello, %@", [Settings sharedSettings].nameOfPlayer];
-    
-    //NSString *date = [NSString stringWithFormat: @"%@", strDate];
-    
-    //timeLabel.string = date;
 }
 
 - (void) updateRocketsAndCoinsString

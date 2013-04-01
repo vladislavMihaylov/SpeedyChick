@@ -86,11 +86,8 @@
     
     [[Settings sharedSettings] load];
     
-    [Settings sharedSettings].countOfCoins = 111;
-    [[Settings sharedSettings] save];
+    [[Configuration sharedConfiguration] setConfig];
     
-    //[Settings sharedSettings].countOfRockets = 2;
-    //[[Settings sharedSettings] save];
 	// Init the window
 	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	
@@ -131,14 +128,30 @@
     {
         suffix = @"-ipad";
         coefForCoords = 2;
+        
+        GameWidth = kWidthIPAD;
+        GameHeight = kHeightIPAD;
+        
+        rectForTextField = CGRectMake(150, 475, 320, 70);
+        textFontSize = 50;
+        
     }
     else
     {
         suffix = @"";
         coefForCoords = 1;
+        
+        GameWidth = kWidthIPHONE;
+        GameHeight = kHeightIPHONE;
+        
+        rectForTextField = CGRectMake(10, 220, 240, 40);
+        textFontSize = 30;
     }
     
-    CCLOG(@"SUFFIX %@", suffix);
+    GameCenterX = GameWidth / 2;
+    GameCenterY = GameHeight / 2;
+    
+    CCLOG(@"GameCenterX = %f", GameCenterX);
 	
 	//
 	// VERY IMPORTANT:

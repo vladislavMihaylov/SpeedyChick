@@ -37,8 +37,8 @@
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>480</real>
-						<real>360</real>
+						<real>1024</real>
+						<real>768</real>
 					</array>
 					<key>customClass</key>
 					<string></string>
@@ -98,8 +98,8 @@
 							</array>
 							<key>contentSize</key>
 							<array>
-								<real>64</real>
-								<real>54</real>
+								<real>136</real>
+								<real>114</real>
 							</array>
 							<key>customClass</key>
 							<string></string>
@@ -214,19 +214,19 @@
 					</array>
 					<key>color</key>
 					<array>
-						<integer>0</integer>
-						<integer>27</integer>
+						<integer>253</integer>
+						<integer>245</integer>
 						<integer>255</integer>
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>91</real>
-						<real>35</real>
+						<real>109</real>
+						<real>48</real>
 					</array>
 					<key>customClass</key>
 					<string></string>
 					<key>fontFile</key>
-					<string>timeFont.fnt</string>
+					<string>gameFont-ipad.fnt</string>
 					<key>isExpanded</key>
 					<true/>
 					<key>isRelativeAnchorPoint</key>
@@ -424,13 +424,13 @@
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>150</real>
-						<real>35</real>
+						<real>185</real>
+						<real>48</real>
 					</array>
 					<key>customClass</key>
 					<string></string>
 					<key>fontFile</key>
-					<string>timeFont.fnt</string>
+					<string>gameFont-ipad.fnt</string>
 					<key>isExpanded</key>
 					<true/>
 					<key>isRelativeAnchorPoint</key>
@@ -446,14 +446,14 @@
 					<key>position</key>
 					<array>
 						<real>182.03125</real>
-						<real>605.953125</real>
+						<real>580</real>
 					</array>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scaleX</key>
-					<real>0.60000002384185791</real>
+					<real>0.89999997615814209</real>
 					<key>scaleY</key>
-					<real>0.60000002384185791</real>
+					<real>0.89999997615814209</real>
 					<key>string</key>
 					<string>on/off cat</string>
 					<key>tag</key>
@@ -484,13 +484,13 @@
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>208</real>
-						<real>35</real>
+						<real>249</real>
+						<real>48</real>
 					</array>
 					<key>customClass</key>
 					<string></string>
 					<key>fontFile</key>
-					<string>timeFont.fnt</string>
+					<string>gameFont-ipad.fnt</string>
 					<key>isExpanded</key>
 					<true/>
 					<key>isRelativeAnchorPoint</key>
@@ -506,14 +506,14 @@
 					<key>position</key>
 					<array>
 						<real>509.7890625</real>
-						<real>605.03125</real>
+						<real>580</real>
 					</array>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scaleX</key>
-					<real>0.60000002384185791</real>
+					<real>0.89999997615814209</real>
 					<key>scaleY</key>
-					<real>0.60000002384185791</real>
+					<real>0.89999997615814209</real>
 					<key>string</key>
 					<string>higher, faster</string>
 					<key>tag</key>
@@ -544,13 +544,13 @@
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>297</real>
-						<real>35</real>
+						<real>352</real>
+						<real>48</real>
 					</array>
 					<key>customClass</key>
 					<string></string>
 					<key>fontFile</key>
-					<string>timeFont.fnt</string>
+					<string>gameFont-ipad.fnt</string>
 					<key>isExpanded</key>
 					<true/>
 					<key>isRelativeAnchorPoint</key>
@@ -566,14 +566,14 @@
 					<key>position</key>
 					<array>
 						<real>831.67578125</real>
-						<real>606.63671875</real>
+						<real>580</real>
 					</array>
 					<key>rotation</key>
 					<real>0.0</real>
 					<key>scaleX</key>
-					<real>0.60000002384185791</real>
+					<real>0.89999997615814209</real>
 					<key>scaleY</key>
-					<real>0.60000002384185791</real>
+					<real>0.89999997615814209</real>
 					<key>string</key>
 					<string>swipe to accelerate</string>
 					<key>tag</key>
