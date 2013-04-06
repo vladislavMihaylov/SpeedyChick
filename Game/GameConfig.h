@@ -67,6 +67,9 @@
 #define kWidthIPHONE       480
 #define kHeightIPHONE      320
 
+#define iPadRadius         19
+#define iPhoneRadius       12
+
 extern CGPoint catStartPosition;
 extern CGPoint cocoStartPosition;
 extern CGPoint finishPointForCoco;
@@ -96,8 +99,10 @@ extern float xPositionForTextField;
 extern float yPositionForTextField;
 
 extern BOOL isGameActive;
+extern BOOL isPauseOfGame;
 extern BOOL ChickOnTheStart;
 
 extern CGRect rectForTextField;
 
 extern float textFontSize;
+extern float bodyRadius;

@@ -811,7 +811,7 @@
 					<key>scaleY</key>
 					<real>1</real>
 					<key>tag</key>
-					<integer>-1</integer>
+					<integer>999</integer>
 					<key>touchEnabled</key>
 					<integer>1</integer>
 					<key>visible</key>

@@ -50,7 +50,7 @@
                                                              selector: @selector(doPause)
                                   ];
         
-        pause.position = ccp(GameWidth * 0.9583, GameHeight * 0.9375);
+        pause.position = ccp(GameWidth * 0.952, GameHeight * 0.9375);
         
         CCMenu *ROCKET = [CCMenu menuWithItems: applyRocket, pause, nil];
         ROCKET.position = ccp(0, 0);
@@ -130,16 +130,16 @@
 
 - (void) loadCat
 {
-    cat = [CCSprite spriteWithFile: @"cat.png"];
-    [cat setPosition: catStartPosition];
-    [self addChild: cat];
-    
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"chicks%@.plist", suffix]];
     
     coco = [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"c_%i.png", [Settings sharedSettings].currentPinguin]];
-    coco.scale = 0.4;
+    coco.scale = 0.25;
     [coco setPosition: cocoStartPosition];
-    [self addChild: coco z: 10];
+    [self addChild: coco];
+    
+    cat = [CCSprite spriteWithFile: @"cat.png"];
+    [cat setPosition: catStartPosition];
+    [self addChild: cat];
 }
 
 - (void) moveCat
@@ -218,6 +218,7 @@
 {
     if(isGameActive)
     {
+        isPauseOfGame = YES;
         [self pauseSchedulerAndActions];
         [cat pauseSchedulerAndActions];
         
@@ -270,6 +271,7 @@
 {
     if(isGameActive)
     {
+        isPauseOfGame = YES;
         [self pauseSchedulerAndActions];
         [cat pauseSchedulerAndActions];
         
@@ -307,6 +309,8 @@
 
 - (void) playNextLevel
 {
+    //gameLayer.isTouchEnabled = YES;
+    
     currentLevel++;
     if(currentLevel > 5)
     {
@@ -344,6 +348,7 @@
 {
     if(!isGameActive)
     {
+        isPauseOfGame = NO;
         [self removeChildByTag: menuBgTag cleanup: YES];
         
         isGameActive = YES;
@@ -458,9 +463,9 @@
 {
     if(isGameActive)
     {
-        
-        
         isGameActive = NO;
+        
+        //gameLayer.isTouchEnabled = NO;
         
         [self pauseSchedulerAndActions];
         [cat pauseSchedulerAndActions];
@@ -595,6 +600,9 @@
 
 - (void) resetLevel
 {
+    //gameLayer.isTouchEnabled = YES;
+    
+    isPauseOfGame = NO;
     energy = 0;
     [self updateEnergyLabel];
     

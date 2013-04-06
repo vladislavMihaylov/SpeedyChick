@@ -31,6 +31,7 @@ class HeroContactListener;
 - (void) applyBonus;
 - (void) applyRocket;
 - (void) applyEnergy;
+- (void) stopBird;
 
 - (void) reset;
 - (void) sleep;
@@ -41,5 +42,9 @@ class HeroContactListener;
 - (void) landed;
 - (void) tookOff;
 - (void) hit;
+
+- (void) pauseChickAnimation;
+- (void) stopChickAnimation;
+- (void) resumeChickAnimation;
 
 @end

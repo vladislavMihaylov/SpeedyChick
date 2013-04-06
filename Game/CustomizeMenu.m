@@ -19,6 +19,38 @@
     [super dealloc];
 }
 
+- (void) didLoadFromCCB
+{
+    [self updateChicks];
+}
+
+- (void) updateChicks
+{
+    CCArray *allItems = [self children];
+    
+    for (CCNode *curItem in allItems)
+    {
+        CCLOG(@"Item: %@", curItem);
+        
+        if(curItem.tag == 999)
+        {
+            CCArray *menuItems = [curItem children];
+            
+            for(CCNode *curChick in menuItems)
+            {
+                if(curChick.tag == [Settings sharedSettings].currentPinguin)
+                {
+                    [curChick runAction: [CCEaseBackOut actionWithAction: [CCScaleTo actionWithDuration:0.1 scale: 1.3]]];
+                }
+                else
+                {
+                    [curChick runAction: [CCEaseBackOut actionWithAction: [CCScaleTo actionWithDuration:0.1 scale: 1]]];
+                }
+            }
+        }
+    }
+}
+
 - (void) back
 {
     CCScene* scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"MainMenu%@.ccb", suffix]];
@@ -30,6 +62,9 @@
 {
     [Settings sharedSettings].currentPinguin = sender.tag;
     [[Settings sharedSettings] save];
+    
+    [self updateChicks];
+    
     CCLOG(@"OK");
 }
 

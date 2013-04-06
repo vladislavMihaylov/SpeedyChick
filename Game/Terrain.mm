@@ -324,6 +324,10 @@
 
     nHillKeyPoints = 0;
     
+    hillKeyPoints[nHillKeyPoints++] = CGPointMake(-screenW/4, screenH*3/4);
+    
+    hillKeyPoints[nHillKeyPoints++] = CGPointMake(0, screenH/2);
+    
     for(NSString *node in pointsArray)
     {
         NSArray *curPoints = [node componentsSeparatedByString: @","];
@@ -335,6 +339,11 @@
         
         finishPoint = curPoint.x;
     }
+    
+    hillKeyPoints[nHillKeyPoints++] = CGPointMake(finishPoint + 100 * coefForCoords, screenH/10);
+    
+    hillKeyPoints[nHillKeyPoints++] = CGPointMake(finishPoint + 1000 * coefForCoords, screenH/10);
+
     
 	fromKeyPointI = 0;
 	toKeyPointI = 0;

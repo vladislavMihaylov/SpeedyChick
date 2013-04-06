@@ -50,6 +50,7 @@
 	
 	if ((self = [super init]))
     {
+        isPauseOfGame = NO;
         //[[Configuration sharedConfiguration] setConfig];
         
         CCSprite *bgSprite = [CCSprite spriteWithFile: [NSString stringWithFormat: @"bg_0%i%@.png", currentWorld, suffix]];
@@ -183,6 +184,7 @@
     
     _hero.diving = YES;
     
+    [_hero pauseChickAnimation];
     /*if(ChickOnTheStart)
     {
         [guiLayer start];
@@ -223,7 +225,7 @@
 
 - (void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
 	_hero.diving = NO;
-    
+    [_hero resumeChickAnimation];
     iCanDoSwipe = YES;
 }
 
@@ -241,25 +243,24 @@
     
     [guiLayer moveCocoOffsetX: _terrain.offsetX andFinishPoint: _terrain.finishPoint];
     
+    if(!isPauseOfGame)
+    {
+        [_hero updatePhysics];
+        int32 velocityIterations = 8;
+        int32 positionIterations = 3;
+        _world->Step(dt, velocityIterations, positionIterations);
+        [_hero updateNode];
+    }
+    
     if(isGameActive)
     {
         if(_terrain.offsetX > _terrain.finishPoint)
         {
             //isGameActive = NO;
-            
             [guiLayer finish];
-            
-            //CCLOG(@"FINISH!!!!");
+            [_hero stopChickAnimation];
         }
         
-        [_hero updatePhysics];
-        
-        int32 velocityIterations = 8;
-        int32 positionIterations = 3;
-        _world->Step(dt, velocityIterations, positionIterations);
-    //	_world->ClearForces();
-        
-        [_hero updateNode];
 
         // terrain scale and offset
         float height = _hero.position.y;
@@ -281,7 +282,7 @@
 - (void) createBox2DWorld {
 	
 	b2Vec2 gravity;
-	gravity.Set(0.0f, -10.8f);
+	gravity.Set(0.0f, -9.8f);
 	
 	_world = new b2World(gravity, false);
 

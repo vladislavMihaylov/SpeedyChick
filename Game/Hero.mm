@@ -8,6 +8,8 @@
 
 #import "GameConfig.h"
 
+#import "Common.h"
+
 @interface Hero()
 - (void) createBox2DBody;
 @end
@@ -31,14 +33,21 @@
 		
 #ifndef DRAW_BOX2D_WORLD
         
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"chicks%@.plist", suffix]];
+        //[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"chicks%@.plist", suffix]];
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"chicksAnim%@.plist", suffix]];
         
-		self.sprite = [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"c_%i.png", [Settings sharedSettings].currentPinguin]];
-        self.sprite.scale = 0.7;
+        [Common loadAnimationWithPlist: @"chicksAnimation"
+                               andName: [NSString stringWithFormat: @"c%ianim", [Settings sharedSettings].currentPinguin]
+         ];
+        
+		self.sprite = [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"c%ianim1.png", [Settings sharedSettings].currentPinguin]];
+        //self.sprite.scale = 0.5;
 		[self addChild:_sprite];
+        
+        
 #endif
 		_body = NULL;
-		_radius = 18.0f;
+		_radius = bodyRadius;
 
 		_contactListener = new HeroContactListener(self);
 		_game.world->SetContactListener(_contactListener);
@@ -94,6 +103,7 @@
 	[self createBox2DBody];
 	[self updateNode];
 	[self sleep];
+    
 }
 
 - (void) sleep {
@@ -107,6 +117,22 @@
 	_body->ApplyLinearImpulse(b2Vec2(1,2), _body->GetPosition());
     [_game startCat];
     
+    [_sprite runAction:
+     [CCRepeatForever actionWithAction:
+      [CCAnimate actionWithAnimation:
+       [[CCAnimationCache sharedAnimationCache] animationByName: [NSString stringWithFormat: @"c%ianim", [Settings sharedSettings].currentPinguin]]
+       ]
+      ]
+     ];
+    
+}
+
+- (void) stopBird
+{
+    if(_body -> GetLinearVelocity().x > 0)
+    {
+        _body->ApplyForce(b2Vec2(-40,-40 * coefForCoords),_body->GetPosition());
+    }
 }
 
 - (void) applyBonus
@@ -124,26 +150,46 @@
     _body->ApplyLinearImpulse(b2Vec2(7,0),_body->GetPosition());
 }
 
+- (void) pauseChickAnimation
+{
+    [_sprite pauseSchedulerAndActions];
+}
+
+- (void) stopChickAnimation
+{
+    [_sprite stopAllActions];
+}
+
+- (void) resumeChickAnimation
+{
+    [_sprite resumeSchedulerAndActions];
+}
+
 - (void) updatePhysics {
 
 	// apply force if diving
-	if (_diving) {
-		if (!_awake) {
+	if (_diving)
+    {
+		if (!_awake)
+        {
 			[self wake];
 			_diving = NO;
-		} else {
+		}
+        else
+        {
 			_body->ApplyForce(b2Vec2(0,-40 * coefForCoords),_body->GetPosition());
+            
 		}
 	}
 	
-    if(self.position.y > currentHeightOfFly * coefForCoords)
+    if(self.position.y > currentHeightOfFly * (coefForCoords - 0.3) )
     {
         _body->ApplyForce(b2Vec2(0,-40),_body->GetPosition());
     }
     
 	// limit velocity
 	const float minVelocityX = 3 * coefForCoords;
-	const float minVelocityY = -20 * coefForCoords;
+	const float minVelocityY = -40 * coefForCoords;
 	b2Vec2 vel = _body->GetLinearVelocity();
 	if (vel.x < minVelocityX) {
 		vel.x = minVelocityX;
@@ -162,8 +208,8 @@
 }
 
 - (void) updateNode {
-	float x = _body->GetPosition().x*PTM_RATIO;
-	float y = _body->GetPosition().y*PTM_RATIO;
+	float x = _body->GetPosition().x * PTM_RATIO;
+	float y = _body->GetPosition().y * PTM_RATIO;
 
 	// CCNode position and rotation
 	self.position = ccp(x, y);

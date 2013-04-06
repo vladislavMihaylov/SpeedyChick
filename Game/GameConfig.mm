@@ -28,6 +28,7 @@ NSString *suffix = @"";
 float countOfMana = 0;
 
 BOOL isGameActive = NO;
+BOOL isPauseOfGame = NO;
 BOOL ChickOnTheStart = YES;
 
 float GameWidth =  480;
@@ -42,3 +43,5 @@ float yPositionForTextField;
 CGRect rectForTextField = CGRectMake(-20, 220, 240, 40);
 
 float textFontSize = 30;
+
+float bodyRadius = iPhoneRadius;

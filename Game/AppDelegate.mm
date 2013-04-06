@@ -135,6 +135,7 @@
         rectForTextField = CGRectMake(150, 475, 320, 70);
         textFontSize = 50;
         
+        bodyRadius = iPadRadius;
     }
     else
     {
@@ -146,12 +147,17 @@
         
         rectForTextField = CGRectMake(10, 220, 240, 40);
         textFontSize = 30;
+        
+        bodyRadius = iPhoneRadius;
     }
     
     GameCenterX = GameWidth / 2;
     GameCenterY = GameHeight / 2;
     
-    CCLOG(@"GameCenterX = %f", GameCenterX);
+    catStartPosition = CGPointMake(40, 40);
+    cocoStartPosition = CGPointMake(GameCenterX, 40);
+    finishPointForCoco = CGPointMake(GameWidth - 40, 40);
+
 	
 	//
 	// VERY IMPORTANT:
