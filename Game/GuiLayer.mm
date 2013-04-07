@@ -309,7 +309,9 @@
 
 - (void) playNextLevel
 {
-    //gameLayer.isTouchEnabled = YES;
+    isFinish = NO;
+    gameLayer.isTouchEnabled = YES;
+    
     
     currentLevel++;
     if(currentLevel > 5)
@@ -463,9 +465,10 @@
 {
     if(isGameActive)
     {
+        isFinish = YES;
         isGameActive = NO;
         
-        //gameLayer.isTouchEnabled = NO;
+        gameLayer.isTouchEnabled = NO;
         
         [self pauseSchedulerAndActions];
         [cat pauseSchedulerAndActions];
@@ -600,8 +603,8 @@
 
 - (void) resetLevel
 {
-    //gameLayer.isTouchEnabled = YES;
-    
+    isFinish = NO;
+    gameLayer.isTouchEnabled = YES;
     isPauseOfGame = NO;
     energy = 0;
     [self updateEnergyLabel];

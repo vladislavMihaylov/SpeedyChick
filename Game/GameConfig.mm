@@ -14,7 +14,7 @@ CGPoint finishPointForCoco = CGPointMake(440, 40);
 
 NSInteger currentWorld = 0;
 NSInteger currentLevel = 0;
-NSInteger defaultHeightOfFly = 600;
+NSInteger defaultHeightOfFly = 700;
 NSInteger defaultSpeedOfFly = 33;
 NSInteger costForOpenLevel = 100;
 
@@ -30,6 +30,7 @@ float countOfMana = 0;
 BOOL isGameActive = NO;
 BOOL isPauseOfGame = NO;
 BOOL ChickOnTheStart = YES;
+BOOL isFinish = NO;
 
 float GameWidth =  480;
 float GameHeight = 320;

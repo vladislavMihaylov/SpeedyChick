@@ -218,15 +218,17 @@
     }
 }
 
-- (void) startCat
-{
-    [guiLayer start];
-}
+
 
 - (void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
 	_hero.diving = NO;
     [_hero resumeChickAnimation];
     iCanDoSwipe = YES;
+}
+
+- (void) startCat
+{
+    [guiLayer start];
 }
 
 - (void) update: (ccTime) dt
@@ -258,6 +260,7 @@
         {
             //isGameActive = NO;
             [guiLayer finish];
+            _hero.diving = NO;
             [_hero stopChickAnimation];
         }
         

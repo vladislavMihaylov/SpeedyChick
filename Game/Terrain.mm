@@ -343,6 +343,10 @@
     hillKeyPoints[nHillKeyPoints++] = CGPointMake(finishPoint + 100 * coefForCoords, screenH/10);
     
     hillKeyPoints[nHillKeyPoints++] = CGPointMake(finishPoint + 1000 * coefForCoords, screenH/10);
+    
+    hillKeyPoints[nHillKeyPoints++] = CGPointMake(finishPoint + 1000 * coefForCoords, screenH/2);
+    
+    hillKeyPoints[nHillKeyPoints++] = CGPointMake(finishPoint + 1010 * coefForCoords, screenH/2);
 
     
 	fromKeyPointI = 0;
@@ -538,10 +542,16 @@
 				pt1.y = ymid + ampl * cosf(da*j);
 				for (int k=0; k<vSegments+1; k++)
                 {
-					hillVertices[nHillVertices] =  ccpMult(ccp(pt0.x, pt0.y-(float)textureSize/vSegments*k), CC_CONTENT_SCALE_FACTOR());
-					hillTexCoords[nHillVertices++] = ccpMult(ccp(pt0.x/(float)textureSize, (float)(k)/vSegments), CC_CONTENT_SCALE_FACTOR());
-					hillVertices[nHillVertices] = ccpMult(ccp(pt1.x, pt1.y-(float)textureSize/vSegments*k), CC_CONTENT_SCALE_FACTOR());
-					hillTexCoords[nHillVertices++] = ccpMult(ccp(pt1.x/(float)textureSize, (float)(k)/vSegments), CC_CONTENT_SCALE_FACTOR());
+					//hillVertices[nHillVertices] =  ccpMult(ccp(pt0.x, pt0.y-(float)textureSize/vSegments*k), CC_CONTENT_SCALE_FACTOR());
+					//hillTexCoords[nHillVertices++] = ccpMult(ccp(pt0.x/(float)textureSize, (float)(k)/vSegments), CC_CONTENT_SCALE_FACTOR());
+					//hillVertices[nHillVertices] = ccpMult(ccp(pt1.x, pt1.y-(float)textureSize/vSegments*k), CC_CONTENT_SCALE_FACTOR());
+					//hillTexCoords[nHillVertices++] = ccpMult(ccp(pt1.x/(float)textureSize, (float)(k)/vSegments), CC_CONTENT_SCALE_FACTOR());
+                    
+                    hillVertices[nHillVertices] =  ccp(pt0.x, pt0.y-(float)textureSize/vSegments*k);
+					hillTexCoords[nHillVertices++] = ccp(pt0.x/(float)textureSize, (float)(k)/vSegments);
+                    
+					//hillVertices[nHillVertices] = ccp(pt1.x, pt1.y-(float)textureSize/vSegments*k);
+					//hillTexCoords[nHillVertices++] = ccp(pt1.x/(float)textureSize, (float)(k)/vSegments);
                     
                 }
                 

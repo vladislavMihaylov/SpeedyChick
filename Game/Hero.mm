@@ -181,8 +181,8 @@
             
 		}
 	}
-	
-    if(self.position.y > currentHeightOfFly * (coefForCoords - 0.3) )
+    
+    if(self.position.y > currentHeightOfFly * coefForCoords)
     {
         _body->ApplyForce(b2Vec2(0,-40),_body->GetPosition());
     }
@@ -191,20 +191,57 @@
 	const float minVelocityX = 3 * coefForCoords;
 	const float minVelocityY = -40 * coefForCoords;
 	b2Vec2 vel = _body->GetLinearVelocity();
-	if (vel.x < minVelocityX) {
-		vel.x = minVelocityX;
-	}
-	if (vel.y < minVelocityY) {
-		vel.y = minVelocityY;
-	}
-    if(vel.x > currentSpeedOfFly * coefForCoords)
+	
+    if(!isFinish)
     {
-        vel.x = currentSpeedOfFly;
+        if (vel.x < minVelocityX)
+        {
+            vel.x = minVelocityX;
+        }
+        
+        if (vel.y < minVelocityY)
+        {
+            vel.y = minVelocityY;
+        }
+        
+        if(vel.x > currentSpeedOfFly * coefForCoords)
+        {
+            vel.x = currentSpeedOfFly;
+        }
+        
+        _body->SetLinearVelocity(vel);
     }
+    else
+    {
+        if(_body -> GetLinearVelocity().x > 1)
+        {
+            _body->ApplyForce(b2Vec2(-50, -40 * coefForCoords),_body->GetPosition());
+        }
+        else
+        {
+            if(_body -> GetLinearVelocity().y == 0)
+            {
+                _body -> SetLinearVelocity(b2Vec2(0.2, _body -> GetLinearVelocity().y));
+                [self sleep];
+            }
+        }
+        //if(_body -> GetLinearVelocity().x <= 0)
+        // {
+        //    _body -> SetLinearVelocity(b2Vec2(0, _body -> GetLinearVelocity().y));
+        //}
+        /*if(_body -> GetLinearVelocity().x <= 0.2 && _body -> GetLinearVelocity().y <= 0.2)
+         {
+         
+         [self sleep];
+         }*/
+    }
+	
+    
+    
     
     //CCLOG(@"SPEED : %f", vel.x);
     
-	_body->SetLinearVelocity(vel);
+	
 }
 
 - (void) updateNode {
