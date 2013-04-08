@@ -42,7 +42,7 @@
                                                    selector: @selector(applyRocket)
                        ];
         
-        applyRocket.position = ccp(GameWidth * 0.8125, GameHeight * 0.875);
+        applyRocket.position = ccp(GameWidth * 0.83, GameHeight * 0.88);
         
         CCMenuItemImage *pause = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"pauseBtn.png"]
                                                         selectedSprite: [CCSprite spriteWithSpriteFrameName: @"pauseBtn.png"]

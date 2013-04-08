@@ -70,6 +70,9 @@
 #define iPadRadius         19
 #define iPhoneRadius       12
 
+#define usualSegmentWidth  15
+#define retinaSegmentWidth 8
+
 extern CGPoint catStartPosition;
 extern CGPoint cocoStartPosition;
 extern CGPoint finishPointForCoco;
@@ -107,3 +110,5 @@ extern CGRect rectForTextField;
 
 extern float textFontSize;
 extern float bodyRadius;
+
+extern NSInteger segmentWidth;

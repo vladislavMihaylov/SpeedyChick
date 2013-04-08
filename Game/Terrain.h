@@ -6,7 +6,7 @@
 #define kMaxHillKeyPoints 60    //50
 #define kMaxHillVertices 1000    //2000
 #define kMaxBorderVertices 5000  //10000
-#define kHillSegmentWidth 15
+//#define kHillSegmentWidth 8   //15
 
 @class GameLayer;
 

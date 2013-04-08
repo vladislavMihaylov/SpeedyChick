@@ -313,7 +313,7 @@
     }
     
 	NSString *str = @"perfect slide";
-	CCLabelBMFont *label = [CCLabelBMFont labelWithString:str fntFile:@"good_dog_plain_32.fnt"];
+	CCLabelBMFont *label = [CCLabelBMFont labelWithString:str fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
 	label.position = ccp(_screenW/2, _screenH/16);
 	[label runAction:[CCScaleTo actionWithDuration:1.0f scale:1.2f]];
 	[label runAction:[CCSequence actions:
@@ -331,7 +331,7 @@
     }
     
 	NSString *str = @"FRENZY!";
-	CCLabelBMFont *label = [CCLabelBMFont labelWithString:str fntFile:@"good_dog_plain_32.fnt"];
+	CCLabelBMFont *label = [CCLabelBMFont labelWithString:str fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
 	label.position = ccp(_screenW/2, _screenH/16);
 	[label runAction:[CCScaleTo actionWithDuration:2.0f scale:1.4f]];
 	[label runAction:[CCSequence actions:
@@ -346,7 +346,7 @@
     
     
 	NSString *str = @"hit";
-	CCLabelBMFont *label = [CCLabelBMFont labelWithString:str fntFile:@"good_dog_plain_32.fnt"];
+	CCLabelBMFont *label = [CCLabelBMFont labelWithString:str fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
 	label.position = ccp(_screenW/2, _screenH/16);
 	[label runAction:[CCScaleTo actionWithDuration:1.0f scale:1.2f]];
 	[label runAction:[CCSequence actions:

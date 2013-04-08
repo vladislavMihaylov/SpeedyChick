@@ -437,7 +437,7 @@
 	for (int i=1; i<nHillKeyPoints; i++) {
 		p1 = hillKeyPoints[i];
 		
-		int hSegments = floorf((p1.x-p0.x)/kHillSegmentWidth);
+		int hSegments = floorf((p1.x-p0.x)/ segmentWidth);
 		float dx = (p1.x - p0.x) / hSegments;
 		float da = M_PI / hSegments;
 		float ymid = (p0.y + p1.y) / 2;
@@ -530,7 +530,7 @@
 			p1 = hillKeyPoints[i];
 			
 			// triangle strip between p0 and p1
-			int hSegments = floorf((p1.x-p0.x)/kHillSegmentWidth);
+			int hSegments = floorf((p1.x-p0.x)/ segmentWidth);
 			int vSegments = 1;
 			float dx = (p1.x - p0.x) / hSegments;
 			float da = M_PI / hSegments;
@@ -547,8 +547,8 @@
 					//hillVertices[nHillVertices] = ccpMult(ccp(pt1.x, pt1.y-(float)textureSize/vSegments*k), CC_CONTENT_SCALE_FACTOR());
 					//hillTexCoords[nHillVertices++] = ccpMult(ccp(pt1.x/(float)textureSize, (float)(k)/vSegments), CC_CONTENT_SCALE_FACTOR());
                     
-                    hillVertices[nHillVertices] =  ccp(pt0.x, pt0.y-(float)textureSize/vSegments*k);
-					hillTexCoords[nHillVertices++] = ccp(pt0.x/(float)textureSize, (float)(k)/vSegments);
+                    hillVertices[nHillVertices] =  ccpMult(ccp(pt0.x, pt0.y-(float)textureSize/vSegments*k), CC_CONTENT_SCALE_FACTOR());
+					hillTexCoords[nHillVertices++] = ccpMult(ccp(pt0.x/(float)textureSize, (float)(k)/vSegments), CC_CONTENT_SCALE_FACTOR());
                     
 					//hillVertices[nHillVertices] = ccp(pt1.x, pt1.y-(float)textureSize/vSegments*k);
 					//hillTexCoords[nHillVertices++] = ccp(pt1.x/(float)textureSize, (float)(k)/vSegments);

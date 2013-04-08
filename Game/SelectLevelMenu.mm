@@ -126,7 +126,7 @@
     
     if([Settings sharedSettings].countOfCoins < costForOpenLevel)
     {
-        label = [CCLabelBMFont labelWithString: @"You need \n 100 coins!" fntFile: @"timeFont.fnt"];
+        label = [CCLabelBMFont labelWithString: @"You need \n 100 coins!" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
         label.position = ccp(bg.contentSize.width * 0.5, bg.contentSize.height * 0.5);
         [bg addChild: label];
         

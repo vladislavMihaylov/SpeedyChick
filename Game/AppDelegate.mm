@@ -122,6 +122,10 @@
     {
 		CCLOG(@"Retina Display Not supported");
     }
+    else
+    {
+        segmentWidth = retinaSegmentWidth;
+    }
     
     
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)

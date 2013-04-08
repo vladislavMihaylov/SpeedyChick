@@ -215,7 +215,7 @@
     {
         if(_body -> GetLinearVelocity().x > 1)
         {
-            _body->ApplyForce(b2Vec2(-50, -40 * coefForCoords),_body->GetPosition());
+            _body->ApplyForce(b2Vec2(-25 * coefForCoords, -40 * coefForCoords),_body->GetPosition());
         }
         else
         {
