@@ -186,6 +186,8 @@
 		F5050C1716EA52A800C2867F /* Bonus.m in Sources */ = {isa = PBXBuildFile; fileRef = F5050C1616EA52A800C2867F /* Bonus.m */; };
 		F506BB9916E90A9B0084F483 /* GameConfig.mm in Sources */ = {isa = PBXBuildFile; fileRef = F506BB9816E90A9B0084F483 /* GameConfig.mm */; };
 		F506BB9C16E9131C0084F483 /* DataAboutWorlds.plist in Resources */ = {isa = PBXBuildFile; fileRef = F506BB9B16E9131C0084F483 /* DataAboutWorlds.plist */; };
+		F506D7AD17148AC900FA165D /* libChartboost.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F506D7AB17148AC900FA165D /* libChartboost.a */; };
+		F506D7AE17148AC900FA165D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F506D7AC17148AC900FA165D /* README.md */; };
 		F509DA5516FE22A900108219 /* FirstLaunch.m in Sources */ = {isa = PBXBuildFile; fileRef = F509DA5416FE22A900108219 /* FirstLaunch.m */; };
 		F50A3CB316F5E56D00A807F2 /* cat.png in Resources */ = {isa = PBXBuildFile; fileRef = F50A3CAF16F5E56D00A807F2 /* cat.png */; };
 		F50A3CB416F5E56D00A807F2 /* cat-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F50A3CB016F5E56D00A807F2 /* cat-hd.png */; };
@@ -906,6 +908,10 @@
 		F5050C1616EA52A800C2867F /* Bonus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bonus.m; sourceTree = "<group>"; };
 		F506BB9816E90A9B0084F483 /* GameConfig.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameConfig.mm; sourceTree = "<group>"; };
 		F506BB9B16E9131C0084F483 /* DataAboutWorlds.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DataAboutWorlds.plist; sourceTree = "<group>"; };
+		F506D7A917148AC900FA165D /* CBAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAnalytics.h; sourceTree = "<group>"; };
+		F506D7AA17148AC900FA165D /* Chartboost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chartboost.h; sourceTree = "<group>"; };
+		F506D7AB17148AC900FA165D /* libChartboost.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libChartboost.a; sourceTree = "<group>"; };
+		F506D7AC17148AC900FA165D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		F509DA5316FE22A900108219 /* FirstLaunch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstLaunch.h; sourceTree = "<group>"; };
 		F509DA5416FE22A900108219 /* FirstLaunch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstLaunch.m; sourceTree = "<group>"; };
 		F50A3CAF16F5E56D00A807F2 /* cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat.png; sourceTree = "<group>"; };
@@ -1058,6 +1064,7 @@
 				4DFD2EB9139CCCA0001E1480 /* UIKit.framework in Frameworks */,
 				4DFD2EBB139CCCA0001E1480 /* Foundation.framework in Frameworks */,
 				4DFD2EBD139CCCA0001E1480 /* CoreGraphics.framework in Frameworks */,
+				F506D7AD17148AC900FA165D /* libChartboost.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1267,6 +1274,7 @@
 		4DFD2EBE139CCCA0001E1480 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				F506D78717148A7400FA165D /* chartBoost */,
 				F514AED816E87E8A00348A2D /* GameLayer */,
 				F514AED716E87E6B00348A2D /* Application */,
 				F514AED616E87E3500348A2D /* Navigation */,
@@ -1619,6 +1627,17 @@
 				4DFD300E139CCCA6001E1480 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F506D78717148A7400FA165D /* chartBoost */ = {
+			isa = PBXGroup;
+			children = (
+				F506D7A917148AC900FA165D /* CBAnalytics.h */,
+				F506D7AA17148AC900FA165D /* Chartboost.h */,
+				F506D7AB17148AC900FA165D /* libChartboost.a */,
+				F506D7AC17148AC900FA165D /* README.md */,
+			);
+			name = chartBoost;
 			sourceTree = "<group>";
 		};
 		F50F346D16F18DD50027982E /* gameMenu */ = {
@@ -2268,6 +2287,7 @@
 				F500CF2517127C4E006C529A /* Default-Landscape~ipad.png in Resources */,
 				F500CF2617127C4E006C529A /* Default.png in Resources */,
 				F500CF2717127C4E006C529A /* Default@2x.png in Resources */,
+				F506D7AE17148AC900FA165D /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2510,6 +2530,10 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = Game/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Game\"",
+				);
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
@@ -2532,6 +2556,10 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = Game/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Game\"",
+				);
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",

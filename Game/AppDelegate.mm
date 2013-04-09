@@ -20,6 +20,8 @@
 #import "MainMenu.h"
 #import "FirstLaunch.h"
 
+#import "Chartboost.h"
+
 @implementation AppDelegate
 
 @synthesize window;
@@ -228,6 +230,24 @@
 	[[CCDirector sharedDirector] resume];
     
     [SHKFacebook handleDidBecomeActive];
+    
+    Chartboost *cb = [Chartboost sharedChartboost];
+    //cb.delegate = self;
+    
+    cb.appId = @"5139711e16ba476c0f000023";
+    cb.appSignature = @"9525d14069d431ffb343884cd774199eba3b3c08";
+    
+    // Notify an install
+    [cb startSession];
+    
+    // Load interstitial
+    if([Settings sharedSettings].countOfRuns != 1)
+    {
+        if([Settings sharedSettings].isAdEnabled)
+        {
+            [cb showInterstitial];
+        }
+    }
 }
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
@@ -289,5 +309,27 @@
 
 
 /////////////
+
+#pragma mark chartboost
+
+- (BOOL)shouldDisplayInterstitial: (UIView *) interstitialView
+{
+    return !isGameActive;
+}
+
+- (BOOL)shouldDisplayMoreApps:(UIView *)moreAppsView
+{
+    return !isGameActive;
+}
+
+- (void) requestMoreApps: (NSNotification *) notification
+{
+    [[Chartboost sharedChartboost] showMoreApps];
+}
+
+- (void) requestMoreInterstitial: (NSNotification *) notification
+{
+    [[Chartboost sharedChartboost] showInterstitial];
+}
 
 @end
