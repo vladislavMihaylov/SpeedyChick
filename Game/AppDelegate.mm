@@ -88,6 +88,12 @@
     
     [[Configuration sharedConfiguration] setConfig];
     
+    [Settings sharedSettings].countOfRuns++;
+    
+    CCLOG(@"Runs: %i", [Settings sharedSettings].countOfRuns);
+    
+    [[Settings sharedSettings] save];
+    
 	// Init the window
 	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	

@@ -92,7 +92,7 @@ Settings *sharedSettings = nil;
     }
     else
     {
-        self.countOfRuns = 1;
+        self.countOfRuns = 0;
     }
     
     NSNumber *countCoinsData = [defaults objectForKey: kCountOfCoins];

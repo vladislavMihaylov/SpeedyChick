@@ -360,9 +360,9 @@
 					<key>lockedScaleRatio</key>
 					<true/>
 					<key>memberVarAssignmentName</key>
-					<string></string>
+					<string>rootMenu</string>
 					<key>memberVarAssignmentType</key>
-					<integer>0</integer>
+					<integer>1</integer>
 					<key>mouseEnabled</key>
 					<integer>1</integer>
 					<key>position</key>
@@ -475,7 +475,7 @@
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>89</real>
+						<real>86</real>
 						<real>24</real>
 					</array>
 					<key>customClass</key>
@@ -535,7 +535,7 @@
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>67</real>
+						<real>65</real>
 						<real>24</real>
 					</array>
 					<key>customClass</key>
@@ -691,7 +691,7 @@
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>126</real>
+						<real>123</real>
 						<real>24</real>
 					</array>
 					<key>customClass</key>
@@ -912,6 +912,54 @@
 					<string>rocket.png</string>
 					<key>spriteFramesFile</key>
 					<string>mainMenuTextures.plist</string>
+					<key>tag</key>
+					<integer>-1</integer>
+					<key>visible</key>
+					<false/>
+					<key>zOrder</key>
+					<integer>0</integer>
+				</dict>
+			</dict>
+			<dict>
+				<key>children</key>
+				<array/>
+				<key>class</key>
+				<string>CCNode</string>
+				<key>properties</key>
+				<dict>
+					<key>anchorPoint</key>
+					<array>
+						<real>0.0</real>
+						<real>0.0</real>
+					</array>
+					<key>contentSize</key>
+					<array>
+						<real>0.0</real>
+						<real>0.0</real>
+					</array>
+					<key>customClass</key>
+					<string></string>
+					<key>isExpanded</key>
+					<true/>
+					<key>isRelativeAnchorPoint</key>
+					<true/>
+					<key>lockedScaleRatio</key>
+					<true/>
+					<key>memberVarAssignmentName</key>
+					<string>posForRocket</string>
+					<key>memberVarAssignmentType</key>
+					<integer>1</integer>
+					<key>position</key>
+					<array>
+						<real>50</real>
+						<real>270</real>
+					</array>
+					<key>rotation</key>
+					<real>0.0</real>
+					<key>scaleX</key>
+					<real>1</real>
+					<key>scaleY</key>
+					<real>1</real>
 					<key>tag</key>
 					<integer>-1</integer>
 					<key>visible</key>

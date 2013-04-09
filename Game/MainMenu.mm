@@ -18,6 +18,8 @@
 - (void) didLoadFromCCB
 {
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"chicks%@.plist", suffix]];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"mainMenuTextures%@.plist", suffix]];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"SelectMenuFiles%@.plist", suffix]];
     
     CCSprite *curPinguinSprite = [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"c_%i.png", [Settings sharedSettings].currentPinguin]];
     curPinguinSprite.position = curPinguin.position;
@@ -34,12 +36,111 @@
     }
     
     nameLabel.string = [NSString stringWithFormat: @"Hello, %@", [Settings sharedSettings].nameOfPlayer];
+    
+    CCMenuItemImage *rocketBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"rocket.png"]
+                                                        selectedSprite: [CCSprite spriteWithSpriteFrameName: @"rocket.png"]
+                                                                target: self
+                                                              selector: @selector(buyRocket)];
+    
+    rocketBtn.position = posForRocket.position;
+    
+    CCMenu *rocketMenu = [CCMenu menuWithItems: rocketBtn, nil];
+    rocketMenu.position = ccp(0, 0);
+    [self addChild: rocketMenu];
+    
+    if([Settings sharedSettings].countOfRuns % 10 == 0)
+    {
+        if(!isInviteShowed)
+        {
+            isInviteShowed = YES;
+            [self showInviteToShop];
+        }
+    }
+}
+
+- (void) showInviteToShop
+{
+    rootMenu.isTouchEnabled = NO;
+    
+    CCSprite *bg = [CCSprite spriteWithSpriteFrameName: @"buyLevelBg.png"];
+    bg.position = ccp(GameCenterX, GameCenterY);
+    bg.scale = 0;
+    [self addChild: bg z: 2 tag: 31];
+    
+    CCLabelBMFont *alert = [CCLabelBMFont labelWithString: @"Come to the store!" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+    alert.position = ccp(bg.contentSize.width/2, bg.contentSize.height/2);
+    [bg addChild: alert];
+    
+    CCMenuItemImage *okBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtn.png"]] selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtnOn.png"]]
+                                                            target: self selector: @selector(pressedShop)];
+    okBtn.position = ccp(bg.contentSize.width * 0.3, bg.contentSize.height * 0.2);
+    
+    CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtn.png"]]
+                             selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtnOn.png"]]
+                                     target: self
+                                   selector: @selector(hideAlert)
+       ];
+    
+    cancelBtn.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.2);
+    
+    CCMenu *alertMenu = [CCMenu menuWithItems: okBtn, cancelBtn, nil];
+    alertMenu.position = ccp(0, 0);
+    [bg addChild: alertMenu];
+    
+    [bg runAction: [CCEaseBackOut actionWithAction: [CCScaleTo actionWithDuration: 0.5 scale: 1]]];
 }
 
 - (void) updateRocketsAndCoinsString
 {
     rocketsLabel.string = [NSString stringWithFormat: @"%i rockets", [Settings sharedSettings].countOfRockets];
     coinsLabel.string = [NSString stringWithFormat: @"%i coins", [Settings sharedSettings].countOfCoins];
+}
+
+- (void) buyRocket
+{
+    if([Settings sharedSettings].countOfCoins >= 10)
+    {
+        [Settings sharedSettings].countOfCoins -= 10;
+        [Settings sharedSettings].countOfRockets++;
+        
+        [[Settings sharedSettings] save];
+        
+        [self updateRocketsAndCoinsString];
+    }
+    else
+    {
+        [self showAlert];
+    }
+}
+
+- (void) showAlert
+{
+    rootMenu.isTouchEnabled = NO;
+    
+    CCSprite *bg = [CCSprite spriteWithSpriteFrameName: @"buyLevelBg.png"];
+    bg.position = ccp(GameCenterX, GameCenterY);
+    bg.scale = 0;
+    [self addChild: bg z: 2 tag: 31];
+    
+    CCLabelBMFont *alert = [CCLabelBMFont labelWithString: @"You need \n 10 coins!" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+    alert.position = ccp(bg.contentSize.width/2, bg.contentSize.height/2);
+    [bg addChild: alert];
+    
+    CCMenuItemImage *okBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtn.png"]] selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtnOn.png"]]
+                              target: self selector: @selector(hideAlert)];
+    okBtn.position = ccp(bg.contentSize.width/2, bg.contentSize.height * 0.2);
+    
+    CCMenu *alertMenu = [CCMenu menuWithItems: okBtn, nil];
+    alertMenu.position = ccp(0, 0);
+    [bg addChild: alertMenu];
+    
+    [bg runAction: [CCEaseBackOut actionWithAction: [CCScaleTo actionWithDuration: 0.5 scale: 1]]];
+}
+
+- (void) hideAlert
+{
+    rootMenu.isTouchEnabled = YES;
+    [self removeChildByTag: 31 cleanup: YES];
 }
 
 - (void) dealloc
@@ -122,8 +223,7 @@
     
     timeLabel.string = @"01:59:59";
     
-    [Settings sharedSettings].countOfRockets++;
-    [Settings sharedSettings].countOfCoins++;
+    [Settings sharedSettings].countOfCoins += 15;
     
     [self updateRocketsAndCoinsString];
     

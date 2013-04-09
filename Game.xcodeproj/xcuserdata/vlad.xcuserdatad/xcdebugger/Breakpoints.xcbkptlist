@@ -554,11 +554,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Game/MainMenu.mm"
-         timestampString = "386524962.956146"
+         timestampString = "387190963.614958"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "47"
-         endingLineNumber = "47"
+         startingLineNumber = "148"
+         endingLineNumber = "148"
          landmarkName = "-dealloc"
          landmarkType = "5">
       </FileBreakpoint>
@@ -710,24 +710,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Game/MainMenu.mm"
-         timestampString = "386524962.956146"
+         timestampString = "387190963.614958"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "125"
-         endingLineNumber = "125"
-         landmarkName = "-pressedGetCoins"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Game/MainMenu.mm"
-         timestampString = "386524962.956146"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "104"
-         endingLineNumber = "104"
+         startingLineNumber = "205"
+         endingLineNumber = "205"
          landmarkName = "-timer"
          landmarkType = "5">
       </FileBreakpoint>
@@ -736,11 +723,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Game/MainMenu.mm"
-         timestampString = "386524962.956146"
+         timestampString = "387190963.614958"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
+         startingLineNumber = "160"
+         endingLineNumber = "160"
          landmarkName = "-timer"
          landmarkType = "5">
       </FileBreakpoint>
@@ -749,11 +736,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Game/MainMenu.mm"
-         timestampString = "386524962.956146"
+         timestampString = "387190963.614958"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "101"
-         endingLineNumber = "101"
+         startingLineNumber = "202"
+         endingLineNumber = "202"
          landmarkName = "-timer"
          landmarkType = "5">
       </FileBreakpoint>
@@ -762,11 +749,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Game/MainMenu.mm"
-         timestampString = "386524962.956146"
+         timestampString = "387190963.614958"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "103"
-         endingLineNumber = "103"
+         startingLineNumber = "204"
+         endingLineNumber = "204"
          landmarkName = "-timer"
          landmarkType = "5">
       </FileBreakpoint>

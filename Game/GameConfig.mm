@@ -31,6 +31,7 @@ BOOL isGameActive = NO;
 BOOL isPauseOfGame = NO;
 BOOL ChickOnTheStart = YES;
 BOOL isFinish = NO;
+BOOL isInviteShowed = NO;
 
 float GameWidth =  480;
 float GameHeight = 320;

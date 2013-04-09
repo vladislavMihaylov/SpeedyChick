@@ -105,6 +105,7 @@ extern BOOL isGameActive;
 extern BOOL isPauseOfGame;
 extern BOOL ChickOnTheStart;
 extern BOOL isFinish;
+extern BOOL isInviteShowed;
 
 extern CGRect rectForTextField;
 
