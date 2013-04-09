@@ -92,7 +92,7 @@
 - (void) loadEnergy
 {
     energyLabel = [CCLabelBMFont labelWithString: @"Energy: "
-                                         fntFile: @"timeFont.fnt"
+                                         fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]
                    ];
     
     energyLabel.position = ccp(GameWidth * 0.02, GameHeight * 0.9375);
