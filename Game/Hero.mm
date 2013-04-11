@@ -137,12 +137,12 @@
 
 - (void) applyBonus
 {
-    _body->ApplyLinearImpulse(b2Vec2(12,0),_body->GetPosition());
+    _body->ApplyLinearImpulse(b2Vec2(12 * coefForCoords,0),_body->GetPosition());
 }
 
 - (void) applyRocket
 {
-    _body->ApplyLinearImpulse(b2Vec2(12,5),_body->GetPosition());
+    _body->ApplyLinearImpulse(b2Vec2(8 * coefForCoords, 5 * coefForCoords),_body->GetPosition());
 }
 
 - (void) applyEnergy

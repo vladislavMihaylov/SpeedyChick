@@ -68,7 +68,7 @@
 #define kHeightIPHONE      320
 
 #define iPadRadius         19
-#define iPhoneRadius       12
+#define iPhoneRadius       11
 
 #define usualSegmentWidth  15
 #define retinaSegmentWidth 8

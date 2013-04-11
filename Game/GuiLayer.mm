@@ -218,6 +218,7 @@
 {
     if(isGameActive)
     {
+        isGameActive = NO;
         isPauseOfGame = YES;
         [self pauseSchedulerAndActions];
         [cat pauseSchedulerAndActions];
@@ -261,7 +262,11 @@
         
         [menuBg runAction: [CCMoveTo actionWithDuration: 0.25 position: ccp(GameCenterX, GameCenterY)]];
         
-        isGameActive = NO;
+        CCLabelBMFont *pauseLabel = [CCLabelBMFont labelWithString: @"PAUSE" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+        
+        pauseLabel.position = ccp(menuBg.contentSize.width / 2, menuBg.contentSize.height * 1.2);
+        [menuBg addChild: pauseLabel];
+        
         
         
     }
@@ -272,6 +277,7 @@
     if(isGameActive)
     {
         isPauseOfGame = YES;
+        isGameActive = NO;
         [self pauseSchedulerAndActions];
         [cat pauseSchedulerAndActions];
         
@@ -303,7 +309,12 @@
         
         [menuBg runAction: [CCMoveTo actionWithDuration: 0.5 position: ccp(GameCenterX, GameCenterY)]];
         
-        isGameActive = NO;
+        
+        
+        CCLabelBMFont *pauseLabel = [CCLabelBMFont labelWithString: @"Game over" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+        
+        pauseLabel.position = ccp(menuBg.contentSize.width / 2, menuBg.contentSize.height * 1.2);
+        [menuBg addChild: pauseLabel];
     }
 }
 
@@ -531,6 +542,11 @@
         CCSprite *stars = [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"%istars.png", curStars]];
         stars.position = ccp(menuBg.contentSize.width / 2, menuBg.contentSize.height * 0.95);
         [menuBg addChild: stars];
+        
+        CCLabelBMFont *pauseLabel = [CCLabelBMFont labelWithString: @"You finished!" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+        
+        pauseLabel.position = ccp(menuBg.contentSize.width / 2, menuBg.contentSize.height * 1.2);
+        [menuBg addChild: pauseLabel];
     }
 }
 

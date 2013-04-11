@@ -56,6 +56,28 @@
             [self showInviteToShop];
         }
     }
+    
+    [chickSprite runAction:
+            [CCRepeatForever actionWithAction:
+                        [CCSequence actions:
+                                    [CCMoveTo actionWithDuration: 1
+                                                        position: ccp(chickSprite.position.x, chickSprite.position.y + 10)],
+                                    [CCMoveTo actionWithDuration: 1
+                                                        position: ccp(chickSprite.position.x, chickSprite.position.y - 10)],
+                         nil]
+             ]
+     ];
+    
+    [catSprite runAction:
+            [CCRepeatForever actionWithAction:
+                        [CCSequence actions:
+                                    [CCMoveTo actionWithDuration: 1
+                                                        position: ccp(catSprite.position.x, catSprite.position.y - 10)],
+                                    [CCMoveTo actionWithDuration: 1
+                                                        position: ccp(catSprite.position.x, catSprite.position.y + 10)],
+                         nil]
+             ]
+     ];
 }
 
 - (void) showInviteToShop

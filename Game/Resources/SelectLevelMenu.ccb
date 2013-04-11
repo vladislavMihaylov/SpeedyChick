@@ -129,11 +129,13 @@
 							<key>selector</key>
 							<string>back</string>
 							<key>spriteFileDisabled</key>
-							<string>back.png</string>
+							<string>backBtn.png</string>
 							<key>spriteFileNormal</key>
-							<string>back.png</string>
+							<string>backBtn.png</string>
 							<key>spriteFileSelected</key>
-							<string>backOn.png</string>
+							<string>backBtnOn.png</string>
+							<key>spriteFramesFile</key>
+							<string>SelectMenuFiles.plist</string>
 							<key>tag</key>
 							<integer>-1</integer>
 							<key>target</key>
@@ -218,7 +220,7 @@
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>107</real>
+						<real>105</real>
 						<real>24</real>
 					</array>
 					<key>customClass</key>

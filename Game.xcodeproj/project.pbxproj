@@ -199,6 +199,12 @@
 		F514AED016E87BD900348A2D /* SelectWorldMenu.ccb in Resources */ = {isa = PBXBuildFile; fileRef = F514AECF16E87BD900348A2D /* SelectWorldMenu.ccb */; };
 		F514AED316E87CD700348A2D /* SelectLevelMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = F514AED216E87CD700348A2D /* SelectLevelMenu.mm */; };
 		F514AED516E87D4B00348A2D /* SelectLevelMenu.ccb in Resources */ = {isa = PBXBuildFile; fileRef = F514AED416E87D4B00348A2D /* SelectLevelMenu.ccb */; };
+		F521359D1716DCD200F8806A /* catForMenu-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F52135971716DCD200F8806A /* catForMenu-hd.png */; };
+		F521359E1716DCD200F8806A /* catForMenu-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F52135981716DCD200F8806A /* catForMenu-ipad.png */; };
+		F521359F1716DCD200F8806A /* catForMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = F52135991716DCD200F8806A /* catForMenu.png */; };
+		F52135A01716DCD200F8806A /* chickForMenu-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F521359A1716DCD200F8806A /* chickForMenu-hd.png */; };
+		F52135A11716DCD200F8806A /* chickForMenu-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F521359B1716DCD200F8806A /* chickForMenu-ipad.png */; };
+		F52135A21716DCD200F8806A /* chickForMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = F521359C1716DCD200F8806A /* chickForMenu.png */; };
 		F5A8C2D11704B6B8006226E1 /* SelectWorldMenu-ipad.ccb in Resources */ = {isa = PBXBuildFile; fileRef = F5A8C2D01704B6B8006226E1 /* SelectWorldMenu-ipad.ccb */; };
 		F5A8C2F91704B7CD006226E1 /* SelectMenuFiles-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5A8C2F31704B7CD006226E1 /* SelectMenuFiles-hd.plist */; };
 		F5A8C2FA1704B7CD006226E1 /* SelectMenuFiles-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A8C2F41704B7CD006226E1 /* SelectMenuFiles-hd.png */; };
@@ -928,6 +934,12 @@
 		F514AED116E87CD700348A2D /* SelectLevelMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectLevelMenu.h; sourceTree = "<group>"; };
 		F514AED216E87CD700348A2D /* SelectLevelMenu.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SelectLevelMenu.mm; sourceTree = "<group>"; };
 		F514AED416E87D4B00348A2D /* SelectLevelMenu.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = SelectLevelMenu.ccb; path = Resources/SelectLevelMenu.ccb; sourceTree = "<group>"; };
+		F52135971716DCD200F8806A /* catForMenu-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "catForMenu-hd.png"; path = "Resources/catForMenu-hd.png"; sourceTree = "<group>"; };
+		F52135981716DCD200F8806A /* catForMenu-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "catForMenu-ipad.png"; path = "Resources/catForMenu-ipad.png"; sourceTree = "<group>"; };
+		F52135991716DCD200F8806A /* catForMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = catForMenu.png; path = Resources/catForMenu.png; sourceTree = "<group>"; };
+		F521359A1716DCD200F8806A /* chickForMenu-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chickForMenu-hd.png"; path = "Resources/chickForMenu-hd.png"; sourceTree = "<group>"; };
+		F521359B1716DCD200F8806A /* chickForMenu-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chickForMenu-ipad.png"; path = "Resources/chickForMenu-ipad.png"; sourceTree = "<group>"; };
+		F521359C1716DCD200F8806A /* chickForMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chickForMenu.png; path = Resources/chickForMenu.png; sourceTree = "<group>"; };
 		F5A8C2D01704B6B8006226E1 /* SelectWorldMenu-ipad.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "SelectWorldMenu-ipad.ccb"; path = "Resources/SelectWorldMenu-ipad.ccb"; sourceTree = "<group>"; };
 		F5A8C2F31704B7CD006226E1 /* SelectMenuFiles-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SelectMenuFiles-hd.plist"; path = "Resources/SelectMenuFiles-hd.plist"; sourceTree = "<group>"; };
 		F5A8C2F41704B7CD006226E1 /* SelectMenuFiles-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SelectMenuFiles-hd.png"; path = "Resources/SelectMenuFiles-hd.png"; sourceTree = "<group>"; };
@@ -1832,6 +1844,12 @@
 		F5FE578B170AC8450092CF8F /* texturesOfMenu */ = {
 			isa = PBXGroup;
 			children = (
+				F52135971716DCD200F8806A /* catForMenu-hd.png */,
+				F52135981716DCD200F8806A /* catForMenu-ipad.png */,
+				F52135991716DCD200F8806A /* catForMenu.png */,
+				F521359A1716DCD200F8806A /* chickForMenu-hd.png */,
+				F521359B1716DCD200F8806A /* chickForMenu-ipad.png */,
+				F521359C1716DCD200F8806A /* chickForMenu.png */,
 				F5CCC4A0170411AF00742F9B /* mainMenuTextures-hd.plist */,
 				F5CCC4A1170411AF00742F9B /* mainMenuTextures-hd.png */,
 				F5CCC4A2170411AF00742F9B /* mainMenuTextures-ipad.plist */,
@@ -2288,6 +2306,12 @@
 				F500CF2617127C4E006C529A /* Default.png in Resources */,
 				F500CF2717127C4E006C529A /* Default@2x.png in Resources */,
 				F506D7AE17148AC900FA165D /* README.md in Resources */,
+				F521359D1716DCD200F8806A /* catForMenu-hd.png in Resources */,
+				F521359E1716DCD200F8806A /* catForMenu-ipad.png in Resources */,
+				F521359F1716DCD200F8806A /* catForMenu.png in Resources */,
+				F52135A01716DCD200F8806A /* chickForMenu-hd.png in Resources */,
+				F52135A11716DCD200F8806A /* chickForMenu-ipad.png in Resources */,
+				F52135A21716DCD200F8806A /* chickForMenu.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

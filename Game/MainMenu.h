@@ -24,6 +24,8 @@
     
     CCLabelBMFont *nameLabel;
 
+    CCSprite *chickSprite;
+    CCSprite *catSprite;
 }
 
 @end
