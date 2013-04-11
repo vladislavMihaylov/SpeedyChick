@@ -312,7 +312,8 @@
         [guiLayer increaseEnergy];
     }
     
-	NSString *str = @"perfect slide";
+	//NSString *str = @"perfect slide";
+    NSString *str = @"";
 	CCLabelBMFont *label = [CCLabelBMFont labelWithString:str fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
 	label.position = ccp(_screenW/2, _screenH/16);
 	[label runAction:[CCScaleTo actionWithDuration:1.0f scale:1.2f]];
@@ -330,7 +331,8 @@
         [guiLayer increaseEnergy];
     }
     
-	NSString *str = @"FRENZY!";
+	//NSString *str = @"FRENZY!";
+    NSString *str = @"";
 	CCLabelBMFont *label = [CCLabelBMFont labelWithString:str fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
 	label.position = ccp(_screenW/2, _screenH/16);
 	[label runAction:[CCScaleTo actionWithDuration:2.0f scale:1.4f]];
@@ -345,7 +347,8 @@
     
     
     
-	NSString *str = @"hit";
+	//NSString *str = @"hit";
+    NSString *str = @"";
 	CCLabelBMFont *label = [CCLabelBMFont labelWithString:str fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
 	label.position = ccp(_screenW/2, _screenH/16);
 	[label runAction:[CCScaleTo actionWithDuration:1.0f scale:1.2f]];
