@@ -118,11 +118,11 @@
     [_game startCat];
     
     [_sprite runAction:
-     [CCRepeatForever actionWithAction:
-      [CCAnimate actionWithAnimation:
-       [[CCAnimationCache sharedAnimationCache] animationByName: [NSString stringWithFormat: @"c%ianim", [Settings sharedSettings].currentPinguin]]
-       ]
-      ]
+                [CCRepeatForever actionWithAction:
+                    [CCAnimate actionWithAnimation:
+                        [[CCAnimationCache sharedAnimationCache] animationByName: [NSString stringWithFormat: @"c%ianim", [Settings sharedSettings].currentPinguin]]
+                     ]
+                 ]
      ];
     
 }
@@ -131,7 +131,7 @@
 {
     if(_body -> GetLinearVelocity().x > 0)
     {
-        _body->ApplyForce(b2Vec2(-40,-40 * coefForCoords),_body->GetPosition());
+        _body->ApplyForce(b2Vec2(-40, forceY),_body->GetPosition());
     }
 }
 
@@ -177,19 +177,19 @@
 		}
         else
         {
-			_body->ApplyForce(b2Vec2(0,-40 * coefForCoords),_body->GetPosition());
+			_body->ApplyForce(b2Vec2(0, forceY),_body->GetPosition());
             
 		}
 	}
     
     if(self.position.y > currentHeightOfFly * coefForCoords)
     {
-        _body->ApplyForce(b2Vec2(0,-40),_body->GetPosition());
+        _body->ApplyForce(b2Vec2(0, forceY/2 ),_body->GetPosition());
     }
     
 	// limit velocity
-	const float minVelocityX = 3 * coefForCoords;
-	const float minVelocityY = -40 * coefForCoords;
+	const float minVelocityX = minSpeedX;
+	const float minVelocityY = minSpeedY;
 	b2Vec2 vel = _body->GetLinearVelocity();
 	
     if(!isFinish)
@@ -204,7 +204,7 @@
             vel.y = minVelocityY;
         }
         
-        if(vel.x > currentSpeedOfFly * coefForCoords)
+        if(vel.x > currentSpeedOfFly)
         {
             vel.x = currentSpeedOfFly;
         }
@@ -215,7 +215,7 @@
     {
         if(_body -> GetLinearVelocity().x > 1)
         {
-            _body->ApplyForce(b2Vec2(-25 * coefForCoords, -40 * coefForCoords),_body->GetPosition());
+            _body->ApplyForce(b2Vec2(-25 * coefForCoords, forceY),_body->GetPosition());
         }
         else
         {
@@ -225,23 +225,8 @@
                 [self sleep];
             }
         }
-        //if(_body -> GetLinearVelocity().x <= 0)
-        // {
-        //    _body -> SetLinearVelocity(b2Vec2(0, _body -> GetLinearVelocity().y));
-        //}
-        /*if(_body -> GetLinearVelocity().x <= 0.2 && _body -> GetLinearVelocity().y <= 0.2)
-         {
-         
-         [self sleep];
-         }*/
-    }
-	
-    
-    
-    
-    //CCLOG(@"SPEED : %f", vel.x);
-    
-	
+        
+    }	
 }
 
 - (void) updateNode {

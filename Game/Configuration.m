@@ -71,18 +71,70 @@ Configuration *sharedConfiguration = nil;
         [[Settings sharedSettings] save];
     }
     
-    if([Settings sharedSettings].isSuperChickBuyed)
+    [[Settings sharedSettings] save];
+}
+
+- (void) setParameters
+{
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
     {
-        currentHeightOfFly = 1000;
-        currentSpeedOfFly = 50;
+        suffix = @"-ipad";
+        coefForCoords = 2;
+        
+        GameWidth = kWidthIPAD;
+        GameHeight = kHeightIPAD;
+        
+        rectForTextField = CGRectMake(150, 475, 320, 70);
+        textFontSize = 50;
+        
+        bodyRadius = iPadRadius;
+        
+        currentHeightOfFly = defaultHeightOfFlyIPAD;
+        currentSpeedOfFly = defaultSpeedOfFlyIPAD;
+        
+        minSpeedX = minVelocityXIPAD;
+        minSpeedY = minVelocityYIPAD;
+        
+        forceY = forceYIPAD;
     }
     else
     {
+        suffix = @"";
+        coefForCoords = 1;
+        
+        GameWidth = kWidthIPHONE;
+        GameHeight = kHeightIPHONE;
+        
+        rectForTextField = CGRectMake(10, 220, 240, 40);
+        textFontSize = 30;
+        
+        bodyRadius = iPhoneRadius;
+        
         currentHeightOfFly = defaultHeightOfFly;
         currentSpeedOfFly = defaultSpeedOfFly;
+        
+        minSpeedX = minVelocityXIPHONE;
+        minSpeedY = minVelocityYIPHONE;
+        
+        forceY = forceYIPHONE;
     }
     
-    [[Settings sharedSettings] save];
+    GameCenterX = GameWidth / 2;
+    GameCenterY = GameHeight / 2;
+    
+    catStartPosition = CGPointMake(40, 40);
+    cocoStartPosition = CGPointMake(GameCenterX, 40);
+    finishPointForCoco = CGPointMake(GameWidth - 40, 40);
+    
+    // Bonuses and purchase
+    
+    if([Settings sharedSettings].isSuperChickBuyed)
+    {
+        currentHeightOfFly *= 2;
+        currentSpeedOfFly *= 2;
+        
+        minSpeedX *= 1.5;
+    }
 }
 
 @end

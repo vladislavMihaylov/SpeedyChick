@@ -135,42 +135,8 @@
         segmentWidth = retinaSegmentWidth;
     }
     
+    [[Configuration sharedConfiguration] setParameters];
     
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    {
-        suffix = @"-ipad";
-        coefForCoords = 2;
-        
-        GameWidth = kWidthIPAD;
-        GameHeight = kHeightIPAD;
-        
-        rectForTextField = CGRectMake(150, 475, 320, 70);
-        textFontSize = 50;
-        
-        bodyRadius = iPadRadius;
-    }
-    else
-    {
-        suffix = @"";
-        coefForCoords = 1;
-        
-        GameWidth = kWidthIPHONE;
-        GameHeight = kHeightIPHONE;
-        
-        rectForTextField = CGRectMake(10, 220, 240, 40);
-        textFontSize = 30;
-        
-        bodyRadius = iPhoneRadius;
-    }
-    
-    GameCenterX = GameWidth / 2;
-    GameCenterY = GameHeight / 2;
-    
-    catStartPosition = CGPointMake(40, 40);
-    cocoStartPosition = CGPointMake(GameCenterX, 40);
-    finishPointForCoco = CGPointMake(GameWidth - 40, 40);
-
-	
 	//
 	// VERY IMPORTANT:
 	// If the rotation is going to be controlled by a UIViewController

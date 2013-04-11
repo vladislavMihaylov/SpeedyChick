@@ -14,8 +14,6 @@ CGPoint finishPointForCoco = CGPointMake(440, 40);
 
 NSInteger currentWorld = 0;
 NSInteger currentLevel = 0;
-NSInteger defaultHeightOfFly = 550;
-NSInteger defaultSpeedOfFly = 33;
 NSInteger costForOpenLevel = 100;
 
 NSInteger currentHeightOfFly = 0;
@@ -49,3 +47,10 @@ float textFontSize = 30;
 float bodyRadius = iPhoneRadius;
 
 NSInteger segmentWidth = usualSegmentWidth;
+
+// Physics
+
+float minSpeedX = minVelocityXIPHONE;
+float minSpeedY = minVelocityYIPHONE;
+
+float forceY = forceYIPHONE;

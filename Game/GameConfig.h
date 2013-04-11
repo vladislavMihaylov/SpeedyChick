@@ -73,14 +73,31 @@
 #define usualSegmentWidth  15
 #define retinaSegmentWidth 8
 
+// Physics
+
+#define defaultHeightOfFly 550
+#define defaultSpeedOfFly  33
+
+#define defaultHeightOfFlyIPAD 1100
+#define defaultSpeedOfFlyIPAD  66
+
+#define minVelocityXIPHONE 3
+#define minVelocityYIPHONE -20
+
+#define minVelocityXIPAD   6
+#define minVelocityYIPAD   -80
+
+#define forceYIPAD         -80
+#define forceYIPHONE       -30
+
+//
+
 extern CGPoint catStartPosition;
 extern CGPoint cocoStartPosition;
 extern CGPoint finishPointForCoco;
 
 extern NSInteger currentWorld;
 extern NSInteger currentLevel;
-extern NSInteger defaultHeightOfFly;
-extern NSInteger defaultSpeedOfFly;
 extern NSInteger costForOpenLevel;
 
 extern NSInteger coefForCoords;
@@ -113,3 +130,11 @@ extern float textFontSize;
 extern float bodyRadius;
 
 extern NSInteger segmentWidth;
+
+// Physics parameters
+
+extern float minSpeedX;
+extern float minSpeedY;
+
+extern float forceY;
+

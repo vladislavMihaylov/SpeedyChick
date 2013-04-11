@@ -15,7 +15,9 @@
 }
 
 + (Configuration *) sharedConfiguration;
+
 - (void) setConfig;
+- (void) setParameters;
 
 
 @end
