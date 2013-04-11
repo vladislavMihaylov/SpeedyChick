@@ -32,69 +32,86 @@
 
 #endif // __GAME_CONFIG_H
 
+
+// keys for settings
+
 #define kPinguinKey           @"pinguinKey"
 #define kRocketsKey           @"rocketsKey"
 #define kCatKey               @"catKey"
-
 #define kCountOfRunsKey       @"run'sCountKey"
 #define kCountOfCoins         @"coin'sCountKey"
 #define kAdKey                @"AdKey"
 #define kFirstRunKey          @"kFirstRunKey"
-
 #define kKidsModeKey          @"kKidsModeKey"
 #define kSuperChickKey        @"kSuperChickKey"
 #define kGhostChickKey        @"kGhostChickKey"
-
 #define kOpenedWorldsKey      @"kOpenedWorldsKey"
 #define kOpenedLevelsKey      @"kOpenedLevelsKey"
-
 #define kStarsCountKey        @"kStarsCountKey"
-
 #define kDateKey              @"kDateKey"
-
 #define kNameKey              @"kNameKey"
-
 #define kEnergyKey            @"kEnergyKey"
 
-#define backBtnTag         -1
-#define menuBgTag          10
-#define exitBtnTag         11
-#define selectLevelMenuTag 100 
+// tags and screen's parameters
 
-#define kWidthIPAD         1024
-#define kHeightIPAD        768
+#define backBtnTag                  -1
+#define menuBgTag                   10
+#define exitBtnTag                  11
+#define selectLevelMenuTag          100 
 
-#define kWidthIPHONE       480
-#define kHeightIPHONE      320
+#define kWidthIPAD                  1024
+#define kHeightIPAD                 768
 
-#define iPadRadius         19
-#define iPhoneRadius       11
-
-#define usualSegmentWidth  15
-#define retinaSegmentWidth 8
+#define kWidthIPHONE                480
+#define kHeightIPHONE               320
 
 // Physics
 
-#define defaultHeightOfFly 550
-#define defaultSpeedOfFly  33
+#define iPadRadius                  19
+#define iPhoneRadius                11
 
-#define defaultHeightOfFlyIPAD 1100
-#define defaultSpeedOfFlyIPAD  66
+#define usualSegmentWidth           15
+#define retinaSegmentWidth          8
 
-#define minVelocityXIPHONE 3
-#define minVelocityYIPHONE -20
+#define defaultHeightOfFly          550
+#define defaultSpeedOfFly           33
 
-#define minVelocityXIPAD   6
-#define minVelocityYIPAD   -80
+#define defaultHeightOfFlyIPAD      1100
+#define defaultSpeedOfFlyIPAD       66
 
-#define forceYIPAD         -80
-#define forceYIPHONE       -30
+#define minVelocityXIPHONE          3
+#define minVelocityYIPHONE          -20
 
-//
+#define minVelocityXIPAD            6
+#define minVelocityYIPAD            -180
+
+#define forceYIPAD                  -80
+#define forceYIPHONE                -30
+
+// settings
+
+extern float countOfMana;
+
+// screen's parameters
+
+extern float GameWidth;
+extern float GameHeight;
+extern float GameCenterX;
+extern float GameCenterY;
+
+extern float xPositionForTextField;
+extern float yPositionForTextField;
+extern float textFontSize;
+
+extern CGRect rectForTextField;
+
+// gui parameters
 
 extern CGPoint catStartPosition;
 extern CGPoint cocoStartPosition;
 extern CGPoint finishPointForCoco;
+
+// other parameters
 
 extern NSInteger currentWorld;
 extern NSInteger currentLevel;
@@ -107,16 +124,7 @@ extern NSInteger currentSpeedOfFly;
 
 extern NSString *suffix;
 
-extern float countOfMana;
-
-extern float GameWidth;
-extern float GameHeight;
-
-extern float GameCenterX;
-extern float GameCenterY;
-
-extern float xPositionForTextField;
-extern float yPositionForTextField;
+// flags
 
 extern BOOL isGameActive;
 extern BOOL isPauseOfGame;
@@ -124,17 +132,12 @@ extern BOOL ChickOnTheStart;
 extern BOOL isFinish;
 extern BOOL isInviteShowed;
 
-extern CGRect rectForTextField;
-
-extern float textFontSize;
-extern float bodyRadius;
+// Physics parameters
 
 extern NSInteger segmentWidth;
 
-// Physics parameters
-
+extern float bodyRadius;
 extern float minSpeedX;
 extern float minSpeedY;
-
 extern float forceY;
 

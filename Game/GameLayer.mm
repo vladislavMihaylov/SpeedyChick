@@ -102,17 +102,14 @@
 {
     [self unscheduleUpdate];
     
-    /*[_terrain removeBody];
-    
-    [self removeChild: _terrain cleanup: YES];
-    self.terrain = nil;*/
-    
-    
-
-    
     CCScene * scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"MainMenu%@.ccb", suffix]];
     
     [[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
+}
+
+- (void) setVisibleOfChick: (BOOL) vis
+{
+    _hero.visible = vis;
 }
 
 - (void) applyRocket
@@ -344,7 +341,6 @@
 }
 
 - (void) showHit {
-    
     
     
 	//NSString *str = @"hit";

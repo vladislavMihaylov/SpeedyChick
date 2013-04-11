@@ -20,7 +20,7 @@
     
     CCMenuItemImage *applyRocket;
     
-    CCLabelTTF *timeLabel;
+    CCLabelBMFont *timeLabel;
     CCLabelBMFont *energyLabel;
     
     NSInteger time;

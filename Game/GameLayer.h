@@ -48,6 +48,7 @@
 - (void) showHit;
 - (void) exitToMainMenu;
 - (void) startCat;
+- (void) setVisibleOfChick: (BOOL) vis;
 
 @end
 

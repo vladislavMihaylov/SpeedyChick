@@ -18,7 +18,9 @@
 - (void) didLoadFromCCB
 {
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"chicks%@.plist", suffix]];
+    
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"mainMenuTextures%@.plist", suffix]];
+    
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"SelectMenuFiles%@.plist", suffix]];
     
     CCSprite *curPinguinSprite = [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"c_%i.png", [Settings sharedSettings].currentPinguin]];
@@ -26,7 +28,9 @@
     [self addChild: curPinguinSprite];
     
     [self updateRocketsAndCoinsString];
-        
+    
+    
+    // if timer is run
     if(![[Settings sharedSettings].futureDate isEqualToString: @""])
     {
         [self schedule: @selector(timer) interval: 1];

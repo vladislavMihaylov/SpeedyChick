@@ -18,6 +18,8 @@
 #import "WorldsDatabase.h"
 #import "WorldsInfo.h"
 
+#import "Common.h"
+
 @implementation GuiLayer
 
 @synthesize gameLayer;
@@ -33,6 +35,12 @@
     if(self = [super init])
     {
         showNewWorld = NO;
+        
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"catAnim%@.plist", suffix]];
+        
+        [Common loadAnimationWithPlist: @"catAnimation"
+                               andName: @"cat_"
+         ];
         
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"gameMenu%@.plist", suffix]];
         
@@ -58,13 +66,9 @@
         
         [self updateRocket];
         
-        timeLabel = [CCLabelTTF labelWithString: @"00:00:00"
-                                       fontName: @"Arial"
-                                       fontSize: 20
-                     ];
-        
+        timeLabel = [CCLabelBMFont labelWithString: @"00:00:00" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
         timeLabel.position = ccp(GameCenterX, GameHeight * 0.9375);
-        timeLabel.color = ccc3(0, 0, 0);
+        timeLabel.color = ccc3(255, 0, 0);
         [self addChild: timeLabel];
         
         time = 0;
@@ -218,6 +222,8 @@
 {
     if(isGameActive)
     {
+        applyRocket.isEnabled = NO;
+        
         isGameActive = NO;
         isPauseOfGame = YES;
         [self pauseSchedulerAndActions];
@@ -276,6 +282,10 @@
 {
     if(isGameActive)
     {
+        applyRocket.isEnabled = NO;
+        
+        [gameLayer setVisibleOfChick: NO];
+        
         isPauseOfGame = YES;
         isGameActive = NO;
         [self pauseSchedulerAndActions];
@@ -307,19 +317,31 @@
         gameOverMenu.position = ccp(0, 0);
         [menuBg addChild: gameOverMenu];
         
-        [menuBg runAction: [CCMoveTo actionWithDuration: 0.5 position: ccp(GameCenterX, GameCenterY)]];
-        
-        
+        [menuBg runAction: [CCMoveTo actionWithDuration: 0.2 position: ccp(GameCenterX, GameCenterY)]];
         
         CCLabelBMFont *pauseLabel = [CCLabelBMFont labelWithString: @"Game over" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
         
         pauseLabel.position = ccp(menuBg.contentSize.width / 2, menuBg.contentSize.height * 1.2);
         [menuBg addChild: pauseLabel];
+        
+        CCSprite *catAnim = [CCSprite spriteWithFile: @"cat_1.png"];
+        catAnim.position = ccp(GameCenterX * 1.1, 0  );
+        [menuBg addChild: catAnim];
+        
+        [catAnim runAction:
+                [CCRepeatForever actionWithAction:
+                    [CCAnimate actionWithAnimation:
+                        [[CCAnimationCache sharedAnimationCache] animationByName: @"cat_"]
+                     ]
+                 ]
+         ];
     }
 }
 
 - (void) playNextLevel
 {
+    applyRocket.isEnabled = YES;
+    
     isFinish = NO;
     gameLayer.isTouchEnabled = YES;
     
@@ -361,6 +383,8 @@
 {
     if(!isGameActive)
     {
+        applyRocket.isEnabled = YES;
+        
         isPauseOfGame = NO;
         [self removeChildByTag: menuBgTag cleanup: YES];
         
@@ -476,6 +500,8 @@
 {
     if(isGameActive)
     {
+        applyRocket.isEnabled = NO;
+        
         isFinish = YES;
         isGameActive = NO;
         
@@ -619,6 +645,10 @@
 
 - (void) resetLevel
 {
+    applyRocket.isEnabled = YES;
+    
+    [gameLayer setVisibleOfChick: YES];
+    
     isFinish = NO;
     gameLayer.isTouchEnabled = YES;
     isPauseOfGame = NO;

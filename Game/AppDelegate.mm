@@ -88,8 +88,6 @@
     
     [[Settings sharedSettings] load];
     
-    [[Configuration sharedConfiguration] setConfig];
-    
     [Settings sharedSettings].countOfRuns++;
     
     CCLOG(@"Runs: %i", [Settings sharedSettings].countOfRuns);
