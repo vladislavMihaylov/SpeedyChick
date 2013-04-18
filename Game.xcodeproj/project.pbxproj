@@ -182,6 +182,9 @@
 		F500CF2517127C4E006C529A /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F500CF2217127C4E006C529A /* Default-Landscape~ipad.png */; };
 		F500CF2617127C4E006C529A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F500CF2317127C4E006C529A /* Default.png */; };
 		F500CF2717127C4E006C529A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F500CF2417127C4E006C529A /* Default@2x.png */; };
+		F5021020171F005000EDEB83 /* shopItems-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = F502101D171F005000EDEB83 /* shopItems-ipad.plist */; };
+		F5021021171F005000EDEB83 /* shopItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = F502101E171F005000EDEB83 /* shopItems.plist */; };
+		F5021022171F005000EDEB83 /* shopItems.png in Resources */ = {isa = PBXBuildFile; fileRef = F502101F171F005000EDEB83 /* shopItems.png */; };
 		F5043B9416F760AC00D93959 /* speedyChickDatabase.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = F5043B9316F760AC00D93959 /* speedyChickDatabase.sqlite3 */; };
 		F5050C1716EA52A800C2867F /* Bonus.m in Sources */ = {isa = PBXBuildFile; fileRef = F5050C1616EA52A800C2867F /* Bonus.m */; };
 		F506BB9916E90A9B0084F483 /* GameConfig.mm in Sources */ = {isa = PBXBuildFile; fileRef = F506BB9816E90A9B0084F483 /* GameConfig.mm */; };
@@ -291,6 +294,9 @@
 		F5FC11C41709FBDC00F97164 /* okBtnOn-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FC11BE1709FBD800F97164 /* okBtnOn-ipad.png */; };
 		F5FC11C51709FBDC00F97164 /* okBtnOn.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FC11BF1709FBDA00F97164 /* okBtnOn.png */; };
 		F5FD235216EB7AAC006273B1 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FD235116EB7AAC006273B1 /* Settings.m */; };
+		F5FDB74B171DB698004ADFD9 /* Purchase.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FDB74A171DB698004ADFD9 /* Purchase.m */; };
+		F5FDB74D171DBCD5004ADFD9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FDB74C171DBCD5004ADFD9 /* StoreKit.framework */; };
+		F5FDB750171DCA5F004ADFD9 /* RagePurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FDB74F171DCA5F004ADFD9 /* RagePurchase.m */; };
 		F5FE2A5516ED9554009A25F2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FE2A5416ED9554009A25F2 /* SystemConfiguration.framework */; };
 		F5FE2A5716ED955E009A25F2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FE2A5616ED955E009A25F2 /* Security.framework */; };
 		F5FE2A5916ED9569009A25F2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FE2A5816ED9569009A25F2 /* MessageUI.framework */; };
@@ -917,6 +923,9 @@
 		F500CF2217127C4E006C529A /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		F500CF2317127C4E006C529A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		F500CF2417127C4E006C529A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		F502101D171F005000EDEB83 /* shopItems-ipad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "shopItems-ipad.plist"; sourceTree = "<group>"; };
+		F502101E171F005000EDEB83 /* shopItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shopItems.plist; sourceTree = "<group>"; };
+		F502101F171F005000EDEB83 /* shopItems.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shopItems.png; sourceTree = "<group>"; };
 		F5043B9316F760AC00D93959 /* speedyChickDatabase.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = speedyChickDatabase.sqlite3; sourceTree = "<group>"; };
 		F5050C1516EA52A800C2867F /* Bonus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bonus.h; sourceTree = "<group>"; };
 		F5050C1616EA52A800C2867F /* Bonus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bonus.m; sourceTree = "<group>"; };
@@ -1037,6 +1046,11 @@
 		F5FC11BF1709FBDA00F97164 /* okBtnOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = okBtnOn.png; sourceTree = "<group>"; };
 		F5FD235016EB7AAC006273B1 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		F5FD235116EB7AAC006273B1 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		F5FDB749171DB698004ADFD9 /* Purchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Purchase.h; sourceTree = "<group>"; };
+		F5FDB74A171DB698004ADFD9 /* Purchase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Purchase.m; sourceTree = "<group>"; };
+		F5FDB74C171DBCD5004ADFD9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		F5FDB74E171DCA5F004ADFD9 /* RagePurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RagePurchase.h; sourceTree = "<group>"; };
+		F5FDB74F171DCA5F004ADFD9 /* RagePurchase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RagePurchase.m; sourceTree = "<group>"; };
 		F5FE2A5416ED9554009A25F2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F5FE2A5616ED955E009A25F2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F5FE2A5816ED9569009A25F2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -1071,6 +1085,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5FDB74D171DBCD5004ADFD9 /* StoreKit.framework in Frameworks */,
 				F5FE833616F5B319002B46C4 /* libsqlite3.0.dylib in Frameworks */,
 				F5FE2AE816EDA2D1009A25F2 /* libShareKit.a in Frameworks */,
 				F5FE2A6916ED964C009A25F2 /* Social.framework in Frameworks */,
@@ -1257,6 +1272,7 @@
 		4DFD2E9F139CCCA0001E1480 = {
 			isa = PBXGroup;
 			children = (
+				F5FDB74C171DBCD5004ADFD9 /* StoreKit.framework */,
 				F5FE833516F5B319002B46C4 /* libsqlite3.0.dylib */,
 				F5FE2A6F16ED9E3E009A25F2 /* ShareKit.xcodeproj */,
 				F5FE2A6816ED964C009A25F2 /* Social.framework */,
@@ -1302,6 +1318,7 @@
 		4DFD2EBE139CCCA0001E1480 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				F5FDB727171DB4AA004ADFD9 /* inAppPurchase */,
 				F506D78717148A7400FA165D /* chartBoost */,
 				F514AED816E87E8A00348A2D /* GameLayer */,
 				F514AED716E87E6B00348A2D /* Application */,
@@ -1317,6 +1334,9 @@
 		4DFD2EBF139CCCA0001E1480 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F502101D171F005000EDEB83 /* shopItems-ipad.plist */,
+				F502101E171F005000EDEB83 /* shopItems.plist */,
+				F502101F171F005000EDEB83 /* shopItems.png */,
 				F52135C81717285C00F8806A /* catAnimation */,
 				F5FE578D170AC8CF0092CF8F /* firstScene */,
 				F50F346D16F18DD50027982E /* gameMenu */,
@@ -1782,6 +1802,17 @@
 				F52135CE1717286E00F8806A /* catAnim.png */,
 			);
 			name = catAnimation;
+			sourceTree = "<group>";
+		};
+		F5FDB727171DB4AA004ADFD9 /* inAppPurchase */ = {
+			isa = PBXGroup;
+			children = (
+				F5FDB749171DB698004ADFD9 /* Purchase.h */,
+				F5FDB74A171DB698004ADFD9 /* Purchase.m */,
+				F5FDB74E171DCA5F004ADFD9 /* RagePurchase.h */,
+				F5FDB74F171DCA5F004ADFD9 /* RagePurchase.m */,
+			);
+			name = inAppPurchase;
 			sourceTree = "<group>";
 		};
 		F5FE2A7016ED9E3E009A25F2 /* Products */ = {
@@ -2352,6 +2383,9 @@
 				F52135D31717286E00F8806A /* catAnim.plist in Resources */,
 				F52135D41717286E00F8806A /* catAnim.png in Resources */,
 				F52135D61717288C00F8806A /* catAnimation.plist in Resources */,
+				F5021020171F005000EDEB83 /* shopItems-ipad.plist in Resources */,
+				F5021021171F005000EDEB83 /* shopItems.plist in Resources */,
+				F5021022171F005000EDEB83 /* shopItems.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2526,6 +2560,8 @@
 				F5FE833416F5AA44002B46C4 /* WorldsDatabase.m in Sources */,
 				F509DA5516FE22A900108219 /* FirstLaunch.m in Sources */,
 				F5FE5790170ACB410092CF8F /* Common.mm in Sources */,
+				F5FDB74B171DB698004ADFD9 /* Purchase.m in Sources */,
+				F5FDB750171DCA5F004ADFD9 /* RagePurchase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,8 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface CustomizeMenu : CCLayer {
+@interface CustomizeMenu: CCLayer
+{
+    CCMenu *rootMenu;
     
+    CCLabelBMFont *coinsLabel;
 }
 
 @end

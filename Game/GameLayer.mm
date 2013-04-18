@@ -219,7 +219,9 @@
 
 - (void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
 	_hero.diving = NO;
+    
     [_hero resumeChickAnimation];
+    
     iCanDoSwipe = YES;
 }
 
@@ -231,6 +233,8 @@
 - (void) update: (ccTime) dt
 {
     //CCLOG(@"HERO POSITION: %f %f", _hero.position.x, _hero.position.y);
+    
+    //CCLOG(@"Awake: %i diving: %i ", _hero.awake, _hero.diving);
     
     BOOL isBonus = [_terrain checkBonusCollisionWithCoordinats: ccp(_hero.position.x, _hero.position.y)];
     

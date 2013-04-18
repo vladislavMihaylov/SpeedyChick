@@ -51,6 +51,20 @@
 #define kDateKey              @"kDateKey"
 #define kNameKey              @"kNameKey"
 #define kEnergyKey            @"kEnergyKey"
+#define kBuyedChicks          @"kBuyedChicks"
+
+// Purchase
+
+#define p_coins1000                 0
+#define p_rockets15                 1
+#define p_coins20000                2
+#define p_rockets3                  3
+#define p_coins5000                 4
+#define p_rockets50                 5
+#define p_ghostChick                6
+#define p_kidsMode                  7
+#define p_noads                     8
+#define p_superChick                9
 
 // tags and screen's parameters
 

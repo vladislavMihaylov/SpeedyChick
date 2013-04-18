@@ -145,6 +145,16 @@ Settings *sharedSettings = nil;
         self.nameOfPlayer = @"";
     }
     
+    NSString *buyedData = [defaults objectForKey: kBuyedChicks];
+    if(buyedData)
+    {
+        self.buyedCustomiziedChicks = buyedData;
+    }
+    else
+    {
+        self.buyedCustomiziedChicks = @"1000000000";
+    }
+    
     // BOOL
     
     NSNumber *catsEnabledData = [defaults objectForKey: kCatKey];
@@ -254,6 +264,8 @@ Settings *sharedSettings = nil;
     [defaults setObject: [NSString stringWithString: self.futureDate] forKey: kDateKey];
     
     [defaults setObject: [NSString stringWithString: self.nameOfPlayer] forKey: kNameKey];
+    
+    [defaults setObject: [NSString stringWithString: self.buyedCustomiziedChicks] forKey: kBuyedChicks];
     
     [defaults setObject: [NSNumber numberWithInteger: self.energy] forKey: kEnergyKey];
     

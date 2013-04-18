@@ -111,20 +111,23 @@
 	_body->SetActive(false);
 }
 
-- (void) wake {
-	_awake = YES;
-	_body->SetActive(true);
-	_body->ApplyLinearImpulse(b2Vec2(1,2), _body->GetPosition());
-    [_game startCat];
-    
-    [_sprite runAction:
-                [CCRepeatForever actionWithAction:
-                    [CCAnimate actionWithAnimation:
-                        [[CCAnimationCache sharedAnimationCache] animationByName: [NSString stringWithFormat: @"c%ianim", [Settings sharedSettings].currentPinguin]]
+- (void) wake
+{
+    if(!_awake)
+    {
+        _awake = YES;
+        _body->SetActive(true);
+        _body->ApplyLinearImpulse(b2Vec2(1,2), _body->GetPosition());
+        [_game startCat];
+        
+        [_sprite runAction:
+                    [CCRepeatForever actionWithAction:
+                        [CCAnimate actionWithAnimation:
+                            [[CCAnimationCache sharedAnimationCache] animationByName: [NSString stringWithFormat: @"c%ianim", [Settings sharedSettings].currentPinguin]]
+                         ]
                      ]
-                 ]
-     ];
-    
+         ];
+    }
 }
 
 - (void) stopBird
@@ -147,7 +150,7 @@
 
 - (void) applyEnergy
 {
-    _body->ApplyLinearImpulse(b2Vec2(7,0),_body->GetPosition());
+    _body->ApplyLinearImpulse(b2Vec2(7 * coefForCoords, 2 *coefForCoords),_body->GetPosition());
 }
 
 - (void) pauseChickAnimation
@@ -167,6 +170,8 @@
 
 - (void) updatePhysics {
 
+    CCLOG(@"velocity x: %f y: %f", _body->GetLinearVelocity().x, _body->GetLinearVelocity().y);
+    
 	// apply force if diving
 	if (_diving)
     {

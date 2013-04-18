@@ -87,7 +87,7 @@ Configuration *sharedConfiguration = nil;
         forceY = forceYIPHONE;
     }
     
-    [Settings sharedSettings].countOfRockets = 3;
+    //[Settings sharedSettings].countOfRockets = 3;
     
     GameCenterX = GameWidth / 2;
     GameCenterY = GameHeight / 2;

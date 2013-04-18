@@ -24,6 +24,8 @@
     
     NSString *nameOfPlayer;
     
+    NSString *buyedCustomiziedChicks;
+    
     NSInteger energy;
 }
 
@@ -52,6 +54,8 @@
 @property (nonatomic, assign) NSString *futureDate;
 
 @property (nonatomic, assign) NSString *nameOfPlayer;
+
+@property (nonatomic, assign) NSString *buyedCustomiziedChicks;
 
 @property (nonatomic, assign) NSInteger energy;
 

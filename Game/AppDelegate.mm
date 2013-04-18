@@ -22,6 +22,8 @@
 
 #import "Chartboost.h"
 
+#import "RagePurchase.h"
+
 @implementation AppDelegate
 
 @synthesize window;
@@ -81,6 +83,8 @@
 {
     [self deleteAllNotifs];
     [self addNotification];
+    
+    //[RagePurchase sharedInstance];
     
     DefaultSHKConfigurator *configurator = [[[MySHKConfigurator alloc] init] autorelease];
     
