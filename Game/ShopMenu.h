@@ -28,6 +28,10 @@
     
     CCLabelBMFont *rocketsLabel;
     CCLabelBMFont *coinsLabel;
+    
+    CCMenu *shopMenu;
+    CCMenu *restoreMenu;
+    CCMenu *rootMenu;
 }
 
 @end

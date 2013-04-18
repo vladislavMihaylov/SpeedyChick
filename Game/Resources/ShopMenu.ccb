@@ -174,9 +174,9 @@
 					<key>lockedScaleRatio</key>
 					<true/>
 					<key>memberVarAssignmentName</key>
-					<string></string>
+					<string>rootMenu</string>
 					<key>memberVarAssignmentType</key>
-					<integer>0</integer>
+					<integer>1</integer>
 					<key>mouseEnabled</key>
 					<integer>1</integer>
 					<key>position</key>

@@ -137,6 +137,16 @@ NSString *const PurchaseProductCanceledPurchaseNotification = @"PurchaseProductC
     }
 }
 
+-(void)paymentQueue: (SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError: (NSError *) error
+{
+    [self failedRestore];
+}
+
+- (void) failedRestore
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName: PurchaseProductCanceledPurchaseNotification object: self];
+}
+
 - (void) completeTransaction: (SKPaymentTransaction *) transaction
 {
     NSLog(@"Complete transaction");
@@ -158,6 +168,7 @@ NSString *const PurchaseProductCanceledPurchaseNotification = @"PurchaseProductC
     if (transaction.error.code != SKErrorPaymentCancelled)
     {
         NSLog(@"Transaction error: %@", transaction.error.localizedDescription);
+        [[NSNotificationCenter defaultCenter] postNotificationName: PurchaseProductCanceledPurchaseNotification object: self];
     }
     else
     {

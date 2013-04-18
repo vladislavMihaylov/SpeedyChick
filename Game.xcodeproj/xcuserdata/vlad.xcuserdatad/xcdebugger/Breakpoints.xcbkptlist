@@ -554,11 +554,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Game/MainMenu.mm"
-         timestampString = "387977148.630241"
+         timestampString = "387979589.29696"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "176"
-         endingLineNumber = "176"
+         startingLineNumber = "175"
+         endingLineNumber = "175"
          landmarkName = "-dealloc"
          landmarkType = "5">
       </FileBreakpoint>
@@ -671,50 +671,50 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Game/MainMenu.mm"
-         timestampString = "387977148.630241"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "233"
-         endingLineNumber = "233"
-         landmarkName = "-timer"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Game/MainMenu.mm"
-         timestampString = "387977148.630241"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "188"
-         endingLineNumber = "188"
-         landmarkName = "-timer"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Game/MainMenu.mm"
-         timestampString = "387977148.630241"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "230"
-         endingLineNumber = "230"
-         landmarkName = "-timer"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Game/MainMenu.mm"
-         timestampString = "387977148.630241"
+         timestampString = "387979589.29696"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "232"
          endingLineNumber = "232"
+         landmarkName = "-timer"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Game/MainMenu.mm"
+         timestampString = "387979589.29696"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "187"
+         endingLineNumber = "187"
+         landmarkName = "-timer"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Game/MainMenu.mm"
+         timestampString = "387979589.29696"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "229"
+         endingLineNumber = "229"
+         landmarkName = "-timer"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Game/MainMenu.mm"
+         timestampString = "387979589.29696"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "231"
+         endingLineNumber = "231"
          landmarkName = "-timer"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1295,11 +1295,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Game/Purchase.m"
-         timestampString = "387975614.619586"
+         timestampString = "387983230.088637"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "142"
-         endingLineNumber = "142"
+         startingLineNumber = "152"
+         endingLineNumber = "152"
          landmarkName = "-completeTransaction:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1308,11 +1308,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Game/Purchase.m"
-         timestampString = "387975614.619586"
+         timestampString = "387983230.088637"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "149"
-         endingLineNumber = "149"
+         startingLineNumber = "159"
+         endingLineNumber = "159"
          landmarkName = "-restoreTransaction:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1321,11 +1321,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Game/Purchase.m"
-         timestampString = "387975614.619586"
+         timestampString = "387983230.088637"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "157"
-         endingLineNumber = "157"
+         startingLineNumber = "167"
+         endingLineNumber = "167"
          landmarkName = "-failedTransaction:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1334,11 +1334,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Game/Purchase.m"
-         timestampString = "387975614.619586"
+         timestampString = "387983230.088637"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "175"
-         endingLineNumber = "175"
+         startingLineNumber = "186"
+         endingLineNumber = "186"
          landmarkName = "-provideContentForProductIdentifier:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1386,11 +1386,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Game/Purchase.m"
-         timestampString = "387975823.242061"
+         timestampString = "387983230.088637"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "181"
-         endingLineNumber = "181"
+         startingLineNumber = "192"
+         endingLineNumber = "192"
          landmarkName = "-provideContentForProductIdentifier:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1399,11 +1399,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Game/Purchase.m"
-         timestampString = "387975823.242061"
+         timestampString = "387983230.088637"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "182"
-         endingLineNumber = "182"
+         startingLineNumber = "193"
+         endingLineNumber = "193"
          landmarkName = "-provideContentForProductIdentifier:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1412,11 +1412,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Game/Purchase.m"
-         timestampString = "387975823.242061"
+         timestampString = "387983230.088637"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "184"
-         endingLineNumber = "184"
+         startingLineNumber = "195"
+         endingLineNumber = "195"
          landmarkName = "-provideContentForProductIdentifier:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1425,11 +1425,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Game/Purchase.m"
-         timestampString = "387975614.619586"
+         timestampString = "387983230.088637"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "172"
-         endingLineNumber = "172"
+         startingLineNumber = "183"
+         endingLineNumber = "183"
          landmarkName = "-provideContentForProductIdentifier:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1438,11 +1438,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Game/ShopMenu.m"
-         timestampString = "387918542.960112"
+         timestampString = "387982995.070305"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "400"
-         endingLineNumber = "400"
+         startingLineNumber = "401"
+         endingLineNumber = "401"
          landmarkName = "-productPurchased:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1451,11 +1451,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Game/ShopMenu.m"
-         timestampString = "387918542.960112"
+         timestampString = "387982995.070305"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "390"
-         endingLineNumber = "390"
+         startingLineNumber = "391"
+         endingLineNumber = "391"
          landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1464,11 +1464,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Game/ShopMenu.m"
-         timestampString = "387918542.960112"
+         timestampString = "387982995.070305"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "395"
-         endingLineNumber = "395"
+         startingLineNumber = "396"
+         endingLineNumber = "396"
          landmarkName = "-viewWillDisappear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1477,12 +1477,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Game/ShopMenu.m"
-         timestampString = "387975614.619586"
+         timestampString = "387982995.070305"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "408"
-         endingLineNumber = "408"
+         startingLineNumber = "410"
+         endingLineNumber = "410"
          landmarkName = "-purchaseCanceled:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Game/AppDelegate.mm"
+         timestampString = "387980365.653431"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "216"
+         endingLineNumber = "216"
+         landmarkName = "-applicationDidBecomeActive:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -277,17 +277,18 @@
     [allItemsArray addObject: coins5000];
     [allItemsArray addObject: coins20000];
     
-    CCMenu *shopMenu = [CCMenu menuWithItems: kidsMode, superChick, ghostChick, noAds, rockets3, rockets15, rockets50, coins1000, coins5000, coins20000, nil];
+    shopMenu = [CCMenu menuWithItems: kidsMode, superChick, ghostChick, noAds, rockets3, rockets15, rockets50, coins1000, coins5000, coins20000, nil];
     shopMenu.position = ccp(0, 0);
     [itemsLayer addChild: shopMenu];
     
-    CCMenu *restoreMenu = [CCMenu menuWithItems: restoreBtn, nil];
+    restoreMenu = [CCMenu menuWithItems: restoreBtn, nil];
     restoreMenu.position = ccp(0, 0);
     [self addChild: restoreMenu];
 }
 
 - (void) restorePurchase
 {
+    [self lockMenu];
     [[RagePurchase sharedInstance] restoreCompletedTransactions];
 }
 
@@ -354,7 +355,7 @@
 - (void) buyfeature: (CCMenuItem *) sender
 {
     SKProduct *product = _products[sender.tag];
-
+    [self lockMenu];
     [[RagePurchase sharedInstance] buyProduct: product];
 }
 
@@ -401,11 +402,38 @@
     
     [self updateItems];
     [self updateLabels];
+    [self unlockMenu];
 }
 
 - (void) purchaseCanceled: (NSNotification *) notification
 {
     NSLog(@"Cancel");
+    [self unlockMenu];
+}
+
+- (void) lockMenu
+{
+    CCLayerColor *blockLayer = [CCLayerColor layerWithColor: ccc4(0, 0, 0, 127)];
+    [self addChild: blockLayer z: 100 tag: 100];
+    
+    CCLabelBMFont *waiting = [CCLabelBMFont labelWithString: @"Waiting..." fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+    waiting.position = ccp(GameCenterX, GameCenterY);
+    [blockLayer addChild: waiting];
+    
+    rootMenu.isTouchEnabled = NO;
+    shopMenu.isTouchEnabled = NO;
+    restoreMenu.isTouchEnabled = NO;
+    self.isTouchEnabled = NO;
+}
+
+- (void) unlockMenu
+{
+    [self removeChildByTag: 100 cleanup: YES];
+    
+    rootMenu.isTouchEnabled = YES;
+    shopMenu.isTouchEnabled = YES;
+    restoreMenu.isTouchEnabled = YES;
+    self.isTouchEnabled = YES;
 }
 
 @end
