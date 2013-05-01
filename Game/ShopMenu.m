@@ -81,7 +81,9 @@
             [self showItems];
             [self updateItems];
             
-            self.isTouchEnabled = YES;
+            isCanMoveMenuToRight = YES;
+            
+            //self.isTouchEnabled = YES;
             
             
         }
@@ -102,7 +104,7 @@
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"gameMenu%@.plist", suffix]];
     
     CCMenuItemImage *kidsMode = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"kidsMode.png"]
-                                                       selectedSprite: [CCSprite spriteWithSpriteFrameName: @"kidsMode.png"]
+                                                       selectedSprite: [CCSprite spriteWithSpriteFrameName: @"kidsModeOn.png"]
                                                                target: self
                                                              selector: @selector(buyfeature:)
                                  ];
@@ -118,7 +120,7 @@
     [itemsLayer addChild: descrOfKidsMode];
     
     CCMenuItemImage *superChick = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"superChick.png"]
-                                                         selectedSprite: [CCSprite spriteWithSpriteFrameName: @"superChick.png"]
+                                                         selectedSprite: [CCSprite spriteWithSpriteFrameName: @"superChickOn.png"]
                                                                  target: self
                                                                selector: @selector(buyfeature:)
                                    ];
@@ -134,7 +136,7 @@
     [itemsLayer addChild: descrOfSuperChick];
     
     CCMenuItemImage *ghostChick = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"ghostChick.png"]
-                                                         selectedSprite: [CCSprite spriteWithSpriteFrameName: @"ghostChick.png"]
+                                                         selectedSprite: [CCSprite spriteWithSpriteFrameName: @"ghostChickOn.png"]
                                                                  target: self
                                                                selector: @selector(buyfeature:)
                                    ];
@@ -150,7 +152,7 @@
     [itemsLayer addChild: descrOfGhostChick];
     
     CCMenuItemImage *noAds = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"noAds.png"]
-                                                    selectedSprite: [CCSprite spriteWithSpriteFrameName: @"noAds.png"]
+                                                    selectedSprite: [CCSprite spriteWithSpriteFrameName: @"noAdsOn.png"]
                                                             target: self
                                                           selector: @selector(buyfeature:)
                               ];
@@ -165,7 +167,7 @@
     [itemsLayer addChild: descrOfNoAds];
     
     CCMenuItemImage *rockets3 = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"3rockets.png"]
-                                                       selectedSprite: [CCSprite spriteWithSpriteFrameName: @"3rockets.png"]
+                                                       selectedSprite: [CCSprite spriteWithSpriteFrameName: @"3rocketsOn.png"]
                                                                target: self
                                                              selector: @selector(buyfeature:)
                                  ];
@@ -184,7 +186,7 @@
     [itemsLayer addChild: descrOfRockets];
     
     CCMenuItemImage *rockets15 = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"15rockets.png"]
-                                                       selectedSprite: [CCSprite spriteWithSpriteFrameName: @"15rockets.png"]
+                                                       selectedSprite: [CCSprite spriteWithSpriteFrameName: @"15rocketsOn.png"]
                                                                target: self
                                                              selector: @selector(buyfeature:)
                                  ];
@@ -196,7 +198,7 @@
     rockets15.tag = p_rockets15;
     
     CCMenuItemImage *rockets50 = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"50rockets.png"]
-                                                        selectedSprite: [CCSprite spriteWithSpriteFrameName: @"50rockets.png"]
+                                                        selectedSprite: [CCSprite spriteWithSpriteFrameName: @"50rocketsOn.png"]
                                                                 target: self
                                                               selector: @selector(buyfeature:)
                                   ];
@@ -213,7 +215,7 @@
     
     
     CCMenuItemImage *coins1000 = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"1000coins.png"]
-                                                       selectedSprite: [CCSprite spriteWithSpriteFrameName: @"1000coins.png"]
+                                                       selectedSprite: [CCSprite spriteWithSpriteFrameName: @"1000coinsOn.png"]
                                                                target: self
                                                              selector: @selector(buyfeature:)
                                  ];
@@ -232,7 +234,7 @@
     
     
     CCMenuItemImage *coins5000 = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"5000coins.png"]
-                                                        selectedSprite: [CCSprite spriteWithSpriteFrameName: @"5000coins.png"]
+                                                        selectedSprite: [CCSprite spriteWithSpriteFrameName: @"5000coinsOn.png"]
                                                                 target: self
                                                               selector: @selector(buyfeature:)
                                   ];
@@ -244,7 +246,7 @@
     
     
     CCMenuItemImage *coins20000 = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"20000coins.png"]
-                                                        selectedSprite: [CCSprite spriteWithSpriteFrameName: @"20000coins.png"]
+                                                        selectedSprite: [CCSprite spriteWithSpriteFrameName: @"20000coinsOn.png"]
                                                                 target: self
                                                               selector: @selector(buyfeature:)
                                   ];
@@ -277,11 +279,27 @@
     [allItemsArray addObject: coins5000];
     [allItemsArray addObject: coins20000];
     
+    
+    CCMenuItemImage *left = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"leftArrow.png"]
+                                                   selectedSprite: [CCSprite spriteWithSpriteFrameName: @"leftArrow.png"]
+                                                           target: self
+                                                         selector: @selector(moveItemsToLeft)
+                             ];
+    left.position = ccp(GameWidth * 0.35, GameHeight * 0.25);
+    
+    CCMenuItemImage *right = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"rightArrow.png"]
+                                                    selectedSprite: [CCSprite spriteWithSpriteFrameName: @"rightArrow.png"]
+                                                            target: self
+                                                          selector: @selector(moveItemsToRight)
+                              ];
+    
+    right.position = ccp(GameWidth * 0.65, GameHeight * 0.25);
+    
     shopMenu = [CCMenu menuWithItems: kidsMode, superChick, ghostChick, noAds, rockets3, rockets15, rockets50, coins1000, coins5000, coins20000, nil];
     shopMenu.position = ccp(0, 0);
     [itemsLayer addChild: shopMenu];
     
-    restoreMenu = [CCMenu menuWithItems: restoreBtn, nil];
+    restoreMenu = [CCMenu menuWithItems: restoreBtn, left, right, nil];
     restoreMenu.position = ccp(0, 0);
     [self addChild: restoreMenu];
 }
@@ -349,6 +367,24 @@
         curMenusPosition = ccp(rightBorderForItems.x * -1, 0);
         
         [itemsLayer runAction: [CCMoveTo actionWithDuration: 0.2 position: curMenusPosition]];
+    }
+}
+
+- (void) moveItemsToRight
+{
+    if(isCanMoveMenuToRight)
+    {
+        isCanMoveMenuToRight = !isCanMoveMenuToRight;
+        [itemsLayer runAction: [CCMoveTo actionWithDuration: 0.2 position: ccp(itemsLayer.position.x - GameWidth * 0.96, itemsLayer.position.y)]];
+    }
+}
+
+- (void) moveItemsToLeft
+{
+    if(!isCanMoveMenuToRight)
+    {
+        isCanMoveMenuToRight = !isCanMoveMenuToRight;
+        [itemsLayer runAction: [CCMoveTo actionWithDuration: 0.2 position: ccp(itemsLayer.position.x + GameWidth * 0.96, itemsLayer.position.y)]];
     }
 }
 

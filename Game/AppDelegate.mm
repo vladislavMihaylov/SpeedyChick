@@ -24,6 +24,10 @@
 
 #import "RagePurchase.h"
 
+#import <RevMobAds/RevMobAds.h>
+
+#import "Flurry.h"
+
 @implementation AppDelegate
 
 @synthesize window;
@@ -81,6 +85,21 @@
 
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 {
+    [[Settings sharedSettings] load];
+    
+    CCLOG(@"Runs: %i", [Settings sharedSettings].countOfRuns);
+    
+    if([Settings sharedSettings].countOfRuns > 0)
+    {
+        if([Settings sharedSettings].isAdEnabled)
+        {
+            [RevMobAds startSessionWithAppID: @"51776808e7076acc0a00001c"];
+            [[RevMobAds session] showFullscreen];
+        }
+    }
+    
+    [Flurry startSession: @"2PRYCHDJ8SGDJPFW8D8M"];
+    
     [self deleteAllNotifs];
     [self addNotification];
     
@@ -90,13 +109,9 @@
     
     [SHKConfiguration sharedInstanceWithConfigurator: configurator];
     
-    [[Settings sharedSettings] load];
     
-    [Settings sharedSettings].countOfRuns++;
     
-    CCLOG(@"Runs: %i", [Settings sharedSettings].countOfRuns);
     
-    [[Settings sharedSettings] save];
     
 	// Init the window
 	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -111,6 +126,7 @@
 	
 	// Init the View Controller
 	viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
+    [viewController view];
 	viewController.wantsFullScreenLayout = YES;
 	
 	//
@@ -149,7 +165,13 @@
 	// Edit the RootViewController.m file to edit the supported orientations.
 	//
 
+	//[director setDeviceOrientation:kCCDeviceOrientationPortrait]; // ---------------------<-------<-------<
+    
+#if GAME_AUTOROTATION == kGameAutorotationUIViewController
 	[director setDeviceOrientation:kCCDeviceOrientationPortrait];
+#else
+	[director setDeviceOrientation:kCCDeviceOrientationLandscapeLeft];
+#endif
 
 	
 	[director setAnimationInterval:1.0/60];
@@ -161,7 +183,7 @@
 	[viewController setView:glView];
 	
 	// make the View Controller a child of the main window
-	//[window addSubview: viewController.view];
+	[window addSubview: viewController.view];
     [window setRootViewController: viewController];
     
 	[window makeKeyAndVisible];
@@ -171,6 +193,7 @@
 	// You can change anytime.
 	[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA8888];
 
+    
 	
 	// Removes the startup flicker
 	[self removeStartupFlicker];
@@ -187,6 +210,7 @@
         [[CCDirector sharedDirector] runWithScene: scene];
     }
     
+    
 }
 
 
@@ -202,20 +226,26 @@
     Chartboost *cb = [Chartboost sharedChartboost];
     //cb.delegate = self;
     
-    cb.appId = @"5139711e16ba476c0f000023";
-    cb.appSignature = @"9525d14069d431ffb343884cd774199eba3b3c08";
+    cb.appId = @"5177655c16ba47654f000000";
+    cb.appSignature = @"8581b8b00ae5eecf3fde2d2940835ddf56016f52";
     
     // Notify an install
     [cb startSession];
     
     // Load interstitial
-    if([Settings sharedSettings].countOfRuns != 1)
+    if([Settings sharedSettings].countOfRuns > 0)
     {
         if([Settings sharedSettings].isAdEnabled)
         {
             [cb showInterstitial];
         }
     }
+    
+    [Settings sharedSettings].countOfRuns++;
+    
+    CCLOG(@"Runs: %i", [Settings sharedSettings].countOfRuns);
+    
+    [[Settings sharedSettings] save];
 }
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {

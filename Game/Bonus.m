@@ -7,7 +7,7 @@
 //
 
 #import "Bonus.h"
-
+#import "GameConfig.h"
 
 @implementation Bonus
 
@@ -22,7 +22,9 @@
 {
     if(self = [super init])
     {
-        bonusSprite = [CCSprite spriteWithFile: @"rocket.png"];
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"mainMenuTextures%@.plist", suffix]];
+        
+        bonusSprite = [CCSprite spriteWithSpriteFrameName: @"rocket.png"];
         [self addChild: bonusSprite];
         
         CGSize spriteSize = [bonusSprite contentSize];

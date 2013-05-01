@@ -10,10 +10,16 @@
 #import "GameLayer.h"
 #import "GameConfig.h"
 #import "Settings.h"
-
+#import "Chartboost.h"
 #import "CCBReader.h"
 
+
 @implementation MainMenu
+
+- (void) dealloc
+{
+    [super dealloc];
+}
 
 - (void) didLoadFromCCB
 {
@@ -83,7 +89,10 @@
                          nil]
              ]
      ];
+
 }
+
+# pragma mark Invite to shop
 
 - (void) showInviteToShop
 {
@@ -117,28 +126,7 @@
     [bg runAction: [CCEaseBackOut actionWithAction: [CCScaleTo actionWithDuration: 0.5 scale: 1]]];
 }
 
-- (void) updateRocketsAndCoinsString
-{
-    rocketsLabel.string = [NSString stringWithFormat: @"%i rockets", [Settings sharedSettings].countOfRockets];
-    coinsLabel.string = [NSString stringWithFormat: @"%i coins", [Settings sharedSettings].countOfCoins];
-}
-
-- (void) buyRocket
-{
-    if([Settings sharedSettings].countOfCoins >= 10)
-    {
-        [Settings sharedSettings].countOfCoins -= 10;
-        [Settings sharedSettings].countOfRockets++;
-        
-        [[Settings sharedSettings] save];
-        
-        [self updateRocketsAndCoinsString];
-    }
-    else
-    {
-        [self showAlert];
-    }
-}
+# pragma mark Alert 
 
 - (void) showAlert
 {
@@ -170,16 +158,12 @@
     [self removeChildByTag: 31 cleanup: YES];
 }
 
-- (void) dealloc
-{
-    [super dealloc];
-}
+# pragma mark update
 
-- (void) pressedPlay
+- (void) updateRocketsAndCoinsString
 {
-    CCScene* scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"SelectWorldMenu%@.ccb", suffix]];
-    
-	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
+    rocketsLabel.string = [NSString stringWithFormat: @"%i rockets", [Settings sharedSettings].countOfRockets];
+    coinsLabel.string = [NSString stringWithFormat: @"%i coins", [Settings sharedSettings].countOfCoins];
 }
 
 - (void) timer
@@ -243,6 +227,35 @@
     }
 }
 
+# pragma mark Buy
+
+- (void) buyRocket
+{
+    if([Settings sharedSettings].countOfCoins >= 10)
+    {
+        [Settings sharedSettings].countOfCoins -= 10;
+        [Settings sharedSettings].countOfRockets++;
+        
+        [[Settings sharedSettings] save];
+        
+        [self updateRocketsAndCoinsString];
+    }
+    else
+    {
+        [self showAlert];
+    }
+}
+
+# pragma mark Methods of press
+
+- (void) pressedPlay
+{
+    CCScene* scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"SelectWorldMenu%@.ccb", suffix]];
+    
+	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
+}
+
+
 - (void) pressedGetCoins
 {
     getCoinsBtn.isEnabled = NO;
@@ -256,17 +269,11 @@
     
     NSDate *newDate = [[NSDate date] dateByAddingTimeInterval: 7200];
     
-    
-    
     NSString *newDateString = [NSString stringWithFormat: @"%@", newDate];
     
     [Settings sharedSettings].futureDate = newDateString;
     
     [[Settings sharedSettings] save];
-    
-    CCLOG(@"DATE %@",[Settings sharedSettings].futureDate);
-
-    //CCLOG(@"difference %f", [[Settings sharedSettings].futureDate timeIntervalSinceNow]);
     
     [self schedule: @selector(timer) interval: 1];
 }

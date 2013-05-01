@@ -32,6 +32,8 @@
     CCMenu *shopMenu;
     CCMenu *restoreMenu;
     CCMenu *rootMenu;
+    
+    BOOL isCanMoveMenuToRight;
 }
 
 @end

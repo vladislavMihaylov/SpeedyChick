@@ -3,7 +3,7 @@
 #import "cocos2d.h"
 #import "Box2D.h"
 
-#define kMaxHillKeyPoints 60    //50
+#define kMaxHillKeyPoints 90    //50
 #define kMaxHillVertices 1000    //2000
 #define kMaxBorderVertices 5000  //10000
 //#define kHillSegmentWidth 8   //15
@@ -32,7 +32,9 @@
     NSInteger finishPoint;
     
     NSMutableArray *bonusesArray;
+    NSMutableArray *coinsArray;
     NSArray *pointsArray;
+    NSArray *pointsOfBonusesArray;
     
     BOOL firstTime;
 }
@@ -47,6 +49,7 @@
 - (void) removeBody;
 
 - (BOOL) checkBonusCollisionWithCoordinats: (CGPoint) heroPosition;
+- (BOOL) checkCoinCollisionWithCoordinats: (CGPoint) heroPosition;
 - (void) reset;
 - (void) resetHillVertices;
 

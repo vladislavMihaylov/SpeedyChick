@@ -3,6 +3,7 @@
 #import "Terrain.h"
 
 #import "Bonus.h"
+#import "Coin.h"
 
 #import "WorldsDatabase.h"
 #import "WorldsInfo.h"
@@ -46,8 +47,10 @@
         
         [self reset];
 		
+        coinsArray = [[NSMutableArray alloc] init];
         bonusesArray = [[NSMutableArray alloc] init];
         pointsArray = [[NSArray alloc] init];
+        pointsOfBonusesArray = [[NSArray alloc] init];
         
 		world = w;
 
@@ -64,14 +67,17 @@
         NSArray *worldsInfo = [[WorldsDatabase database] worldsInfosWithID: num];
         
         NSString *points;
+        NSString *bonusPoints;
         
         for(WorldsInfo *info in worldsInfo)
         {
             points = info.points;
+            bonusPoints = info.bonusPoints;
             //CCLOG(@"INFO: %i, %@, %@, %@", info.uniqueID, info.points, info.bonusPoints, info.times);
         }
         
         pointsArray = [points componentsSeparatedByString: @"/"];
+        pointsOfBonusesArray = [bonusPoints componentsSeparatedByString: @"/"];
         
         //[worldsInfo release];
         
@@ -107,8 +113,10 @@
 	
 #endif
 
-    //[pointsArray release];
+    //[pointsOfBonusesArray release];
+    ////[pointsArray release];
     [bonusesArray release];
+    [coinsArray release];
     
 	[super dealloc];
 }
@@ -332,12 +340,40 @@
     {
         NSArray *curPoints = [node componentsSeparatedByString: @","];
         
-        CGPoint curPoint = CGPointMake([[curPoints objectAtIndex: 0] floatValue] * coefForCoords, [[curPoints objectAtIndex: 1] floatValue] * coefForCoords);
+        CGPoint curPoint = CGPointMake([[curPoints objectAtIndex: 0] floatValue] * coefForCoords,
+                                       [[curPoints objectAtIndex: 1] floatValue] * coefForCoords);
         //CCLOG(@"Current Point: %f %f", curPoint.x, curPoint.y);
         
         hillKeyPoints[nHillKeyPoints++] = curPoint;
         
+        NSInteger rNum = arc4random() % 5;
+        
+        if(rNum == 3)
+        {
+            Coin *coin = [[[Coin alloc] init] autorelease];
+            coin.position = ccp(curPoint.x, curPoint.y + coin.contentSize.height / 2);
+            
+            [coinsArray addObject: coin];
+            [self addChild: coin];
+        }
+        
         finishPoint = curPoint.x;
+    }
+    
+    for (NSString *curBonusPoint in pointsOfBonusesArray) 
+    {
+        NSArray *cupBonusPoints = [curBonusPoint componentsSeparatedByString: @","];
+        
+        CGPoint pointForBonus = CGPointMake([[cupBonusPoints objectAtIndex: 0] floatValue] * coefForCoords,
+                                            [[cupBonusPoints objectAtIndex: 1] floatValue] * coefForCoords);
+        
+        Bonus *bonus = [[[Bonus alloc] init] autorelease];
+        bonus.position = ccp(pointForBonus.x, pointForBonus.y + bonus.contentSize.height / 2);
+        bonus.scale = 0.8;
+        
+        [bonusesArray addObject: bonus];
+        
+        [self addChild: bonus];
     }
     
     hillKeyPoints[nHillKeyPoints++] = CGPointMake(finishPoint + 100 * coefForCoords, screenH/10);
@@ -420,6 +456,27 @@
             {
                 curBonus.isActive = NO;
                 curBonus.visible = NO;
+                
+                isCollision = YES;
+            }
+        }
+    }
+    
+    return isCollision;
+}
+
+- (BOOL) checkCoinCollisionWithCoordinats: (CGPoint) heroPosition
+{
+    BOOL isCollision = NO;
+    
+    for(Coin *curCoin in coinsArray)
+    {
+        if((fabsf(heroPosition.x - curCoin.position.x) < curCoin.contentSize.width/2) && (fabsf(heroPosition.y - curCoin.position.y) < curCoin.contentSize.height/2))
+        {
+            if(curCoin.isActive)
+            {
+                curCoin.isActive = NO;
+                curCoin.visible = NO;
                 
                 isCollision = YES;
             }

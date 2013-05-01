@@ -49,6 +49,8 @@ NSString *const PurchaseProductCanceledPurchaseNotification = @"PurchaseProductC
     return self;
 }
 
+#pragma mark Requests
+
 - (void) requestProductsWithCompletionHandler:(RequestProductsCompletionHandler)completionHandler
 {
     _completionHandler = [completionHandler copy];
@@ -78,11 +80,6 @@ NSString *const PurchaseProductCanceledPurchaseNotification = @"PurchaseProductC
     _completionHandler = nil;
 }
 
-- (void)restoreCompletedTransactions
-{
-    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
-}
-
 - (void) request:(SKRequest *)request didFailWithError:(NSError *)error
 {
     NSLog(@"Failed to load list of products.");
@@ -93,26 +90,9 @@ NSString *const PurchaseProductCanceledPurchaseNotification = @"PurchaseProductC
     _completionHandler = nil;
 }
 
-- (BOOL) productPurchased:(NSString *)productIdentifier
-{
-    return [_purchasedProductIdentifiers containsObject: productIdentifier];
-}
 
-- (void) buyProduct:(SKProduct *)product
-{
-    NSLog(@"Buying %@...", product.productIdentifier);
-    
-    if([SKPaymentQueue canMakePayments])
-    {
-        SKPayment *payment = [SKPayment paymentWithProduct: product];
-        [[SKPaymentQueue defaultQueue] addPayment: payment];
-    }
-    else
-    {
-        NSLog(@"OLOLOLOLOLOLO");
-    }
-    
-}
+# pragma mark PaymentQueue
+
 
 - (void) paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions
 {
@@ -141,6 +121,36 @@ NSString *const PurchaseProductCanceledPurchaseNotification = @"PurchaseProductC
 {
     [self failedRestore];
 }
+
+# pragma Actions
+
+- (void)restoreCompletedTransactions
+{
+    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+}
+
+- (void) buyProduct:(SKProduct *)product
+{
+    NSLog(@"Buying %@...", product.productIdentifier);
+    
+    if([SKPaymentQueue canMakePayments])
+    {
+        SKPayment *payment = [SKPayment paymentWithProduct: product];
+        [[SKPaymentQueue defaultQueue] addPayment: payment];
+    }
+    else
+    {
+        NSLog(@"OLOLOLOLOLOLO");
+    }
+    
+}
+
+- (BOOL) productPurchased:(NSString *)productIdentifier
+{
+    return [_purchasedProductIdentifiers containsObject: productIdentifier];
+}
+
+# pragma mark Results
 
 - (void) failedRestore
 {
@@ -195,6 +205,8 @@ NSString *const PurchaseProductCanceledPurchaseNotification = @"PurchaseProductC
                                                         object: productIdentifier
                                                       userInfo: nil];
 }
+
+# pragma mark Apply purchase
 
 - (void) applyPurchase: (NSString *) identifier
 {

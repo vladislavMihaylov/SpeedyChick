@@ -244,6 +244,14 @@
         [_hero applyBonus];
     }
     
+    BOOL isCoin = [_terrain checkCoinCollisionWithCoordinats: ccp(_hero.position.x, _hero.position.y)];
+    
+    if(isCoin)
+    {
+        [Settings sharedSettings].countOfCoins += 1;
+        [[Settings sharedSettings] save];
+    }
+    
     [guiLayer moveCocoOffsetX: _terrain.offsetX andFinishPoint: _terrain.finishPoint];
     
     if(!isPauseOfGame)
