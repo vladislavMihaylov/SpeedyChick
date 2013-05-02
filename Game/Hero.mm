@@ -170,7 +170,7 @@
 
 - (void) updatePhysics {
 
-    CCLOG(@"velocity x: %f y: %f", _body->GetLinearVelocity().x, _body->GetLinearVelocity().y);
+    //CCLOG(@"velocity x: %f y: %f", _body->GetLinearVelocity().x, _body->GetLinearVelocity().y);
     
 	// apply force if diving
 	if (_diving)

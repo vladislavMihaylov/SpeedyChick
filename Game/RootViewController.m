@@ -31,7 +31,7 @@
 
 - (void)loadView
 {
-    // ... your other -loadView code ...
+       
     [self loadInterstitial];
 }
 
@@ -47,7 +47,7 @@
 
 - (void)showMopubAd
 {
-    if([Settings sharedSettings].countOfRuns > 0)
+    if([Settings sharedSettings].countOfRuns > 1)
     {
         if([Settings sharedSettings].isAdEnabled)
         {
@@ -63,11 +63,15 @@
     }
 }
 
-
+- (UIViewController *) viewControllerForPresentingModalView
+{
+    return self;
+}
 
  // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
  - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -184,7 +188,7 @@
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver: self];
-    
+     
 	[super dealloc];
 }
 

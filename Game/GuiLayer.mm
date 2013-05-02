@@ -640,7 +640,8 @@
         Minutes = [NSString stringWithFormat: @"%i", minutes];
     }
     
-    timeLabel.string = [NSString stringWithFormat: @"%@:%@:%@---%i", Minutes, Seconds, Milliseconds, time];
+    //timeLabel.string = [NSString stringWithFormat: @"%@:%@:%@---%i", Minutes, Seconds, Milliseconds, time];
+    timeLabel.string = [NSString stringWithFormat: @"%@:%@:%@", Minutes, Seconds, Milliseconds];
 }
 
 - (void) resetLevel

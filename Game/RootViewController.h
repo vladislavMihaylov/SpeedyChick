@@ -4,6 +4,7 @@
 
 #import "MPInterstitialAdController.h"
 
+
 @interface RootViewController : UIViewController <MPInterstitialAdControllerDelegate>
 {
     
