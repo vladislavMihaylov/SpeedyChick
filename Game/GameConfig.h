@@ -81,8 +81,8 @@
 
 // Physics
 
-#define iPadRadius                  19
-#define iPhoneRadius                11
+#define iPadRadius                  25
+#define iPhoneRadius                12
 
 #define usualSegmentWidth           15
 #define retinaSegmentWidth          8
@@ -99,12 +99,17 @@
 #define minVelocityXIPAD            6
 #define minVelocityYIPAD            -180
 
-#define forceYIPAD                  -80
-#define forceYIPHONE                -30
+#define forceYIPAD                  -60
+#define forceYIPHONE                -20
+
 
 // settings
 
 extern float countOfMana;
+
+extern CGRect iPhoneShopRect;
+extern CGRect iPadShopRect;
+extern CGRect thisisRECT;
 
 // screen's parameters
 

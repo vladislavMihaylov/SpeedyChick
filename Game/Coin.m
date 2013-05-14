@@ -25,6 +25,7 @@
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"mainMenuTextures%@.plist", suffix]];
         
         coinSprite = [CCSprite spriteWithSpriteFrameName: @"coin.png"];
+        coinSprite.scale = 1.2;
         [self addChild: coinSprite];
         
         CGSize spriteSize = [coinSprite contentSize];

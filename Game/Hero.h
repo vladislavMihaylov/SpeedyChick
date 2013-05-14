@@ -43,7 +43,7 @@ class HeroContactListener;
 - (void) tookOff;
 - (void) hit;
 
-- (void) pauseChickAnimation;
+- (void) increaseChickAnimation;
 - (void) stopChickAnimation;
 - (void) resumeChickAnimation;
 

@@ -8,12 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "CCMenuAdvanced.h"
 
 @interface CustomizeMenu: CCLayer
 {
     CCMenu *rootMenu;
     
+    CCMenuAdvanced *chicksMenu;
+    
     CCLabelBMFont *coinsLabel;
+    
+    float menuPosY;
+    
+    CCSprite *bigChick;
 }
 
 @end

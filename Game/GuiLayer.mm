@@ -80,12 +80,13 @@
         
         if([Settings sharedSettings].isGhostChickBuyed)
         {
-            [self loadEnergy];
-            energy = 0;
+            //[self loadEnergy];
+            //energy = 0;
         }
         
         ChickOnTheStart = YES;
         
+        [self resetLevel];
     }
     
     return self;
@@ -578,6 +579,8 @@
 
 - (void) showWorldsMenu
 {
+    //[self resetLevel];
+    
     CCScene * scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"SelectWorldMenu%@.ccb", suffix]];
     
     [[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];

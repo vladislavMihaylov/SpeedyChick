@@ -42,7 +42,7 @@
         bg.position = ccp(GameCenterX, GameCenterY);
         [self addChild: bg];
         
-        CCLabelBMFont *tapTheEgg = [CCLabelBMFont labelWithString: @"Tap the egg!"
+        CCLabelBMFont *tapTheEgg = [CCLabelBMFont labelWithString: @"Tap twice on the egg to get your chick!"
                                                            fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]
                                      ];
         
@@ -77,6 +77,40 @@
         CCMenu *menu = [CCMenu menuWithItems: okBtn, nil];
         menu.position = ccp(0, 0);
         [self addChild: menu];
+        
+        CCSprite *leftArrow = [CCSprite spriteWithFile: @"leftArrow.png"];
+        leftArrow.position = ccp(GameCenterX * 1.4, GameCenterY);
+        leftArrow.scale = 1.5;
+        [self addChild: leftArrow z: 2 tag: 3];
+        
+        CCSprite *rightArrow = [CCSprite spriteWithFile: @"rightArrow.png"];
+        rightArrow.position = ccp(GameCenterX * 0.6, GameCenterY);
+        rightArrow.scale = 1.5;
+        [self addChild: rightArrow z: 2 tag: 4];
+        
+        [leftArrow runAction:
+            [CCRepeatForever actionWithAction:
+                        [CCSequence actions:
+                                    [CCMoveTo actionWithDuration: 0.8
+                                                        position: ccp(leftArrow.position.x - 10, leftArrow.position.y)],
+                                    [CCMoveTo actionWithDuration: 0.8
+                                                        position: ccp(leftArrow.position.x + 10, leftArrow.position.y)],
+                         nil]
+             ]
+         ];
+        
+        [rightArrow runAction:
+            [CCRepeatForever actionWithAction:
+                        [CCSequence actions:
+                                    [CCMoveTo actionWithDuration: 0.8
+                                                        position: ccp(rightArrow.position.x + 10, rightArrow.position.y)],
+                                    [CCMoveTo actionWithDuration: 0.8
+                                                        position: ccp(rightArrow.position.x - 10, rightArrow.position.y)],
+                         nil]
+             ]
+         ];
+        
+        
     }
     
     return self;
@@ -111,12 +145,16 @@
 - (void) brakeEgg
 {
     [self removeChildByTag: 2 cleanup: YES];
+    [self removeChildByTag: 3 cleanup: YES];
+    [self removeChildByTag: 4 cleanup: YES];
     
-    CCLabelBMFont *enterNameLabel = [CCLabelBMFont labelWithString: @"Enter your name:"
+    CCLabelBMFont *enterNameLabel = [CCLabelBMFont labelWithString: @"Name your chick!"
                                                            fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]
                                      ];
     
     enterNameLabel.position = ccp(GameCenterX, GameHeight * 1.2);
+    enterNameLabel.scale = 1.4;
+    enterNameLabel.color = ccc3(0, 0, 255);
     [self addChild: enterNameLabel];
     
     CCSprite *chick = [CCSprite spriteWithFile: [NSString stringWithFormat: @"chick%@.png", suffix]];

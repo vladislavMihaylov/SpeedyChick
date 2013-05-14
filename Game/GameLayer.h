@@ -49,6 +49,7 @@
 - (void) exitToMainMenu;
 - (void) startCat;
 - (void) setVisibleOfChick: (BOOL) vis;
+- (void) exitToWorldsMenu;
 
 @end
 

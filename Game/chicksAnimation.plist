@@ -5,70 +5,70 @@
 	<key>c1anim</key>
 	<dict>
 		<key>delay</key>
-		<real>0.05</real>
+		<real>0.03</real>
 		<key>animationFrames</key>
 		<string>1,2,3,2</string>
 	</dict>
 	<key>c2anim</key>
 	<dict>
 		<key>delay</key>
-		<real>0.05</real>
+		<real>0.03</real>
 		<key>animationFrames</key>
 		<string>1,2,3,2</string>
 	</dict>
 	<key>c3anim</key>
 	<dict>
 		<key>delay</key>
-		<real>0.05</real>
+		<real>0.03</real>
 		<key>animationFrames</key>
 		<string>1,2,3,2</string>
 	</dict>
 	<key>c4anim</key>
 	<dict>
 		<key>delay</key>
-		<real>0.05</real>
+		<real>0.03</real>
 		<key>animationFrames</key>
 		<string>1,2,3,2</string>
 	</dict>
 	<key>c5anim</key>
 	<dict>
 		<key>delay</key>
-		<real>0.05</real>
+		<real>0.03</real>
 		<key>animationFrames</key>
 		<string>1,2,3,2</string>
 	</dict>
 	<key>c6anim</key>
 	<dict>
 		<key>delay</key>
-		<real>0.05</real>
+		<real>0.03</real>
 		<key>animationFrames</key>
 		<string>1,2,3,2</string>
 	</dict>
 	<key>c7anim</key>
 	<dict>
 		<key>delay</key>
-		<real>0.05</real>
+		<real>0.03</real>
 		<key>animationFrames</key>
 		<string>1,2,3,2</string>
 	</dict>
 	<key>c8anim</key>
 	<dict>
 		<key>delay</key>
-		<real>0.05</real>
+		<real>0.03</real>
 		<key>animationFrames</key>
 		<string>1,2,3,2</string>
 	</dict>
 	<key>c9anim</key>
 	<dict>
 		<key>delay</key>
-		<real>0.05</real>
+		<real>0.03</real>
 		<key>animationFrames</key>
 		<string>1,2,3,2</string>
 	</dict>
 	<key>c10anim</key>
 	<dict>
 		<key>delay</key>
-		<real>0.05</real>
+		<real>0.03</real>
 		<key>animationFrames</key>
 		<string>1,2,3,2</string>
 	</dict>

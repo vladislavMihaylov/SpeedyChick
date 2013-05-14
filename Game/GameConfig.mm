@@ -8,6 +8,11 @@
 
 #import "GameConfig.h"
 
+CGRect iPhoneShopRect = CGRectMake(0, 0, -290, 240);
+CGRect iPadShopRect = CGRectMake(0, 0, -580, 768);
+
+CGRect thisisRECT = CGRectMake(0, 0, -580, 240);
+
 CGPoint catStartPosition = CGPointMake(40, 40);
 CGPoint cocoStartPosition = CGPointMake(240, 40);
 CGPoint finishPointForCoco = CGPointMake(440, 40);

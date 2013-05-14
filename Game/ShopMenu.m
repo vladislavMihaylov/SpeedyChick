@@ -19,7 +19,7 @@
 - (void) dealloc
 {
     [consumPurchases release];
-    [itemsLayer release];
+    //[itemsLayer release];
     
     [_products release];
     [allItemsArray release];
@@ -29,25 +29,11 @@
 
 - (void) didLoadFromCCB
 {
-    rocketsLabel = [CCLabelBMFont labelWithString: @"Rockets: "
-                                          fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
-    
-    rocketsLabel.position = ccp(GameCenterX * 0.7, GameCenterY * 0.2);
-    [self addChild: rocketsLabel];
-    
-    coinsLabel = [CCLabelBMFont labelWithString: @"Coins: "
-                                          fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
-    
-    coinsLabel.position = ccp(GameCenterX * 1.3, GameCenterY * 0.2);
-    [self addChild: coinsLabel];
-    
-    [self updateLabels];
-    
     curMenusPosition = ccp(0, 0);
     
-    itemsLayer = [[CCNode alloc] init];
-    itemsLayer.position = curMenusPosition;
-    [self addChild: itemsLayer];
+    //itemsLayer = [[CCNode alloc] init];
+    //itemsLayer.position = curMenusPosition;
+    //[self addChild: itemsLayer];
     
     allItemsArray = [[NSMutableArray alloc] init];
     
@@ -84,8 +70,7 @@
             isCanMoveMenuToRight = YES;
             
             //self.isTouchEnabled = YES;
-            
-            
+            [self scheduleUpdate];
         }
     }];
     
@@ -94,8 +79,8 @@
 
 - (void) updateLabels
 {
-    rocketsLabel.string = [NSString stringWithFormat: @"Rockets: %i", [Settings sharedSettings].countOfRockets];
-    coinsLabel.string = [NSString stringWithFormat: @"Coins: %i", [Settings sharedSettings].countOfCoins];
+    rocketsLabel.string = [NSString stringWithFormat: @"%i", [Settings sharedSettings].countOfRockets];
+    coinsLabel.string = [NSString stringWithFormat: @"%i", [Settings sharedSettings].countOfCoins];
 }
 
 - (void) showItems
@@ -103,68 +88,155 @@
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"shopItems%@.plist", suffix]];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"gameMenu%@.plist", suffix]];
     
-    CCMenuItemImage *kidsMode = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"kidsMode.png"]
-                                                       selectedSprite: [CCSprite spriteWithSpriteFrameName: @"kidsModeOn.png"]
-                                                               target: self
-                                                             selector: @selector(buyfeature:)
+    // <------------------->
+    
+    CCMenuItemImage *kidsMode = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"shopMenuItem.png"]
+                                                       selectedSprite: [CCSprite spriteWithSpriteFrameName: @"shopMenuItem.png"]
                                  ];
+    kidsMode.position = ccp(30 + kidsMode.contentSize.width / 2, GameCenterY);
     
-    kidsMode.position = item_1.position;
-    kidsMode.tag = p_kidsMode;
+    CCLabelBMFont *nameOfItem = [CCLabelBMFont labelWithString: @"Kids mode" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+    nameOfItem.position = ccp(kidsMode.contentSize.width / 2, kidsMode.contentSize.height * 0.9);
+    [kidsMode addChild: nameOfItem];
     
-    CCLabelBMFont *descrOfKidsMode = [CCLabelBMFont labelWithString: @"on/off cat"
+    CCLabelBMFont *descrOfKidsMode = [CCLabelBMFont labelWithString: @"Flying becomes easier.\n No Cat behing you"
                                                             fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+    descrOfKidsMode.position = ccp(kidsMode.contentSize.width / 2, kidsMode.contentSize.height * 0.3);
+    descrOfKidsMode.scale = 0.8;
+    [kidsMode addChild: descrOfKidsMode];
     
-    descrOfKidsMode.position = ccp(kidsMode.position.x, kidsMode.position.y + kidsMode.contentSize.height * 0.7);
+    CCSprite *picOfKidsMode = [CCSprite spriteWithSpriteFrameName: @"kidsMode.png"];
+    picOfKidsMode.position = ccp(kidsMode.contentSize.width / 2, kidsMode.contentSize.height * 0.6);
+    [kidsMode addChild: picOfKidsMode];
     
-    [itemsLayer addChild: descrOfKidsMode];
+    CCMenuItemImage *kidsUnlockBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"unlockBtn.png"]
+                                                            selectedSprite: [CCSprite spriteWithSpriteFrameName: @"unlockBtnOn.png"]
+                                                                    target: self
+                                                                  selector: @selector(buyfeature:)
+                                      ];
+    kidsUnlockBtn.position = ccp(kidsMode.position.x, kidsMode.position.y - kidsMode.contentSize.height * 0.35);
+    kidsUnlockBtn.tag = p_kidsMode;
     
-    CCMenuItemImage *superChick = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"superChick.png"]
-                                                         selectedSprite: [CCSprite spriteWithSpriteFrameName: @"superChickOn.png"]
-                                                                 target: self
-                                                               selector: @selector(buyfeature:)
+    // <------------------->
+    
+    CCMenuItemImage *superChick = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"shopMenuItem.png"]
+                                                         selectedSprite: [CCSprite spriteWithSpriteFrameName: @"shopMenuItem.png"]
                                    ];
+    superChick.position = ccp(25 + kidsMode.position.x + superChick.contentSize.width, GameCenterY);
     
-    superChick.position = item_2.position;
-    superChick.tag = p_superChick;
+    CCLabelBMFont *nameOfSuperItem = [CCLabelBMFont labelWithString: @"Super chick" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+    nameOfSuperItem.position = ccp(superChick.contentSize.width / 2, superChick.contentSize.height * 0.9);
+    [superChick addChild: nameOfSuperItem];
     
-    CCLabelBMFont *descrOfSuperChick = [CCLabelBMFont labelWithString: @"higher, faster"
+    CCLabelBMFont *descrOfSuperChick = [CCLabelBMFont labelWithString: @"Go higher. Go faster.\n Have more control"
                                                             fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
     
-    descrOfSuperChick.position = ccp(superChick.position.x, superChick.position.y + superChick.contentSize.height * 0.7);
+    descrOfSuperChick.position = ccp(superChick.contentSize.width / 2, superChick.contentSize.height * 0.3);
+    descrOfSuperChick.scale = 0.8;
+    [superChick addChild: descrOfSuperChick];
     
-    [itemsLayer addChild: descrOfSuperChick];
+    CCSprite *picOfSuperChick = [CCSprite spriteWithSpriteFrameName: @"superChick.png"];
+    picOfSuperChick.position = ccp(superChick.contentSize.width / 2, superChick.contentSize.height * 0.6);
+    [superChick addChild: picOfSuperChick];
     
-    CCMenuItemImage *ghostChick = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"ghostChick.png"]
-                                                         selectedSprite: [CCSprite spriteWithSpriteFrameName: @"ghostChickOn.png"]
-                                                                 target: self
-                                                               selector: @selector(buyfeature:)
+    CCMenuItemImage *superUnlockBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"unlockBtn.png"]
+                                                             selectedSprite: [CCSprite spriteWithSpriteFrameName: @"unlockBtnOn.png"]
+                                                                     target: self
+                                                                   selector: @selector(buyfeature:)
+                                       ];
+    superUnlockBtn.position = ccp(superChick.position.x, superChick.position.y - superChick.contentSize.height * 0.35);
+    superUnlockBtn.tag = p_superChick;
+    
+    // <------------------->
+    
+    CCMenuItemImage *ghostChick = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"shopMenuItem.png"]
+                                                         selectedSprite: [CCSprite spriteWithSpriteFrameName: @"shopMenuItem.png"]
                                    ];
+    ghostChick.position = ccp(25 + superChick.position.x + ghostChick.contentSize.width, GameCenterY);
     
-    ghostChick.position = item_3.position;
-    ghostChick.tag = p_ghostChick;
+    CCLabelBMFont *nameOfGhostItem = [CCLabelBMFont labelWithString: @"Ghost chick" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+    nameOfGhostItem.position = ccp(ghostChick.contentSize.width / 2, ghostChick.contentSize.height * 0.9);
+    [ghostChick addChild: nameOfGhostItem];
     
-    CCLabelBMFont *descrOfGhostChick = [CCLabelBMFont labelWithString: @"swipe to \naccelerate"
+    CCLabelBMFont *descrOfGhostChick = [CCLabelBMFont labelWithString: @"Get a magic boost for \nevery perfect slide"
                                                             fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
     
-    descrOfGhostChick.position = ccp(ghostChick.position.x, ghostChick.position.y + ghostChick.contentSize.height * 0.7);
+    descrOfGhostChick.position = ccp(ghostChick.contentSize.width / 2, ghostChick.contentSize.height * 0.3);
+    descrOfGhostChick.scale = 0.8;
+    [ghostChick addChild: descrOfGhostChick];
     
-    [itemsLayer addChild: descrOfGhostChick];
+    CCSprite *picOfGhostChick = [CCSprite spriteWithSpriteFrameName: @"ghostChick.png"];
+    picOfGhostChick.position = ccp(ghostChick.contentSize.width / 2, ghostChick.contentSize.height * 0.6);
+    [ghostChick addChild: picOfGhostChick];
     
-    CCMenuItemImage *noAds = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"noAds.png"]
-                                                    selectedSprite: [CCSprite spriteWithSpriteFrameName: @"noAdsOn.png"]
-                                                            target: self
-                                                          selector: @selector(buyfeature:)
+    CCMenuItemImage *ghostUnlockBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"unlockBtn.png"]
+                                                             selectedSprite: [CCSprite spriteWithSpriteFrameName: @"unlockBtnOn.png"]
+                                                                     target: self
+                                                                   selector: @selector(buyfeature:)
+                                       ];
+    ghostUnlockBtn.position = ccp(ghostChick.position.x, ghostChick.position.y - ghostChick.contentSize.height * 0.35);
+    ghostUnlockBtn.tag = p_ghostChick;
+    //[ghostChick addChild: ghostUnlockBtn];
+    
+    // <------------------->
+    
+    CCMenuItemImage *noAds = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"shopMenuItem.png"]
+                                                    selectedSprite: [CCSprite spriteWithSpriteFrameName: @"shopMenuItem.png"]
                               ];
-    noAds.position = ccp(item_3.position.x + noAds.contentSize.width * 1.5, item_3.position.y);
-    noAds.tag = p_noads;
+    noAds.position = ccp(25 + ghostChick.position.x + noAds.contentSize.width, GameCenterY);
     
-    CCLabelBMFont *descrOfNoAds = [CCLabelBMFont labelWithString: @"Disable Ads"
+    CCLabelBMFont *nameOfNoAdsItem = [CCLabelBMFont labelWithString: @"No Ads" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+    nameOfNoAdsItem.position = ccp(noAds.contentSize.width / 2, noAds.contentSize.height * 0.9);
+    [noAds addChild: nameOfNoAdsItem];
+    
+    CCLabelBMFont *descrOfNoAds = [CCLabelBMFont labelWithString: @"Buy anything and \nget this for free"
                                                               fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
     
-    descrOfNoAds.position = ccp(noAds.position.x, noAds.position.y + noAds.contentSize.height * 0.7);
+    descrOfNoAds.position = ccp(noAds.contentSize.width / 2, noAds.contentSize.height * 0.55);
+    descrOfNoAds.scale = 0.8;
+    [noAds addChild: descrOfNoAds];
     
-    [itemsLayer addChild: descrOfNoAds];
+    CCLabelBMFont *nameOfRestoreItem = [CCLabelBMFont labelWithString: @"Restore in-app" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+    nameOfRestoreItem.position = ccp(noAds.contentSize.width / 2, noAds.contentSize.height * 0.35);
+    [noAds addChild: nameOfRestoreItem];
+    
+    CCMenuItemImage *noAdsUnlockBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"noAds.png"]
+                                                             selectedSprite: [CCSprite spriteWithSpriteFrameName: @"noAdsOn.png"]
+                                                                     target: self
+                                                                   selector: @selector(buyfeature:)
+                                       ];
+    noAdsUnlockBtn.scale = 0.5;
+    noAdsUnlockBtn.position = ccp(noAds.position.x, noAds.contentSize.height * 0.95);
+    noAdsUnlockBtn.tag = p_noads;
+    
+    CCMenuItemImage *restoreBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"restartBtn.png"]
+                                                         selectedSprite: [CCSprite spriteWithSpriteFrameName: @"restartBtnOn.png"]
+                                                                 target: self
+                                                               selector: @selector(restorePurchase)
+                                   ];
+    restoreBtn.position = ccp(noAds.position.x, noAds.contentSize.height * 0.4);
+    
+    // <------------------->
+    
+    CCMenuItemImage *rockets = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"shopMenuItem.png"]
+                                                         selectedSprite: [CCSprite spriteWithSpriteFrameName: @"shopMenuItem.png"]
+                                   ];
+    
+    rockets.position = ccp(25 + noAds.position.x + rockets.contentSize.width, GameCenterY);
+    
+    
+    CCLabelBMFont *nameOfRocketsItem = [CCLabelBMFont labelWithString: @"Rockets" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+    nameOfRocketsItem.position = ccp(rockets.contentSize.width / 2, rockets.contentSize.height * 0.9);
+    [rockets addChild: nameOfRocketsItem];
+    
+    CCSprite *picOfRockets = [CCSprite spriteWithSpriteFrameName: @"rocket.png"];
+    picOfRockets.position = ccp(rockets.contentSize.width / 2 - picOfRockets.contentSize.width / 2, rockets.contentSize.height * 0.7);
+    [rockets addChild: picOfRockets];
+    
+    rocketsLabel = [CCLabelBMFont labelWithString: @"" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+    
+    rocketsLabel.position = ccp(rockets.contentSize.width / 2 + picOfRockets.contentSize.width / 2, rockets.contentSize.height * 0.7);
+    [rockets addChild: rocketsLabel];
     
     CCMenuItemImage *rockets3 = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"3rockets.png"]
                                                        selectedSprite: [CCSprite spriteWithSpriteFrameName: @"3rocketsOn.png"]
@@ -172,27 +244,20 @@
                                                              selector: @selector(buyfeature:)
                                  ];
     
-    CGPoint posFor3rock = ccp(noAds.position.x + rockets3.contentSize.width * 1.5,
-                              noAds.position.y + noAds.contentSize.height/2 - rockets3.contentSize.height/2);
+    CGPoint posFor3rock = ccp(25 + noAds.position.x + rockets.contentSize.width,
+                              rockets.position.y - rockets.contentSize.height * 0.05);
     
     rockets3.position = posFor3rock;
     rockets3.tag = p_rockets3;
     
-    CCLabelBMFont *descrOfRockets = [CCLabelBMFont labelWithString: @"Rockets"
-                                                         fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
-    
-    descrOfRockets.position = ccp(rockets3.position.x, rockets3.position.y + rockets3.contentSize.height * 1.1);
-    
-    [itemsLayer addChild: descrOfRockets];
-    
     CCMenuItemImage *rockets15 = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"15rockets.png"]
-                                                       selectedSprite: [CCSprite spriteWithSpriteFrameName: @"15rocketsOn.png"]
-                                                               target: self
-                                                             selector: @selector(buyfeature:)
-                                 ];
+                                                        selectedSprite: [CCSprite spriteWithSpriteFrameName: @"15rocketsOn.png"]
+                                                                target: self
+                                                              selector: @selector(buyfeature:)
+                                  ];
     
-    CGPoint posFor15rock = ccp(noAds.position.x + rockets15.contentSize.width * 1.5,
-                               noAds.position.y);
+    CGPoint posFor15rock = ccp(25 + noAds.position.x + rockets.contentSize.width,
+                               rockets.position.y - rockets.contentSize.height * 0.20);
     
     rockets15.position = posFor15rock;
     rockets15.tag = p_rockets15;
@@ -203,16 +268,34 @@
                                                               selector: @selector(buyfeature:)
                                   ];
     
-    CGPoint posFor50rock = ccp(noAds.position.x + rockets50.contentSize.width * 1.5,
-                               noAds.position.y - noAds.contentSize.height/2 + rockets50.contentSize.height/2);
+    CGPoint posFor50rock = ccp(25 + noAds.position.x + rockets.contentSize.width,
+                               rockets.position.y - rockets.contentSize.height * 0.35);
     
     rockets50.position = posFor50rock;
     rockets50.tag = p_rockets50;
+        
+    // <------------------->
     
+    CCMenuItemImage *coins = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"shopMenuItem.png"]
+                                                      selectedSprite: [CCSprite spriteWithSpriteFrameName: @"shopMenuItem.png"]
+                                ];
     
+    coins.position = ccp(25 + rockets.position.x + coins.contentSize.width, GameCenterY);
+ 
     
+    CCLabelBMFont *nameOfCoinsItem = [CCLabelBMFont labelWithString: @"Coins" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+    nameOfCoinsItem.position = ccp(coins.contentSize.width / 2, coins.contentSize.height * 0.9);
+    [coins addChild: nameOfCoinsItem];
     
+    CCSprite *picOfCoins = [CCSprite spriteWithSpriteFrameName: @"coin.png"];
+    picOfCoins.position = ccp(coins.contentSize.width / 2 - picOfCoins.contentSize.width / 2, coins.contentSize.height * 0.7);
+    [coins addChild: picOfCoins];
     
+    coinsLabel = [CCLabelBMFont labelWithString: @""
+                                        fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+    
+    coinsLabel.position = ccp(coins.contentSize.width / 2 + picOfCoins.contentSize.width / 2, coins.contentSize.height * 0.7);
+    [coins addChild: coinsLabel];
     
     CCMenuItemImage *coins1000 = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"1000coins.png"]
                                                        selectedSprite: [CCSprite spriteWithSpriteFrameName: @"1000coinsOn.png"]
@@ -220,17 +303,15 @@
                                                              selector: @selector(buyfeature:)
                                  ];
     
-    CGPoint posFor1000 = ccp(rockets3.position.x + coins1000.contentSize.width * 1.5, rockets3.position.y);
+    
+    
+    CGPoint posFor1000 = ccp(25 + rockets.position.x + coins.contentSize.width,
+                             coins.position.y - coins.contentSize.height * 0.05);
     
     coins1000.position = posFor1000;
     coins1000.tag = p_coins1000;
     
-    CCLabelBMFont *descrOfCoins = [CCLabelBMFont labelWithString: @"Coins"
-                                                           fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
     
-    descrOfCoins.position = ccp(coins1000.position.x, coins1000.position.y + coins1000.contentSize.height * 1.1);
-    
-    [itemsLayer addChild: descrOfCoins];
     
     
     CCMenuItemImage *coins5000 = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"5000coins.png"]
@@ -239,7 +320,8 @@
                                                               selector: @selector(buyfeature:)
                                   ];
     
-    CGPoint posFor5000 = ccp(rockets15.position.x + coins5000.contentSize.width * 1.5, rockets15.position.y);
+    CGPoint posFor5000 = ccp(25 + rockets.position.x + coins.contentSize.width,
+                             coins.position.y - coins.contentSize.height * 0.2);
     
     coins5000.position = posFor5000;
     coins5000.tag = p_coins5000;
@@ -251,27 +333,21 @@
                                                               selector: @selector(buyfeature:)
                                   ];
     
-    CGPoint posFor20000 = ccp(rockets50.position.x + coins20000.contentSize.width * 1.5, rockets50.position.y);
+    CGPoint posFor20000 = ccp(25 + rockets.position.x + coins.contentSize.width,
+                              coins.position.y - coins.contentSize.height * 0.35);
     
     coins20000.position = posFor20000;
     coins20000.tag = p_coins20000;
     
     CCLOG(@"coinsPos %f", coins20000.position.x);
     
-    rightBorderForItems = ccp((posFor20000.x + coins20000.contentSize.width * 0.5) / 2, 0);
+    rightBorderForItems = ccp((coins.position.x + coins.contentSize.width * 2) / 2, 0);
     
     
-    CCMenuItemImage *restoreBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"restartBtn.png"]
-                                                         selectedSprite: [CCSprite spriteWithSpriteFrameName: @"restartBtnOn.png"]
-                                                                 target: self
-                                                               selector: @selector(restorePurchase)
-                                   ];
-    restoreBtn.position = ccp(GameWidth * 0.9, GameHeight * 0.1);
-    
-    [allItemsArray addObject: kidsMode];
-    [allItemsArray addObject: superChick];
-    [allItemsArray addObject: ghostChick];
-    [allItemsArray addObject: noAds];
+    [allItemsArray addObject: kidsUnlockBtn];
+    [allItemsArray addObject: superUnlockBtn];
+    [allItemsArray addObject: ghostUnlockBtn];
+    [allItemsArray addObject: noAdsUnlockBtn];
     [allItemsArray addObject: rockets3];
     [allItemsArray addObject: rockets15];
     [allItemsArray addObject: rockets50];
@@ -279,29 +355,50 @@
     [allItemsArray addObject: coins5000];
     [allItemsArray addObject: coins20000];
     
+
+    shopMenu = [CCMenuAdvanced menuWithItems: kidsMode, superChick, ghostChick, noAds, rockets, coins,  nil];
     
-    CCMenuItemImage *left = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"leftArrow.png"]
-                                                   selectedSprite: [CCSprite spriteWithSpriteFrameName: @"leftArrow.png"]
-                                                           target: self
-                                                         selector: @selector(moveItemsToLeft)
-                             ];
-    left.position = ccp(GameWidth * 0.35, GameHeight * 0.25);
+    shopMenu.position = ccp(GameCenterX, GameCenterY);
+    shopMenu.boundaryRect = thisisRECT;
     
-    CCMenuItemImage *right = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"rightArrow.png"]
-                                                    selectedSprite: [CCSprite spriteWithSpriteFrameName: @"rightArrow.png"]
-                                                            target: self
-                                                          selector: @selector(moveItemsToRight)
-                              ];
+    //[itemsLayer addChild: shopMenu];
+    [self addChild: shopMenu];
     
-    right.position = ccp(GameWidth * 0.65, GameHeight * 0.25);
+    buttonsMenu = [CCMenuAdvanced menuWithItems: rockets3, rockets15, rockets50, coins1000, coins5000, coins20000, kidsUnlockBtn, superUnlockBtn, ghostUnlockBtn, noAdsUnlockBtn, restoreBtn, nil];
     
-    shopMenu = [CCMenu menuWithItems: kidsMode, superChick, ghostChick, noAds, rockets3, rockets15, rockets50, coins1000, coins5000, coins20000, nil];
-    shopMenu.position = ccp(0, 0);
-    [itemsLayer addChild: shopMenu];
+    buttonsMenu.position = ccp(GameCenterX, GameCenterY);
+    buttonsMenu.boundaryRect = thisisRECT;
+    [self addChild: buttonsMenu];
     
-    restoreMenu = [CCMenu menuWithItems: restoreBtn, left, right, nil];
-    restoreMenu.position = ccp(0, 0);
-    [self addChild: restoreMenu];
+    curPositionOfButtons = buttonsMenu.position.x;
+    curPositionOfShopMenu = shopMenu.position.x;
+    
+    //restoreMenu = [CCMenu menuWithItems: restoreBtn, nil];
+    //restoreMenu.position = ccp(0, 0);
+    //[self addChild: restoreMenu];
+    
+    [self updateLabels];
+}
+
+- (void) update: (ccTime) time
+{
+    
+    float newPosBtns = buttonsMenu.position.x;
+    float newPosMenu = shopMenu.position.x;
+    
+    if(fabsf(curPositionOfButtons - newPosBtns) != 0)
+    {
+        shopMenu.position = buttonsMenu.position;
+        curPositionOfButtons = buttonsMenu.position.x;
+        curPositionOfShopMenu = shopMenu.position.x;
+    }
+    
+    if(fabs(curPositionOfShopMenu - newPosMenu) != 0)
+    {
+        buttonsMenu.position = shopMenu.position;
+        curPositionOfButtons = buttonsMenu.position.x;
+        curPositionOfShopMenu = shopMenu.position.x;
+    }
 }
 
 - (void) restorePurchase
@@ -310,7 +407,7 @@
     [[RagePurchase sharedInstance] restoreCompletedTransactions];
 }
 
-- (void) registerWithTouchDispatcher
+/*- (void) registerWithTouchDispatcher
 {
 	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate: self priority: 0 swallowsTouches: YES];
 }
@@ -331,7 +428,7 @@
     CGPoint location = [touch locationInView:[touch view]];
     location = [[CCDirector sharedDirector] convertToGL:location];
     
-    if(touchBegin.x - location.x > 0)
+     if(touchBegin.x - location.x > 0)
     {
         float diff = touchBegin.x - location.x;
         
@@ -368,25 +465,7 @@
         
         [itemsLayer runAction: [CCMoveTo actionWithDuration: 0.2 position: curMenusPosition]];
     }
-}
-
-- (void) moveItemsToRight
-{
-    if(isCanMoveMenuToRight)
-    {
-        isCanMoveMenuToRight = !isCanMoveMenuToRight;
-        [itemsLayer runAction: [CCMoveTo actionWithDuration: 0.2 position: ccp(itemsLayer.position.x - GameWidth * 0.96, itemsLayer.position.y)]];
-    }
-}
-
-- (void) moveItemsToLeft
-{
-    if(!isCanMoveMenuToRight)
-    {
-        isCanMoveMenuToRight = !isCanMoveMenuToRight;
-        [itemsLayer runAction: [CCMoveTo actionWithDuration: 0.2 position: ccp(itemsLayer.position.x + GameWidth * 0.96, itemsLayer.position.y)]];
-    }
-}
+}*/
 
 - (void) buyfeature: (CCMenuItem *) sender
 {
@@ -458,6 +537,7 @@
     
     rootMenu.isTouchEnabled = NO;
     shopMenu.isTouchEnabled = NO;
+    buttonsMenu.isTouchEnabled = NO;
     restoreMenu.isTouchEnabled = NO;
     self.isTouchEnabled = NO;
 }
@@ -469,6 +549,7 @@
     rootMenu.isTouchEnabled = YES;
     shopMenu.isTouchEnabled = YES;
     restoreMenu.isTouchEnabled = YES;
+    buttonsMenu.isTouchEnabled = YES;
     self.isTouchEnabled = YES;
 }
 
