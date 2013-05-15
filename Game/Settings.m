@@ -52,6 +52,12 @@ Settings *sharedSettings = nil;
 
 - (void) dealloc
 {
+    self.openedLevels = nil;
+    self.starsCount = nil;
+    self.futureDate = nil;
+    self.nameOfPlayer = nil;
+    self.buyedCustomiziedChicks = nil;
+    
     [self save];
     [super dealloc];
 }
@@ -256,16 +262,16 @@ Settings *sharedSettings = nil;
     [defaults setObject: [NSNumber numberWithBool: self.isGhostChickBuyed] forKey: kGhostChickKey];
     
     [defaults setObject: [NSNumber numberWithInteger: self.openedWorlds] forKey: kOpenedWorldsKey];
-    [defaults setObject: [NSString stringWithString: self.openedLevels] forKey: kOpenedLevelsKey];
+
+    [defaults setObject: self.openedLevels forKey: kOpenedLevelsKey];
     
+    [defaults setObject: self.starsCount forKey: kStarsCountKey];
     
-    [defaults setObject: [NSString stringWithString: self.starsCount] forKey: kStarsCountKey];
+    [defaults setObject: self.futureDate forKey: kDateKey];
     
-    [defaults setObject: [NSString stringWithString: self.futureDate] forKey: kDateKey];
+    [defaults setObject: self.nameOfPlayer forKey: kNameKey];
     
-    [defaults setObject: [NSString stringWithString: self.nameOfPlayer] forKey: kNameKey];
-    
-    [defaults setObject: [NSString stringWithString: self.buyedCustomiziedChicks] forKey: kBuyedChicks];
+    [defaults setObject: self.buyedCustomiziedChicks forKey: kBuyedChicks];
     
     [defaults setObject: [NSNumber numberWithInteger: self.energy] forKey: kEnergyKey];
     

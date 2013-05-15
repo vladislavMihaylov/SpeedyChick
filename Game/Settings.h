@@ -48,14 +48,14 @@
 @property (nonatomic, assign) BOOL isGhostChickBuyed;
 
 @property (nonatomic, assign) NSInteger openedWorlds;
-@property (nonatomic, assign) NSString *openedLevels;
+@property (nonatomic, retain) NSString *openedLevels;
 
-@property (nonatomic, assign) NSString *starsCount;
-@property (nonatomic, assign) NSString *futureDate;
+@property (nonatomic, retain) NSString *starsCount;
+@property (nonatomic, retain) NSString *futureDate;
 
-@property (nonatomic, assign) NSString *nameOfPlayer;
+@property (nonatomic, retain) NSString *nameOfPlayer;
 
-@property (nonatomic, assign) NSString *buyedCustomiziedChicks;
+@property (nonatomic, retain) NSString *buyedCustomiziedChicks;
 
 @property (nonatomic, assign) NSInteger energy;
 
