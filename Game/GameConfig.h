@@ -102,14 +102,46 @@
 #define forceYIPAD                  -60
 #define forceYIPHONE                -20
 
+#define iPadShopTextScale   0.8
+#define iPhoneShopTextScale 0.6
+
+#define iPadNoAdsBtnMultiplier 0.95
+#define iPhoneNoAdsBtnMultiplier 1.02
+
+#define iPadRestoreBtnMultiplier 0.4
+#define iPhoneRestoreBtnMultiplier 0.47
+
+#define iPadCustomItemXcoefForPos 18
+#define iPhoneCustomItemXcoefForPos 9
+
+#define iPadCustomItemHeightParameter 70
+#define iPhoneCustomItemHeightParameter 25
+
+#define iPadCustomItemMultiplier 1.33
+#define iPhoneCustomItemMultiplier 1.45
+
+#define iPadCustomItemScale 1
+#define iPhoneCustomItemScale 0.95
 
 // settings
+
+extern float shopTextScale;
+extern float noAdsBtnMultiplier;
+extern float restoreBtnMultiplier;
+extern float customItemXcoefForPos;
+extern float customItemHeightParameter;
+extern float customItemMultiplier;
+extern float customItemScale;
 
 extern float countOfMana;
 
 extern CGRect iPhoneShopRect;
 extern CGRect iPadShopRect;
 extern CGRect thisisRECT;
+
+extern CGRect iPhoneCustomizeRect;
+extern CGRect iPadCustomizeRect;
+extern CGRect customizeRect;
 
 // screen's parameters
 

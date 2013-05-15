@@ -102,7 +102,7 @@
     CCLabelBMFont *descrOfKidsMode = [CCLabelBMFont labelWithString: @"Flying becomes easier.\n No Cat behing you"
                                                             fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
     descrOfKidsMode.position = ccp(kidsMode.contentSize.width / 2, kidsMode.contentSize.height * 0.3);
-    descrOfKidsMode.scale = 0.8;
+    descrOfKidsMode.scale = shopTextScale;
     [kidsMode addChild: descrOfKidsMode];
     
     CCSprite *picOfKidsMode = [CCSprite spriteWithSpriteFrameName: @"kidsMode.png"];
@@ -132,7 +132,7 @@
                                                             fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
     
     descrOfSuperChick.position = ccp(superChick.contentSize.width / 2, superChick.contentSize.height * 0.3);
-    descrOfSuperChick.scale = 0.8;
+    descrOfSuperChick.scale = shopTextScale;
     [superChick addChild: descrOfSuperChick];
     
     CCSprite *picOfSuperChick = [CCSprite spriteWithSpriteFrameName: @"superChick.png"];
@@ -162,7 +162,7 @@
                                                             fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
     
     descrOfGhostChick.position = ccp(ghostChick.contentSize.width / 2, ghostChick.contentSize.height * 0.3);
-    descrOfGhostChick.scale = 0.8;
+    descrOfGhostChick.scale = shopTextScale;
     [ghostChick addChild: descrOfGhostChick];
     
     CCSprite *picOfGhostChick = [CCSprite spriteWithSpriteFrameName: @"ghostChick.png"];
@@ -193,11 +193,11 @@
                                                               fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
     
     descrOfNoAds.position = ccp(noAds.contentSize.width / 2, noAds.contentSize.height * 0.55);
-    descrOfNoAds.scale = 0.8;
+    descrOfNoAds.scale = shopTextScale;
     [noAds addChild: descrOfNoAds];
     
     CCLabelBMFont *nameOfRestoreItem = [CCLabelBMFont labelWithString: @"Restore in-app" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
-    nameOfRestoreItem.position = ccp(noAds.contentSize.width / 2, noAds.contentSize.height * 0.35);
+    nameOfRestoreItem.position = ccp(noAds.contentSize.width / 2, noAds.contentSize.height * 0.4);
     [noAds addChild: nameOfRestoreItem];
     
     CCMenuItemImage *noAdsUnlockBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"noAds.png"]
@@ -206,7 +206,7 @@
                                                                    selector: @selector(buyfeature:)
                                        ];
     noAdsUnlockBtn.scale = 0.5;
-    noAdsUnlockBtn.position = ccp(noAds.position.x, noAds.contentSize.height * 0.95);
+    noAdsUnlockBtn.position = ccp(noAds.position.x, noAds.contentSize.height * noAdsBtnMultiplier);
     noAdsUnlockBtn.tag = p_noads;
     
     CCMenuItemImage *restoreBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"restartBtn.png"]
@@ -214,7 +214,7 @@
                                                                  target: self
                                                                selector: @selector(restorePurchase)
                                    ];
-    restoreBtn.position = ccp(noAds.position.x, noAds.contentSize.height * 0.4);
+    restoreBtn.position = ccp(noAds.position.x, noAds.contentSize.height * restoreBtnMultiplier);
     
     // <------------------->
     

@@ -66,6 +66,14 @@ Configuration *sharedConfiguration = nil;
         forceY = forceYIPAD;
         
         thisisRECT = iPadShopRect;
+        customizeRect = iPadCustomizeRect;
+        shopTextScale = iPadShopTextScale;
+        noAdsBtnMultiplier = iPadNoAdsBtnMultiplier;
+        restoreBtnMultiplier = iPadRestoreBtnMultiplier;
+        customItemXcoefForPos = iPadCustomItemXcoefForPos;
+        customItemHeightParameter = iPadCustomItemHeightParameter;
+        customItemMultiplier = iPadCustomItemMultiplier;
+        customItemScale = iPadCustomItemScale;
     }
     else
     {
@@ -89,6 +97,14 @@ Configuration *sharedConfiguration = nil;
         forceY = forceYIPHONE;
         
         thisisRECT = iPhoneShopRect;
+        customizeRect = iPhoneCustomizeRect;
+        shopTextScale = iPhoneShopTextScale;
+        noAdsBtnMultiplier = iPhoneNoAdsBtnMultiplier;
+        restoreBtnMultiplier = iPhoneRestoreBtnMultiplier;
+        customItemXcoefForPos = iPhoneCustomItemXcoefForPos;
+        customItemHeightParameter = iPhoneCustomItemHeightParameter;
+        customItemMultiplier = iPhoneCustomItemMultiplier;
+        customItemScale = iPhoneCustomItemScale;
     }
     
     //[Settings sharedSettings].countOfCoins = 1111;

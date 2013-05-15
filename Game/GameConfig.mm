@@ -8,10 +8,24 @@
 
 #import "GameConfig.h"
 
-CGRect iPhoneShopRect = CGRectMake(0, 0, -290, 240);
+CGRect iPhoneShopRect = CGRectMake(0, 0, -140, 320);
 CGRect iPadShopRect = CGRectMake(0, 0, -580, 768);
 
-CGRect thisisRECT = CGRectMake(0, 0, -580, 240);
+CGRect thisisRECT = iPhoneShopRect;
+
+CGRect iPhoneCustomizeRect = CGRectMake(0, 320, 480, 0);
+CGRect iPadCustomizeRect = CGRectMake(0, 767.790, 1024, 0);
+
+CGRect customizeRect = iPhoneCustomizeRect;
+
+float customItemXcoefForPos = iPhoneCustomItemXcoefForPos;
+float customItemHeightParameter = iPhoneCustomItemHeightParameter;
+
+float shopTextScale = iPhoneShopTextScale;
+float noAdsBtnMultiplier = iPhoneNoAdsBtnMultiplier;
+float restoreBtnMultiplier = iPhoneRestoreBtnMultiplier;
+float customItemMultiplier = iPhoneCustomItemMultiplier;
+float customItemScale = iPhoneCustomItemScale;
 
 CGPoint catStartPosition = CGPointMake(40, 40);
 CGPoint cocoStartPosition = CGPointMake(240, 40);

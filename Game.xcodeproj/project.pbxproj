@@ -185,10 +185,6 @@
 		F501F065173F878200055704 /* rocket-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F501F05F173F878200055704 /* rocket-ipad.png */; };
 		F501F066173F878200055704 /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = F501F060173F878200055704 /* rocket.png */; };
 		F501F069173FBC5E00055704 /* CCMenuAdvanced.m in Sources */ = {isa = PBXBuildFile; fileRef = F501F068173FBC5E00055704 /* CCMenuAdvanced.m */; };
-		F501F07617400F3100055704 /* shopItems-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = F501F07217400F3000055704 /* shopItems-hd.plist */; };
-		F501F07717400F3100055704 /* shopItems-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F501F07317400F3000055704 /* shopItems-hd.png */; };
-		F501F07817400F3100055704 /* shopItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = F501F07417400F3000055704 /* shopItems.plist */; };
-		F501F07917400F3100055704 /* shopItems.png in Resources */ = {isa = PBXBuildFile; fileRef = F501F07517400F3000055704 /* shopItems.png */; };
 		F502A79617202AC0005986CC /* libChartboost.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F502A79517202AC0005986CC /* libChartboost.a */; };
 		F50308311725865A0041515A /* RevMobAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F50308301725865A0041515A /* RevMobAds.framework */; };
 		F5043B9416F760AC00D93959 /* speedyChickDatabase.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = F5043B9316F760AC00D93959 /* speedyChickDatabase.sqlite3 */; };
@@ -320,6 +316,16 @@
 		F5CCC4AB170411AF00742F9B /* mainMenuTextures.png in Resources */ = {isa = PBXBuildFile; fileRef = F5CCC4A5170411AF00742F9B /* mainMenuTextures.png */; };
 		F5CCC4CE1704171400742F9B /* MainMenu-ipad.ccb in Resources */ = {isa = PBXBuildFile; fileRef = F5CCC4CD1704171400742F9B /* MainMenu-ipad.ccb */; };
 		F5D8F1E21732831900322CCC /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D8F1E11732831900322CCC /* libGoogleAdMobAds.a */; };
+		F5F772B41743260C00634E85 /* customItem-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F5F772AE1743260C00634E85 /* customItem-hd.png */; };
+		F5F772B51743260C00634E85 /* customItem-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F5F772AF1743260C00634E85 /* customItem-ipad.png */; };
+		F5F772B61743260C00634E85 /* customItem.png in Resources */ = {isa = PBXBuildFile; fileRef = F5F772B01743260C00634E85 /* customItem.png */; };
+		F5F772B71743260C00634E85 /* customItemOn-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F5F772B11743260C00634E85 /* customItemOn-hd.png */; };
+		F5F772B81743260C00634E85 /* customItemOn-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F5F772B21743260C00634E85 /* customItemOn-ipad.png */; };
+		F5F772B91743260C00634E85 /* customItemOn.png in Resources */ = {isa = PBXBuildFile; fileRef = F5F772B31743260C00634E85 /* customItemOn.png */; };
+		F5F772BE17432ADA00634E85 /* shopItems-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5F772BA17432ADA00634E85 /* shopItems-hd.plist */; };
+		F5F772BF17432ADA00634E85 /* shopItems-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F5F772BB17432ADA00634E85 /* shopItems-hd.png */; };
+		F5F772C017432ADA00634E85 /* shopItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5F772BC17432ADA00634E85 /* shopItems.plist */; };
+		F5F772C117432ADA00634E85 /* shopItems.png in Resources */ = {isa = PBXBuildFile; fileRef = F5F772BD17432ADA00634E85 /* shopItems.png */; };
 		F5F86A9916E7481E006A2E37 /* CCBReader.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F86A9816E7481E006A2E37 /* CCBReader.m */; };
 		F5F86AA116E749A0006A2E37 /* MainMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = F5F86AA016E749A0006A2E37 /* MainMenu.mm */; };
 		F5F86AA316E749C5006A2E37 /* MainMenu.ccb in Resources */ = {isa = PBXBuildFile; fileRef = F5F86AA216E749C5006A2E37 /* MainMenu.ccb */; };
@@ -400,10 +406,6 @@
 		F5FE2AE816EDA2D1009A25F2 /* libShareKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5FE2AA016ED9E3F009A25F2 /* libShareKit.a */; };
 		F5FE2AEB16EDA5D4009A25F2 /* GuiLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = F5FE2AEA16EDA5D4009A25F2 /* GuiLayer.mm */; };
 		F5FE32C516F4DFB80070B269 /* Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FE32C416F4DFB80070B269 /* Configuration.m */; };
-		F5FE52A017428E050099842D /* customItem-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FE529F17428E050099842D /* customItem-ipad.png */; };
-		F5FE52C317428F870099842D /* customItemOn-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FE52C217428F870099842D /* customItemOn-ipad.png */; };
-		F5FE52C61742916F0099842D /* customItem.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FE52C41742916F0099842D /* customItem.png */; };
-		F5FE52C71742916F0099842D /* customItemOn.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FE52C51742916F0099842D /* customItemOn.png */; };
 		F5FE5790170ACB410092CF8F /* Common.mm in Sources */ = {isa = PBXBuildFile; fileRef = F5FE578F170ACB410092CF8F /* Common.mm */; };
 		F5FE5796170AD5E30092CF8F /* chicksAnimation.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5FE5795170AD5E30092CF8F /* chicksAnimation.plist */; };
 		F5FE833116F5A82C002B46C4 /* WorldsInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FE833016F5A82C002B46C4 /* WorldsInfo.m */; };
@@ -1019,10 +1021,6 @@
 		F501F060173F878200055704 /* rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rocket.png; sourceTree = "<group>"; };
 		F501F067173FBC5E00055704 /* CCMenuAdvanced.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMenuAdvanced.h; sourceTree = "<group>"; };
 		F501F068173FBC5E00055704 /* CCMenuAdvanced.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMenuAdvanced.m; sourceTree = "<group>"; };
-		F501F07217400F3000055704 /* shopItems-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "shopItems-hd.plist"; sourceTree = "<group>"; };
-		F501F07317400F3000055704 /* shopItems-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shopItems-hd.png"; sourceTree = "<group>"; };
-		F501F07417400F3000055704 /* shopItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shopItems.plist; sourceTree = "<group>"; };
-		F501F07517400F3000055704 /* shopItems.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shopItems.png; sourceTree = "<group>"; };
 		F502A79317202AAC005986CC /* CBAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAnalytics.h; sourceTree = "<group>"; };
 		F502A79417202AB5005986CC /* Chartboost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chartboost.h; sourceTree = "<group>"; };
 		F502A79517202AC0005986CC /* libChartboost.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libChartboost.a; sourceTree = "<group>"; };
@@ -1222,6 +1220,16 @@
 		F5CCC4A5170411AF00742F9B /* mainMenuTextures.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mainMenuTextures.png; path = Resources/mainMenuTextures.png; sourceTree = "<group>"; };
 		F5CCC4CD1704171400742F9B /* MainMenu-ipad.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "MainMenu-ipad.ccb"; path = "Resources/MainMenu-ipad.ccb"; sourceTree = "<group>"; };
 		F5D8F1E11732831900322CCC /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
+		F5F772AE1743260C00634E85 /* customItem-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "customItem-hd.png"; sourceTree = "<group>"; };
+		F5F772AF1743260C00634E85 /* customItem-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "customItem-ipad.png"; sourceTree = "<group>"; };
+		F5F772B01743260C00634E85 /* customItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customItem.png; sourceTree = "<group>"; };
+		F5F772B11743260C00634E85 /* customItemOn-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "customItemOn-hd.png"; sourceTree = "<group>"; };
+		F5F772B21743260C00634E85 /* customItemOn-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "customItemOn-ipad.png"; sourceTree = "<group>"; };
+		F5F772B31743260C00634E85 /* customItemOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customItemOn.png; sourceTree = "<group>"; };
+		F5F772BA17432ADA00634E85 /* shopItems-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "shopItems-hd.plist"; sourceTree = "<group>"; };
+		F5F772BB17432ADA00634E85 /* shopItems-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shopItems-hd.png"; sourceTree = "<group>"; };
+		F5F772BC17432ADA00634E85 /* shopItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shopItems.plist; sourceTree = "<group>"; };
+		F5F772BD17432ADA00634E85 /* shopItems.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shopItems.png; sourceTree = "<group>"; };
 		F5F86A9716E7481E006A2E37 /* CCBReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBReader.h; sourceTree = "<group>"; };
 		F5F86A9816E7481E006A2E37 /* CCBReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBReader.m; sourceTree = "<group>"; };
 		F5F86A9F16E749A0006A2E37 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
@@ -1323,10 +1331,6 @@
 		F5FE2AEA16EDA5D4009A25F2 /* GuiLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GuiLayer.mm; sourceTree = "<group>"; };
 		F5FE32C316F4DFB80070B269 /* Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
 		F5FE32C416F4DFB80070B269 /* Configuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Configuration.m; sourceTree = "<group>"; };
-		F5FE529F17428E050099842D /* customItem-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "customItem-ipad.png"; sourceTree = "<group>"; };
-		F5FE52C217428F870099842D /* customItemOn-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "customItemOn-ipad.png"; sourceTree = "<group>"; };
-		F5FE52C41742916F0099842D /* customItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customItem.png; sourceTree = "<group>"; };
-		F5FE52C51742916F0099842D /* customItemOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customItemOn.png; sourceTree = "<group>"; };
 		F5FE578E170ACB400092CF8F /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		F5FE578F170ACB410092CF8F /* Common.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Common.mm; sourceTree = "<group>"; };
 		F5FE5795170AD5E30092CF8F /* chicksAnimation.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = chicksAnimation.plist; sourceTree = "<group>"; };
@@ -1612,10 +1616,12 @@
 		4DFD2EBF139CCCA0001E1480 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F5FE52C41742916F0099842D /* customItem.png */,
-				F5FE52C51742916F0099842D /* customItemOn.png */,
-				F5FE529F17428E050099842D /* customItem-ipad.png */,
-				F5FE52C217428F870099842D /* customItemOn-ipad.png */,
+				F5F772AE1743260C00634E85 /* customItem-hd.png */,
+				F5F772AF1743260C00634E85 /* customItem-ipad.png */,
+				F5F772B01743260C00634E85 /* customItem.png */,
+				F5F772B11743260C00634E85 /* customItemOn-hd.png */,
+				F5F772B21743260C00634E85 /* customItemOn-ipad.png */,
+				F5F772B31743260C00634E85 /* customItemOn.png */,
 				F501F05B173F878200055704 /* coin-hd.png */,
 				F501F05C173F878200055704 /* coin-ipad.png */,
 				F501F05D173F878200055704 /* coin.png */,
@@ -1624,10 +1630,10 @@
 				F501F060173F878200055704 /* rocket.png */,
 				F501F051173F6A8700055704 /* shopItems-ipad.plist */,
 				F501F052173F6A8700055704 /* shopItems-ipad.png */,
-				F501F07217400F3000055704 /* shopItems-hd.plist */,
-				F501F07317400F3000055704 /* shopItems-hd.png */,
-				F501F07417400F3000055704 /* shopItems.plist */,
-				F501F07517400F3000055704 /* shopItems.png */,
+				F5F772BA17432ADA00634E85 /* shopItems-hd.plist */,
+				F5F772BB17432ADA00634E85 /* shopItems-hd.png */,
+				F5F772BC17432ADA00634E85 /* shopItems.plist */,
+				F5F772BD17432ADA00634E85 /* shopItems.png */,
 				F52135C81717285C00F8806A /* catAnimation */,
 				F5FE578D170AC8CF0092CF8F /* firstScene */,
 				F50F346D16F18DD50027982E /* gameMenu */,
@@ -2984,14 +2990,16 @@
 				F501F064173F878200055704 /* rocket-hd.png in Resources */,
 				F501F065173F878200055704 /* rocket-ipad.png in Resources */,
 				F501F066173F878200055704 /* rocket.png in Resources */,
-				F501F07617400F3100055704 /* shopItems-hd.plist in Resources */,
-				F501F07717400F3100055704 /* shopItems-hd.png in Resources */,
-				F501F07817400F3100055704 /* shopItems.plist in Resources */,
-				F501F07917400F3100055704 /* shopItems.png in Resources */,
-				F5FE52A017428E050099842D /* customItem-ipad.png in Resources */,
-				F5FE52C317428F870099842D /* customItemOn-ipad.png in Resources */,
-				F5FE52C61742916F0099842D /* customItem.png in Resources */,
-				F5FE52C71742916F0099842D /* customItemOn.png in Resources */,
+				F5F772B41743260C00634E85 /* customItem-hd.png in Resources */,
+				F5F772B51743260C00634E85 /* customItem-ipad.png in Resources */,
+				F5F772B61743260C00634E85 /* customItem.png in Resources */,
+				F5F772B71743260C00634E85 /* customItemOn-hd.png in Resources */,
+				F5F772B81743260C00634E85 /* customItemOn-ipad.png in Resources */,
+				F5F772B91743260C00634E85 /* customItemOn.png in Resources */,
+				F5F772BE17432ADA00634E85 /* shopItems-hd.plist in Resources */,
+				F5F772BF17432ADA00634E85 /* shopItems-hd.png in Resources */,
+				F5F772C017432ADA00634E85 /* shopItems.plist in Resources */,
+				F5F772C117432ADA00634E85 /* shopItems.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

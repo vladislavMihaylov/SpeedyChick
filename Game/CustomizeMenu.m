@@ -67,13 +67,13 @@
         
         if(curState != 1)
         {
-            CCMenuItemImage *item = [CCMenuItemImage itemFromNormalImage: @"customItem.png"
-                                                           selectedImage: @"customItemOn.png"
+            CCMenuItemImage *item = [CCMenuItemImage itemFromNormalImage: [NSString stringWithFormat: @"customItem%@.png", suffix]
+                                                           selectedImage: [NSString stringWithFormat: @"customItemOn%@.png", suffix]
                                                                   target: self
                                                                 selector: @selector(setCurrentPinguin:)
                                      ];
             
-            item.position = ccp(GameWidth - item.contentSize.width / 2 - 18, GameHeight + 70 - ((item.contentSize.height * 1.33 - 30) * (i+1)));
+            item.position = ccp(GameWidth - item.contentSize.width / 2 - customItemXcoefForPos, GameHeight + customItemHeightParameter - ((item.contentSize.height * customItemMultiplier - 30) * (i+1)));
             item.tag = i + 1;
             [chicksMenu addChild: item];
             
@@ -92,17 +92,17 @@
             price.anchorPoint = ccp(0, 0.5);
             [item addChild: price];
             
-            
+            item.scale = customItemScale;
         }
         else
         {
-            CCMenuItemImage *item = [CCMenuItemImage itemFromNormalImage: @"customItem.png"
-                                                           selectedImage: @"customItem.png"
+            CCMenuItemImage *item = [CCMenuItemImage itemFromNormalImage: [NSString stringWithFormat: @"customItem%@.png", suffix]
+                                                           selectedImage: [NSString stringWithFormat: @"customItemOn%@.png", suffix]
                                                                   target: self
                                                                 selector: @selector(setCurrentPinguin:)
                                      ];
             
-            item.position = ccp(GameWidth - item.contentSize.width / 2 - 18, GameHeight + 70 - ((item.contentSize.height * 1.33 - 30) * (i+1)));
+            item.position = ccp(GameWidth - item.contentSize.width / 2 - customItemXcoefForPos, GameHeight + customItemHeightParameter - ((item.contentSize.height * customItemMultiplier - 30) * (i+1)));
             item.tag = i + 1;
             [chicksMenu addChild: item];
             
@@ -127,8 +127,11 @@
             
             if(i == 0)
             {
-                chicksMenu.boundaryRect = CGRectMake(0, GameHeight + 152 - ((item.contentSize.height * 1.33 - 30) * 1), GameWidth, 0);
+                chicksMenu.boundaryRect = customizeRect;
+                //CCLOG(@"y %f width %f", GameHeight + 152 - ((item.contentSize.height * 1.33 - 30) * 1), GameWidth);
             }
+            
+            item.scale = customItemScale;
         }
         
         
