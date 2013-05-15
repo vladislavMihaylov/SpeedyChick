@@ -13,7 +13,6 @@
 #import "Chartboost.h"
 #import "CCBReader.h"
 
-
 @implementation MainMenu
 
 - (void) dealloc
@@ -23,7 +22,6 @@
 
 - (void) didLoadFromCCB
 {
-    
     
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"chicks%@.plist", suffix]];
     

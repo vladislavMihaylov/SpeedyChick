@@ -20,6 +20,8 @@
 
 #import "Common.h"
 
+#import "Appirater.h"
+
 @implementation GuiLayer
 
 @synthesize gameLayer;
@@ -433,6 +435,10 @@
         }
     }
     
+    if(curStars == 3)
+    {
+        [Appirater showPrompt];
+    }
     //CCLOG(@"Stars : %i", curStars);
     
     if([Settings sharedSettings].isKidsModeBuyed)

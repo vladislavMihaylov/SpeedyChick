@@ -28,6 +28,8 @@
 
 #import "Flurry.h"
 
+#import "Appirater.h"
+
 @implementation AppDelegate
 
 @synthesize window;
@@ -85,10 +87,13 @@
 
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 {
+    [Appirater setAppId: @"602012993"];
+    [Appirater setTimeBeforeReminding:2];
+    
     [[Settings sharedSettings] load];
     
-    [Settings sharedSettings].isAdEnabled = NO;
-    [[Settings sharedSettings] save];
+    //[Settings sharedSettings].isAdEnabled = NO;
+    //[[Settings sharedSettings] save];
     
     //CCLOG(@"Runs: %i", [Settings sharedSettings].countOfRuns);
     
@@ -213,6 +218,8 @@
         [[CCDirector sharedDirector] runWithScene: scene];
     }
     
+    [Appirater appLaunched:YES];
+    
 }
 
 
@@ -259,6 +266,7 @@
 }
 
 -(void) applicationWillEnterForeground:(UIApplication*)application {
+    [Appirater appEnteredForeground:YES];
 	[[CCDirector sharedDirector] startAnimation];
 }
 
