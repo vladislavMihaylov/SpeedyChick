@@ -16,6 +16,7 @@
     CCNode *posForRocket;
     
     CCMenu *rootMenu;
+    CCMenu *rocketMenu;
     CCMenuItemImage *getCoinsBtn;
     
     CCLabelBMFont *timeLabel;

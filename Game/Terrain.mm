@@ -113,6 +113,8 @@
 	
 #endif
 
+    
+    
     //[pointsOfBonusesArray release];
     ////[pointsArray release];
     [bonusesArray release];

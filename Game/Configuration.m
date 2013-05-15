@@ -52,7 +52,7 @@ Configuration *sharedConfiguration = nil;
         GameWidth = kWidthIPAD;
         GameHeight = kHeightIPAD;
         
-        rectForTextField = CGRectMake(150, 475, 320, 70);
+        rectForTextField = CGRectMake(220, 475, 320, 70); //CGRectMa
         textFontSize = 50;
         
         bodyRadius = iPadRadius;
@@ -64,6 +64,16 @@ Configuration *sharedConfiguration = nil;
         minSpeedY = minVelocityYIPAD;
         
         forceY = forceYIPAD;
+        
+        thisisRECT = iPadShopRect;
+        customizeRect = iPadCustomizeRect;
+        shopTextScale = iPadShopTextScale;
+        noAdsBtnMultiplier = iPadNoAdsBtnMultiplier;
+        restoreBtnMultiplier = iPadRestoreBtnMultiplier;
+        customItemXcoefForPos = iPadCustomItemXcoefForPos;
+        customItemHeightParameter = iPadCustomItemHeightParameter;
+        customItemMultiplier = iPadCustomItemMultiplier;
+        customItemScale = iPadCustomItemScale;
     }
     else
     {
@@ -85,9 +95,20 @@ Configuration *sharedConfiguration = nil;
         minSpeedY = minVelocityYIPHONE;
         
         forceY = forceYIPHONE;
+        
+        thisisRECT = iPhoneShopRect;
+        customizeRect = iPhoneCustomizeRect;
+        shopTextScale = iPhoneShopTextScale;
+        noAdsBtnMultiplier = iPhoneNoAdsBtnMultiplier;
+        restoreBtnMultiplier = iPhoneRestoreBtnMultiplier;
+        customItemXcoefForPos = iPhoneCustomItemXcoefForPos;
+        customItemHeightParameter = iPhoneCustomItemHeightParameter;
+        customItemMultiplier = iPhoneCustomItemMultiplier;
+        customItemScale = iPhoneCustomItemScale;
     }
     
-    //[Settings sharedSettings].countOfRockets = 3;
+    //[Settings sharedSettings].countOfCoins = 1111;
+    //[Settings sharedSettings].buyedCustomiziedChicks = @"1000000000";
     
     GameCenterX = GameWidth / 2;
     GameCenterY = GameHeight / 2;

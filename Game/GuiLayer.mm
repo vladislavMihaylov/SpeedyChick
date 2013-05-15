@@ -20,6 +20,8 @@
 
 #import "Common.h"
 
+#import "Appirater.h"
+
 @implementation GuiLayer
 
 @synthesize gameLayer;
@@ -80,12 +82,13 @@
         
         if([Settings sharedSettings].isGhostChickBuyed)
         {
-            [self loadEnergy];
-            energy = 0;
+            //[self loadEnergy];
+            //energy = 0;
         }
         
         ChickOnTheStart = YES;
         
+        [self resetLevel];
     }
     
     return self;
@@ -432,6 +435,10 @@
         }
     }
     
+    if(curStars == 3)
+    {
+        [Appirater showPrompt];
+    }
     //CCLOG(@"Stars : %i", curStars);
     
     if([Settings sharedSettings].isKidsModeBuyed)
@@ -578,6 +585,8 @@
 
 - (void) showWorldsMenu
 {
+    //[self resetLevel];
+    
     CCScene * scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"SelectWorldMenu%@.ccb", suffix]];
     
     [[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];

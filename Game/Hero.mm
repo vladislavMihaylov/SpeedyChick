@@ -41,7 +41,7 @@
          ];
         
 		self.sprite = [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"c%ianim1.png", [Settings sharedSettings].currentPinguin]];
-        //self.sprite.scale = 0.5;
+        self.sprite.scale = 1.2;
 		[self addChild:_sprite];
         
         
@@ -85,7 +85,7 @@
 	
 	b2FixtureDef fd;
 	fd.shape = &shape;
-	fd.density = 1.0f;
+	fd.density = 0.8f;
 	fd.restitution = 0; // bounce
 	fd.friction = 0;
 	
@@ -113,6 +113,7 @@
 
 - (void) wake
 {
+    [self reset];
     if(!_awake)
     {
         _awake = YES;
@@ -150,12 +151,12 @@
 
 - (void) applyEnergy
 {
-    _body->ApplyLinearImpulse(b2Vec2(7 * coefForCoords, 2 *coefForCoords),_body->GetPosition());
+    _body->ApplyLinearImpulse(b2Vec2(10 * coefForCoords, 6 *coefForCoords),_body->GetPosition());
 }
 
-- (void) pauseChickAnimation
+- (void) increaseChickAnimation
 {
-    [_sprite pauseSchedulerAndActions];
+    [_sprite pauseSchedulerAndActions]; 
 }
 
 - (void) stopChickAnimation
@@ -218,6 +219,7 @@
     }
     else
     {
+        
         if(_body -> GetLinearVelocity().x > 1)
         {
             _body->ApplyForce(b2Vec2(-25 * coefForCoords, forceY),_body->GetPosition());

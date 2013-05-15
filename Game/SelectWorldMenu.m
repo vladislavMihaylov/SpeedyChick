@@ -20,6 +20,8 @@
 
 - (void) didLoadFromCCB
 {
+    
+    
     CCMenu *worldsMenu = [CCMenu menuWithItems: nil];
     worldsMenu.position = ccp(0, 0);
     [self addChild: worldsMenu];

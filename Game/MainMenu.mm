@@ -13,7 +13,6 @@
 #import "Chartboost.h"
 #import "CCBReader.h"
 
-
 @implementation MainMenu
 
 - (void) dealloc
@@ -46,7 +45,7 @@
         [getCoinsBtn setOpacity: 150];
     }
     
-    nameLabel.string = [NSString stringWithFormat: @"Hello, %@", [Settings sharedSettings].nameOfPlayer];
+    nameLabel.string = [NSString stringWithFormat: @"Help %@ to win!", [Settings sharedSettings].nameOfPlayer];
     
     CCMenuItemImage *rocketBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"rocket.png"]
                                                         selectedSprite: [CCSprite spriteWithSpriteFrameName: @"rocket.png"]
@@ -55,7 +54,7 @@
     
     rocketBtn.position = posForRocket.position;
     
-    CCMenu *rocketMenu = [CCMenu menuWithItems: rocketBtn, nil];
+    rocketMenu = [CCMenu menuWithItems: rocketBtn, nil];
     rocketMenu.position = ccp(0, 0);
     [self addChild: rocketMenu];
     
@@ -128,16 +127,17 @@
 
 # pragma mark Alert 
 
-- (void) showAlert
+- (void) showAlert: (NSString *) message
 {
     rootMenu.isTouchEnabled = NO;
+    rocketMenu.isTouchEnabled = NO;
     
     CCSprite *bg = [CCSprite spriteWithSpriteFrameName: @"buyLevelBg.png"];
     bg.position = ccp(GameCenterX, GameCenterY);
     bg.scale = 0;
     [self addChild: bg z: 2 tag: 31];
     
-    CCLabelBMFont *alert = [CCLabelBMFont labelWithString: @"You need \n 10 coins!" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+    CCLabelBMFont *alert = [CCLabelBMFont labelWithString: message fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
     alert.position = ccp(bg.contentSize.width/2, bg.contentSize.height/2);
     [bg addChild: alert];
     
@@ -155,6 +155,7 @@
 - (void) hideAlert
 {
     rootMenu.isTouchEnabled = YES;
+    rocketMenu.isTouchEnabled = YES;
     [self removeChildByTag: 31 cleanup: YES];
 }
 
@@ -242,7 +243,7 @@
     }
     else
     {
-        [self showAlert];
+        [self showAlert: @"You need \n 10 coins!"];
     }
 }
 
@@ -263,7 +264,9 @@
     
     timeLabel.string = @"01:59:59";
     
-    [Settings sharedSettings].countOfCoins += 15;
+    [self showAlert: @"You got 25 coins!"];
+    
+    [Settings sharedSettings].countOfCoins += 25;
     
     [self updateRocketsAndCoinsString];
     

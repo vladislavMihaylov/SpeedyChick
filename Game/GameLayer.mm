@@ -77,9 +77,11 @@
 
 		self.terrain = [Terrain terrainWithWorld: _world];
 		[self addChild: _terrain];
-		
+        
 		self.hero = [Hero heroWithGame:self];
 		[_terrain addChild:_hero];
+        
+        [_hero reset]; // <--
 
 		//self.resetButton = [CCSprite spriteWithFile:@"reset.png"];
 		//[self addChild:_resetButton];
@@ -98,9 +100,16 @@
 	return self;
 }
 
+- (void) exitToWorldsMenu
+{
+    self.hero = nil;
+}
+
 - (void) exitToMainMenu
 {
-    [self unscheduleUpdate];
+    //[self unscheduleUpdate];
+    [_hero reset];
+    [_terrain reset];
     
     CCScene * scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"MainMenu%@.ccb", suffix]];
     
@@ -181,7 +190,7 @@
     
     _hero.diving = YES;
     
-    [_hero pauseChickAnimation];
+    [_hero increaseChickAnimation];
     /*if(ChickOnTheStart)
     {
         [guiLayer start];
@@ -337,7 +346,8 @@
     
     if([Settings sharedSettings].isGhostChickBuyed)
     {
-        [guiLayer increaseEnergy];
+        //[guiLayer increaseEnergy];
+        [_hero applyEnergy];
     }
     
 	//NSString *str = @"FRENZY!";

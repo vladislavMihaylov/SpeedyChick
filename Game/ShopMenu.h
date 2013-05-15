@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "CCMenuAdvanced.h"
 
 @interface ShopMenu: CCLayer
 {
@@ -15,7 +16,9 @@
     CCNode *item_2;
     CCNode *item_3;
     
-    CCNode *itemsLayer;
+    //CCNode *itemsLayer;
+    float curPositionOfButtons;
+    float curPositionOfShopMenu;
     
     NSArray *_products;
     
@@ -29,7 +32,8 @@
     CCLabelBMFont *rocketsLabel;
     CCLabelBMFont *coinsLabel;
     
-    CCMenu *shopMenu;
+    CCMenuAdvanced *shopMenu;
+    CCMenuAdvanced *buttonsMenu;
     CCMenu *restoreMenu;
     CCMenu *rootMenu;
     

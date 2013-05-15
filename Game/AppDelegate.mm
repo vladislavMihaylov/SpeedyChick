@@ -28,6 +28,8 @@
 
 #import "Flurry.h"
 
+#import "Appirater.h"
+
 @implementation AppDelegate
 
 @synthesize window;
@@ -85,9 +87,15 @@
 
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 {
+    [Appirater setAppId: @"602012993"];
+    [Appirater setTimeBeforeReminding:2];
+    
     [[Settings sharedSettings] load];
     
-    CCLOG(@"Runs: %i", [Settings sharedSettings].countOfRuns);
+    //[Settings sharedSettings].isAdEnabled = NO;
+    //[[Settings sharedSettings] save];
+    
+    //CCLOG(@"Runs: %i", [Settings sharedSettings].countOfRuns);
     
     if([Settings sharedSettings].countOfRuns > 0)
     {
@@ -175,7 +183,7 @@
 
 	
 	[director setAnimationInterval:1.0/60];
-	[director setDisplayFPS:YES];
+	[director setDisplayFPS:NO];
 	[director setDepthTest:NO];
 	
 	
@@ -209,6 +217,8 @@
         CCScene* scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"MainMenu%@.ccb", suffix]];
         [[CCDirector sharedDirector] runWithScene: scene];
     }
+    
+    [Appirater appLaunched:YES];
     
 }
 
@@ -256,6 +266,7 @@
 }
 
 -(void) applicationWillEnterForeground:(UIApplication*)application {
+    [Appirater appEnteredForeground:YES];
 	[[CCDirector sharedDirector] startAnimation];
 }
 
