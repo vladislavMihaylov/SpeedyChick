@@ -249,8 +249,11 @@
     
     if(isBonus)
     {
-        //CCLOG(@"BONUS!");
-        [_hero applyBonus];
+        CCLOG(@"BONUS!");
+        //[_hero applyBonus];
+        [Settings sharedSettings].countOfRockets++;
+        [[Settings sharedSettings] save];
+        [guiLayer updateRocket];
     }
     
     BOOL isCoin = [_terrain checkCoinCollisionWithCoordinats: ccp(_hero.position.x, _hero.position.y)];

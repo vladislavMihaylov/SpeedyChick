@@ -107,7 +107,7 @@ Configuration *sharedConfiguration = nil;
         customItemScale = iPhoneCustomItemScale;
     }
     
-    //[Settings sharedSettings].countOfCoins = 1111;
+    [Settings sharedSettings].countOfCoins = 111111;
     //[Settings sharedSettings].buyedCustomiziedChicks = @"1000000000";
     
     GameCenterX = GameWidth / 2;

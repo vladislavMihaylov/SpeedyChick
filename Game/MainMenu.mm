@@ -264,7 +264,7 @@
     
     timeLabel.string = @"01:59:59";
     
-    [self showAlert: @"You got 25 coins!"];
+    [self showAlert: @"Bonus collected\nYou have just collected\n 200 free coins! \nCome back later for more!"];
     
     [Settings sharedSettings].countOfCoins += 25;
     

@@ -45,6 +45,7 @@
 	// used for menu items using a block
 	void (^block_)(id sender);
 #endif
+    NSInteger cost;
 	
 	BOOL isEnabled_;
 	BOOL isSelected_;
@@ -54,6 +55,7 @@
 @since v0.8.2
 */
 @property (nonatomic,readonly) BOOL isSelected;
+@property (nonatomic, assign) NSInteger cost;
 
 /** Creates a CCMenuItem with a target/selector */
 +(id) itemWithTarget:(id)target selector:(SEL)selector;

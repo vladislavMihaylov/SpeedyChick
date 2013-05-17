@@ -72,5 +72,12 @@
 		<key>animationFrames</key>
 		<string>1,2,3,2</string>
 	</dict>
+	<key>c11anim</key>
+	<dict>
+		<key>delay</key>
+		<real>0.03</real>
+		<key>animationFrames</key>
+		<string>1,2,3,2</string>
+	</dict>
 </dict>
 </plist>

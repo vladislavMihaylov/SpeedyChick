@@ -56,10 +56,12 @@
     chicksMenu.position = ccp(GameCenterX, menuPosY);
     [self addChild: chicksMenu];
     
+    int costs[11] = {0, 20000, 0, 250, 1000, 2500, 4000, 6500, 10000, 15000, 20000};
+    
     NSMutableString *dataChicks = [NSMutableString stringWithString: [Settings sharedSettings].buyedCustomiziedChicks];
     CCLOG(@"%@", dataChicks);
     
-    for(int i = 0; i < 10; i++)
+    for(int i = 0; i < 11; i++)
     {
         NSString *curChicken = [dataChicks substringWithRange: NSMakeRange(i, 1)];
         
@@ -75,6 +77,7 @@
             
             item.position = ccp(GameWidth - item.contentSize.width / 2 - customItemXcoefForPos, GameHeight + customItemHeightParameter - ((item.contentSize.height * customItemMultiplier - 30) * (i+1)));
             item.tag = i + 1;
+            item.cost = costs[i];
             [chicksMenu addChild: item];
             
             CCSprite *chick = [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"c_%i.png", item.tag]];
@@ -86,7 +89,7 @@
             [item addChild: coin];
         
         
-            CCLabelBMFont *price = [CCLabelBMFont labelWithString: [NSString stringWithFormat: @"%i", 50 /*+ (10 * i)*/] fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+            CCLabelBMFont *price = [CCLabelBMFont labelWithString: [NSString stringWithFormat: @"%i", item.cost] fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
             price.position = ccp(item.contentSize.width * 0.7, item.contentSize.height / 2);
             
             price.anchorPoint = ccp(0, 0.5);
@@ -110,20 +113,6 @@
             chick.position = ccp(chick.contentSize.width, item.contentSize.height / 2);
             [item addChild: chick];
             
-            if(i != 0)
-            {
-                CCLabelBMFont *price = [CCLabelBMFont labelWithString: @"Purchased!" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
-                price.position = ccp(item.contentSize.width * 0.45, item.contentSize.height / 2);
-                price.anchorPoint = ccp(0, 0.5);
-                [item addChild: price];
-            }
-            else
-            {
-                CCLabelBMFont *price = [CCLabelBMFont labelWithString: @"Ready!" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
-                price.position = ccp(item.contentSize.width * 0.45, item.contentSize.height / 2);
-                price.anchorPoint = ccp(0, 0.5);
-                [item addChild: price];
-            }
             
             if(i == 0)
             {
@@ -205,7 +194,7 @@
 {
     NSMutableString *dataChicks = [NSMutableString stringWithString: [Settings sharedSettings].buyedCustomiziedChicks];
     
-    CCLOG(@"String %@", dataChicks);
+    CCLOG(@"Cost %i", sender.cost);
     
     NSString *curChick = [dataChicks substringWithRange: NSMakeRange(sender.tag-1, 1)];
     
@@ -213,7 +202,7 @@
     
     if(curState == 0)
     {
-        if([Settings sharedSettings].countOfCoins >= 50)
+        if([Settings sharedSettings].countOfCoins >= sender.cost)
         {
             curState = 1;
             NSString *new = [NSString stringWithFormat: @"%i", curState];
@@ -222,7 +211,7 @@
             
             CCLOG(@"New string %@", dataChicks);
             
-            [Settings sharedSettings].countOfCoins -= 50;
+            [Settings sharedSettings].countOfCoins -= sender.cost;
             [Settings sharedSettings].buyedCustomiziedChicks = [NSString stringWithFormat: @"%@", dataChicks];
             
             [Settings sharedSettings].currentPinguin = sender.tag;
@@ -232,7 +221,7 @@
         }
         else
         {
-            [self showAlert];
+            [self showAlert: [NSString stringWithFormat: @"You need\n %i coins!", sender.cost]];
         }
     }
     else
@@ -246,7 +235,7 @@
     
 }
 
-- (void) showAlert
+- (void) showAlert: (NSString *) message
 {
     rootMenu.isTouchEnabled = NO;
     
@@ -255,7 +244,7 @@
     bg.scale = 0;
     [self addChild: bg z: 2 tag: 31];
     
-    CCLabelBMFont *alert = [CCLabelBMFont labelWithString: @"You need \n 50 coins!" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+    CCLabelBMFont *alert = [CCLabelBMFont labelWithString: message fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
     alert.position = ccp(bg.contentSize.width/2, bg.contentSize.height/2);
     [bg addChild: alert];
     

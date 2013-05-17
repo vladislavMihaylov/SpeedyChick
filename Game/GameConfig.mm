@@ -13,8 +13,8 @@ CGRect iPadShopRect = CGRectMake(0, 0, -580, 768);
 
 CGRect thisisRECT = iPhoneShopRect;
 
-CGRect iPhoneCustomizeRect = CGRectMake(0, 320, 480, 0);
-CGRect iPadCustomizeRect = CGRectMake(0, 767.790, 1024, 0);
+CGRect iPhoneCustomizeRect = CGRectMake(0, 385/*320*/, 480, -65/*0*/);
+CGRect iPadCustomizeRect = CGRectMake(0, 920/*767.790*/, 1024, -152.210/*0*/);
 
 CGRect customizeRect = iPhoneCustomizeRect;
 

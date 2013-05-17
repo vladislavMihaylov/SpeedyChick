@@ -45,7 +45,8 @@
         CCLabelBMFont *tapTheEgg = [CCLabelBMFont labelWithString: @"Tap twice on the egg to get your chick!"
                                                            fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]
                                      ];
-        
+        tapTheEgg.scale = 1.3;
+        tapTheEgg.color = ccc3(0, 0, 255);
         tapTheEgg.position = ccp(GameCenterX, GameCenterY / 2.5);
         [self addChild: tapTheEgg z: 2 tag: 2];
         

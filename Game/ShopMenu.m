@@ -180,49 +180,11 @@
     
     // <------------------->
     
-    CCMenuItemImage *noAds = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"shopMenuItem.png"]
-                                                    selectedSprite: [CCSprite spriteWithSpriteFrameName: @"shopMenuItem.png"]
-                              ];
-    noAds.position = ccp(25 + ghostChick.position.x + noAds.contentSize.width, GameCenterY);
-    
-    CCLabelBMFont *nameOfNoAdsItem = [CCLabelBMFont labelWithString: @"No Ads" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
-    nameOfNoAdsItem.position = ccp(noAds.contentSize.width / 2, noAds.contentSize.height * 0.9);
-    [noAds addChild: nameOfNoAdsItem];
-    
-    CCLabelBMFont *descrOfNoAds = [CCLabelBMFont labelWithString: @"Buy anything and \nget this for free"
-                                                              fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
-    
-    descrOfNoAds.position = ccp(noAds.contentSize.width / 2, noAds.contentSize.height * 0.55);
-    descrOfNoAds.scale = shopTextScale;
-    [noAds addChild: descrOfNoAds];
-    
-    CCLabelBMFont *nameOfRestoreItem = [CCLabelBMFont labelWithString: @"Restore in-app" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
-    nameOfRestoreItem.position = ccp(noAds.contentSize.width / 2, noAds.contentSize.height * 0.4);
-    [noAds addChild: nameOfRestoreItem];
-    
-    CCMenuItemImage *noAdsUnlockBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"noAds.png"]
-                                                             selectedSprite: [CCSprite spriteWithSpriteFrameName: @"noAdsOn.png"]
-                                                                     target: self
-                                                                   selector: @selector(buyfeature:)
-                                       ];
-    noAdsUnlockBtn.scale = 0.5;
-    noAdsUnlockBtn.position = ccp(noAds.position.x, noAds.contentSize.height * noAdsBtnMultiplier);
-    noAdsUnlockBtn.tag = p_noads;
-    
-    CCMenuItemImage *restoreBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"restartBtn.png"]
-                                                         selectedSprite: [CCSprite spriteWithSpriteFrameName: @"restartBtnOn.png"]
-                                                                 target: self
-                                                               selector: @selector(restorePurchase)
-                                   ];
-    restoreBtn.position = ccp(noAds.position.x, noAds.contentSize.height * restoreBtnMultiplier);
-    
-    // <------------------->
-    
     CCMenuItemImage *rockets = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"shopMenuItem.png"]
                                                          selectedSprite: [CCSprite spriteWithSpriteFrameName: @"shopMenuItem.png"]
                                    ];
     
-    rockets.position = ccp(25 + noAds.position.x + rockets.contentSize.width, GameCenterY);
+    rockets.position = ccp(25 + ghostChick.position.x + ghostChick.contentSize.width, GameCenterY);
     
     
     CCLabelBMFont *nameOfRocketsItem = [CCLabelBMFont labelWithString: @"Rockets" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
@@ -244,7 +206,7 @@
                                                              selector: @selector(buyfeature:)
                                  ];
     
-    CGPoint posFor3rock = ccp(25 + noAds.position.x + rockets.contentSize.width,
+    CGPoint posFor3rock = ccp(25 + ghostChick.position.x + rockets.contentSize.width,
                               rockets.position.y - rockets.contentSize.height * 0.05);
     
     rockets3.position = posFor3rock;
@@ -256,7 +218,7 @@
                                                               selector: @selector(buyfeature:)
                                   ];
     
-    CGPoint posFor15rock = ccp(25 + noAds.position.x + rockets.contentSize.width,
+    CGPoint posFor15rock = ccp(25 + ghostChick.position.x + rockets.contentSize.width,
                                rockets.position.y - rockets.contentSize.height * 0.20);
     
     rockets15.position = posFor15rock;
@@ -268,7 +230,7 @@
                                                               selector: @selector(buyfeature:)
                                   ];
     
-    CGPoint posFor50rock = ccp(25 + noAds.position.x + rockets.contentSize.width,
+    CGPoint posFor50rock = ccp(25 + ghostChick.position.x + rockets.contentSize.width,
                                rockets.position.y - rockets.contentSize.height * 0.35);
     
     rockets50.position = posFor50rock;
@@ -340,6 +302,44 @@
     coins20000.tag = p_coins20000;
     
     CCLOG(@"coinsPos %f", coins20000.position.x);
+    
+    // <------------------->
+    
+    CCMenuItemImage *noAds = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"shopMenuItem.png"]
+                                                    selectedSprite: [CCSprite spriteWithSpriteFrameName: @"shopMenuItem.png"]
+                              ];
+    noAds.position = ccp(25 + coins.position.x + rockets.contentSize.width, GameCenterY);
+    
+    CCLabelBMFont *nameOfNoAdsItem = [CCLabelBMFont labelWithString: @"No Ads" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+    nameOfNoAdsItem.position = ccp(noAds.contentSize.width / 2, noAds.contentSize.height * 0.9);
+    [noAds addChild: nameOfNoAdsItem];
+    
+    CCLabelBMFont *descrOfNoAds = [CCLabelBMFont labelWithString: @"Buy anything and \nget this for free"
+                                                         fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+    
+    descrOfNoAds.position = ccp(noAds.contentSize.width / 2, noAds.contentSize.height * 0.55);
+    descrOfNoAds.scale = shopTextScale;
+    [noAds addChild: descrOfNoAds];
+    
+    CCLabelBMFont *nameOfRestoreItem = [CCLabelBMFont labelWithString: @"Restore in-app" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+    nameOfRestoreItem.position = ccp(noAds.contentSize.width / 2, noAds.contentSize.height * 0.4);
+    [noAds addChild: nameOfRestoreItem];
+    
+    CCMenuItemImage *noAdsUnlockBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"noAds.png"]
+                                                             selectedSprite: [CCSprite spriteWithSpriteFrameName: @"noAdsOn.png"]
+                                                                     target: self
+                                                                   selector: @selector(buyfeature:)
+                                       ];
+    noAdsUnlockBtn.scale = 0.5;
+    noAdsUnlockBtn.position = ccp(noAds.position.x, noAds.contentSize.height * noAdsBtnMultiplier);
+    noAdsUnlockBtn.tag = p_noads;
+    
+    CCMenuItemImage *restoreBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"restartBtn.png"]
+                                                         selectedSprite: [CCSprite spriteWithSpriteFrameName: @"restartBtnOn.png"]
+                                                                 target: self
+                                                               selector: @selector(restorePurchase)
+                                   ];
+    restoreBtn.position = ccp(noAds.position.x, noAds.contentSize.height * restoreBtnMultiplier);
     
     rightBorderForItems = ccp((coins.position.x + coins.contentSize.width * 2) / 2, 0);
     

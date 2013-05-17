@@ -152,7 +152,7 @@ Settings *sharedSettings = nil;
     }
     else
     {
-        self.buyedCustomiziedChicks = @"1000000000";
+        self.buyedCustomiziedChicks = @"10000000000";
     }
     
     // BOOL

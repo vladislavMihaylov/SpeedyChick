@@ -36,6 +36,8 @@
 - (void) increaseEnergy;
 - (void) decreaseEnergy;
 
+- (void) updateRocket;
+
 - (void) moveCocoOffsetX: (float) offsetX andFinishPoint: (float) finishPoint;
 
 @property (nonatomic, assign) GameLayer *gameLayer;

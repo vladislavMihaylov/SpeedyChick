@@ -139,6 +139,10 @@
 {
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"chicks%@.plist", suffix]];
     
+    CCSprite *finishLine = [CCSprite spriteWithFile: @"finishLine.png"];
+    finishLine.position = finishPointForCoco;
+    [self addChild: finishLine];
+    
     coco = [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"c_%i.png", [Settings sharedSettings].currentPinguin]];
     coco.scale = 0.25;
     [coco setPosition: cocoStartPosition];
@@ -147,6 +151,8 @@
     cat = [CCSprite spriteWithFile: @"cat.png"];
     [cat setPosition: catStartPosition];
     [self addChild: cat];
+    
+    
 }
 
 - (void) moveCat
@@ -216,6 +222,11 @@
     {
         applyRocket.isEnabled = NO;
         applyRocket.visible = NO;
+    }
+    else
+    {
+        applyRocket.isEnabled = YES;
+        applyRocket.visible = YES;
     }
 }
 

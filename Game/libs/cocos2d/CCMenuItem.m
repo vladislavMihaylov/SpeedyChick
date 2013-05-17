@@ -50,6 +50,9 @@ enum {
 @implementation CCMenuItem
 
 @synthesize isSelected=isSelected_;
+@synthesize cost;
+
+
 -(id) init
 {
 	NSAssert(NO, @"MenuItemInit: Init not supported.");
