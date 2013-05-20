@@ -10,11 +10,13 @@
 #import "cocos2d.h"
 
 @class GameLayer;
+@class RootViewController;
 
 @interface GuiLayer: CCLayer
 {
     GameLayer *gameLayer;
     
+    CCSprite *finishLine;
     CCSprite *cat;
     CCSprite *coco;
     
@@ -28,6 +30,25 @@
     NSInteger energy;
     
     BOOL showNewWorld;
+    
+    CCMenu *gameOverMenu;
+    
+    CCMenu *alertMenu;
+    
+    NSArray *_products;
+    
+    BOOL isItemsLoaded;
+    
+    
+    CCMenuItemImage *rocket3;
+    CCMenuItemImage *rocket15;
+    CCMenuItemImage *rocket50;
+    
+    CCLabelBMFont *waitingLabel;
+    
+    CCMenuItemImage *okBtn;
+    
+    RootViewController *viewController;
 }
 
 - (void) start;

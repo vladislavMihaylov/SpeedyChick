@@ -38,6 +38,8 @@
 #import <SystemConfiguration/SCNetworkReachability.h>
 #include <netinet/in.h>
 
+#import "Settings.h"
+
 #if ! __has_feature(objc_arc)
 #warning This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
 #endif
@@ -168,7 +170,7 @@ static BOOL _modalOpen = false;
 }
 
 - (void)showRatingAlert {
-	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:APPIRATER_MESSAGE_TITLE
+	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle: @"That's a great achievement!"//APPIRATER_MESSAGE_TITLE
 														 message:APPIRATER_MESSAGE
 														delegate:self
 											   cancelButtonTitle:APPIRATER_CANCEL_BUTTON
@@ -439,6 +441,9 @@ static BOOL _modalOpen = false;
 
 + (void)rateApp {
 	
+    [Settings sharedSettings].countOfCoins += 100;
+    [[Settings sharedSettings] save];
+    
 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 	[userDefaults setBool:YES forKey:kAppiraterRatedCurrentVersion];
 	[userDefaults synchronize];

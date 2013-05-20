@@ -1,4 +1,4 @@
-"If you enjoy using %@, would you mind taking a moment to rate it? It won't take more than a minute. Thanks for your support!" = "If you enjoy using %@, would you mind taking a moment to rate it? It won't take more than a minute. Thanks for your support!";
-"Rate %@" = "Rate %@";
+"If you enjoy using %@, would you mind taking a moment to rate it? It won't take more than a minute. Thanks for your support!" = "If you like the %@, rate us 5 stars and will give you 100 Coins!";//"If you enjoy using %@, would you mind taking a moment to rate it? It won't take more than a minute. Thanks for your support!";
+"Rate %@" = "Rate 5 stars!";//"Rate %@";
 "No, Thanks" = "No, Thanks";
-"Remind me later" = "Remind me later";
+"Remind me later" = "Maybe later";//"Remind me later";

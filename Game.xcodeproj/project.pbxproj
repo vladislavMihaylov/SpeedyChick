@@ -317,6 +317,12 @@
 		F5A8C3001704BD43006226E1 /* SelectLevelMenu-ipad.ccb in Resources */ = {isa = PBXBuildFile; fileRef = F5A8C2FF1704BD43006226E1 /* SelectLevelMenu-ipad.ccb */; };
 		F5A8C3021704CA94006226E1 /* CustomizeMenu-ipad.ccb in Resources */ = {isa = PBXBuildFile; fileRef = F5A8C3011704CA94006226E1 /* CustomizeMenu-ipad.ccb */; };
 		F5A8C3041704CBD6006226E1 /* ShopMenu-ipad.ccb in Resources */ = {isa = PBXBuildFile; fileRef = F5A8C3031704CBD6006226E1 /* ShopMenu-ipad.ccb */; };
+		F5ACD01B174748FB00D69922 /* gameFont-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = F5ACD015174748FB00D69922 /* gameFont-hd.fnt */; };
+		F5ACD01C174748FB00D69922 /* gameFont-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F5ACD016174748FB00D69922 /* gameFont-hd.png */; };
+		F5ACD01D174748FB00D69922 /* gameFont-ipad.fnt in Resources */ = {isa = PBXBuildFile; fileRef = F5ACD017174748FB00D69922 /* gameFont-ipad.fnt */; };
+		F5ACD01E174748FB00D69922 /* gameFont-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F5ACD018174748FB00D69922 /* gameFont-ipad.png */; };
+		F5ACD01F174748FB00D69922 /* gameFont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = F5ACD019174748FB00D69922 /* gameFont.fnt */; };
+		F5ACD020174748FB00D69922 /* gameFont.png in Resources */ = {isa = PBXBuildFile; fileRef = F5ACD01A174748FB00D69922 /* gameFont.png */; };
 		F5CCC4A6170411AF00742F9B /* mainMenuTextures-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5CCC4A0170411AF00742F9B /* mainMenuTextures-hd.plist */; };
 		F5CCC4A7170411AF00742F9B /* mainMenuTextures-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F5CCC4A1170411AF00742F9B /* mainMenuTextures-hd.png */; };
 		F5CCC4A8170411AF00742F9B /* mainMenuTextures-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5CCC4A2170411AF00742F9B /* mainMenuTextures-ipad.plist */; };
@@ -405,12 +411,6 @@
 		F5FC11871709EB4A00F97164 /* chick-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FC11841709EB4A00F97164 /* chick-hd.png */; };
 		F5FC11881709EB4A00F97164 /* chick-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FC11851709EB4A00F97164 /* chick-ipad.png */; };
 		F5FC11891709EB4A00F97164 /* chick.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FC11861709EB4A00F97164 /* chick.png */; };
-		F5FC11B01709F55C00F97164 /* gameFont-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = F5FC11AA1709F55600F97164 /* gameFont-hd.fnt */; };
-		F5FC11B11709F55C00F97164 /* gameFont-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FC11AB1709F55600F97164 /* gameFont-hd.png */; };
-		F5FC11B21709F55C00F97164 /* gameFont-ipad.fnt in Resources */ = {isa = PBXBuildFile; fileRef = F5FC11AC1709F55700F97164 /* gameFont-ipad.fnt */; };
-		F5FC11B31709F55C00F97164 /* gameFont-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FC11AD1709F55800F97164 /* gameFont-ipad.png */; };
-		F5FC11B41709F55C00F97164 /* gameFont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = F5FC11AE1709F55900F97164 /* gameFont.fnt */; };
-		F5FC11B51709F55C00F97164 /* gameFont.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FC11AF1709F55A00F97164 /* gameFont.png */; };
 		F5FC11C01709FBDC00F97164 /* okBtn-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FC11BA1709FBD400F97164 /* okBtn-hd.png */; };
 		F5FC11C11709FBDC00F97164 /* okBtn-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FC11BB1709FBD400F97164 /* okBtn-ipad.png */; };
 		F5FC11C21709FBDC00F97164 /* okBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FC11BC1709FBD500F97164 /* okBtn.png */; };
@@ -1252,6 +1252,12 @@
 		F5A8C2FF1704BD43006226E1 /* SelectLevelMenu-ipad.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "SelectLevelMenu-ipad.ccb"; path = "Resources/SelectLevelMenu-ipad.ccb"; sourceTree = "<group>"; };
 		F5A8C3011704CA94006226E1 /* CustomizeMenu-ipad.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "CustomizeMenu-ipad.ccb"; path = "Resources/CustomizeMenu-ipad.ccb"; sourceTree = "<group>"; };
 		F5A8C3031704CBD6006226E1 /* ShopMenu-ipad.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "ShopMenu-ipad.ccb"; path = "Resources/ShopMenu-ipad.ccb"; sourceTree = "<group>"; };
+		F5ACD015174748FB00D69922 /* gameFont-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "gameFont-hd.fnt"; path = "Resources/gameFont-hd.fnt"; sourceTree = "<group>"; };
+		F5ACD016174748FB00D69922 /* gameFont-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gameFont-hd.png"; path = "Resources/gameFont-hd.png"; sourceTree = "<group>"; };
+		F5ACD017174748FB00D69922 /* gameFont-ipad.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "gameFont-ipad.fnt"; path = "Resources/gameFont-ipad.fnt"; sourceTree = "<group>"; };
+		F5ACD018174748FB00D69922 /* gameFont-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gameFont-ipad.png"; path = "Resources/gameFont-ipad.png"; sourceTree = "<group>"; };
+		F5ACD019174748FB00D69922 /* gameFont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = gameFont.fnt; path = Resources/gameFont.fnt; sourceTree = "<group>"; };
+		F5ACD01A174748FB00D69922 /* gameFont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gameFont.png; path = Resources/gameFont.png; sourceTree = "<group>"; };
 		F5CCC4A0170411AF00742F9B /* mainMenuTextures-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "mainMenuTextures-hd.plist"; path = "Resources/mainMenuTextures-hd.plist"; sourceTree = "<group>"; };
 		F5CCC4A1170411AF00742F9B /* mainMenuTextures-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mainMenuTextures-hd.png"; path = "Resources/mainMenuTextures-hd.png"; sourceTree = "<group>"; };
 		F5CCC4A2170411AF00742F9B /* mainMenuTextures-ipad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "mainMenuTextures-ipad.plist"; path = "Resources/mainMenuTextures-ipad.plist"; sourceTree = "<group>"; };
@@ -1344,12 +1350,6 @@
 		F5FC11841709EB4A00F97164 /* chick-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chick-hd.png"; sourceTree = "<group>"; };
 		F5FC11851709EB4A00F97164 /* chick-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chick-ipad.png"; sourceTree = "<group>"; };
 		F5FC11861709EB4A00F97164 /* chick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chick.png; sourceTree = "<group>"; };
-		F5FC11AA1709F55600F97164 /* gameFont-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "gameFont-hd.fnt"; path = "Resources/gameFont-hd.fnt"; sourceTree = "<group>"; };
-		F5FC11AB1709F55600F97164 /* gameFont-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gameFont-hd.png"; path = "Resources/gameFont-hd.png"; sourceTree = "<group>"; };
-		F5FC11AC1709F55700F97164 /* gameFont-ipad.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "gameFont-ipad.fnt"; path = "Resources/gameFont-ipad.fnt"; sourceTree = "<group>"; };
-		F5FC11AD1709F55800F97164 /* gameFont-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gameFont-ipad.png"; path = "Resources/gameFont-ipad.png"; sourceTree = "<group>"; };
-		F5FC11AE1709F55900F97164 /* gameFont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = gameFont.fnt; path = Resources/gameFont.fnt; sourceTree = "<group>"; };
-		F5FC11AF1709F55A00F97164 /* gameFont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gameFont.png; path = Resources/gameFont.png; sourceTree = "<group>"; };
 		F5FC11BA1709FBD400F97164 /* okBtn-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "okBtn-hd.png"; sourceTree = "<group>"; };
 		F5FC11BB1709FBD400F97164 /* okBtn-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "okBtn-ipad.png"; sourceTree = "<group>"; };
 		F5FC11BC1709FBD500F97164 /* okBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = okBtn.png; sourceTree = "<group>"; };
@@ -1670,7 +1670,6 @@
 				F514AED816E87E8A00348A2D /* GameLayer */,
 				F514AED716E87E6B00348A2D /* Application */,
 				F514AED616E87E3500348A2D /* Navigation */,
-				4DFE49C6139F6A7900973A5D /* README.md */,
 				4DFD2EBF139CCCA0001E1480 /* Resources */,
 				4DFD2ED3139CCCA1001E1480 /* libs */,
 				4DFD300C139CCCA6001E1480 /* Supporting Files */,
@@ -2359,6 +2358,7 @@
 				F514AED216E87CD700348A2D /* SelectLevelMenu.mm */,
 				F509DA5316FE22A900108219 /* FirstLaunch.h */,
 				F509DA5416FE22A900108219 /* FirstLaunch.m */,
+				4DFE49C6139F6A7900973A5D /* README.md */,
 			);
 			name = Navigation;
 			sourceTree = "<group>";
@@ -2817,12 +2817,12 @@
 		F5FE578C170AC8630092CF8F /* fonts */ = {
 			isa = PBXGroup;
 			children = (
-				F5FC11AA1709F55600F97164 /* gameFont-hd.fnt */,
-				F5FC11AB1709F55600F97164 /* gameFont-hd.png */,
-				F5FC11AC1709F55700F97164 /* gameFont-ipad.fnt */,
-				F5FC11AD1709F55800F97164 /* gameFont-ipad.png */,
-				F5FC11AE1709F55900F97164 /* gameFont.fnt */,
-				F5FC11AF1709F55A00F97164 /* gameFont.png */,
+				F5ACD015174748FB00D69922 /* gameFont-hd.fnt */,
+				F5ACD016174748FB00D69922 /* gameFont-hd.png */,
+				F5ACD017174748FB00D69922 /* gameFont-ipad.fnt */,
+				F5ACD018174748FB00D69922 /* gameFont-ipad.png */,
+				F5ACD019174748FB00D69922 /* gameFont.fnt */,
+				F5ACD01A174748FB00D69922 /* gameFont.png */,
 			);
 			name = fonts;
 			sourceTree = "<group>";
@@ -3252,12 +3252,6 @@
 				F5FC11871709EB4A00F97164 /* chick-hd.png in Resources */,
 				F5FC11881709EB4A00F97164 /* chick-ipad.png in Resources */,
 				F5FC11891709EB4A00F97164 /* chick.png in Resources */,
-				F5FC11B01709F55C00F97164 /* gameFont-hd.fnt in Resources */,
-				F5FC11B11709F55C00F97164 /* gameFont-hd.png in Resources */,
-				F5FC11B21709F55C00F97164 /* gameFont-ipad.fnt in Resources */,
-				F5FC11B31709F55C00F97164 /* gameFont-ipad.png in Resources */,
-				F5FC11B41709F55C00F97164 /* gameFont.fnt in Resources */,
-				F5FC11B51709F55C00F97164 /* gameFont.png in Resources */,
 				F5FC11C01709FBDC00F97164 /* okBtn-hd.png in Resources */,
 				F5FC11C11709FBDC00F97164 /* okBtn-ipad.png in Resources */,
 				F5FC11C21709FBDC00F97164 /* okBtn.png in Resources */,
@@ -3359,6 +3353,12 @@
 				F53C06961746683500EFD20B /* chicksAnim-ipad.png in Resources */,
 				F53C06971746683500EFD20B /* chicksAnim.plist in Resources */,
 				F53C06981746683500EFD20B /* chicksAnim.png in Resources */,
+				F5ACD01B174748FB00D69922 /* gameFont-hd.fnt in Resources */,
+				F5ACD01C174748FB00D69922 /* gameFont-hd.png in Resources */,
+				F5ACD01D174748FB00D69922 /* gameFont-ipad.fnt in Resources */,
+				F5ACD01E174748FB00D69922 /* gameFont-ipad.png in Resources */,
+				F5ACD01F174748FB00D69922 /* gameFont.fnt in Resources */,
+				F5ACD020174748FB00D69922 /* gameFont.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

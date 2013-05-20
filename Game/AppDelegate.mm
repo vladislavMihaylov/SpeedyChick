@@ -57,7 +57,7 @@
 #endif // GAME_AUTOROTATION == kGameAutorotationUIViewController	
 }
 
-- (void) addNotification
+- (void) addNotificationOneDayWithoutGame
 {
     UILocalNotification *notif = [[UILocalNotification alloc] init];
     
@@ -67,11 +67,34 @@
     
     notif.alertAction = @"Play with me!"; //Текст кнопочки, вызывающей вашу программу из фонового режима
     
-    notif.alertBody = @"Chick misses! Play with him!"; //Тело сообщения над кнопочкой
+    notif.alertBody = @"Hey, come back! Your chick misses you!"; //Тело сообщения над кнопочкой
     
     notif.soundName = UILocalNotificationDefaultSoundName; //дефолтный звук сообщения. Можно задать свой в папке проекта.
     
-    //notif.applicationIconBadgeNumber = 1; //число "бейджа" на иконке приложения при наступлении уведомления
+    notif.applicationIconBadgeNumber = 1; //число "бейджа" на иконке приложения при наступлении уведомления
+    
+    notif.repeatInterval = NSDayCalendarUnit; //если необходимо, используем повтор (не пытайтесь установить свое время повтора, это невозможно. Используйте только NSCalendarCalendarUnit.
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:notif]; //Размещаем наше локальное уведомление!
+    
+    [notif release];
+}
+
+- (void) addNotificationThreeDayWithoutGame
+{
+    UILocalNotification *notif = [[UILocalNotification alloc] init];
+    
+    notif.timeZone = [NSTimeZone defaultTimeZone]; //часовой пояс, я обычно пользуюсь в программах дефолтным по Гринвичу, но можно использовать systemTimeZone, это будет время в устройстве.
+    
+    notif.fireDate = [[NSDate date] dateByAddingTimeInterval: 259200.0f]; //время, когда наступит время нотификатора, у нас это текущая дата + 20 секунд. Можно прибегнуть к помощи NSDateComponents для установок своей даты.
+    
+    notif.alertAction = @"Play with me!"; //Текст кнопочки, вызывающей вашу программу из фонового режима
+    
+    notif.alertBody = @"Hey, your chick is getting sad... Play with it and help him win!"; //Тело сообщения над кнопочкой
+    
+    notif.soundName = UILocalNotificationDefaultSoundName; //дефолтный звук сообщения. Можно задать свой в папке проекта.
+    
+    notif.applicationIconBadgeNumber = 1; //число "бейджа" на иконке приложения при наступлении уведомления
     
     notif.repeatInterval = NSDayCalendarUnit; //если необходимо, используем повтор (не пытайтесь установить свое время повтора, это невозможно. Используйте только NSCalendarCalendarUnit.
     
@@ -87,39 +110,72 @@
 
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 {
-    [Appirater setAppId: @"602012993"];
-    [Appirater setTimeBeforeReminding:2];
+    /// --> Settings
     
     [[Settings sharedSettings] load];
     
-    //[Settings sharedSettings].isAdEnabled = NO;
-    //[[Settings sharedSettings] save];
-    
-    //CCLOG(@"Runs: %i", [Settings sharedSettings].countOfRuns);
-    
-    if([Settings sharedSettings].countOfRuns > 0)
-    {
-        if([Settings sharedSettings].isAdEnabled)
-        {
-            [RevMobAds startSessionWithAppID: @"51776808e7076acc0a00001c"];
-            [[RevMobAds session] showFullscreen];
-        }
-    }
-    
-    [Flurry startSession: @"2PRYCHDJ8SGDJPFW8D8M"];
-    
-    [self deleteAllNotifs];
-    [self addNotification];
-    
-    //[RagePurchase sharedInstance];
+    /// --> SHKConfiguration
     
     DefaultSHKConfigurator *configurator = [[[MySHKConfigurator alloc] init] autorelease];
     
     [SHKConfiguration sharedInstanceWithConfigurator: configurator];
     
+    /// --> ChartBoost & RevMob
     
+    Chartboost *cb = [Chartboost sharedChartboost];
     
+    cb.appId = @"5177655c16ba47654f000000";
+    cb.appSignature = @"8581b8b00ae5eecf3fde2d2940835ddf56016f52";
     
+    [cb startSession];
+    
+    if([Settings sharedSettings].countOfRuns > 0)
+    {
+        if([Settings sharedSettings].countOfRuns % 2 == 0)
+        {
+            if([Settings sharedSettings].isAdEnabled)
+            {
+                [cb showInterstitial];
+            }
+        }
+        else
+        {
+            if([Settings sharedSettings].isAdEnabled)
+            {
+                [RevMobAds startSessionWithAppID: @"51776808e7076acc0a00001c"];
+                [[RevMobAds session] showFullscreen];
+            }
+        }
+    }
+    
+    /// --> RevMob
+    
+//    if([Settings sharedSettings].countOfRuns > 0)
+//    {
+//        if([Settings sharedSettings].countOfRuns % 2 != 0)
+//        {
+//            if([Settings sharedSettings].isAdEnabled)
+//            {
+//                [RevMobAds startSessionWithAppID: @"51776808e7076acc0a00001c"];
+//                [[RevMobAds session] showFullscreen];
+//            }
+//        }
+//    }
+    
+    /// --> RateApp
+    
+    [Appirater setAppId: @"602012993"];
+    [Appirater setTimeBeforeReminding:2];
+    
+    /// --> Flurry
+    
+    [Flurry startSession: @"2PRYCHDJ8SGDJPFW8D8M"];
+    
+    /// --> LocalNotifications
+    
+    [self deleteAllNotifs];
+    [self addNotificationOneDayWithoutGame];
+    [self addNotificationThreeDayWithoutGame];
     
 	// Init the window
 	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -133,7 +189,7 @@
 	CCDirector *director = [CCDirector sharedDirector];
 	
 	// Init the View Controller
-	viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
+	viewController = [[RootViewController alloc] initWithNibName: nil bundle: nil];
     [viewController view];
 	viewController.wantsFullScreenLayout = YES;
 	
@@ -232,23 +288,7 @@
     
     [SHKFacebook handleDidBecomeActive];
     
-    Chartboost *cb = [Chartboost sharedChartboost];
-    //cb.delegate = self;
     
-    cb.appId = @"5177655c16ba47654f000000";
-    cb.appSignature = @"8581b8b00ae5eecf3fde2d2940835ddf56016f52";
-    
-    // Notify an install
-    [cb startSession];
-    
-    // Load interstitial
-    if([Settings sharedSettings].countOfRuns > 0)
-    {
-        if([Settings sharedSettings].isAdEnabled)
-        {
-            [cb showInterstitial];
-        }
-    }
     
     [Settings sharedSettings].countOfRuns++;
     

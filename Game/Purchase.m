@@ -2,6 +2,7 @@
 #import "Purchase.h"
 #import <StoreKit/Storekit.h>
 #import "Settings.h"
+#import "GameConfig.h"
 
 NSString *const PurchaseProductPurchasedNotification = @"PurchaseProductPurchasedNotification";
 NSString *const PurchaseProductCanceledPurchaseNotification = @"PurchaseProductCanceledPurchaseNotification";
@@ -217,6 +218,11 @@ NSString *const PurchaseProductCanceledPurchaseNotification = @"PurchaseProductC
     else if([identifier isEqualToString: @"com.javier.speedy.superchick"])
     {
         [Settings sharedSettings].isSuperChickBuyed = YES;
+        
+        currentHeightOfFly *= 2;
+        currentSpeedOfFly *= 2;
+        
+        minSpeedX *= 2;
     }
     else if([identifier isEqualToString: @"com.javier.speedy.ghostchick"])
     {

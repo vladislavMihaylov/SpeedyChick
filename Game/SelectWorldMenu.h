@@ -12,6 +12,7 @@
 @interface SelectWorldMenu: CCLayer
 {
     CCMenu *selectWorldMenu;
+    CCMenu *worldsMenu;
 }
 
 @end

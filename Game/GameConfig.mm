@@ -39,6 +39,8 @@ NSInteger currentHeightOfFly = 0;
 NSInteger currentSpeedOfFly = 0;
 
 NSInteger coefForCoords = 1;
+NSInteger countOfLoses = 0;
+NSInteger countOfPlays = 0;
 
 NSString *suffix = @"";
 
@@ -49,6 +51,8 @@ BOOL isPauseOfGame = NO;
 BOOL ChickOnTheStart = YES;
 BOOL isFinish = NO;
 BOOL isInviteShowed = NO;
+BOOL isUserPlayed = NO;
+BOOL isAlertAboutOutOfRocketsShowed = NO;
 
 float GameWidth =  480;
 float GameHeight = 320;
@@ -73,3 +77,4 @@ float minSpeedX = minVelocityXIPHONE;
 float minSpeedY = minVelocityYIPHONE;
 
 float forceY = forceYIPHONE;
+float gravityY = gravityIphone;

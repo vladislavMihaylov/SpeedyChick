@@ -14,6 +14,7 @@
     CCNode *curPinguin;
     CCNode *curRockets;
     CCNode *posForRocket;
+    CCSprite *posForCoin;
     
     CCMenu *rootMenu;
     CCMenu *rocketMenu;

@@ -13,6 +13,8 @@
 #import "Chartboost.h"
 #import "CCBReader.h"
 
+#import "Appirater.h"
+
 @implementation MainMenu
 
 - (void) dealloc
@@ -22,6 +24,16 @@
 
 - (void) didLoadFromCCB
 {
+    
+    CCLOG(@"kidsMode: %i", [Settings sharedSettings].isKidsModeBuyed);
+    CCLOG(@"superChick: %i", [Settings sharedSettings].isSuperChickBuyed);
+    CCLOG(@"ghostChick: %i", [Settings sharedSettings].isGhostChickBuyed);
+    CCLOG(@"Ads: %i", [Settings sharedSettings].isAdEnabled);
+    
+    //[Appirater showPrompt];
+    
+    [Settings sharedSettings].countOfRockets = 1;
+    [[Settings sharedSettings] save];
     
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"chicks%@.plist", suffix]];
     
@@ -46,15 +58,25 @@
     }
     
     nameLabel.string = [NSString stringWithFormat: @"Help %@ to win!", [Settings sharedSettings].nameOfPlayer];
+    nameLabel.color = ccc3(0, 0, 255);
     
     CCMenuItemImage *rocketBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"rocket.png"]
                                                         selectedSprite: [CCSprite spriteWithSpriteFrameName: @"rocket.png"]
                                                                 target: self
-                                                              selector: @selector(buyRocket)];
+                                                              selector: @selector(buyRocketOrCoin)
+                                  ];
     
     rocketBtn.position = posForRocket.position;
     
-    rocketMenu = [CCMenu menuWithItems: rocketBtn, nil];
+    CCMenuItemImage *coinBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"coin.png"]
+                                                      selectedSprite: [CCSprite spriteWithSpriteFrameName: @"coin.png"]
+                                                              target: self
+                                                            selector: @selector(buyRocketOrCoin)
+                                ];
+    
+    coinBtn.position = posForCoin.position;
+    
+    rocketMenu = [CCMenu menuWithItems: rocketBtn, coinBtn, nil];
     rocketMenu.position = ccp(0, 0);
     [self addChild: rocketMenu];
     
@@ -66,6 +88,18 @@
             [self showInviteToShop];
         }
     }
+    
+    
+    
+    if(isUserPlayed)
+    {
+        if([Settings sharedSettings].countOfRuns == 1)
+        {
+            isUserPlayed = NO;
+            [self showAlert: @"      Want to get Coins? \n   Click on the \"get coins\" \nbutton to collect 100 coins." type: 3];
+        }
+    }
+    
     
     [chickSprite runAction:
             [CCRepeatForever actionWithAction:
@@ -88,6 +122,8 @@
                          nil]
              ]
      ];
+    
+    
 
 }
 
@@ -127,7 +163,7 @@
 
 # pragma mark Alert 
 
-- (void) showAlert: (NSString *) message
+- (void) showAlert: (NSString *) message type: (NSInteger) type
 {
     rootMenu.isTouchEnabled = NO;
     rocketMenu.isTouchEnabled = NO;
@@ -139,13 +175,57 @@
     
     CCLabelBMFont *alert = [CCLabelBMFont labelWithString: message fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
     alert.position = ccp(bg.contentSize.width/2, bg.contentSize.height/2);
+    alert.color = ccc3(255, 255, 255);
     [bg addChild: alert];
     
-    CCMenuItemImage *okBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtn.png"]] selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtnOn.png"]]
-                              target: self selector: @selector(hideAlert)];
-    okBtn.position = ccp(bg.contentSize.width/2, bg.contentSize.height * 0.2);
+    CCMenu *alertMenu = [CCMenu menuWithItems: nil];
     
-    CCMenu *alertMenu = [CCMenu menuWithItems: okBtn, nil];
+    if(type == 1) // Single okBtn
+    {
+        CCMenuItemImage *okBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtn.png"]]
+                                                        selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtnOn.png"]]
+                                                                target: self
+                                                              selector: @selector(hideAlert)
+                                  ];
+        okBtn.position = ccp(bg.contentSize.width/2, bg.contentSize.height * 0.2);
+        
+        [alertMenu addChild: okBtn];
+    }
+    
+    if(type == 2) // okBtn & cancelBtn
+    {
+        CCMenuItemImage *okBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtn.png"]]
+                                                        selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtnOn.png"]]
+                                                                target: self
+                                                              selector: @selector(pressedShop)
+                                  ];
+        
+        okBtn.position = ccp(bg.contentSize.width * 0.3, bg.contentSize.height * 0.15);
+        
+        CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtn.png"]]
+                                                        selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtnOn.png"]]
+                                                                target: self
+                                                              selector: @selector(hideAlert)
+                                  ];
+        
+        cancelBtn.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.15);
+        
+        [alertMenu addChild: okBtn];
+        [alertMenu addChild: cancelBtn];
+    }
+    if(type == 3)
+    {
+        CCMenuItemImage *getThemNowBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtn.png"]]
+                                                        selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtnOn.png"]]
+                                                                target: self
+                                                              selector: @selector(pressedGetCoins)
+                                  ];
+        getThemNowBtn.position = ccp(bg.contentSize.width/2, bg.contentSize.height * 0.2);
+        
+        [alertMenu addChild: getThemNowBtn];
+    }
+        
+   
     alertMenu.position = ccp(0, 0);
     [bg addChild: alertMenu];
     
@@ -157,14 +237,18 @@
     rootMenu.isTouchEnabled = YES;
     rocketMenu.isTouchEnabled = YES;
     [self removeChildByTag: 31 cleanup: YES];
+    CCLOG(@"OK");
 }
 
 # pragma mark update
 
 - (void) updateRocketsAndCoinsString
 {
-    rocketsLabel.string = [NSString stringWithFormat: @"%i rockets", [Settings sharedSettings].countOfRockets];
-    coinsLabel.string = [NSString stringWithFormat: @"%i coins", [Settings sharedSettings].countOfCoins];
+    rocketsLabel.string = [NSString stringWithFormat: @"x %i", [Settings sharedSettings].countOfRockets];
+    coinsLabel.string = [NSString stringWithFormat: @"x %i", [Settings sharedSettings].countOfCoins];
+    
+    rocketsLabel.color = ccc3(0, 0, 255);
+    coinsLabel.color = ccc3(0, 0, 255);
 }
 
 - (void) timer
@@ -213,6 +297,7 @@
     NSString *timeStr = [NSString stringWithFormat: @"%@:%@:%@", h, m, s];
     
     timeLabel.string = timeStr;
+    timeLabel.color = ccc3(0, 0, 255);
     
     if(diff <= 0)
     {
@@ -230,21 +315,9 @@
 
 # pragma mark Buy
 
-- (void) buyRocket
+- (void) buyRocketOrCoin
 {
-    if([Settings sharedSettings].countOfCoins >= 10)
-    {
-        [Settings sharedSettings].countOfCoins -= 10;
-        [Settings sharedSettings].countOfRockets++;
-        
-        [[Settings sharedSettings] save];
-        
-        [self updateRocketsAndCoinsString];
-    }
-    else
-    {
-        [self showAlert: @"You need \n 10 coins!"];
-    }
+    [self showAlert: @"Want to get more \nCoins or Rockets?" type: 2];
 }
 
 # pragma mark Methods of press
@@ -259,14 +332,19 @@
 
 - (void) pressedGetCoins
 {
+    //rootMenu.isTouchEnabled = YES;
+    //rocketMenu.isTouchEnabled = YES;
+    [self removeChildByTag: 31 cleanup: YES];
+    
     getCoinsBtn.isEnabled = NO;
     [getCoinsBtn setOpacity: 150];
     
     timeLabel.string = @"01:59:59";
+    timeLabel.color = ccc3(0, 0, 255);
     
-    [self showAlert: @"Bonus collected\nYou have just collected\n 200 free coins! \nCome back later for more!"];
+    [self showAlert: @"        Bonus collected\n  You have just collected\n        100 free coins! \nCome back later for more!" type: 1];
     
-    [Settings sharedSettings].countOfCoins += 25;
+    [Settings sharedSettings].countOfCoins += 100;
     
     [self updateRocketsAndCoinsString];
     
@@ -278,9 +356,33 @@
     
     [[Settings sharedSettings] save];
     
+    [self addNotificationAboutCoins];
+    
     [self schedule: @selector(timer) interval: 1];
 }
 
+- (void) addNotificationAboutCoins
+{
+    UILocalNotification *notif = [[UILocalNotification alloc] init];
+    
+    notif.timeZone = [NSTimeZone defaultTimeZone]; //часовой пояс, я обычно пользуюсь в программах дефолтным по Гринвичу, но можно использовать systemTimeZone, это будет время в устройстве.
+    
+    notif.fireDate = [[NSDate date] dateByAddingTimeInterval: 7200.0f]; //время, когда наступит время нотификатора, у нас это текущая дата + 20 секунд. Можно прибегнуть к помощи NSDateComponents для установок своей даты.
+    
+    notif.alertAction = @"Get them!"; //Текст кнопочки, вызывающей вашу программу из фонового режима
+    
+    notif.alertBody = @"100 Coins are awaiting for you now. Come and get them!"; //Тело сообщения над кнопочкой
+    
+    notif.soundName = UILocalNotificationDefaultSoundName; //дефолтный звук сообщения. Можно задать свой в папке проекта.
+    
+    //notif.applicationIconBadgeNumber = 1; //число "бейджа" на иконке приложения при наступлении уведомления
+    
+    notif.repeatInterval = NSDayCalendarUnit; //если необходимо, используем повтор (не пытайтесь установить свое время повтора, это невозможно. Используйте только NSCalendarCalendarUnit.
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:notif]; //Размещаем наше локальное уведомление!
+    
+    [notif release];
+}
 
 - (void) pressedCustomise
 {

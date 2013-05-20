@@ -22,6 +22,13 @@
 
 #import "Appirater.h"
 
+#import "RagePurchase.h"
+#import <StoreKit/StoreKit.h>
+
+#import <RevMobAds/RevMobAds.h>
+#import "Chartboost.h"
+#import "RootViewController.h"
+
 @implementation GuiLayer
 
 @synthesize gameLayer;
@@ -29,6 +36,8 @@
 
 - (void) dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver: self];
+    [_products release];
     [super dealloc];
 }
 
@@ -36,8 +45,15 @@
 {
     if(self = [super init])
     {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:PurchaseProductPurchasedNotification object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(purchaseCanceled:) name:PurchaseProductCanceledPurchaseNotification object:nil];
+        
+        isItemsLoaded = NO;
         showNewWorld = NO;
         
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"shopItems%@.plist", suffix]];
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"chicks%@.plist", suffix]];
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"catAnim%@.plist", suffix]];
         
         [Common loadAnimationWithPlist: @"catAnimation"
@@ -75,20 +91,31 @@
         
         time = 0;
         
-        if([Settings sharedSettings].isCatEnabled)
+        if(![Settings sharedSettings].isKidsModeBuyed)
         {
             [self loadCat];
         }
         
         if([Settings sharedSettings].isGhostChickBuyed)
         {
-            //[self loadEnergy];
-            //energy = 0;
+            [self loadEnergy];
+            energy = 0;
         }
         
         ChickOnTheStart = YES;
         
         [self resetLevel];
+        
+        [[RagePurchase sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products)
+         {
+             if (success)
+             {
+                 _products = [[NSArray alloc] initWithArray: products];
+                 
+                 isItemsLoaded = YES;
+                 [self showShopButtons];
+             }
+         }];
     }
     
     return self;
@@ -98,16 +125,19 @@
 
 - (void) loadEnergy
 {
-    energyLabel = [CCLabelBMFont labelWithString: @"Energy: "
-                                         fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]
-                   ];
-    
-    energyLabel.position = ccp(GameWidth * 0.02, GameHeight * 0.9375);
-    energyLabel.anchorPoint = ccp(0, 0.5);
-    energyLabel.scale = 0.7;
-    [self addChild: energyLabel];
-    
-    [self updateEnergyLabel];
+    if(energyLabel == nil)
+    {
+        energyLabel = [CCLabelBMFont labelWithString: @"Energy: "
+                                             fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]
+                       ];
+        
+        energyLabel.position = ccp(GameWidth * 0.02, GameHeight * 0.9375);
+        energyLabel.anchorPoint = ccp(0, 0.5);
+        energyLabel.scale = 0.7;
+        [self addChild: energyLabel];
+        
+        [self updateEnergyLabel];
+    }
 }
 
 - (void) increaseEnergy
@@ -137,9 +167,12 @@
 
 - (void) loadCat
 {
+    if(cat == nil)
+    {
+    
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"chicks%@.plist", suffix]];
     
-    CCSprite *finishLine = [CCSprite spriteWithFile: @"finishLine.png"];
+    finishLine = [CCSprite spriteWithFile: @"finishLine.png"];
     finishLine.position = finishPointForCoco;
     [self addChild: finishLine];
     
@@ -152,7 +185,7 @@
     [cat setPosition: catStartPosition];
     [self addChild: cat];
     
-    
+    }
 }
 
 - (void) moveCat
@@ -185,7 +218,7 @@
 
 - (void) moveCocoOffsetX: (float) offsetX andFinishPoint: (float) finishPoint
 {
-    if([Settings sharedSettings].isCatEnabled)
+    if(![Settings sharedSettings].isKidsModeBuyed)
     {
         if(isGameActive)
         {
@@ -222,6 +255,13 @@
     {
         applyRocket.isEnabled = NO;
         applyRocket.visible = NO;
+        
+        if(!isAlertAboutOutOfRocketsShowed)
+        {
+            isAlertAboutOutOfRocketsShowed = YES;
+            [self doPause];
+            [self showAlert: @"Need more Rockets?\n Get more!" type: 5];
+        }
     }
     else
     {
@@ -236,6 +276,22 @@
 {
     if(isGameActive)
     {
+        if([Settings sharedSettings].countOfRuns > 0)
+        {
+            if([Settings sharedSettings].isAdEnabled)
+            {
+                if([Settings sharedSettings].countOfRuns % 2 != 0)
+                {
+                    [[Chartboost sharedChartboost] showInterstitial];
+                }
+                else
+                {
+                    [RevMobAds startSessionWithAppID: @"51776808e7076acc0a00001c"];
+                    [[RevMobAds session] showFullscreen];
+                }
+            }
+        }
+        
         applyRocket.isEnabled = NO;
         
         isGameActive = NO;
@@ -296,6 +352,22 @@
 {
     if(isGameActive)
     {
+        if([Settings sharedSettings].countOfRuns > 0)
+        {
+            if([Settings sharedSettings].isAdEnabled)
+            {
+                if([Settings sharedSettings].countOfRuns % 2 != 0)
+                {
+                    [[Chartboost sharedChartboost] showInterstitial];
+                }
+                else
+                {
+                    [RevMobAds startSessionWithAppID: @"51776808e7076acc0a00001c"];
+                    [[RevMobAds session] showFullscreen];
+                }
+            }
+        }
+        
         applyRocket.isEnabled = NO;
         
         [gameLayer setVisibleOfChick: NO];
@@ -327,7 +399,7 @@
         restart.position = ccp(menuBg.contentSize.width * 0.65, menuBg.contentSize.height / 2);
         
         
-        CCMenu *gameOverMenu = [CCMenu menuWithItems: exit, restart, nil];
+        gameOverMenu = [CCMenu menuWithItems: exit, restart, nil];
         gameOverMenu.position = ccp(0, 0);
         [menuBg addChild: gameOverMenu];
         
@@ -349,8 +421,319 @@
                      ]
                  ]
          ];
+        
+        countOfLoses++;
+        if(countOfLoses == 1)
+        {
+            countOfLoses = 0;
+            
+            
+            
+            NSInteger numOfAlert = arc4random() % 3 + 1;
+             
+            
+            if(numOfAlert == 1)
+            {
+                [self showAlert: @"Want to get rid of the cat?\n    Get the Kids Mode! " type: numOfAlert];
+            }
+            if(numOfAlert == 2)
+            {
+                [self showAlert: @"    Want to run faster\n       and fly higher?\n   Get the Super Chick! " type: numOfAlert];
+            }
+            if(numOfAlert == 3)
+            {
+                [self showAlert: @"      Tired of losing?\nPurchase the Ghost Chick\nand get a magic boost for\n   every perfect slide!" type: numOfAlert];
+            }
+            
+        }
     }
 }
+
+# pragma mark Alert
+
+- (void) showAlert: (NSString *) message type: (NSInteger) type 
+{
+    
+    //gameOverMenu.isTouchEnabled = NO;
+    
+    CCSprite *bg = [CCSprite spriteWithSpriteFrameName: @"buyLevelBg.png"];
+    bg.position = ccp(GameCenterX, GameCenterY);
+    bg.scale = 0;
+    [self addChild: bg z: 20 tag: 31];
+    
+    CCLabelBMFont *alert = [CCLabelBMFont labelWithString: message fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+    alert.position = ccp(bg.contentSize.width/2, bg.contentSize.height/2);
+    alert.color = ccc3(255, 255, 255);
+    [bg addChild: alert];
+    
+    waitingLabel = [CCLabelBMFont labelWithString: @"Waiting..." fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+    waitingLabel.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.15);
+    [bg addChild: waitingLabel];
+    
+    alertMenu = [CCMenu menuWithItems: nil];
+    
+    
+    if(type == 1) // okBtn & cancelBtn
+    {
+        okBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtn.png"]]
+                                                        selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtnOn.png"]]
+                                                                target: self
+                                                              selector: @selector(buyfeature:)
+                                  ];
+        
+        okBtn.tag = p_kidsMode;
+        okBtn.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.15);
+        
+        okBtn.isEnabled = NO;
+        okBtn.opacity = 0;
+        
+        CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtn.png"]]
+                                                            selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtnOn.png"]]
+                                                                    target: self
+                                                                  selector: @selector(hideAlert)
+                                      ];
+        
+        cancelBtn.position = ccp(bg.contentSize.width * 0.3, bg.contentSize.height * 0.15);
+        
+        [alertMenu addChild: okBtn];
+        [alertMenu addChild: cancelBtn];
+        
+        if(isItemsLoaded)
+        {
+            [self showShopButtons];
+        }
+    }
+    if(type == 2)
+    {
+        okBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtn.png"]]
+                                                        selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtnOn.png"]]
+                                                                target: self
+                                                              selector: @selector(buyfeature:)
+                                  ];
+        
+        okBtn.tag = p_superChick;
+        okBtn.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.15);
+        okBtn.isEnabled = NO;
+        okBtn.opacity = 0;
+        
+        CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtn.png"]]
+                                                            selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtnOn.png"]]
+                                                                    target: self
+                                                                  selector: @selector(hideAlert)
+                                      ];
+        
+        cancelBtn.position = ccp(bg.contentSize.width * 0.3, bg.contentSize.height * 0.15);
+        
+        [alertMenu addChild: okBtn];
+        [alertMenu addChild: cancelBtn];
+        
+        // -----
+        
+        if(isItemsLoaded)
+        {
+            [self showShopButtons];
+        }
+    }
+    if(type == 3)
+    {
+        okBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtn.png"]]
+                                       selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtnOn.png"]]
+                                               target: self
+                                             selector: @selector(buyfeature:)
+                 ];
+        
+        okBtn.tag = p_ghostChick;
+        okBtn.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.15);
+        okBtn.isEnabled = NO;
+        okBtn.opacity = 0;
+        
+        CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtn.png"]]
+                                                            selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtnOn.png"]]
+                                                                    target: self
+                                                                  selector: @selector(hideAlert)
+                                      ];
+        
+        cancelBtn.position = ccp(bg.contentSize.width * 0.3, bg.contentSize.height * 0.15);
+        
+        [alertMenu addChild: okBtn];
+        [alertMenu addChild: cancelBtn];
+        
+        // -----
+        
+        if(isItemsLoaded)
+        {
+            [self showShopButtons];
+        }
+    }
+    if(type == 4)
+    {
+        waitingLabel.opacity = 0;
+        
+        alert.position = ccp(bg.contentSize.width/2, bg.contentSize.height * 0.4);
+        
+        NSInteger num = arc4random() % 11 + 1;
+        
+        CCSprite *chick = [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"c_%i.png", num]];
+        chick.position = ccp(bg.contentSize.width/2, bg.contentSize.height * 0.7);
+        [bg addChild: chick];
+        
+        okBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtn.png"]]
+                                       selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtnOn.png"]]
+                                               target: self
+                                             selector: @selector(exitToCustomizationMenu)
+                 ];
+        
+        okBtn.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.15);
+        
+        CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtn.png"]]
+                                                            selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtnOn.png"]]
+                                                                    target: self
+                                                                  selector: @selector(hideAlert)
+                                      ];
+        
+        cancelBtn.position = ccp(bg.contentSize.width * 0.3, bg.contentSize.height * 0.15);
+        
+        [alertMenu addChild: okBtn];
+        [alertMenu addChild: cancelBtn];
+    }
+    if(type == 5)
+    {
+        CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtn.png"]]
+                                                            selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtnOn.png"]]
+                                                                    target: self
+                                                                  selector: @selector(hideAlert)
+                                      ];
+        
+        cancelBtn.position = ccp(bg.contentSize.width * 0.25, bg.contentSize.height * 0.25);
+        
+        //------->
+        
+        rocket3 = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"3rockets.png"]
+                                           selectedSprite: [CCSprite spriteWithSpriteFrameName: @"3rocketsOn.png"]
+                                                   target: self
+                                                 selector: @selector(buyfeature:)
+                     ];
+        
+        
+        rocket3.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.4);
+        rocket3.tag = p_rockets3;
+        rocket3.isEnabled = NO;
+        rocket3.opacity = 0;
+        
+        
+        
+        
+        rocket15 = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"15rockets.png"]
+                                           selectedSprite: [CCSprite spriteWithSpriteFrameName: @"15rocketsOn.png"]
+                                                   target: self
+                                                 selector: @selector(buyfeature:)
+                     ];
+        
+        rocket15.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.25);
+        rocket15.tag = p_rockets15;
+        rocket15.isEnabled = NO;
+        rocket15.opacity = 0;
+        
+        
+        rocket50 = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"50rockets.png"]
+                                            selectedSprite: [CCSprite spriteWithSpriteFrameName: @"50rocketsOn.png"]
+                                                    target: self
+                                                  selector: @selector(buyfeature:)
+                      ];
+        
+        rocket50.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.1);
+        rocket50.tag = p_rockets50;
+        rocket50.isEnabled = NO;
+        rocket50.opacity = 0;
+        
+        //------->
+        
+        [alertMenu addChild: cancelBtn];
+        [alertMenu addChild: rocket3];
+        [alertMenu addChild: rocket15];
+        [alertMenu addChild: rocket50];
+        
+        alert.position = ccp(bg.contentSize.width/2, bg.contentSize.height * 0.7);
+        waitingLabel.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.25);
+        
+        // -----
+        
+        if(isItemsLoaded)
+        {
+            [self showShopButtons];
+        }
+    }
+    
+    
+    alertMenu.position = ccp(0, 0);
+    [bg addChild: alertMenu];
+    
+    [bg runAction: [CCEaseBackOut actionWithAction: [CCScaleTo actionWithDuration: 0.5 scale: 1]]];
+}
+
+- (void) hideAlert
+{
+    //gameOverMenu.isTouchEnabled = YES;
+    [self removeChildByTag: 31 cleanup: YES];
+    CCLOG(@"OK");
+    
+    if(rocket3)
+    {
+        rocket3 = nil;
+        rocket15 = nil;
+        rocket50 = nil;
+    }
+}
+
+- (void) showShopButtons
+{
+    okBtn.isEnabled = YES;
+    
+    if(rocket3 != nil)
+    {
+        rocket3.isEnabled = YES;
+        rocket15.isEnabled = YES;
+        rocket50.isEnabled = YES;
+        
+        rocket3.opacity = 255;
+        rocket15.opacity = 255;
+        rocket50.opacity = 255;
+    }
+    
+    okBtn.opacity = 255;
+    
+    waitingLabel.opacity = 0;
+}
+
+- (void) buyfeature: (CCMenuItem *) sender
+{
+    SKProduct *product = _products[sender.tag];
+    [self lockMenu];
+    [[RagePurchase sharedInstance] buyProduct: product];
+}
+
+- (void)productPurchased:(NSNotification *)notification
+{
+    [self unlockMenu];
+    [self updateRocket];
+}
+
+- (void) purchaseCanceled: (NSNotification *) notification
+{
+    [self unlockMenu];
+}
+
+
+- (void) lockMenu
+{
+    alertMenu.isTouchEnabled = NO;
+}
+
+- (void) unlockMenu
+{
+    alertMenu.isTouchEnabled = YES;
+}
+
 
 - (void) playNextLevel
 {
@@ -382,7 +765,7 @@
     
     time = 0;
     
-    
+    //_products = nil;
     
     [gameLayer nextLevel];
 }
@@ -518,6 +901,19 @@
 {
     if(isGameActive)
     {
+        if([Settings sharedSettings].isAdEnabled)
+        {
+            viewController = [[RootViewController alloc] initWithNibName: nil bundle: nil];
+            [viewController view];
+            viewController.wantsFullScreenLayout = YES;
+        }
+        
+        countOfPlays ++;
+        if((countOfPlays % 4 == 0) && countOfPlays != 0)
+        {
+            [self showAlert: @"Would like to get this chick\n     or other cool ones?" type: 4];
+        }
+        
         applyRocket.isEnabled = NO;
         
         isFinish = YES;
@@ -577,7 +973,7 @@
         }
         next.position = ccp(menuBg.contentSize.width * 0.75, menuBg.contentSize.height / 2);
         
-        CCMenu *gameOverMenu = [CCMenu menuWithItems: exit, restart, shareToFBBtn, next, nil];
+        gameOverMenu = [CCMenu menuWithItems: exit, restart, shareToFBBtn, next, nil];
         gameOverMenu.position = ccp(0, 0);
         [menuBg addChild: gameOverMenu];
         
@@ -609,7 +1005,7 @@
     
     [self schedule: @selector(timer) interval: 0.01];
     
-    if([Settings sharedSettings].isCatEnabled)
+    if(![Settings sharedSettings].isKidsModeBuyed)
     {
         [self moveCat];
     }
@@ -660,8 +1056,8 @@
         Minutes = [NSString stringWithFormat: @"%i", minutes];
     }
     
-    //timeLabel.string = [NSString stringWithFormat: @"%@:%@:%@---%i", Minutes, Seconds, Milliseconds, time];
-    timeLabel.string = [NSString stringWithFormat: @"%@:%@:%@", Minutes, Seconds, Milliseconds];
+    timeLabel.string = [NSString stringWithFormat: @"%@:%@:%@---%i", Minutes, Seconds, Milliseconds, time];
+    //timeLabel.string = [NSString stringWithFormat: @"%@:%@:%@", Minutes, Seconds, Milliseconds];
 }
 
 - (void) resetLevel
@@ -693,12 +1089,36 @@
     [gameLayer reset];
     
     time = 0;
+    
+    //_products = nil;
+    
+    if(![Settings sharedSettings].isKidsModeBuyed)
+    {
+        [self loadCat];
+    }
+    else
+    {
+        finishLine.opacity = 0;
+        coco.opacity = 0;
+        cat.opacity = 0;
+    }
+    
+    if([Settings sharedSettings].isGhostChickBuyed)
+    {
+        [self loadEnergy];
+        energy = 0;
+    }
 }
 
 
 - (void) exitToMainMenu
 {
     [gameLayer exitToMainMenu];
+}
+
+- (void) exitToCustomizationMenu
+{
+    [gameLayer exitToCustomization];
 }
 
 @end

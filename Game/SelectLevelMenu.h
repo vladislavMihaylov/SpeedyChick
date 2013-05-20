@@ -9,11 +9,27 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+@class RootViewController;
+
 @interface SelectLevelMenu: CCLayer
 {
     CCMenu *selectLevelMenu;
     
     CCMenu *levelsMenu;
+    
+    CCMenu *alertMenu;
+    
+    NSArray *_products;
+    
+    BOOL isItemsLoaded;
+    
+    CCMenuItemImage *coins1000;
+    CCMenuItemImage *coins5000;
+    CCMenuItemImage *coins20000;
+    
+    CCLabelBMFont *waitingLabel;
+    
+    RootViewController *viewController;
 }
 
 @end

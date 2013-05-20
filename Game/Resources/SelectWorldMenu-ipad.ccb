@@ -214,13 +214,13 @@
 					</array>
 					<key>color</key>
 					<array>
+						<integer>0</integer>
+						<integer>0</integer>
 						<integer>255</integer>
-						<integer>246</integer>
-						<integer>252</integer>
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>227</real>
+						<real>225</real>
 						<real>48</real>
 					</array>
 					<key>customClass</key>

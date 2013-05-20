@@ -51,6 +51,7 @@
 	if ((self = [super init]))
     {
         isPauseOfGame = NO;
+        isUserPlayed = YES;
         //[[Configuration sharedConfiguration] setConfig];
         
         CCSprite *bgSprite = [CCSprite spriteWithFile: [NSString stringWithFormat: @"bg_0%i%@.png", currentWorld, suffix]];
@@ -112,6 +113,16 @@
     [_terrain reset];
     
     CCScene * scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"MainMenu%@.ccb", suffix]];
+    
+    [[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
+}
+
+- (void) exitToCustomization
+{
+    [_hero reset];
+    [_terrain reset];
+    
+    CCScene * scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"CustomizeMenu%@.ccb", suffix]];
     
     [[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
 }
@@ -306,7 +317,8 @@
 - (void) createBox2DWorld {
 	
 	b2Vec2 gravity;
-	gravity.Set(0.0f, -9.8f);
+	///gravity.Set(0.0f, gravity);
+    gravity.Set(0.0, gravityY);
 	
 	_world = new b2World(gravity, false);
 

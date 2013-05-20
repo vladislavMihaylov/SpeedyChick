@@ -81,8 +81,8 @@
 
 // Physics
 
-#define iPadRadius                  25
-#define iPhoneRadius                12
+#define iPadRadius                  16 //23
+#define iPhoneRadius                13
 
 #define usualSegmentWidth           15
 #define retinaSegmentWidth          8
@@ -96,11 +96,17 @@
 #define minVelocityXIPHONE          3
 #define minVelocityYIPHONE          -20
 
-#define minVelocityXIPAD            6
+#define minVelocityXIPAD            9
 #define minVelocityYIPAD            -180
 
-#define forceYIPAD                  -60
-#define forceYIPHONE                -20
+#define forceYIPAD                  -50 // -60
+#define forceYIPHONE                -22 // -20
+
+#define gravityIpad                 -19.6
+#define gravityIphone               -9.8
+
+
+// Other
 
 #define iPadShopTextScale   0.8
 #define iPhoneShopTextScale 0.6
@@ -173,6 +179,9 @@ extern NSInteger coefForCoords;
 extern NSInteger currentHeightOfFly;
 extern NSInteger currentSpeedOfFly;
 
+extern NSInteger countOfLoses;
+extern NSInteger countOfPlays;
+
 extern NSString *suffix;
 
 // flags
@@ -182,6 +191,8 @@ extern BOOL isPauseOfGame;
 extern BOOL ChickOnTheStart;
 extern BOOL isFinish;
 extern BOOL isInviteShowed;
+extern BOOL isUserPlayed;
+extern BOOL isAlertAboutOutOfRocketsShowed;
 
 // Physics parameters
 
@@ -191,4 +202,4 @@ extern float bodyRadius;
 extern float minSpeedX;
 extern float minSpeedY;
 extern float forceY;
-
+extern float gravityY;

@@ -18,6 +18,8 @@
 
 - (void) dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver: self];
+    
     [consumPurchases release];
     //[itemsLayer release];
     
@@ -53,6 +55,7 @@
     CCLabelBMFont *waitingLabel = [CCLabelBMFont labelWithString: @"Waiting..."
                                                          fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
     waitingLabel.position = ccp(GameCenterX, GameCenterY);
+    waitingLabel.color = ccc3(0, 0, 255);
     [self addChild: waitingLabel z: 112 tag: 112];
     
     [[RagePurchase sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products)
@@ -97,12 +100,14 @@
     
     CCLabelBMFont *nameOfItem = [CCLabelBMFont labelWithString: @"Kids mode" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
     nameOfItem.position = ccp(kidsMode.contentSize.width / 2, kidsMode.contentSize.height * 0.9);
+    nameOfItem.color = ccc3(0, 0, 255);
     [kidsMode addChild: nameOfItem];
     
     CCLabelBMFont *descrOfKidsMode = [CCLabelBMFont labelWithString: @"Flying becomes easier.\n No Cat behing you"
                                                             fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
     descrOfKidsMode.position = ccp(kidsMode.contentSize.width / 2, kidsMode.contentSize.height * 0.3);
     descrOfKidsMode.scale = shopTextScale;
+    descrOfKidsMode.color = ccc3(0, 0, 255);
     [kidsMode addChild: descrOfKidsMode];
     
     CCSprite *picOfKidsMode = [CCSprite spriteWithSpriteFrameName: @"kidsMode.png"];
@@ -126,6 +131,7 @@
     
     CCLabelBMFont *nameOfSuperItem = [CCLabelBMFont labelWithString: @"Super chick" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
     nameOfSuperItem.position = ccp(superChick.contentSize.width / 2, superChick.contentSize.height * 0.9);
+    nameOfSuperItem.color = ccc3(0, 0, 255);
     [superChick addChild: nameOfSuperItem];
     
     CCLabelBMFont *descrOfSuperChick = [CCLabelBMFont labelWithString: @"Go higher. Go faster.\n Have more control"
@@ -133,6 +139,7 @@
     
     descrOfSuperChick.position = ccp(superChick.contentSize.width / 2, superChick.contentSize.height * 0.3);
     descrOfSuperChick.scale = shopTextScale;
+    descrOfSuperChick.color = ccc3(0, 0, 255);
     [superChick addChild: descrOfSuperChick];
     
     CCSprite *picOfSuperChick = [CCSprite spriteWithSpriteFrameName: @"superChick.png"];
@@ -156,6 +163,7 @@
     
     CCLabelBMFont *nameOfGhostItem = [CCLabelBMFont labelWithString: @"Ghost chick" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
     nameOfGhostItem.position = ccp(ghostChick.contentSize.width / 2, ghostChick.contentSize.height * 0.9);
+    nameOfGhostItem.color = ccc3(0, 0, 255);
     [ghostChick addChild: nameOfGhostItem];
     
     CCLabelBMFont *descrOfGhostChick = [CCLabelBMFont labelWithString: @"Get a magic boost for \nevery perfect slide"
@@ -163,6 +171,7 @@
     
     descrOfGhostChick.position = ccp(ghostChick.contentSize.width / 2, ghostChick.contentSize.height * 0.3);
     descrOfGhostChick.scale = shopTextScale;
+    descrOfGhostChick.color = ccc3(0, 0, 255);
     [ghostChick addChild: descrOfGhostChick];
     
     CCSprite *picOfGhostChick = [CCSprite spriteWithSpriteFrameName: @"ghostChick.png"];
@@ -189,6 +198,7 @@
     
     CCLabelBMFont *nameOfRocketsItem = [CCLabelBMFont labelWithString: @"Rockets" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
     nameOfRocketsItem.position = ccp(rockets.contentSize.width / 2, rockets.contentSize.height * 0.9);
+    nameOfRocketsItem.color = ccc3(0, 0, 255);
     [rockets addChild: nameOfRocketsItem];
     
     CCSprite *picOfRockets = [CCSprite spriteWithSpriteFrameName: @"rocket.png"];
@@ -196,7 +206,7 @@
     [rockets addChild: picOfRockets];
     
     rocketsLabel = [CCLabelBMFont labelWithString: @"" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
-    
+    rocketsLabel.color = ccc3(0, 0, 255);
     rocketsLabel.position = ccp(rockets.contentSize.width / 2 + picOfRockets.contentSize.width / 2, rockets.contentSize.height * 0.7);
     [rockets addChild: rocketsLabel];
     
@@ -247,15 +257,16 @@
     
     CCLabelBMFont *nameOfCoinsItem = [CCLabelBMFont labelWithString: @"Coins" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
     nameOfCoinsItem.position = ccp(coins.contentSize.width / 2, coins.contentSize.height * 0.9);
+    nameOfCoinsItem.color = ccc3(0, 0, 255);
     [coins addChild: nameOfCoinsItem];
     
     CCSprite *picOfCoins = [CCSprite spriteWithSpriteFrameName: @"coin.png"];
-    picOfCoins.position = ccp(coins.contentSize.width / 2 - picOfCoins.contentSize.width / 2, coins.contentSize.height * 0.7);
+    picOfCoins.position = ccp(coins.contentSize.width / 2 - picOfCoins.contentSize.width, coins.contentSize.height * 0.7);
     [coins addChild: picOfCoins];
     
     coinsLabel = [CCLabelBMFont labelWithString: @""
                                         fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
-    
+    coinsLabel.color = ccc3(0, 0, 255);
     coinsLabel.position = ccp(coins.contentSize.width / 2 + picOfCoins.contentSize.width / 2, coins.contentSize.height * 0.7);
     [coins addChild: coinsLabel];
     
@@ -312,6 +323,7 @@
     
     CCLabelBMFont *nameOfNoAdsItem = [CCLabelBMFont labelWithString: @"No Ads" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
     nameOfNoAdsItem.position = ccp(noAds.contentSize.width / 2, noAds.contentSize.height * 0.9);
+    nameOfNoAdsItem.color = ccc3(0, 0, 255);
     [noAds addChild: nameOfNoAdsItem];
     
     CCLabelBMFont *descrOfNoAds = [CCLabelBMFont labelWithString: @"Buy anything and \nget this for free"
@@ -319,10 +331,12 @@
     
     descrOfNoAds.position = ccp(noAds.contentSize.width / 2, noAds.contentSize.height * 0.55);
     descrOfNoAds.scale = shopTextScale;
+    descrOfNoAds.color = ccc3(0, 0, 255);
     [noAds addChild: descrOfNoAds];
     
     CCLabelBMFont *nameOfRestoreItem = [CCLabelBMFont labelWithString: @"Restore in-app" fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
     nameOfRestoreItem.position = ccp(noAds.contentSize.width / 2, noAds.contentSize.height * 0.4);
+    nameOfRestoreItem.color = ccc3(0, 0, 255);
     [noAds addChild: nameOfRestoreItem];
     
     CCMenuItemImage *noAdsUnlockBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"noAds.png"]
@@ -533,6 +547,7 @@
     
     CCLabelBMFont *waiting = [CCLabelBMFont labelWithString: @"Waiting..." fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
     waiting.position = ccp(GameCenterX, GameCenterY);
+    waiting.color = ccc3(0, 0, 255);
     [blockLayer addChild: waiting];
     
     rootMenu.isTouchEnabled = NO;

@@ -204,7 +204,7 @@
 - (void) createTextField
 {
     nameField = [[UITextField alloc] initWithFrame: rectForTextField];
-    [nameField setText: @"Name"];
+    [nameField setText: @""];
     nameField.font = [UIFont fontWithName: @"MarkerFelt-Thin" size: textFontSize];
     [nameField setTextColor: [UIColor colorWithRed: 0 green: 0 blue: 0 alpha: 1.0]];
     nameField.backgroundColor = [UIColor colorWithRed: 255 green: 255 blue: 255 alpha: 0.5];

@@ -10,6 +10,7 @@
 @class Terrain;
 @class Hero;
 
+
 @interface GameLayer : CCLayer
 {
     GuiLayer *gui;
@@ -26,6 +27,8 @@
     CGPoint beginTouchPoint;
     
     BOOL iCanDoSwipe;
+    
+    
     
 }
 @property (readonly) int screenW;
@@ -47,6 +50,7 @@
 - (void) showFrenzy;
 - (void) showHit;
 - (void) exitToMainMenu;
+- (void) exitToCustomization;
 - (void) startCat;
 - (void) setVisibleOfChick: (BOOL) vis;
 - (void) exitToWorldsMenu;

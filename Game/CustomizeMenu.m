@@ -12,17 +12,27 @@
 
 #import "GameConfig.h"
 
+#import "RagePurchase.h"
+#import <StoreKit/StoreKit.h>
+
 @implementation CustomizeMenu
 
 - (void) dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver: self];
+    
+    [_products release];
+    
     [super dealloc];
 }
 
 - (void) didLoadFromCCB
 {
+    isItemsLoaded = NO;
+    
     [self updateChicks];
     
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"shopItems%@.plist", suffix]];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: [NSString stringWithFormat: @"chicks%@.plist", suffix]];
     
     CCLayerColor *darkLayer = [CCLayerColor layerWithColor: ccc4(0, 0, 0, 127) width: GameCenterX height: GameHeight];
@@ -32,6 +42,21 @@
     [self loadMenuOfChicks];
     
     [self scheduleUpdate];
+    
+    [[RagePurchase sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products)
+     {
+         if (success)
+         {
+             _products = [[NSArray alloc] initWithArray: products];
+             
+             isItemsLoaded = YES;
+             [self showShopButtons];
+         }
+     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:PurchaseProductPurchasedNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(purchaseCanceled:) name:PurchaseProductCanceledPurchaseNotification object:nil];
 }
 
 - (void) updateBigChick
@@ -49,6 +74,7 @@
     [self updateBigChick];
     
     coinsLabel.string = [NSString stringWithFormat: @"Coins: %i", [Settings sharedSettings].countOfCoins];
+    coinsLabel.color = ccc3(0, 0, 255);
     
     [self removeChild: chicksMenu cleanup: YES];
     
@@ -221,7 +247,10 @@
         }
         else
         {
-            [self showAlert: [NSString stringWithFormat: @"You need\n %i coins!", sender.cost]];
+            [self showAlert: @" Not enough Coins! You\nneed more Coins for this.\n  Would you like to buy\n          some now?"
+                       type: 1
+                     sender: sender
+             ];
         }
     }
     else
@@ -232,10 +261,9 @@
         [self loadMenuOfChicks];
     }
     
-    
 }
 
-- (void) showAlert: (NSString *) message
+/*- (void) showAlert: (NSString *) message
 {
     rootMenu.isTouchEnabled = NO;
     
@@ -246,6 +274,7 @@
     
     CCLabelBMFont *alert = [CCLabelBMFont labelWithString: message fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
     alert.position = ccp(bg.contentSize.width/2, bg.contentSize.height/2);
+    alert.color = ccc3(255, 255, 255);
     [bg addChild: alert];
     
     CCMenuItemImage *okBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtn.png"]] selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtnOn.png"]]
@@ -263,6 +292,161 @@
 {
     rootMenu.isTouchEnabled = YES;
     [self removeChildByTag: 31 cleanup: YES];
+}*/
+
+/////
+
+# pragma mark Alert
+
+- (void) showAlert: (NSString *) message type: (NSInteger) type sender: (CCMenuItem *) sender
+{
+    chicksMenu.isTouchEnabled = NO;
+    rootMenu.isTouchEnabled = NO;
+    
+    CCSprite *bg = [CCSprite spriteWithSpriteFrameName: @"buyLevelBg.png"];
+    bg.position = ccp(GameCenterX, GameCenterY);
+    bg.scale = 0;
+    [self addChild: bg z: 2 tag: 31];
+    
+    CCLabelBMFont *alert = [CCLabelBMFont labelWithString: message fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+    alert.position = ccp(bg.contentSize.width/2, bg.contentSize.height/2);
+    alert.color = ccc3(255, 255, 255);
+    [bg addChild: alert];
+    
+    waitingLabel = [CCLabelBMFont labelWithString: @"Waiting..." fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
+    waitingLabel.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.25);
+    [bg addChild: waitingLabel];
+    
+    alertMenu = [CCMenu menuWithItems: nil];
+    
+    if(type == 1)
+    {
+        CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtn.png"]]
+                                                            selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtnOn.png"]]
+                                                                    target: self
+                                                                  selector: @selector(hideAlert)
+                                      ];
+        
+        cancelBtn.position = ccp(bg.contentSize.width * 0.25, bg.contentSize.height * 0.25);
+        
+        //------->
+        
+        coins1000 = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"1000coins.png"]
+                                           selectedSprite: [CCSprite spriteWithSpriteFrameName: @"1000coinsOn.png"]
+                                                   target: self
+                                                 selector: @selector(buyfeature:)
+                     ];
+        
+        
+        coins1000.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.4);
+        coins1000.tag = p_coins1000;
+        coins1000.isEnabled = NO;
+        coins1000.opacity = 0;
+        
+        
+        
+        
+        coins5000 = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"5000coins.png"]
+                                           selectedSprite: [CCSprite spriteWithSpriteFrameName: @"5000coinsOn.png"]
+                                                   target: self
+                                                 selector: @selector(buyfeature:)
+                     ];
+        
+        coins5000.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.25);
+        coins5000.tag = p_coins5000;
+        coins5000.isEnabled = NO;
+        coins5000.opacity = 0;
+        
+        
+        coins20000 = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: @"20000coins.png"]
+                                            selectedSprite: [CCSprite spriteWithSpriteFrameName: @"20000coinsOn.png"]
+                                                    target: self
+                                                  selector: @selector(buyfeature:)
+                      ];
+        
+        coins20000.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.1);
+        coins20000.tag = p_coins20000;
+        coins20000.isEnabled = NO;
+        coins20000.opacity = 0;
+        
+        //------->
+        
+        [alertMenu addChild: cancelBtn];
+        [alertMenu addChild: coins1000];
+        [alertMenu addChild: coins5000];
+        [alertMenu addChild: coins20000];
+        
+        alert.position = ccp(bg.contentSize.width/2, bg.contentSize.height * 0.7);
+        
+        // -----
+        
+        if(isItemsLoaded)
+        {
+            [self showShopButtons];
+        }
+    }
+    
+    
+    alertMenu.position = ccp(0, 0);
+    [bg addChild: alertMenu];
+    
+    [bg runAction: [CCEaseBackOut actionWithAction: [CCScaleTo actionWithDuration: 0.5 scale: 1]]];
 }
+
+- (void) hideAlert
+{
+    chicksMenu.isTouchEnabled = YES;
+    rootMenu.isTouchEnabled = YES;
+    [self removeChildByTag: 31 cleanup: YES];
+    alertMenu = nil;
+    CCLOG(@"MENU: %@", alertMenu);
+}
+
+- (void) showShopButtons
+{
+    coins1000.isEnabled = YES;
+    coins5000.isEnabled = YES;
+    coins20000.isEnabled = YES;
+    
+    coins1000.opacity = 255;
+    coins5000.opacity = 255;
+    coins20000.opacity = 255;
+    
+    waitingLabel.opacity = 0;
+}
+
+- (void) buyfeature: (CCMenuItem *) sender
+{
+    CCLOG(@"prod %@", _products);
+    [self lockMenu];
+    SKProduct *product = _products[sender.tag];
+    
+    [[RagePurchase sharedInstance] buyProduct: product];
+}
+
+- (void)productPurchased:(NSNotification *)notification
+{
+    coinsLabel.string = [NSString stringWithFormat: @"Coins: %i", [Settings sharedSettings].countOfCoins];
+    [self unlockMenu];
+    
+}
+
+- (void) purchaseCanceled: (NSNotification *) notification
+{
+    [self unlockMenu];
+    
+}
+
+
+- (void) lockMenu
+{
+    alertMenu.isTouchEnabled = NO;
+}
+
+- (void) unlockMenu
+{
+    alertMenu.isTouchEnabled = YES;
+}
+
 
 @end

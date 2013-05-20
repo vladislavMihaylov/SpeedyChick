@@ -74,6 +74,7 @@ Configuration *sharedConfiguration = nil;
         customItemHeightParameter = iPadCustomItemHeightParameter;
         customItemMultiplier = iPadCustomItemMultiplier;
         customItemScale = iPadCustomItemScale;
+        gravityY = gravityIpad;
     }
     else
     {
@@ -105,9 +106,13 @@ Configuration *sharedConfiguration = nil;
         customItemHeightParameter = iPhoneCustomItemHeightParameter;
         customItemMultiplier = iPhoneCustomItemMultiplier;
         customItemScale = iPhoneCustomItemScale;
+        gravityY = gravityIphone;
     }
     
-    [Settings sharedSettings].countOfCoins = 111111;
+    
+    //[Settings sharedSettings].isAdEnabled = NO;
+    //[Settings sharedSettings].openedLevels = @"4100001000010000";
+    //[Settings sharedSettings].openedWorlds = 3;
     //[Settings sharedSettings].buyedCustomiziedChicks = @"1000000000";
     
     GameCenterX = GameWidth / 2;
@@ -124,7 +129,7 @@ Configuration *sharedConfiguration = nil;
         currentHeightOfFly *= 2;
         currentSpeedOfFly *= 2;
         
-        minSpeedX *= 1.5;
+        minSpeedX *= 2;
     }
     
     if([Settings sharedSettings].isKidsModeBuyed)
