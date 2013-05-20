@@ -444,6 +444,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B84104171733C5850076FBFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5FE2A6F16ED9E3E009A25F2 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4503EBC0169104470057294C;
+			remoteInfo = "Google Plus";
+		};
+		B84104191733C5850076FBFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5FE2A6F16ED9E3E009A25F2 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AC2A3A016597F4C0089ABE8;
+			remoteInfo = "Sina Weibo";
+		};
+		B841041B1733C5850076FBFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5FE2A6F16ED9E3E009A25F2 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A49DBC316BC193E004B7E78;
+			remoteInfo = Readability;
+		};
+		B841041D1733C5850076FBFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5FE2A6F16ED9E3E009A25F2 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A203D0A16EB7DA200421995;
+			remoteInfo = Hatena;
+		};
+		B841041F1733C5850076FBFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5FE2A6F16ED9E3E009A25F2 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AAE8CA516EB960500429C51;
+			remoteInfo = Plurk;
+		};
 		F5FE2A9D16ED9E3F009A25F2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F5FE2A6F16ED9E3E009A25F2 /* ShareKit.xcodeproj */;
@@ -471,13 +506,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 7A0F9246156BA2A0009CB40A;
 			remoteInfo = "Static Library Core";
-		};
-		F5FE2AA516ED9E3F009A25F2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F5FE2A6F16ED9E3E009A25F2 /* ShareKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7A1AFCAE160E11810086B98A;
-			remoteInfo = JSONKit;
 		};
 		F5FE2AA716ED9E3F009A25F2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -2707,36 +2735,40 @@
 				F5FE2AA016ED9E3F009A25F2 /* libShareKit.a */,
 				F5FE2AA216ED9E3F009A25F2 /* ShareKit.bundle */,
 				F5FE2AA416ED9E3F009A25F2 /* libShareKitCore.a */,
-				F5FE2AA616ED9E3F009A25F2 /* libJSONKit.a */,
 				F5FE2AA816ED9E3F009A25F2 /* libSSKeyChain.a */,
 				F5FE2AAA16ED9E3F009A25F2 /* libOAuth.a */,
 				F5FE2AAC16ED9E3F009A25F2 /* libReachability.a */,
-				F5FE2AAE16ED9E3F009A25F2 /* libPrint.a */,
-				F5FE2AB016ED9E3F009A25F2 /* libLogout.a */,
 				F5FE2AB216ED9E3F009A25F2 /* libCopy.a */,
 				F5FE2AB416ED9E3F009A25F2 /* libEmail.a */,
+				F5FE2AB016ED9E3F009A25F2 /* libLogout.a */,
 				F5FE2AB616ED9E3F009A25F2 /* libOpen in Safari.a */,
+				F5FE2AAE16ED9E3F009A25F2 /* libPrint.a */,
 				F5FE2AB816ED9E3F009A25F2 /* libSave to Album.a */,
 				F5FE2ABA16ED9E3F009A25F2 /* libText Message.a */,
-				F5FE2ABC16ED9E3F009A25F2 /* libKippt.a */,
 				F5FE2ABE16ED9E3F009A25F2 /* libDelicious.a */,
 				F5FE2AC016ED9E3F009A25F2 /* libDiigo.a */,
-				F5FE2AC216ED9E3F009A25F2 /* libVKontakte.a */,
 				F5FE2AC416ED9E3F009A25F2 /* libEvernote.a */,
 				F5FE2AC616ED9E3F009A25F2 /* libEvernote SDK.a */,
 				F5FE2AC816ED9E3F009A25F2 /* libFacebook.a */,
 				F5FE2ACA16ED9E3F009A25F2 /* libFoursquareV2.a */,
 				F5FE2ACC16ED9E3F009A25F2 /* libFlickr.a */,
 				F5FE2ACE16ED9E3F009A25F2 /* libFlickr SDK.a */,
+				B84104181733C5850076FBFA /* libGoogle Plus.a */,
 				F5FE2AD016ED9E3F009A25F2 /* libGoogle Reader.a */,
 				F5FE2AD216ED9E3F009A25F2 /* libInstagram.a */,
 				F5FE2AD416ED9E3F009A25F2 /* libInstapaper.a */,
+				F5FE2ABC16ED9E3F009A25F2 /* libKippt.a */,
 				F5FE2AD616ED9E3F009A25F2 /* libLinkedIn.a */,
 				F5FE2AD816ED9E3F009A25F2 /* libPinboard.a */,
 				F5FE2ADA16ED9E3F009A25F2 /* libRead It Later.a */,
+				F5FE2AE016ED9E3F009A25F2 /* libSina Weibo.a */,
 				F5FE2ADC16ED9E3F009A25F2 /* libTumblr.a */,
 				F5FE2ADE16ED9E3F009A25F2 /* libTwitter.a */,
-				F5FE2AE016ED9E3F009A25F2 /* libSina Weibo.a */,
+				F5FE2AC216ED9E3F009A25F2 /* libVKontakte.a */,
+				B841041A1733C5850076FBFA /* libSina Weibo.a */,
+				B841041C1733C5850076FBFA /* libReadability.a */,
+				B841041E1733C5850076FBFA /* libHatena.a */,
+				B84104201733C5850076FBFA /* libPlurk.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2936,6 +2968,41 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		B84104181733C5850076FBFA /* libGoogle Plus.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libGoogle Plus.a";
+			remoteRef = B84104171733C5850076FBFA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B841041A1733C5850076FBFA /* libSina Weibo.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libSina Weibo.a";
+			remoteRef = B84104191733C5850076FBFA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B841041C1733C5850076FBFA /* libReadability.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libReadability.a;
+			remoteRef = B841041B1733C5850076FBFA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B841041E1733C5850076FBFA /* libHatena.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libHatena.a;
+			remoteRef = B841041D1733C5850076FBFA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B84104201733C5850076FBFA /* libPlurk.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPlurk.a;
+			remoteRef = B841041F1733C5850076FBFA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		F5FE2A9E16ED9E3F009A25F2 /* ShareKitDemo.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
@@ -2962,13 +3029,6 @@
 			fileType = archive.ar;
 			path = libShareKitCore.a;
 			remoteRef = F5FE2AA316ED9E3F009A25F2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		F5FE2AA616ED9E3F009A25F2 /* libJSONKit.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libJSONKit.a;
-			remoteRef = F5FE2AA516ED9E3F009A25F2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		F5FE2AA816ED9E3F009A25F2 /* libSSKeyChain.a */ = {
@@ -3866,6 +3926,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Javier Morales (RPE9H272UF)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3895,6 +3956,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "02365017-C02E-4001-870A-F024C398771A";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "Game/libs Submodules/**";
 				WRAPPER_EXTENSION = app;
@@ -3905,6 +3967,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Javier Morales (7Z68962M8W)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Javier Morales (7Z68962M8W)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3933,6 +3997,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "70C908B7-0678-4469-B69B-C3FFECEAD217";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "70C908B7-0678-4469-B69B-C3FFECEAD217";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "Game/libs Submodules/**";
 				VALIDATE_PRODUCT = YES;

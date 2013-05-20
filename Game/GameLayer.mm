@@ -273,7 +273,7 @@
     {
         [Settings sharedSettings].countOfCoins += 1;
         [[Settings sharedSettings] save];
-    }
+    } 
     
     [guiLayer moveCocoOffsetX: _terrain.offsetX andFinishPoint: _terrain.finishPoint];
     
