@@ -423,7 +423,7 @@
          ];
         
         countOfLoses++;
-        if(countOfLoses == 1)
+        if(countOfLoses == 3)
         {
             countOfLoses = 0;
             
@@ -475,25 +475,25 @@
     
     if(type == 1) // okBtn & cancelBtn
     {
-        okBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtn.png"]]
-                                                        selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtnOn.png"]]
+        okBtn = [CCMenuItemImage itemFromNormalImage: [NSString stringWithFormat: @"buyIt%@.png", suffix]
+                                       selectedImage: [NSString stringWithFormat: @"buyItOn%@.png", suffix]
                                                                 target: self
                                                               selector: @selector(buyfeature:)
                                   ];
         
         okBtn.tag = p_kidsMode;
-        okBtn.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.15);
+        okBtn.position = ccp(bg.contentSize.width * 0.73, bg.contentSize.height * 0.15);
         
         okBtn.isEnabled = NO;
         okBtn.opacity = 0;
         
-        CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtn.png"]]
-                                                            selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtnOn.png"]]
+        CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalImage: [NSString stringWithFormat: @"noBtn%@.png", suffix]
+                                                            selectedImage: [NSString stringWithFormat: @"noBtnOn%@.png", suffix]
                                                                     target: self
                                                                   selector: @selector(hideAlert)
                                       ];
         
-        cancelBtn.position = ccp(bg.contentSize.width * 0.3, bg.contentSize.height * 0.15);
+        cancelBtn.position = ccp(bg.contentSize.width * 0.27, bg.contentSize.height * 0.15);
         
         [alertMenu addChild: okBtn];
         [alertMenu addChild: cancelBtn];
@@ -505,24 +505,24 @@
     }
     if(type == 2)
     {
-        okBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtn.png"]]
-                                                        selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtnOn.png"]]
-                                                                target: self
-                                                              selector: @selector(buyfeature:)
+        okBtn = [CCMenuItemImage itemFromNormalImage: [NSString stringWithFormat: @"buyIt%@.png", suffix]
+                                       selectedImage: [NSString stringWithFormat: @"buyItOn%@.png", suffix]
+                                               target: self
+                                             selector: @selector(buyfeature:)
                                   ];
         
         okBtn.tag = p_superChick;
-        okBtn.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.15);
+        okBtn.position = ccp(bg.contentSize.width * 0.73, bg.contentSize.height * 0.15);
         okBtn.isEnabled = NO;
         okBtn.opacity = 0;
         
-        CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtn.png"]]
-                                                            selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtnOn.png"]]
+        CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalImage: [NSString stringWithFormat: @"noBtn%@.png", suffix]
+                                                            selectedImage: [NSString stringWithFormat: @"noBtnOn%@.png", suffix]
                                                                     target: self
                                                                   selector: @selector(hideAlert)
                                       ];
         
-        cancelBtn.position = ccp(bg.contentSize.width * 0.3, bg.contentSize.height * 0.15);
+        cancelBtn.position = ccp(bg.contentSize.width * 0.27, bg.contentSize.height * 0.15);
         
         [alertMenu addChild: okBtn];
         [alertMenu addChild: cancelBtn];
@@ -536,24 +536,24 @@
     }
     if(type == 3)
     {
-        okBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtn.png"]]
-                                       selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtnOn.png"]]
+        okBtn = [CCMenuItemImage itemFromNormalImage: [NSString stringWithFormat: @"buyIt%@.png", suffix]
+                                       selectedImage: [NSString stringWithFormat: @"buyItOn%@.png", suffix]
                                                target: self
                                              selector: @selector(buyfeature:)
                  ];
         
         okBtn.tag = p_ghostChick;
-        okBtn.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.15);
+        okBtn.position = ccp(bg.contentSize.width * 0.73, bg.contentSize.height * 0.15);
         okBtn.isEnabled = NO;
         okBtn.opacity = 0;
         
-        CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtn.png"]]
-                                                            selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtnOn.png"]]
+        CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalImage: [NSString stringWithFormat: @"noBtn%@.png", suffix]
+                                                            selectedImage: [NSString stringWithFormat: @"noBtnOn%@.png", suffix]
                                                                     target: self
                                                                   selector: @selector(hideAlert)
                                       ];
         
-        cancelBtn.position = ccp(bg.contentSize.width * 0.3, bg.contentSize.height * 0.15);
+        cancelBtn.position = ccp(bg.contentSize.width * 0.27, bg.contentSize.height * 0.15);
         
         [alertMenu addChild: okBtn];
         [alertMenu addChild: cancelBtn];
@@ -577,34 +577,34 @@
         chick.position = ccp(bg.contentSize.width/2, bg.contentSize.height * 0.7);
         [bg addChild: chick];
         
-        okBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtn.png"]]
-                                       selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtnOn.png"]]
+        okBtn = [CCMenuItemImage itemFromNormalImage: [NSString stringWithFormat: @"wantToGetBtn%@.png", suffix]
+                                       selectedImage: [NSString stringWithFormat: @"wantToGetBtnOn%@.png", suffix]
                                                target: self
                                              selector: @selector(exitToCustomizationMenu)
                  ];
         
-        okBtn.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.15);
+        okBtn.position = ccp(bg.contentSize.width * 0.73, bg.contentSize.height * 0.15);
         
-        CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtn.png"]]
-                                                            selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtnOn.png"]]
+        CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalImage: [NSString stringWithFormat: @"noBtn%@.png", suffix]
+                                                            selectedImage: [NSString stringWithFormat: @"noBtnOn%@.png", suffix]
                                                                     target: self
                                                                   selector: @selector(hideAlert)
                                       ];
         
-        cancelBtn.position = ccp(bg.contentSize.width * 0.3, bg.contentSize.height * 0.15);
+        cancelBtn.position = ccp(bg.contentSize.width * 0.27, bg.contentSize.height * 0.15);
         
         [alertMenu addChild: okBtn];
         [alertMenu addChild: cancelBtn];
     }
     if(type == 5)
     {
-        CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtn.png"]]
-                                                            selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtnOn.png"]]
+        CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalImage: [NSString stringWithFormat: @"noBtn%@.png", suffix]
+                                                            selectedImage: [NSString stringWithFormat: @"noBtnOn%@.png", suffix]
                                                                     target: self
                                                                   selector: @selector(hideAlert)
                                       ];
         
-        cancelBtn.position = ccp(bg.contentSize.width * 0.25, bg.contentSize.height * 0.25);
+        cancelBtn.position = ccp(bg.contentSize.width * 0.27, bg.contentSize.height * 0.25);
         
         //------->
         
@@ -615,7 +615,7 @@
                      ];
         
         
-        rocket3.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.4);
+        rocket3.position = ccp(bg.contentSize.width * 0.73, bg.contentSize.height * 0.4);
         rocket3.tag = p_rockets3;
         rocket3.isEnabled = NO;
         rocket3.opacity = 0;
@@ -629,7 +629,7 @@
                                                  selector: @selector(buyfeature:)
                      ];
         
-        rocket15.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.25);
+        rocket15.position = ccp(bg.contentSize.width * 0.73, bg.contentSize.height * 0.25);
         rocket15.tag = p_rockets15;
         rocket15.isEnabled = NO;
         rocket15.opacity = 0;
@@ -641,7 +641,7 @@
                                                   selector: @selector(buyfeature:)
                       ];
         
-        rocket50.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.1);
+        rocket50.position = ccp(bg.contentSize.width * 0.73, bg.contentSize.height * 0.1);
         rocket50.tag = p_rockets50;
         rocket50.isEnabled = NO;
         rocket50.opacity = 0;

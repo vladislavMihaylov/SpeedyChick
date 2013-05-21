@@ -321,8 +321,8 @@
     
     if(type == 1)
     {
-        CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtn.png"]]
-                                                            selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtnOn.png"]]
+        CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalImage: [NSString stringWithFormat: @"noBtn%@.png", suffix]
+                                                            selectedImage: [NSString stringWithFormat: @"noBtnOn%@.png", suffix]
                                                                     target: self
                                                                   selector: @selector(hideAlert)
                                       ];

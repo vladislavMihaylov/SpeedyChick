@@ -282,13 +282,13 @@
     {
         
         
-        CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtn.png"]]
-                                                            selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtnOn.png"]]
-                                                                    target: self
-                                                                  selector: @selector(hideAlert)
+        CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalImage: [NSString stringWithFormat: @"noBtn%@.png", suffix]
+                                                            selectedImage: [NSString stringWithFormat: @"noBtnOn%@.png", suffix]
+                                                                   target: self
+                                                                 selector: @selector(hideAlert)
                                       ];
         
-        cancelBtn.position = ccp(bg.contentSize.width * 0.25, bg.contentSize.height * 0.25);
+        cancelBtn.position = ccp(bg.contentSize.width * 0.27, bg.contentSize.height * 0.25);
         
         //------->
         
@@ -299,7 +299,7 @@
                                       ];
         
         
-        coins1000.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.4);
+        coins1000.position = ccp(bg.contentSize.width * 0.73, bg.contentSize.height * 0.4);
         coins1000.tag = p_coins1000;
         coins1000.isEnabled = NO;
         coins1000.opacity = 0;
@@ -313,7 +313,7 @@
                                                                   selector: @selector(buyfeature:)
                                       ];
         
-        coins5000.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.25);
+        coins5000.position = ccp(bg.contentSize.width * 0.73, bg.contentSize.height * 0.25);
         coins5000.tag = p_coins5000;
         coins5000.isEnabled = NO;
         coins5000.opacity = 0;
@@ -325,7 +325,7 @@
                                                                    selector: @selector(buyfeature:)
                                        ];
         
-        coins20000.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.1);
+        coins20000.position = ccp(bg.contentSize.width * 0.73, bg.contentSize.height * 0.1);
         coins20000.tag = p_coins20000;
         coins20000.isEnabled = NO;
         coins20000.opacity = 0;

@@ -90,7 +90,6 @@
     }
     
     
-    
     if(isUserPlayed)
     {
         if([Settings sharedSettings].countOfRuns == 1)
@@ -194,31 +193,31 @@
     
     if(type == 2) // okBtn & cancelBtn
     {
-        CCMenuItemImage *okBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtn.png"]]
-                                                        selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtnOn.png"]]
-                                                                target: self
-                                                              selector: @selector(pressedShop)
+        CCMenuItemImage *okBtn = [CCMenuItemImage itemFromNormalImage: [NSString stringWithFormat: @"yesBtn%@.png", suffix]
+                                                        selectedImage: [NSString stringWithFormat: @"yesBtnOn%@.png", suffix]
+                                                               target: self
+                                                             selector: @selector(pressedShop)
                                   ];
         
-        okBtn.position = ccp(bg.contentSize.width * 0.3, bg.contentSize.height * 0.15);
+        okBtn.position = ccp(bg.contentSize.width * 0.27, bg.contentSize.height * 0.15);
         
-        CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtn.png"]]
-                                                        selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"cancelBtnOn.png"]]
+        CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalImage: [NSString stringWithFormat: @"noBtn%@.png", suffix]
+                                                            selectedImage: [NSString stringWithFormat: @"noBtnOn%@.png", suffix]
                                                                 target: self
                                                               selector: @selector(hideAlert)
                                   ];
         
-        cancelBtn.position = ccp(bg.contentSize.width * 0.7, bg.contentSize.height * 0.15);
+        cancelBtn.position = ccp(bg.contentSize.width * 0.73, bg.contentSize.height * 0.15);
         
         [alertMenu addChild: okBtn];
         [alertMenu addChild: cancelBtn];
     }
     if(type == 3)
     {
-        CCMenuItemImage *getThemNowBtn = [CCMenuItemImage itemFromNormalSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtn.png"]]
-                                                        selectedSprite: [CCSprite spriteWithSpriteFrameName: [NSString stringWithFormat: @"OkBtnOn.png"]]
-                                                                target: self
-                                                              selector: @selector(pressedGetCoins)
+        CCMenuItemImage *getThemNowBtn = [CCMenuItemImage itemFromNormalImage: [NSString stringWithFormat: @"collectThemNowBtn%@.png", suffix]
+                                                                selectedImage: [NSString stringWithFormat: @"collectThemNowBtnOn%@.png", suffix]
+                                                                       target: self
+                                                                     selector: @selector(pressedGetCoins)
                                   ];
         getThemNowBtn.position = ccp(bg.contentSize.width/2, bg.contentSize.height * 0.2);
         
