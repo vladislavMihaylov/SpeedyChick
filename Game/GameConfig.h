@@ -193,6 +193,8 @@ extern BOOL isFinish;
 extern BOOL isInviteShowed;
 extern BOOL isUserPlayed;
 extern BOOL isAlertAboutOutOfRocketsShowed;
+extern BOOL isAlertWantToGetCoinsShowed;
+extern BOOL isAlertGetThisChickShowed;
 
 // Physics parameters
 

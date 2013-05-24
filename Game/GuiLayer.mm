@@ -276,7 +276,7 @@
 {
     if(isGameActive)
     {
-        if([Settings sharedSettings].countOfRuns > 0)
+        if([Settings sharedSettings].countOfRuns > 1)
         {
             if([Settings sharedSettings].isAdEnabled)
             {
@@ -352,7 +352,7 @@
 {
     if(isGameActive)
     {
-        if([Settings sharedSettings].countOfRuns > 0)
+        if([Settings sharedSettings].countOfRuns > 1)
         {
             if([Settings sharedSettings].isAdEnabled)
             {
@@ -829,10 +829,6 @@
         }
     }
     
-    if(curStars == 3)
-    {
-        [Appirater showPrompt];
-    }
     //CCLOG(@"Stars : %i", curStars);
     
     if([Settings sharedSettings].isKidsModeBuyed)
@@ -883,6 +879,7 @@
     
     if(currentLevel % 5 == 0)
     {
+        [Appirater showPrompt];
         //CCLOG(@"IT WAS 5 LEVEL");
         showNewWorld = YES;
         
@@ -901,6 +898,8 @@
 {
     if(isGameActive)
     {
+        countOfLoses = 0;
+        
         if([Settings sharedSettings].isAdEnabled)
         {
             viewController = [[RootViewController alloc] initWithNibName: nil bundle: nil];
@@ -911,7 +910,11 @@
         countOfPlays ++;
         if((countOfPlays % 4 == 0) && countOfPlays != 0)
         {
-            [self showAlert: @"Would like to get this chick\n     or other cool ones?" type: 4];
+            if(!isAlertGetThisChickShowed)
+            {
+                isAlertGetThisChickShowed = YES;
+                [self showAlert: @"Would like to get this chick\n     or other cool ones?" type: 4];
+            }
         }
         
         applyRocket.isEnabled = NO;

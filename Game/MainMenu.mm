@@ -89,13 +89,16 @@
         }
     }
     
-    
-    if(isUserPlayed)
+    if([Settings sharedSettings].countOfRuns == 1)
     {
-        if([Settings sharedSettings].countOfRuns == 1)
+        if(isUserPlayed)
         {
-            isUserPlayed = NO;
-            [self showAlert: @"      Want to get Coins? \n   Click on the \"get coins\" \nbutton to collect 100 coins." type: 3];
+            if(!isAlertWantToGetCoinsShowed)
+            {
+                isAlertWantToGetCoinsShowed = YES;
+                isUserPlayed = NO;
+                [self showAlert: @"      Want to get Coins? \n   Click on the \"get coins\" \nbutton to collect 100 coins." type: 3];
+            }
         }
     }
     
@@ -199,7 +202,7 @@
                                                              selector: @selector(pressedShop)
                                   ];
         
-        okBtn.position = ccp(bg.contentSize.width * 0.27, bg.contentSize.height * 0.15);
+        okBtn.position = ccp(bg.contentSize.width * 0.73, bg.contentSize.height * 0.15);
         
         CCMenuItemImage *cancelBtn = [CCMenuItemImage itemFromNormalImage: [NSString stringWithFormat: @"noBtn%@.png", suffix]
                                                             selectedImage: [NSString stringWithFormat: @"noBtnOn%@.png", suffix]
@@ -207,7 +210,7 @@
                                                               selector: @selector(hideAlert)
                                   ];
         
-        cancelBtn.position = ccp(bg.contentSize.width * 0.73, bg.contentSize.height * 0.15);
+        cancelBtn.position = ccp(bg.contentSize.width * 0.27, bg.contentSize.height * 0.15);
         
         [alertMenu addChild: okBtn];
         [alertMenu addChild: cancelBtn];
@@ -347,7 +350,7 @@
     
     [self updateRocketsAndCoinsString];
     
-    NSDate *newDate = [[NSDate date] dateByAddingTimeInterval: 7200];
+    NSDate *newDate = [[NSDate date] dateByAddingTimeInterval: 7200]; // 7200
     
     NSString *newDateString = [NSString stringWithFormat: @"%@", newDate];
     

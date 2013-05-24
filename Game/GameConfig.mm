@@ -53,6 +53,8 @@ BOOL isFinish = NO;
 BOOL isInviteShowed = NO;
 BOOL isUserPlayed = NO;
 BOOL isAlertAboutOutOfRocketsShowed = NO;
+BOOL isAlertWantToGetCoinsShowed = NO;
+BOOL isAlertGetThisChickShowed = NO;
 
 float GameWidth =  480;
 float GameHeight = 320;

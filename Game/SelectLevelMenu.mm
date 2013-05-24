@@ -31,11 +31,14 @@
 
 - (void) didLoadFromCCB
 {
-    if([Settings sharedSettings].isAdEnabled)
+    if([Settings sharedSettings].countOfRuns > 1)
     {
-        viewController = [[RootViewController alloc] initWithNibName: nil bundle: nil];
-        [viewController view];
-        viewController.wantsFullScreenLayout = YES;
+        if([Settings sharedSettings].isAdEnabled)
+        {
+            viewController = [[RootViewController alloc] initWithNibName: nil bundle: nil];
+            [viewController view];
+            viewController.wantsFullScreenLayout = YES;
+        }
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name: PurchaseProductPurchasedNotification object:nil];
