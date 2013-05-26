@@ -39,26 +39,46 @@
 {
     if(self.adView == nil)
     {
-        self.adView = [[[MPAdView alloc] initWithAdUnitId: @"9eae04d4c46311e281c11231392559e4" size: MOPUB_BANNER_SIZE] autorelease];
-        
-        self.adView.delegate = self;
-        
-        self.adView.frame = CGRectMake(0,
-                                       self.view.bounds.size.height - MOPUB_BANNER_SIZE.height,
-                                       MOPUB_BANNER_SIZE.width,
-                                       MOPUB_BANNER_SIZE.height);
-        
-        [self.view addSubview: self.adView];
-        
-        [[[CCDirector sharedDirector] openGLView] addSubview: self.adView];
-        
-        [self.adView loadAd];
+        if([Settings sharedSettings].countOfRuns > 0)
+        {
+            if([Settings sharedSettings].isAdEnabled)
+            {
+                self.adView = [[[MPAdView alloc] initWithAdUnitId: @"9eae04d4c46311e281c11231392559e4" size: MOPUB_BANNER_SIZE] autorelease];
+                
+                self.adView.delegate = self;
+                
+                self.adView.frame = bannerRect;
+                
+                [self.adView setBackgroundColor: [UIColor colorWithRed:255 green:255 blue:255 alpha:255]];
+                
+                [[[CCDirector sharedDirector] openGLView] addSubview: self.adView];
+                
+                [self.adView loadAd];
+                
+                [[NSNotificationCenter defaultCenter] addObserver: self
+                                                         selector: @selector(hideBanner)
+                                                             name: @"hideBanner"
+                                                           object: nil];
+                
+                [[NSNotificationCenter defaultCenter] addObserver: self
+                                                         selector: @selector(showBanner)
+                                                             name: @"showBanner"
+                                                           object: nil];
+                
+                [self hideBanner];
+            }
+        }
     }
+    
+    //CGRect viewRect = CGRectMake(10, 10, 100, 100);
+    //UIView *view = [[UIView alloc] initWithFrame: viewRect];
+    //[view setBackgroundColor: [UIColor colorWithRed:255 green:0 blue:0 alpha:255]];
+    //[[[CCDirector sharedDirector] openGLView] addSubview: view];
 }
 
 - (void)loadView
 {
-    [self applyAdView];
+    
 }
 
 - (void)loadInterstitial
@@ -76,12 +96,20 @@
 {
     isMopubShowed = YES;
     
-    
+    //[self applyAdView];
     
     [super viewDidLoad];
 }
 
+- (void) hideBanner
+{
+    [self.adView setHidden: YES];
+}
 
+- (void) showBanner
+{
+    [self.adView setHidden: NO];
+}
 
 
 // Override to allow orientations other than the default portrait orientation.
@@ -190,6 +218,7 @@
 
 - (void)dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver: self];
     
     self.adView = nil;
     

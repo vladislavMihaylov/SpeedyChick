@@ -31,6 +31,11 @@
 
 - (void) didLoadFromCCB
 {
+    if([Settings sharedSettings].isAdEnabled)
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName: @"showBanner" object: nil];
+    }
+    
     if([Settings sharedSettings].countOfRuns > 1)
     {
         if([Settings sharedSettings].isAdEnabled)
@@ -451,6 +456,8 @@
 
 - (void) back
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"hideBanner" object: nil];
+    
     CCScene* scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"SelectWorldMenu%@.ccb", suffix]];
     
 	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
@@ -458,6 +465,8 @@
 
 - (void) playLevel: (CCMenuItem *) sender
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"hideBanner" object: nil];
+    
     currentLevel = sender.tag + 1;
     
     [[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: [GameLayer scene]]];

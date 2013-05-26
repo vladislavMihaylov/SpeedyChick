@@ -149,6 +149,10 @@ extern CGRect iPhoneCustomizeRect;
 extern CGRect iPadCustomizeRect;
 extern CGRect customizeRect;
 
+extern CGRect iPadBannerRect;
+extern CGRect iPhoneBannerRect;
+extern CGRect bannerRect;
+
 // screen's parameters
 
 extern float GameWidth;

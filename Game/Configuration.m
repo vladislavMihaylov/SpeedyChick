@@ -75,6 +75,7 @@ Configuration *sharedConfiguration = nil;
         customItemMultiplier = iPadCustomItemMultiplier;
         customItemScale = iPadCustomItemScale;
         gravityY = gravityIpad;
+        bannerRect = iPadBannerRect;
     }
     else
     {
@@ -107,6 +108,7 @@ Configuration *sharedConfiguration = nil;
         customItemMultiplier = iPhoneCustomItemMultiplier;
         customItemScale = iPhoneCustomItemScale;
         gravityY = gravityIphone;
+        bannerRect = iPhoneBannerRect;
     }
     
     

@@ -124,6 +124,7 @@
     
     /// --> ChartBoost & RevMob
     
+    
     Chartboost *cb = [Chartboost sharedChartboost];
     
     cb.appId = @"5177655c16ba47654f000000";
@@ -254,7 +255,7 @@
     //[[[GlobalView sharedView] globalView] addSubview: viewController.view];
     [glView addSubview: [[GlobalView sharedView] globalView]];
     
-    //[viewController applyAdView];
+    [viewController applyAdView];
     
 	// make the View Controller a child of the main window
 	[window addSubview: viewController.view];

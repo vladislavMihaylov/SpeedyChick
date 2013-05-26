@@ -737,6 +737,8 @@
 
 - (void) playNextLevel
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"hideBanner" object: nil];
+    
     applyRocket.isEnabled = YES;
     
     isFinish = NO;
@@ -902,9 +904,7 @@
         
         if([Settings sharedSettings].isAdEnabled)
         {
-            viewController = [[RootViewController alloc] initWithNibName: nil bundle: nil];
-            [viewController view];
-            viewController.wantsFullScreenLayout = YES;
+            [[NSNotificationCenter defaultCenter] postNotificationName: @"showBanner" object: nil];
         }
         
         countOfPlays ++;
@@ -1059,12 +1059,14 @@
         Minutes = [NSString stringWithFormat: @"%i", minutes];
     }
     
-    timeLabel.string = [NSString stringWithFormat: @"%@:%@:%@---%i", Minutes, Seconds, Milliseconds, time];
-    //timeLabel.string = [NSString stringWithFormat: @"%@:%@:%@", Minutes, Seconds, Milliseconds];
+    //timeLabel.string = [NSString stringWithFormat: @"%@:%@:%@---%i", Minutes, Seconds, Milliseconds, time];
+    timeLabel.string = [NSString stringWithFormat: @"%@:%@:%@", Minutes, Seconds, Milliseconds];
 }
 
 - (void) resetLevel
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"hideBanner" object: nil];
+    
     applyRocket.isEnabled = YES;
     
     [gameLayer setVisibleOfChick: YES];
@@ -1116,11 +1118,15 @@
 
 - (void) exitToMainMenu
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"hideBanner" object: nil];
+    
     [gameLayer exitToMainMenu];
 }
 
 - (void) exitToCustomizationMenu
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"hideBanner" object: nil];
+    
     [gameLayer exitToCustomization];
 }
 

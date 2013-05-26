@@ -30,6 +30,8 @@
 
     CCSprite *chickSprite;
     CCSprite *catSprite;
+    
+    MPAdView *adView;
 }
 
 @property (nonatomic, retain) MPAdView *adView;

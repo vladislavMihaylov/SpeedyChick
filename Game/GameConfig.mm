@@ -7,6 +7,19 @@
 //
 
 #import "GameConfig.h"
+#import "MPAdView.h"
+
+CGRect iPadBannerRect = CGRectMake(350,
+                                   718,
+                                   MOPUB_BANNER_SIZE.width,
+                                   MOPUB_BANNER_SIZE.height);
+
+CGRect iPhoneBannerRect = CGRectMake(0,
+                                     430,
+                                     MOPUB_BANNER_SIZE.width,
+                                     MOPUB_BANNER_SIZE.height);
+
+CGRect bannerRect = iPhoneBannerRect;
 
 CGRect iPhoneShopRect = CGRectMake(0, 0, -140, 320);
 CGRect iPadShopRect = CGRectMake(0, 0, -580, 768);
