@@ -186,6 +186,8 @@ extern NSString *suffix;
 
 // flags
 
+extern BOOL isMopubShowed;
+
 extern BOOL isGameActive;
 extern BOOL isPauseOfGame;
 extern BOOL ChickOnTheStart;

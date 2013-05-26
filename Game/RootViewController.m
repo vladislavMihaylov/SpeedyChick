@@ -9,7 +9,12 @@
 #import "GameConfig.h"
 #import "Settings.h"
 
+#import "MPSampleAppInstanceProvider.h"
+
+
 @implementation RootViewController
+
+@synthesize adView;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -22,44 +27,43 @@
  */
 
 
- // Implement loadView to create a view hierarchy programmatically, without using a nib.
-/*- (void)loadView
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
-    
-}*/
+    CGSize size = [self.adView adContentViewSize];
+    CGFloat centeredX = (self.view.bounds.size.width - size.width) / 2;
+    CGFloat bottomAlignedY = self.view.bounds.size.height - size.height;
+    self.adView.frame = CGRectMake(centeredX, bottomAlignedY, size.width, size.height);
+}
 
+- (void) applyAdView
+{
+    if(self.adView == nil)
+    {
+        self.adView = [[[MPAdView alloc] initWithAdUnitId: @"9eae04d4c46311e281c11231392559e4" size: MOPUB_BANNER_SIZE] autorelease];
+        
+        self.adView.delegate = self;
+        
+        self.adView.frame = CGRectMake(0,
+                                       self.view.bounds.size.height - MOPUB_BANNER_SIZE.height,
+                                       MOPUB_BANNER_SIZE.width,
+                                       MOPUB_BANNER_SIZE.height);
+        
+        [self.view addSubview: self.adView];
+        
+        [[[CCDirector sharedDirector] openGLView] addSubview: self.adView];
+        
+        [self.adView loadAd];
+    }
+}
 
 - (void)loadView
 {
-    [self loadInterstitial];
+    [self applyAdView];
 }
 
 - (void)loadInterstitial
 {
-    // Instantiate the interstitial using the class convenience method.
-    self.interstitial = [MPInterstitialAdController
-                         interstitialAdControllerForAdUnitId: @"ee428ee0acb011e281c11231392559e4"];
     
-    // Fetch the interstitial ad.
-    [self.interstitial loadAd];
-}
-
-- (void)showMopubAd
-{
-    if([Settings sharedSettings].countOfRuns > 1)
-    {
-        if([Settings sharedSettings].isAdEnabled)
-        {
-            if (self.interstitial.ready)
-            {
-                [self.interstitial showFromViewController: self];
-            }
-            else
-            {
-                // The interstitial wasn't ready, so continue as usual.
-            }
-        }
-    }
 }
 
 - (UIViewController *) viewControllerForPresentingModalView
@@ -70,13 +74,11 @@
  // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
  - (void)viewDidLoad
 {
+    isMopubShowed = YES;
+    
+    
     
     [super viewDidLoad];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(showMopubAd)
-                                                 name:@"Ready"
-                                               object:nil];
 }
 
 
@@ -147,8 +149,11 @@
 	// Assuming that the main window has the size of the screen
 	// BUG: This won't work if the EAGLView is not fullscreen
 	///
+    [self.adView rotateToOrientation:toInterfaceOrientation];
+    
 	CGRect screenRect = [[UIScreen mainScreen] bounds];
 	CGRect rect = CGRectZero;
+    
     
     
 	if(toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
@@ -183,11 +188,11 @@
 	// e.g. self.myOutlet = nil;
 }
 
-
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver: self];
-     
+    
+    self.adView = nil;
+    
 	[super dealloc];
 }
 

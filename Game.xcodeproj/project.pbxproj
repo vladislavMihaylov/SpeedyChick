@@ -164,6 +164,7 @@
 		4DFD3018139CCCA6001E1480 /* GameLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DFD3017139CCCA6001E1480 /* GameLayer.mm */; };
 		4DFE49C5139F507200973A5D /* Terrain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DFE49C4139F507200973A5D /* Terrain.mm */; };
 		4DFE49C7139F6A7900973A5D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4DFE49C6139F6A7900973A5D /* README.md */; };
+		F500607917511F130057AD78 /* GlobalView.m in Sources */ = {isa = PBXBuildFile; fileRef = F500607817511F130057AD78 /* GlobalView.m */; };
 		F500CF1A171277AC006C529A /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = F500CF14171277AC006C529A /* Icon-72.png */; };
 		F500CF1B171277AC006C529A /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = F500CF15171277AC006C529A /* Icon-Small-50.png */; };
 		F500CF1C171277AC006C529A /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = F500CF16171277AC006C529A /* Icon-Small.png */; };
@@ -322,6 +323,7 @@
 		F52135D31717286E00F8806A /* catAnim.plist in Resources */ = {isa = PBXBuildFile; fileRef = F52135CD1717286E00F8806A /* catAnim.plist */; };
 		F52135D41717286E00F8806A /* catAnim.png in Resources */ = {isa = PBXBuildFile; fileRef = F52135CE1717286E00F8806A /* catAnim.png */; };
 		F52135D61717288C00F8806A /* catAnimation.plist in Resources */ = {isa = PBXBuildFile; fileRef = F52135D51717288C00F8806A /* catAnimation.plist */; };
+		F529F6711750694600E17EAE /* MPSampleAppInstanceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F529F6701750694600E17EAE /* MPSampleAppInstanceProvider.m */; };
 		F53C065D1746537A00EFD20B /* finishLine-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F53C065A1746537A00EFD20B /* finishLine-hd.png */; };
 		F53C065E1746537A00EFD20B /* finishLine-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F53C065B1746537A00EFD20B /* finishLine-ipad.png */; };
 		F53C065F1746537A00EFD20B /* finishLine.png in Resources */ = {isa = PBXBuildFile; fileRef = F53C065C1746537A00EFD20B /* finishLine.png */; };
@@ -1060,6 +1062,8 @@
 		4DFE49C3139F507200973A5D /* Terrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Terrain.h; sourceTree = "<group>"; };
 		4DFE49C4139F507200973A5D /* Terrain.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Terrain.mm; sourceTree = "<group>"; };
 		4DFE49C6139F6A7900973A5D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
+		F500607717511F130057AD78 /* GlobalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalView.h; sourceTree = "<group>"; };
+		F500607817511F130057AD78 /* GlobalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalView.m; sourceTree = "<group>"; };
 		F500CF14171277AC006C529A /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		F500CF15171277AC006C529A /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
 		F500CF16171277AC006C529A /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
@@ -1287,6 +1291,8 @@
 		F52135CD1717286E00F8806A /* catAnim.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = catAnim.plist; sourceTree = "<group>"; };
 		F52135CE1717286E00F8806A /* catAnim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catAnim.png; sourceTree = "<group>"; };
 		F52135D51717288C00F8806A /* catAnimation.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = catAnimation.plist; sourceTree = "<group>"; };
+		F529F66F1750694600E17EAE /* MPSampleAppInstanceProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSampleAppInstanceProvider.h; sourceTree = "<group>"; };
+		F529F6701750694600E17EAE /* MPSampleAppInstanceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSampleAppInstanceProvider.m; sourceTree = "<group>"; };
 		F53C065A1746537A00EFD20B /* finishLine-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "finishLine-hd.png"; sourceTree = "<group>"; };
 		F53C065B1746537A00EFD20B /* finishLine-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "finishLine-ipad.png"; sourceTree = "<group>"; };
 		F53C065C1746537A00EFD20B /* finishLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finishLine.png; sourceTree = "<group>"; };
@@ -2178,6 +2184,8 @@
 				F50F96991730EDAB008E54EC /* MPInterstitialCustomEvent.h */,
 				F50F969A1730EDAB008E54EC /* MPInterstitialCustomEvent.m */,
 				F50F969B1730EDAB008E54EC /* MPInterstitialCustomEventDelegate.h */,
+				F529F66F1750694600E17EAE /* MPSampleAppInstanceProvider.h */,
+				F529F6701750694600E17EAE /* MPSampleAppInstanceProvider.m */,
 				F50F969C1730EDAB008E54EC /* Resources */,
 			);
 			path = "MoPubSDK ";
@@ -2445,6 +2453,8 @@
 				4D883A8813AE24B900E1145A /* GLES-Render.mm */,
 				F501F067173FBC5E00055704 /* CCMenuAdvanced.h */,
 				F501F068173FBC5E00055704 /* CCMenuAdvanced.m */,
+				F500607717511F130057AD78 /* GlobalView.h */,
+				F500607817511F130057AD78 /* GlobalView.m */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -3720,6 +3730,8 @@
 				F5FCB9DA17327EF60076BDC4 /* MPGoogleAdMobInterstitialCustomEvent.m in Sources */,
 				F501F069173FBC5E00055704 /* CCMenuAdvanced.m in Sources */,
 				F5F7732E174350E300634E85 /* Appirater.m in Sources */,
+				F529F6711750694600E17EAE /* MPSampleAppInstanceProvider.m in Sources */,
+				F500607917511F130057AD78 /* GlobalView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

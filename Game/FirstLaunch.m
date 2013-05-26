@@ -14,7 +14,11 @@
 #import "GameConfig.h"
 #import "MainMenu.h"
 
+
+
 @implementation FirstLaunch
+
+@synthesize nameField;
 
 + (CCScene *) scene
 {
@@ -208,14 +212,15 @@
     nameField.font = [UIFont fontWithName: @"MarkerFelt-Thin" size: textFontSize];
     [nameField setTextColor: [UIColor colorWithRed: 0 green: 0 blue: 0 alpha: 1.0]];
     nameField.backgroundColor = [UIColor colorWithRed: 255 green: 255 blue: 255 alpha: 0.5];
-    nameField.textAlignment = UITextAlignmentCenter;
+    [nameField setTextAlignment: UITextAlignmentCenter];
     [nameField setDelegate: self];
-    nameField.transform = CGAffineTransformMakeRotation(M_PI / -2.0);
-    [[[[CCDirector sharedDirector] openGLView] window] addSubview: nameField];
-    
+    //nameField.transform = CGAffineTransformMakeRotation(M_PI / -2.0);
+    [nameField setAutocapitalizationType: UITextAutocapitalizationTypeWords];
+    [[[CCDirector sharedDirector] openGLView] addSubview: nameField];
     [nameField becomeFirstResponder];
     [nameField resignFirstResponder];
 }
+
 
 
 - (BOOL)textFieldShouldReturn: (UITextField*) textField

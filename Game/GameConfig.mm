@@ -46,6 +46,7 @@ NSString *suffix = @"";
 
 float countOfMana = 0;
 
+BOOL isMopubShowed = NO;
 BOOL isGameActive = NO;
 BOOL isPauseOfGame = NO;
 BOOL ChickOnTheStart = YES;

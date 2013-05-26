@@ -6,6 +6,8 @@
 #import "GameLayer.h"
 #import "RootViewController.h"
 
+#import "GlobalView.h"
+
 #import "CCBReader.h"
 
 #import "Settings.h"
@@ -190,7 +192,7 @@
 	
 	// Init the View Controller
 	viewController = [[RootViewController alloc] initWithNibName: nil bundle: nil];
-    [viewController view];
+    
 	viewController.wantsFullScreenLayout = YES;
 	
 	//
@@ -242,10 +244,18 @@
 	[director setDisplayFPS:NO];
 	[director setDepthTest:NO];
 	
-	
+	//[viewController view];
+    
 	// make the OpenGLView a child of the view controller
 	[viewController setView:glView];
 	
+    UIView *view = [[[UIView alloc] initWithFrame: [window bounds]] autorelease];
+    [[GlobalView sharedView] setGlobalView: view];
+    //[[[GlobalView sharedView] globalView] addSubview: viewController.view];
+    [glView addSubview: [[GlobalView sharedView] globalView]];
+    
+    //[viewController applyAdView];
+    
 	// make the View Controller a child of the main window
 	[window addSubview: viewController.view];
     [window setRootViewController: viewController];

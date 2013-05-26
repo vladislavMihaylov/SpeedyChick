@@ -16,6 +16,8 @@
     CCMenuItemImage *okBtn;
 }
 
+@property (nonatomic, retain) UITextField *nameField;
+
 + (CCScene *) scene;
 
 @end

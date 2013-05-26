@@ -52,7 +52,7 @@ Configuration *sharedConfiguration = nil;
         GameWidth = kWidthIPAD;
         GameHeight = kHeightIPAD;
         
-        rectForTextField = CGRectMake(220, 475, 320, 70); //CGRectMa
+        rectForTextField = CGRectMake(350, 300, 320, 70); //CGRectMa
         textFontSize = 50;
         
         bodyRadius = iPadRadius;
@@ -84,7 +84,7 @@ Configuration *sharedConfiguration = nil;
         GameWidth = kWidthIPHONE;
         GameHeight = kHeightIPHONE;
         
-        rectForTextField = CGRectMake(10, 220, 240, 40);
+        rectForTextField = CGRectMake(120, 120, 240, 40);
         textFontSize = 30;
         
         bodyRadius = iPhoneRadius;

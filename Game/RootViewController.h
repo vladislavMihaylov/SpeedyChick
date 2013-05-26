@@ -2,16 +2,16 @@
 
 #import <UIKit/UIKit.h>
 
-#import "MPInterstitialAdController.h"
+#import "MPAdView.h"
 
 
-@interface RootViewController : UIViewController <MPInterstitialAdControllerDelegate>
+@interface RootViewController : UIViewController <MPAdViewDelegate>
 {
     
 }
 
-@property (nonatomic, retain) MPInterstitialAdController *interstitial;
+@property (nonatomic, retain) MPAdView *adView;
 
-- (void)showMopubAd;
+- (void) applyAdView;
 
 @end
