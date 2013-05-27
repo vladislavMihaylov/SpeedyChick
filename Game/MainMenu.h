@@ -9,9 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-#import "MPAdView.h"
-
-@interface MainMenu: CCLayer <MPAdViewDelegate>
+@interface MainMenu: CCLayer
 {
     CCNode *curPinguin;
     CCNode *curRockets;
@@ -30,10 +28,7 @@
 
     CCSprite *chickSprite;
     CCSprite *catSprite;
-    
-    MPAdView *adView;
 }
 
-@property (nonatomic, retain) MPAdView *adView;
 
 @end

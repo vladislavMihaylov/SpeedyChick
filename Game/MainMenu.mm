@@ -17,41 +17,15 @@
 
 @implementation MainMenu
 
-@synthesize adView;
 
 - (void) dealloc
 {
     [super dealloc];
 }
 
-- (UIViewController *) viewControllerForPresentingModalView
-{
-    //return [[CCDirector sharedDirector] openGLView];
-}
-
-- (void) addBanner
-{
-    self.adView = [[[MPAdView alloc] initWithAdUnitId: @"9eae04d4c46311e281c11231392559e4" size: MOPUB_BANNER_SIZE] autorelease];
-    
-    self.adView.delegate = self;
-    
-    self.adView.frame = CGRectMake(0,
-                                   10,//self.view.bounds.size.height - MOPUB_BANNER_SIZE.height,
-                                   MOPUB_BANNER_SIZE.width,
-                                   MOPUB_BANNER_SIZE.height);
-    
-    //[self.view addSubview: self.adView];
-    
-    //[self.adView setBackgroundColor: [UIColor colorWithRed:255 green:0 blue:0 alpha:255]];
-    
-    [[[CCDirector sharedDirector] openGLView] addSubview: self.adView];
-    
-    [self.adView loadAd];
-}
 
 - (void) didLoadFromCCB
 {
-    //[self addBanner];
     
     CCLOG(@"kidsMode: %i", [Settings sharedSettings].isKidsModeBuyed);
     CCLOG(@"superChick: %i", [Settings sharedSettings].isSuperChickBuyed);

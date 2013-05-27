@@ -218,7 +218,7 @@
     [nameField setAutocapitalizationType: UITextAutocapitalizationTypeWords];
     [[[CCDirector sharedDirector] openGLView] addSubview: nameField];
     [nameField becomeFirstResponder];
-    [nameField resignFirstResponder];
+    //[nameField resignFirstResponder];
 }
 
 
