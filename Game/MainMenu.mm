@@ -15,6 +15,8 @@
 
 #import "Appirater.h"
 
+#import "SimpleAudioEngine.h"
+
 @implementation MainMenu
 
 
@@ -26,6 +28,7 @@
 
 - (void) didLoadFromCCB
 {
+    
     
     CCLOG(@"kidsMode: %i", [Settings sharedSettings].isKidsModeBuyed);
     CCLOG(@"superChick: %i", [Settings sharedSettings].isSuperChickBuyed);
@@ -238,6 +241,8 @@
 
 - (void) hideAlert
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     rootMenu.isTouchEnabled = YES;
     rocketMenu.isTouchEnabled = YES;
     [self removeChildByTag: 31 cleanup: YES];
@@ -321,6 +326,8 @@
 
 - (void) buyRocketOrCoin
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     [self showAlert: @"Want to get more \nCoins or Rockets?" type: 2];
 }
 
@@ -328,6 +335,8 @@
 
 - (void) pressedPlay
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     CCScene* scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"SelectWorldMenu%@.ccb", suffix]];
     
 	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
@@ -336,6 +345,8 @@
 
 - (void) pressedGetCoins
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_CollectCoins.wav"];
+    
     //rootMenu.isTouchEnabled = YES;
     //rocketMenu.isTouchEnabled = YES;
     [self removeChildByTag: 31 cleanup: YES];
@@ -390,6 +401,8 @@
 
 - (void) pressedCustomise
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     CCScene* scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"CustomizeMenu%@.ccb", suffix]];
     
 	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
@@ -399,6 +412,8 @@
 
 - (void) pressedShop
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     CCScene* scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"ShopMenu%@.ccb", suffix]];
     
 	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];

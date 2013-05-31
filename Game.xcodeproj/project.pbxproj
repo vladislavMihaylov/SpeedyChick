@@ -186,6 +186,16 @@
 		F5050C1716EA52A800C2867F /* Bonus.m in Sources */ = {isa = PBXBuildFile; fileRef = F5050C1616EA52A800C2867F /* Bonus.m */; };
 		F506BB9916E90A9B0084F483 /* GameConfig.mm in Sources */ = {isa = PBXBuildFile; fileRef = F506BB9816E90A9B0084F483 /* GameConfig.mm */; };
 		F506BB9C16E9131C0084F483 /* DataAboutWorlds.plist in Resources */ = {isa = PBXBuildFile; fileRef = F506BB9B16E9131C0084F483 /* DataAboutWorlds.plist */; };
+		F509006C1758E37200E40831 /* SpeedyChick_ChickenCheep.wav in Resources */ = {isa = PBXBuildFile; fileRef = F50900621758E37200E40831 /* SpeedyChick_ChickenCheep.wav */; };
+		F509006D1758E37200E40831 /* SpeedyChick_CollectCoins.wav in Resources */ = {isa = PBXBuildFile; fileRef = F50900631758E37200E40831 /* SpeedyChick_CollectCoins.wav */; };
+		F509006E1758E37200E40831 /* SpeedyChick_BackgroundTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F50900641758E37200E40831 /* SpeedyChick_BackgroundTheme.mp3 */; };
+		F509006F1758E37200E40831 /* SpeedyChick_LevelComplete.wav in Resources */ = {isa = PBXBuildFile; fileRef = F50900651758E37200E40831 /* SpeedyChick_LevelComplete.wav */; };
+		F50900701758E37200E40831 /* SpeedyChick_RocketSpeedUp.wav in Resources */ = {isa = PBXBuildFile; fileRef = F50900661758E37200E40831 /* SpeedyChick_RocketSpeedUp.wav */; };
+		F50900711758E37200E40831 /* SpeedyChick_ButtonTap.wav in Resources */ = {isa = PBXBuildFile; fileRef = F50900671758E37200E40831 /* SpeedyChick_ButtonTap.wav */; };
+		F50900721758E37200E40831 /* SpeedyChick_EatenByACat.wav in Resources */ = {isa = PBXBuildFile; fileRef = F50900681758E37200E40831 /* SpeedyChick_EatenByACat.wav */; };
+		F50900731758E37200E40831 /* SpeedyChick_CollectRocket.wav in Resources */ = {isa = PBXBuildFile; fileRef = F50900691758E37200E40831 /* SpeedyChick_CollectRocket.wav */; };
+		F50900741758E37200E40831 /* SpeedyChick_Coins.wav in Resources */ = {isa = PBXBuildFile; fileRef = F509006A1758E37200E40831 /* SpeedyChick_Coins.wav */; };
+		F50900751758E37200E40831 /* SpeedyChick_Landing.wav in Resources */ = {isa = PBXBuildFile; fileRef = F509006B1758E37200E40831 /* SpeedyChick_Landing.wav */; };
 		F509DA5516FE22A900108219 /* FirstLaunch.m in Sources */ = {isa = PBXBuildFile; fileRef = F509DA5416FE22A900108219 /* FirstLaunch.m */; };
 		F50A3CB316F5E56D00A807F2 /* cat.png in Resources */ = {isa = PBXBuildFile; fileRef = F50A3CAF16F5E56D00A807F2 /* cat.png */; };
 		F50A3CB416F5E56D00A807F2 /* cat-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F50A3CB016F5E56D00A807F2 /* cat-hd.png */; };
@@ -1089,6 +1099,16 @@
 		F5050C1616EA52A800C2867F /* Bonus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bonus.m; sourceTree = "<group>"; };
 		F506BB9816E90A9B0084F483 /* GameConfig.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameConfig.mm; sourceTree = "<group>"; };
 		F506BB9B16E9131C0084F483 /* DataAboutWorlds.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DataAboutWorlds.plist; sourceTree = "<group>"; };
+		F50900621758E37200E40831 /* SpeedyChick_ChickenCheep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SpeedyChick_ChickenCheep.wav; sourceTree = "<group>"; };
+		F50900631758E37200E40831 /* SpeedyChick_CollectCoins.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SpeedyChick_CollectCoins.wav; sourceTree = "<group>"; };
+		F50900641758E37200E40831 /* SpeedyChick_BackgroundTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SpeedyChick_BackgroundTheme.mp3; sourceTree = "<group>"; };
+		F50900651758E37200E40831 /* SpeedyChick_LevelComplete.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SpeedyChick_LevelComplete.wav; sourceTree = "<group>"; };
+		F50900661758E37200E40831 /* SpeedyChick_RocketSpeedUp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SpeedyChick_RocketSpeedUp.wav; sourceTree = "<group>"; };
+		F50900671758E37200E40831 /* SpeedyChick_ButtonTap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SpeedyChick_ButtonTap.wav; sourceTree = "<group>"; };
+		F50900681758E37200E40831 /* SpeedyChick_EatenByACat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SpeedyChick_EatenByACat.wav; sourceTree = "<group>"; };
+		F50900691758E37200E40831 /* SpeedyChick_CollectRocket.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SpeedyChick_CollectRocket.wav; sourceTree = "<group>"; };
+		F509006A1758E37200E40831 /* SpeedyChick_Coins.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SpeedyChick_Coins.wav; sourceTree = "<group>"; };
+		F509006B1758E37200E40831 /* SpeedyChick_Landing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SpeedyChick_Landing.wav; sourceTree = "<group>"; };
 		F509DA5316FE22A900108219 /* FirstLaunch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstLaunch.h; sourceTree = "<group>"; };
 		F509DA5416FE22A900108219 /* FirstLaunch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstLaunch.m; sourceTree = "<group>"; };
 		F50A3CAF16F5E56D00A807F2 /* cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat.png; sourceTree = "<group>"; };
@@ -1746,6 +1766,7 @@
 		4DFD2EBF139CCCA0001E1480 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F50900401758E36300E40831 /* sounds */,
 				F5167E18174BD9E200578D57 /* newButtons */,
 				F5F772AE1743260C00634E85 /* customItem-hd.png */,
 				F5F772AF1743260C00634E85 /* customItem-ipad.png */,
@@ -2134,6 +2155,23 @@
 				F502A79517202AC0005986CC /* libChartboost.a */,
 			);
 			name = chartBoost;
+			sourceTree = "<group>";
+		};
+		F50900401758E36300E40831 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				F50900621758E37200E40831 /* SpeedyChick_ChickenCheep.wav */,
+				F50900631758E37200E40831 /* SpeedyChick_CollectCoins.wav */,
+				F50900641758E37200E40831 /* SpeedyChick_BackgroundTheme.mp3 */,
+				F50900651758E37200E40831 /* SpeedyChick_LevelComplete.wav */,
+				F50900661758E37200E40831 /* SpeedyChick_RocketSpeedUp.wav */,
+				F50900671758E37200E40831 /* SpeedyChick_ButtonTap.wav */,
+				F50900681758E37200E40831 /* SpeedyChick_EatenByACat.wav */,
+				F50900691758E37200E40831 /* SpeedyChick_CollectRocket.wav */,
+				F509006A1758E37200E40831 /* SpeedyChick_Coins.wav */,
+				F509006B1758E37200E40831 /* SpeedyChick_Landing.wav */,
+			);
+			name = sounds;
 			sourceTree = "<group>";
 		};
 		F50F346D16F18DD50027982E /* gameMenu */ = {
@@ -3497,6 +3535,16 @@
 				F5167E73174BE2DD00578D57 /* buyItOn-hd.png in Resources */,
 				F5167E76174BE2E900578D57 /* buyIt.png in Resources */,
 				F5167E77174BE2E900578D57 /* buyItOn.png in Resources */,
+				F509006C1758E37200E40831 /* SpeedyChick_ChickenCheep.wav in Resources */,
+				F509006D1758E37200E40831 /* SpeedyChick_CollectCoins.wav in Resources */,
+				F509006E1758E37200E40831 /* SpeedyChick_BackgroundTheme.mp3 in Resources */,
+				F509006F1758E37200E40831 /* SpeedyChick_LevelComplete.wav in Resources */,
+				F50900701758E37200E40831 /* SpeedyChick_RocketSpeedUp.wav in Resources */,
+				F50900711758E37200E40831 /* SpeedyChick_ButtonTap.wav in Resources */,
+				F50900721758E37200E40831 /* SpeedyChick_EatenByACat.wav in Resources */,
+				F50900731758E37200E40831 /* SpeedyChick_CollectRocket.wav in Resources */,
+				F50900741758E37200E40831 /* SpeedyChick_Coins.wav in Resources */,
+				F50900751758E37200E40831 /* SpeedyChick_Landing.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

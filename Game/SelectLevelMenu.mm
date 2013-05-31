@@ -18,6 +18,7 @@
 #import <StoreKit/StoreKit.h>
 
 #import "RootViewController.h"
+#import "SimpleAudioEngine.h"
 
 @implementation SelectLevelMenu
 
@@ -144,6 +145,8 @@
 
 - (void) showNotification: (CCMenuItem *) sender
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     if([Settings sharedSettings].countOfCoins < sender.cost)
     {
         [self showAlert: [NSString stringWithFormat: @"Not enough Coins!\nTo unlock the level\nyou need %i Coins.\n  Would you like\n to buy some now?", sender.cost]
@@ -243,6 +246,8 @@
 
 - (void) showAlert: (NSString *) message type: (NSInteger) type sender: (CCMenuItem *) sender
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     levelsMenu.isTouchEnabled = NO;
     selectLevelMenu.isTouchEnabled = NO;
     
@@ -376,6 +381,8 @@
 
 - (void) hideAlert
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     levelsMenu.isTouchEnabled = YES;
     selectLevelMenu.isTouchEnabled = YES;
     [self removeChildByTag: 31 cleanup: YES];
@@ -399,6 +406,8 @@
 
 - (void) buyfeature: (CCMenuItem *) sender
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     CCLOG(@"prod %@", _products);
     
     SKProduct *product = _products[sender.tag];
@@ -429,6 +438,8 @@
 
 - (void) buyLevel: (CCMenuItem *) sender
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     [Settings sharedSettings].countOfCoins -= sender.cost;
     [[Settings sharedSettings] save];
     
@@ -456,6 +467,8 @@
 
 - (void) back
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName: @"hideBanner" object: nil];
     
     CCScene* scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"SelectWorldMenu%@.ccb", suffix]];
@@ -465,6 +478,8 @@
 
 - (void) playLevel: (CCMenuItem *) sender
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName: @"hideBanner" object: nil];
     
     currentLevel = sender.tag + 1;

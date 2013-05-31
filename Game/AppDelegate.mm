@@ -32,6 +32,8 @@
 
 #import "Appirater.h"
 
+#import "SimpleAudioEngine.h"
+
 @implementation AppDelegate
 
 @synthesize window;
@@ -286,6 +288,8 @@
     }
     
     [Appirater appLaunched:YES];
+    
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic: @"SpeedyChick_BackgroundTheme.mp3" loop: YES];
     
 }
 

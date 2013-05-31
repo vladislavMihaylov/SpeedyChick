@@ -29,6 +29,8 @@
 #import "Chartboost.h"
 #import "RootViewController.h"
 
+#import "SimpleAudioEngine.h"
+
 @implementation GuiLayer
 
 @synthesize gameLayer;
@@ -239,6 +241,8 @@
 
 - (void) applyRocket
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_RocketSpeedUp.wav"];
+    
     if([Settings sharedSettings].countOfRockets > 0)
     {
         [gameLayer applyRocket];
@@ -274,6 +278,8 @@
 
 - (void) doPause
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     if(isGameActive)
     {
         if([Settings sharedSettings].countOfRuns > 1)
@@ -350,6 +356,8 @@
 
 - (void) doGameOver
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_EatenByACat.wav"];
+    
     if(isGameActive)
     {
         if([Settings sharedSettings].countOfRuns > 1)
@@ -673,6 +681,8 @@
 
 - (void) hideAlert
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     //gameOverMenu.isTouchEnabled = YES;
     [self removeChildByTag: 31 cleanup: YES];
     CCLOG(@"OK");
@@ -707,6 +717,8 @@
 
 - (void) buyfeature: (CCMenuItem *) sender
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     SKProduct *product = _products[sender.tag];
     [self lockMenu];
     [[RagePurchase sharedInstance] buyProduct: product];
@@ -737,6 +749,8 @@
 
 - (void) playNextLevel
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName: @"hideBanner" object: nil];
     
     applyRocket.isEnabled = YES;
@@ -774,12 +788,16 @@
 
 - (void) sendToFB
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     SHKItem *facebookItem = [SHKItem text: [NSString stringWithFormat: @"I have finished with time %@", timeLabel.string]];
     [SHKFacebook shareItem: facebookItem];
 }
 
 - (void) unPause
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     if(!isGameActive)
     {
         applyRocket.isEnabled = YES;
@@ -898,6 +916,8 @@
 
 - (void) showFinishMenu
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_LevelComplete.wav"];
+    
     if(isGameActive)
     {
         countOfLoses = 0;
@@ -995,6 +1015,8 @@
 
 - (void) showWorldsMenu
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     //[self resetLevel];
     
     CCScene * scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"SelectWorldMenu%@.ccb", suffix]];
@@ -1065,6 +1087,8 @@
 
 - (void) resetLevel
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName: @"hideBanner" object: nil];
     
     applyRocket.isEnabled = YES;
@@ -1118,6 +1142,8 @@
 
 - (void) exitToMainMenu
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName: @"hideBanner" object: nil];
     
     [gameLayer exitToMainMenu];
@@ -1125,6 +1151,8 @@
 
 - (void) exitToCustomizationMenu
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName: @"hideBanner" object: nil];
     
     [gameLayer exitToCustomization];

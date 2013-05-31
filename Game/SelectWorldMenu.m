@@ -10,6 +10,7 @@
 #import "CCBReader.h"
 #import "Settings.h"
 #import "GameConfig.h"
+#import "SimpleAudioEngine.h"
 
 @implementation SelectWorldMenu
 
@@ -69,6 +70,8 @@
 
 - (void) back
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     CCScene* scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"MainMenu%@.ccb", suffix]];
     
 	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
@@ -76,6 +79,8 @@
 
 - (void) buyWorld: (CCMenuItem *) sender
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     CCLOG(@"COST: %i", sender.cost);
     if([Settings sharedSettings].countOfCoins < sender.cost)
     {
@@ -89,6 +94,8 @@
 
 - (void) pressedWorld: (CCMenuItem *) sender
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     currentWorld = sender.tag + 1;
     
     CCScene* scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"SelectLevelMenu%@.ccb", suffix]];
@@ -98,6 +105,8 @@
 
 - (void) showAlert: (NSString *) message
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     worldsMenu.isTouchEnabled = NO;
     
     CCSprite *bg = [CCSprite spriteWithSpriteFrameName: @"buyLevelBg.png"];
@@ -122,6 +131,8 @@
 
 - (void) showBuyingAlert: (CCMenuItem *) sender
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     worldsMenu.isTouchEnabled = NO;
     
     CCSprite *bg = [CCSprite spriteWithSpriteFrameName: @"buyLevelBg.png"];
@@ -154,6 +165,8 @@
 
 - (void) hideAlert
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     worldsMenu.isTouchEnabled = YES;
     [self removeChildByTag: 31 cleanup: YES];
 }

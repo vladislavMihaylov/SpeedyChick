@@ -14,6 +14,8 @@
 #import "RagePurchase.h"
 #import <StoreKit/StoreKit.h>
 
+#import "SimpleAudioEngine.h"
+
 @implementation ShopMenu
 
 - (void) dealloc
@@ -417,6 +419,8 @@
 
 - (void) restorePurchase
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     [self lockMenu];
     [[RagePurchase sharedInstance] restoreCompletedTransactions];
 }
@@ -483,6 +487,8 @@
 
 - (void) buyfeature: (CCMenuItem *) sender
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     SKProduct *product = _products[sender.tag];
     [self lockMenu];
     [[RagePurchase sharedInstance] buyProduct: product];
@@ -510,6 +516,8 @@
 
 - (void) back
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     CCScene* scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"MainMenu%@.ccb", suffix]];
     
 	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];

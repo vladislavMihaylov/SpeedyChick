@@ -14,7 +14,7 @@
 #import "GameConfig.h"
 #import "MainMenu.h"
 
-
+#import "SimpleAudioEngine.h"
 
 @implementation FirstLaunch
 
@@ -123,6 +123,8 @@
 
 - (void) tapEgg
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     [self removeChildByTag: 1 cleanup: YES];
     [self removeChildByTag: 2 cleanup: YES];
     
@@ -149,6 +151,8 @@
 
 - (void) brakeEgg
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     [self removeChildByTag: 2 cleanup: YES];
     [self removeChildByTag: 3 cleanup: YES];
     [self removeChildByTag: 4 cleanup: YES];
@@ -245,6 +249,8 @@
 
 - (void) pressedOkBtn
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     [Settings sharedSettings].nameOfPlayer = nameField.text;
     [Settings sharedSettings].isFirstRun = NO;
     [[Settings sharedSettings] save];

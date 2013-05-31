@@ -12,6 +12,8 @@
 
 #import "GameConfig.h"
 
+#import "SimpleAudioEngine.h"
+
 @interface GameLayer()
 - (void) createBox2DWorld;
 - (void) reset;
@@ -50,6 +52,8 @@
 	
 	if ((self = [super init]))
     {
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic: @"SpeedyChick_BackgroundTheme.mp3" loop: YES];
+        
         isPauseOfGame = NO;
         isUserPlayed = YES;
         //[[Configuration sharedConfiguration] setConfig];
@@ -97,8 +101,15 @@
         //CCLOG(@"TerrainRC: %i", [self.terrain retainCount]);
         [_terrain resetHillVertices];
         
+        [self schedule: @selector(chirikchirik) interval: 25];
+        
 	}
 	return self;
+}
+
+- (void) chirikchirik
+{
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ChickenCheep.wav"];
 }
 
 - (void) exitToWorldsMenu
@@ -228,6 +239,9 @@
                     [guiLayer decreaseEnergy];
                     iCanDoSwipe = NO;
                     //CCLOG(@"SWIPE");
+                    
+                    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_Coins.wav"];
+                    
                     [_hero applyEnergy];
                 }
             }
@@ -260,6 +274,8 @@
     
     if(isBonus)
     {
+        [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_CollectRocket.wav"];
+        
         CCLOG(@"BONUS!");
         //[_hero applyBonus];
         [Settings sharedSettings].countOfRockets++;
@@ -271,6 +287,8 @@
     
     if(isCoin)
     {
+        [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_Coins.wav"];
+        
         [Settings sharedSettings].countOfCoins += 1;
         [[Settings sharedSettings] save];
     } 
@@ -345,6 +363,8 @@
         [guiLayer increaseEnergy];
     }
     
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_Landing.wav"];
+    
 	//NSString *str = @"perfect slide";
     NSString *str = @"";
 	CCLabelBMFont *label = [CCLabelBMFont labelWithString:str fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
@@ -365,6 +385,8 @@
         [_hero applyEnergy];
     }
     
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_Landing.wav"];
+    
 	//NSString *str = @"FRENZY!";
     NSString *str = @"";
 	CCLabelBMFont *label = [CCLabelBMFont labelWithString:str fntFile: [NSString stringWithFormat: @"gameFont%@.fnt", suffix]];
@@ -379,6 +401,7 @@
 
 - (void) showHit {
     
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_Landing.wav"];
     
 	//NSString *str = @"hit";
     NSString *str = @"";

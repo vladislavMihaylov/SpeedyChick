@@ -15,6 +15,8 @@
 #import "RagePurchase.h"
 #import <StoreKit/StoreKit.h>
 
+#import "SimpleAudioEngine.h"
+
 @implementation CustomizeMenu
 
 - (void) dealloc
@@ -211,6 +213,8 @@
 
 - (void) back
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     CCScene* scene = [CCBReader sceneWithNodeGraphFromFile: [NSString stringWithFormat: @"MainMenu%@.ccb", suffix]];
     
 	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration: 0.5 scene: scene]];
@@ -218,6 +222,8 @@
 
 - (void) setCurrentPinguin: (CCMenuItem *) sender
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     NSMutableString *dataChicks = [NSMutableString stringWithString: [Settings sharedSettings].buyedCustomiziedChicks];
     
     CCLOG(@"Cost %i", sender.cost);
@@ -395,6 +401,8 @@
 
 - (void) hideAlert
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     chicksMenu.isTouchEnabled = YES;
     rootMenu.isTouchEnabled = YES;
     [self removeChildByTag: 31 cleanup: YES];
@@ -417,6 +425,8 @@
 
 - (void) buyfeature: (CCMenuItem *) sender
 {
+    [[SimpleAudioEngine sharedEngine] playEffect: @"SpeedyChick_ButtonTap.wav"];
+    
     CCLOG(@"prod %@", _products);
     [self lockMenu];
     SKProduct *product = _products[sender.tag];
