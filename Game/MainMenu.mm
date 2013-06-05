@@ -85,14 +85,14 @@
     rocketMenu.position = ccp(0, 0);
     [self addChild: rocketMenu];
     
-    if([Settings sharedSettings].countOfRuns % 10 == 0)
-    {
-        if(!isInviteShowed)
-        {
-            isInviteShowed = YES;
-            [self showInviteToShop];
-        }
-    }
+//    if([Settings sharedSettings].countOfRuns % 10 == 0)
+//    {
+//        if(!isInviteShowed)
+//        {
+//            isInviteShowed = YES;
+//            [self showInviteToShop];
+//        }
+//    }
     
     if([Settings sharedSettings].countOfRuns == 1)
     {

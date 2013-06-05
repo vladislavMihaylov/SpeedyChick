@@ -48,11 +48,17 @@
 	return scene;
 }
 
+- (void) onExit {
+    [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume: 1.0];
+    [super onExit];
+}
+
 - (id) init {
 	
 	if ((self = [super init]))
     {
-        [[SimpleAudioEngine sharedEngine] playBackgroundMusic: @"SpeedyChick_BackgroundTheme.mp3" loop: YES];
+        //[[SimpleAudioEngine sharedEngine] playBackgroundMusic: @"SpeedyChick_BackgroundTheme.mp3" loop: YES];
+        [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume: 0.2];
         
         isPauseOfGame = NO;
         isUserPlayed = YES;
@@ -154,6 +160,8 @@
 	self.terrain = nil;
 	self.hero = nil;
 	self.resetButton = nil;
+    
+    //[[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume: 1.0];
     
 #ifdef DRAW_BOX2D_WORLD
 

@@ -169,7 +169,7 @@
     
     /// --> RateApp
     
-    [Appirater setAppId: @"602012993"];
+    [Appirater setAppId: @"633388483"];
     [Appirater setTimeBeforeReminding:2];
     
     /// --> Flurry
@@ -289,7 +289,7 @@
     
     [Appirater appLaunched:YES];
     
-    [[SimpleAudioEngine sharedEngine] playBackgroundMusic: @"SpeedyChick_BackgroundTheme.mp3" loop: YES];
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic: @"SpeedyChick_BackgroundTheme_lower.wav" loop: YES];
     
 }
 

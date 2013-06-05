@@ -39,7 +39,6 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>fb435753609832209</string>
-				<string>app://flickr</string>
 			</array>
 		</dict>
 	</array>

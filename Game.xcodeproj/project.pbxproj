@@ -164,6 +164,7 @@
 		4DFD3018139CCCA6001E1480 /* GameLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DFD3017139CCCA6001E1480 /* GameLayer.mm */; };
 		4DFE49C5139F507200973A5D /* Terrain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4DFE49C4139F507200973A5D /* Terrain.mm */; };
 		4DFE49C7139F6A7900973A5D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4DFE49C6139F6A7900973A5D /* README.md */; };
+		B870E843175DA1F3004E034A /* SpeedyChick_BackgroundTheme_lower.wav in Resources */ = {isa = PBXBuildFile; fileRef = B870E842175DA1F3004E034A /* SpeedyChick_BackgroundTheme_lower.wav */; };
 		F500607917511F130057AD78 /* GlobalView.m in Sources */ = {isa = PBXBuildFile; fileRef = F500607817511F130057AD78 /* GlobalView.m */; };
 		F500CF1A171277AC006C529A /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = F500CF14171277AC006C529A /* Icon-72.png */; };
 		F500CF1B171277AC006C529A /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = F500CF15171277AC006C529A /* Icon-Small-50.png */; };
@@ -486,12 +487,40 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F5167E3A174BD9E200578D57 /* PBXContainerItemProxy */ = {
+		B870E868175DA1F4004E034A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F5FE2A6F16ED9E3E009A25F2 /* ShareKit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 7A1AFCAE160E11810086B98A;
-			remoteInfo = JSONKit;
+			remoteGlobalIDString = 4503EBC0169104470057294C;
+			remoteInfo = "Google Plus";
+		};
+		B870E86A175DA1F4004E034A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5FE2A6F16ED9E3E009A25F2 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AC2A3A016597F4C0089ABE8;
+			remoteInfo = "Sina Weibo";
+		};
+		B870E86C175DA1F4004E034A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5FE2A6F16ED9E3E009A25F2 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A49DBC316BC193E004B7E78;
+			remoteInfo = Readability;
+		};
+		B870E86E175DA1F4004E034A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5FE2A6F16ED9E3E009A25F2 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A203D0A16EB7DA200421995;
+			remoteInfo = Hatena;
+		};
+		B870E870175DA1F4004E034A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5FE2A6F16ED9E3E009A25F2 /* ShareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AAE8CA516EB960500429C51;
+			remoteInfo = Plurk;
 		};
 		F5FE2A9D16ED9E3F009A25F2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1072,6 +1101,7 @@
 		4DFE49C3139F507200973A5D /* Terrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Terrain.h; sourceTree = "<group>"; };
 		4DFE49C4139F507200973A5D /* Terrain.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Terrain.mm; sourceTree = "<group>"; };
 		4DFE49C6139F6A7900973A5D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
+		B870E842175DA1F3004E034A /* SpeedyChick_BackgroundTheme_lower.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SpeedyChick_BackgroundTheme_lower.wav; sourceTree = "<group>"; };
 		F500607717511F130057AD78 /* GlobalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalView.h; sourceTree = "<group>"; };
 		F500607817511F130057AD78 /* GlobalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalView.m; sourceTree = "<group>"; };
 		F500CF14171277AC006C529A /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
@@ -2163,6 +2193,7 @@
 				F50900621758E37200E40831 /* SpeedyChick_ChickenCheep.wav */,
 				F50900631758E37200E40831 /* SpeedyChick_CollectCoins.wav */,
 				F50900641758E37200E40831 /* SpeedyChick_BackgroundTheme.mp3 */,
+				B870E842175DA1F3004E034A /* SpeedyChick_BackgroundTheme_lower.wav */,
 				F50900651758E37200E40831 /* SpeedyChick_LevelComplete.wav */,
 				F50900661758E37200E40831 /* SpeedyChick_RocketSpeedUp.wav */,
 				F50900671758E37200E40831 /* SpeedyChick_ButtonTap.wav */,
@@ -2853,36 +2884,40 @@
 				F5FE2AA016ED9E3F009A25F2 /* libShareKit.a */,
 				F5FE2AA216ED9E3F009A25F2 /* ShareKit.bundle */,
 				F5FE2AA416ED9E3F009A25F2 /* libShareKitCore.a */,
-				F5167E3B174BD9E200578D57 /* libJSONKit.a */,
 				F5FE2AA816ED9E3F009A25F2 /* libSSKeyChain.a */,
 				F5FE2AAA16ED9E3F009A25F2 /* libOAuth.a */,
 				F5FE2AAC16ED9E3F009A25F2 /* libReachability.a */,
-				F5FE2AAE16ED9E3F009A25F2 /* libPrint.a */,
-				F5FE2AB016ED9E3F009A25F2 /* libLogout.a */,
 				F5FE2AB216ED9E3F009A25F2 /* libCopy.a */,
 				F5FE2AB416ED9E3F009A25F2 /* libEmail.a */,
+				F5FE2AB016ED9E3F009A25F2 /* libLogout.a */,
 				F5FE2AB616ED9E3F009A25F2 /* libOpen in Safari.a */,
+				F5FE2AAE16ED9E3F009A25F2 /* libPrint.a */,
 				F5FE2AB816ED9E3F009A25F2 /* libSave to Album.a */,
 				F5FE2ABA16ED9E3F009A25F2 /* libText Message.a */,
-				F5FE2ABC16ED9E3F009A25F2 /* libKippt.a */,
 				F5FE2ABE16ED9E3F009A25F2 /* libDelicious.a */,
 				F5FE2AC016ED9E3F009A25F2 /* libDiigo.a */,
-				F5FE2AC216ED9E3F009A25F2 /* libVKontakte.a */,
 				F5FE2AC416ED9E3F009A25F2 /* libEvernote.a */,
 				F5FE2AC616ED9E3F009A25F2 /* libEvernote SDK.a */,
 				F5FE2AC816ED9E3F009A25F2 /* libFacebook.a */,
 				F5FE2ACA16ED9E3F009A25F2 /* libFoursquareV2.a */,
 				F5FE2ACC16ED9E3F009A25F2 /* libFlickr.a */,
 				F5FE2ACE16ED9E3F009A25F2 /* libFlickr SDK.a */,
+				B870E869175DA1F4004E034A /* libGoogle Plus.a */,
 				F5FE2AD016ED9E3F009A25F2 /* libGoogle Reader.a */,
 				F5FE2AD216ED9E3F009A25F2 /* libInstagram.a */,
 				F5FE2AD416ED9E3F009A25F2 /* libInstapaper.a */,
+				F5FE2ABC16ED9E3F009A25F2 /* libKippt.a */,
 				F5FE2AD616ED9E3F009A25F2 /* libLinkedIn.a */,
 				F5FE2AD816ED9E3F009A25F2 /* libPinboard.a */,
 				F5FE2ADA16ED9E3F009A25F2 /* libRead It Later.a */,
+				F5FE2AE016ED9E3F009A25F2 /* libSina Weibo.a */,
 				F5FE2ADC16ED9E3F009A25F2 /* libTumblr.a */,
 				F5FE2ADE16ED9E3F009A25F2 /* libTwitter.a */,
-				F5FE2AE016ED9E3F009A25F2 /* libSina Weibo.a */,
+				F5FE2AC216ED9E3F009A25F2 /* libVKontakte.a */,
+				B870E86B175DA1F4004E034A /* libSina Weibo.a */,
+				B870E86D175DA1F4004E034A /* libReadability.a */,
+				B870E86F175DA1F4004E034A /* libHatena.a */,
+				B870E871175DA1F4004E034A /* libPlurk.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3082,11 +3117,39 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		F5167E3B174BD9E200578D57 /* libJSONKit.a */ = {
+		B870E869175DA1F4004E034A /* libGoogle Plus.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libJSONKit.a;
-			remoteRef = F5167E3A174BD9E200578D57 /* PBXContainerItemProxy */;
+			path = "libGoogle Plus.a";
+			remoteRef = B870E868175DA1F4004E034A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B870E86B175DA1F4004E034A /* libSina Weibo.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libSina Weibo.a";
+			remoteRef = B870E86A175DA1F4004E034A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B870E86D175DA1F4004E034A /* libReadability.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libReadability.a;
+			remoteRef = B870E86C175DA1F4004E034A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B870E86F175DA1F4004E034A /* libHatena.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libHatena.a;
+			remoteRef = B870E86E175DA1F4004E034A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B870E871175DA1F4004E034A /* libPlurk.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPlurk.a;
+			remoteRef = B870E870175DA1F4004E034A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		F5FE2A9E16ED9E3F009A25F2 /* ShareKitDemo.app */ = {
@@ -3545,6 +3608,7 @@
 				F50900731758E37200E40831 /* SpeedyChick_CollectRocket.wav in Resources */,
 				F50900741758E37200E40831 /* SpeedyChick_Coins.wav in Resources */,
 				F50900751758E37200E40831 /* SpeedyChick_Landing.wav in Resources */,
+				B870E843175DA1F3004E034A /* SpeedyChick_BackgroundTheme_lower.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4125,8 +4189,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "70C908B7-0678-4469-B69B-C3FFECEAD217";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "70C908B7-0678-4469-B69B-C3FFECEAD217";
+				PROVISIONING_PROFILE = "0D3B2016-9B2A-472D-A669-D1C55EB33B1B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0D3B2016-9B2A-472D-A669-D1C55EB33B1B";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "Game/libs Submodules/**";
 				VALIDATE_PRODUCT = YES;
